@@ -130,7 +130,11 @@ test('manual casting remains explicit and has no native select',async()=>{
 
 test('unknown charges ask for an explicit value and cannot open another hero editor',async()=>{
  const h=harness(),item={catalogId:'wand',quantity:2,chargeCounts:[0,null],entry:{id:'wand',name:{ru:'Палочка'},artifact:{charges:{max:7}}}};
- await loaded(h,[],[item]);assert.match(h.get('play-content').innerHTML,/0 \/ не указаны/);assert.match(h.get('play-content').innerHTML,/Указать заряды/);
+ await loaded(h,[],[item]);
+ const html=h.get('play-content').innerHTML;
+ assert.match(html,/class="play-balance-full">×2 · заряды 0 \/ не указаны/);
+ assert.match(html,/class="play-balance-short" aria-hidden="true">×2 · 0 \/ \?/);
+ assert.match(html,/aria-label="Указать заряды: Палочка"/);
  await h.click('',{playCharges:'wand'});assert.equal(h.chargeEdits[0],item);assert.equal(item.chargeCounts[1],null);
  h.context('other');await h.click('',{playCharges:'wand'});assert.equal(h.chargeEdits.length,1);
 });
