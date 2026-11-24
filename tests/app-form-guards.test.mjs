@@ -7,6 +7,7 @@ const profileRulesSource=await readFile(new URL('../client/profile-rules.js',imp
 const conditionsSource=await readFile(new URL('../client/conditions.js',import.meta.url),'utf8');
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const playSource=await readFile(new URL('../client/play.js',import.meta.url),'utf8');
+const castingSource=await readFile(new URL('../client/casting.js',import.meta.url),'utf8');
 const presentationSource=await readFile(new URL('../client/play-presentation.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/app.js',import.meta.url),'utf8');
 function harness({hash='#hero',rememberedMode=null}={}){
@@ -15,7 +16,7 @@ function harness({hash='#hero',rememberedMode=null}={}){
  const context=vm.createContext({structuredClone,URL,Blob,location:{protocol:'http:',hash},history:{replaceState(){}},localStorage:{getItem:()=>null},sessionStorage:{getItem:key=>key==='skaz-play-mode-v1'?rememberedMode:null,setItem(){}},setTimeout:()=>0,clearTimeout(){},queueMicrotask(){},
   document:{body:{dataset:{}},querySelector:get,querySelectorAll:()=>[],getElementById:id=>id==='blocked-form-message'?(elements.get('#'+id)||null):get('#'+id),createElement:()=>({setAttribute(){},scrollIntoView(){}}),addEventListener:(key,fn)=>handlers[key]=fn},window:{addEventListener(){},scrollTo(){}},
   SkazStorage:{stats:()=>({abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18},armorClass:14,initiative:2,speed:30}),preference:()=> 'polar',paint(){},boot(){},setTheme(){},sessionTitle:()=>'',sessionDate:()=>'',contextKey:()=> 'same',snapshotKey:()=> 'same:'+revision,editable:()=>editable,commit:async(state,label)=>{writes.push({state:structuredClone(state),label});revision++;return {state};}},SkazEvents:{pendingCount:()=>0,view:()=>'<section>События на проверку</section>'},SkazQuests:{view:()=>'<section>Задания кампании</section>'}
- });vm.runInContext(profileRulesSource,context);vm.runInContext(conditionsSource,context);vm.runInContext(healthSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(playSource,context);vm.runInContext(source,context);
+ });vm.runInContext(profileRulesSource,context);vm.runInContext(conditionsSource,context);vm.runInContext(healthSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(castingSource,context);vm.runInContext(playSource,context);vm.runInContext(source,context);
  return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset,classList:{contains:()=>false}})}})};
 }
 

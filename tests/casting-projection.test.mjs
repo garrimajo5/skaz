@@ -8,6 +8,30 @@ const entry=(id,level,concentration)=>({catalogId:id,status:'prepared',entry:{id
 function fixture(){return {context:{campaignId:'campaign',characterId:'character',sessionId:'session'},state:{hp:15,maxHp:20,tempHp:4,slots:{1:2,2:1,3:2},concentration:'Old spell',concentrationChecks:[{id:'damage-id',spell:'Old spell',damage:4,dc:10}]},characterSheet:null,spellbook:[entry('spell:cantrip',0,false),entry('spell:focus',2,true),entry('spell:instant',1,false),entry('spell:focus-cantrip',0,true)]};}
 const clone=x=>JSON.parse(JSON.stringify(x));
 
+test('exhausted casting records a private trace, keeps focus and slots, and restores only the note',()=>{
+ const s=fixture();
+ s.state.notes=[{title:'Keep',kind:'Note',text:'Private',at:4,time:'10:00'}];
+ s.state.slots={1:2,2:0,3:0};
+ const cost={kind:'manual',id:'manual-cast-test',at:1700000000000,level:2,agreed:true,reason:'Решение за столом'};
+ const first=Casting.prepare(s,'spell:focus',cost);
+ const {snapshot,receipt}=Casting.project(s,first);
+ assert.deepEqual(snapshot.state.slots,s.state.slots);
+ assert.equal(snapshot.state.concentration,'Old spell');
+ assert.deepEqual(snapshot.state.concentrationChecks,s.state.concentrationChecks);
+ assert.equal(receipt.changesFocus,false);
+ const note=snapshot.state.notes.at(-1);
+ assert.deepEqual(Casting.readManualNote(note),{id:cost.id,catalogId:'spell:focus',level:2,basis:'slots',agreed:true,reason:cost.reason});
+ assert.equal(Casting.manualAgreement(snapshot,'spell:focus',2).reason,cost.reason);
+ assert.equal(Casting.manualAgreement(snapshot,'spell:focus',3),null);
+ assert.equal(Casting.manualAgreement({...snapshot,characterSheet:{counters:[]}},'spell:focus',2),null);
+ assert.throws(()=>Casting.prepare(snapshot,'spell:focus',cost),/уже существует/);
+ const refilled=clone(snapshot);refilled.state.slots[3]=1;
+ assert.equal(Casting.manualAgreement(refilled,'spell:focus',2),null);
+ assert.throws(()=>Casting.prepare(refilled,'spell:focus',{...cost,id:'another-manual'}),/ресурсы изменились/);
+ assert.deepEqual(Casting.restore(snapshot,receipt),s);
+});
+
+
 test('one projection spends an upcast slot and replaces concentration/questions; one inverse restores both',()=>{
  const s=fixture(),original=clone(s),command=Casting.prepare(s,'spell:focus',{kind:'slot',level:3}),result=Casting.project(s,command);
  assert.deepEqual(s,original);assert.equal(result.snapshot.state.slots[3],1);assert.equal(result.snapshot.state.concentration,'spell:focus');assert.deepEqual(result.snapshot.state.concentrationChecks,[]);
