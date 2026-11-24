@@ -203,6 +203,8 @@ test('cast price follows the selected command, with distinct free and manual pat
  await h.click('',{playCastLevel:'Paid',level:'3'});
  html=h.get('play-content').innerHTML;
  assert.match(html,/Сотворить: Paid · 1 ячейка · 3 круг/);
+ assert.match(html,/data-level="3" aria-pressed="true" aria-label="3 круг · осталось 1"/);
+ assert.match(html,/<small class="play-cost">1 ячейка<\/small>/);
  await h.click('',{playCast:'Paid'});
  assert.equal(h.casts[0][1].level,3);
  h.setSheet({level:5,counters:[{current:1}]});

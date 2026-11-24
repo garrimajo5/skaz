@@ -42,12 +42,15 @@ const SkazPlayPresentation = (() => {
    * @param {number | undefined} spellLevel
    * @param {boolean} manual
    * @param {number | undefined} slotLevel
+   * @param {boolean} [circleShown] The adjacent selector shows the chosen circle.
    */
-  function castCost(enabled, spellLevel, manual, slotLevel) {
+  function castCost(enabled, spellLevel, manual, slotLevel, circleShown = false) {
     if (spellLevel === 0) return 'Без ячейки';
     if (!enabled) return '';
     if (manual) return 'Выбор счётчика';
-    return slotLevel === undefined ? '' : `1 ячейка · ${slotLevel} круг`;
+    if (slotLevel === undefined) return '';
+    const amount = '1 ячейка';
+    return circleShown ? amount : `${amount} · ${slotLevel} круг`;
   }
 
 
