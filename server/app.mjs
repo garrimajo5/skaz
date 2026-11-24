@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { AppError } from './state.mjs';
 import { cookieToken, sessionCookie, clearSessionCookie } from './authentication.mjs';
 import { createArtLibrary } from './art-library.mjs';
+import { createArtIndexRepresentations } from './art-index-http.mjs';
 import {personalArtHttp} from './personal-art-http.mjs';
 import {gameArtPackageMaxBytes} from './game-art-package.mjs';
 import { campaignMemoryApp, campaignMemoryMaxBytes } from './campaign-memory-transfer.mjs';
@@ -18,8 +19,9 @@ const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
 const files = new Set(['profile-rules.js', 'conditions.js', 'icons.js', 'class-advancement-transport.js','class-advancement.js','class-advancement-shell.js','campaign-people-model.js','campaign-people.js','campaign-people.css','art-cache.js', 'art.js', 'fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'item-charges.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'personal-art-session.js', 'private-exit.js', 'game-art-transfer.js', 'game-art-transfer-panel.js', 'game-art-transfer-shell.js', 'personal-art-command.js', 'personal-art-transport.js', 'personal-art-preview.js', 'personal-art-history.js', 'personal-art-editor.js', 'personal-art-cards.js', 'personal-art-view.js', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'play-layout.css', 'app.js', 'play-presentation.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
 const contentTypes = { '.woff2': 'font/woff2', '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
 const MAX_BODY = 512 * 1024;
+const jsonHeaders = { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };
 function json(response, status, value, extra = {}) {
-  response.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', ...extra });
+  response.writeHead(status, { ...jsonHeaders, ...extra });
   response.end(JSON.stringify(value));
 }
 async function body(request, limit = MAX_BODY) {
@@ -42,6 +44,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
   // directory, or pilot status. Production always uses the accepted registry.
   let artPromise;
   const art = () => artPromise ??= artLibrary ? Promise.resolve(artLibrary) : readFile(new URL('../catalog/art-manifest.json',import.meta.url),'utf8').then(text=>createArtLibrary(JSON.parse(text),{base:fileURLToPath(new URL('../',import.meta.url))}));
+  const artIndex = createArtIndexRepresentations(art);
   if (sessions !== undefined) {
     if (!publicOrigin || authenticate !== undefined || !sessions || ['login','authenticate','check','logout'].some(key=>typeof sessions[key]!=='function')) throw new Error('Сессии требуют HTTPS origin и отдельный доверенный провайдер');
     authenticate=request=>sessions.authenticate(cookieToken(request.headers.cookie));
@@ -166,7 +169,17 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           return json(response,405,{error:'Метод не поддерживается'},{Allow:'GET, POST'});
         }
         if (request.method === 'GET') {
-          if (pathname === '/api/art') return json(response,200,(await art()).index());
+          if (pathname === '/api/art') {
+            const vary = { Vary: 'Accept-Encoding' };
+            const representation = await artIndex(request.headers['accept-encoding']);
+            if (!representation) return json(response,406,{error:'Нет подходящего формата передачи индекса' },vary);
+            const {encoding, bytes} = representation;
+            response.writeHead(200, {
+              ...jsonHeaders, ...vary, 'Content-Length': bytes.length,
+              ...(encoding === 'gzip' ? { 'Content-Encoding': encoding } : {})
+            });
+            return response.end(bytes);
+          }
           if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: authenticate ? individualWrites ? 'individual' : 'individual-read-only' : publicOrigin ? 'private-server' : 'local', storage: 'sqlite' });
           if (pathname === '/api/proposals') return json(response, 200, view.proposals());
           if (pathname === '/api/places') return json(response, 200, view.places());
