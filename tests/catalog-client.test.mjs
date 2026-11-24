@@ -6,7 +6,7 @@ import { readFile } from 'node:fs/promises';
 const factsSource=await readFile(new URL('../client/spell-facts.js',import.meta.url),'utf8');
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/catalog.js', import.meta.url), 'utf8');
-function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning=null) {
+function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning=null, catalogAccess=null) {
   let snapshotKey='hero:0',userId='user-a';let readerHeight=0,readerPosition='sticky';const readerNav={parentElement:{},getBoundingClientRect:()=>({height:readerHeight})};
   const handlers = {}, requests = [], tasks = [], additions = [];
   const movement=[], marks=[], spellControls=Object.fromEntries(['catalog-known','catalog-prepared','catalog-book-status'].map(id=>[id,{}]));
@@ -20,7 +20,7 @@ function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
     document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => focusTargets.get(id)||spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen,addEventListener:(_,fn)=>closeHandlers.push(fn)}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: selector => selector==='#dialog .catalog-reader-nav'?readerNav:selector.startsWith('[data-catalog-entry=')?{focus:()=>movement.push(['focus-card',selector])}:null, querySelectorAll:()=>[] },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
-    toast:message=>messages.push(message),render:()=>{}, modal: html => {isOpen=true;dialog=html;}, SkazStorage: { spellLearningMode:()=>spellLearning,can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
+    toast:message=>messages.push(message),render:()=>{}, modal: html => {isOpen=true;dialog=html;}, SkazStorage: { spellLearningMode:()=>spellLearning,access:()=>catalogAccess===null?null:{catalog:catalogAccess},can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
@@ -380,6 +380,26 @@ test('catalog home discards stale responses and inaccessible recent entries rath
 test('category chips preserve the latest unsent query and drop incompatible detail filters',()=>{
  const h=harness();h.draft('q',' shield ');h.draft('school','illusion');h.click('',{catalogKind:'monster'});assert.match(h.requests[0].url,/q=shield/);assert.match(h.requests[0].url,/kind=monster/);assert.doesNotMatch(h.requests[0].url,/school/);assert.match(h.view(),/data-catalog-kind="monster" aria-pressed="true"/);
  const count=h.requests.length;h.click('',{catalogKind:'unknown'});assert.equal(h.requests.length,count);assert.match(h.view(),/data-catalog-kind="monster" aria-pressed="true"/);
+});
+
+test('empty catalog shows administrator instructions instead of an install action when access denies catalog changes',async()=>{
+ const h=harness('http:',false,new Map(),null,false);
+ h.submit('огонь',{kind:'spell'});
+ respond(h.requests[0],{entries:[],total:0});respond(h.requests[1],{total:0});
+ await settle();
+ const verify=()=>{
+  assert.match(h.region.innerHTML,/Справочник ещё не установлен/);
+  assert.match(h.region.innerHTML,/На сервере подборку устанавливает администратор/);
+  assert.doesNotMatch(h.region.innerHTML,/catalog-install-empty|Ничего не найдено/);
+ };
+ verify();
+ for(const region of ['spell-catalog-setup','inventory-catalog-setup']){
+  const pending=h.offerSetup(region);
+  respond(h.requests.at(-1),{total:0});
+  await pending;
+  verify();
+ }
+ assert.equal(h.requests.some(r=>r.url==='/api/catalog/bundled'),false);
 });
 
 test('empty catalog offers preview even inside a filtered category, distinct from no matches',async()=>{
