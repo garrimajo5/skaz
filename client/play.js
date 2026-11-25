@@ -1,6 +1,6 @@
 const SkazPlay = (()=>{
  const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- let key='',owner='',serial=0,searchSerial=0,status='idle',book=[],items=[],quests=[],questError=false,scrollPositions={},spellScope='combat';
+ let key='',owner='',serial=0,searchSerial=0,status='idle',book=[],items=[],quests=[],questStatus='idle',questSerial=0,scrollPositions={},spellScope='combat';
  let castLevels={}, returnFocus=null;
  let bookUnavailable=false, inventoryUnavailable=false;
  const spellScopes=[
@@ -57,8 +57,12 @@ const SkazPlay = (()=>{
   };
  }
  function view(){
-  const next=SkazStorage.snapshotKey();if(next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];quests=[];questError=false;bookUnavailable=false;inventoryUnavailable=false;++serial;}
+  const next=SkazStorage.snapshotKey();if(next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];quests=[];questStatus='idle';++questSerial;bookUnavailable=false;inventoryUnavailable=false;++serial;}
   if(status==='idle'){status='loading';const token=serial;queueMicrotask(()=>{if(token===serial&&active())load();});}
+  if(status==='ready'&&questStatus==='idle'){
+   const captured=key;
+   queueMicrotask(()=>{if(active()&&key===captured&&SkazStorage.snapshotKey()===captured)void loadQuests();});
+  }
   renderChargeTracker();
   const stats=SkazStorage.stats(),sheet=SkazStorage.sheet?.();
   const actor=actorView(sheet,stats);
@@ -222,9 +226,10 @@ const SkazPlay = (()=>{
   return `${notice}${itemsFirst?'':spellContent}<div class="play-side">${inventoryContent}${itemsFirst?spellContent:''}${questPanel()}${recentContent}</div>`;
  }
  function questPanel(){
+  if(questStatus==='idle'||questStatus==='loading')return '<section class="panel" id="play-quests-panel" role="status">Открываем задания…</section>';
   const activeQuests=quests.filter(q=>q.status==='active');
-  if(!activeQuests.length)return '<section class="panel play-empty"><button data-play-prepare="quests">'+(questError?'Задания недоступны · открыть <span class="ui-inline-icon" data-ui-icon="arrow-right"></span>':'Выбрать задание <span class="ui-inline-icon" data-ui-icon="arrow-right"></span>')+'</button></section>';
-  return '<section class="panel play-quests"><h2>Текущие задания</h2><div class="play-list" tabindex="0" role="region" aria-label="Текущие задания" data-play-list="quests">'+activeQuests.map(q=>'<button class="play-row" data-play-prepare="quests"><strong>'+escape(q.title)+'</strong><span>'+escape(q.steps.find(s=>!s.done)?.title||'Все этапы отмечены')+'</span></button>').join('')+'</div></section>';
+  if(!activeQuests.length)return '<section class="panel play-empty" id="play-quests-panel"><button data-play-prepare="quests">'+(questStatus==='error'?'Задания недоступны · открыть <span class="ui-inline-icon" data-ui-icon="arrow-right"></span>':'Выбрать задание <span class="ui-inline-icon" data-ui-icon="arrow-right"></span>')+'</button></section>';
+  return '<section class="panel play-quests" id="play-quests-panel"><h2>Текущие задания</h2><div class="play-list" tabindex="0" role="region" aria-label="Текущие задания" data-play-list="quests">'+activeQuests.map(q=>'<button class="play-row" data-play-prepare="quests"><strong>'+escape(q.title)+'</strong><span>'+escape(q.steps.find(s=>!s.done)?.title||'Все этапы отмечены')+'</span></button>').join('')+'</div></section>';
  }
  function renderChargeTracker(){
   const root=document.getElementById('play-quick-item-charges');
@@ -242,6 +247,29 @@ const SkazPlay = (()=>{
  }
 
  function refresh(){if(!active()||key!==SkazStorage.snapshotKey())return;renderChargeTracker();const root=document.getElementById('play-content');if(root){captureFocus();root.innerHTML=content(actorLevel(SkazStorage.sheet?.()));restoreFocus();document.querySelectorAll('[data-play-list]').forEach(list=>{list.scrollTop=scrollPositions[list.dataset.playList]||0;});}}
+
+ async function loadQuests(){
+  if(questStatus==='loading')return;
+  const token=++questSerial,captured=key;
+  questStatus='loading';
+  let entries=null;
+  try{
+   const data=await SkazStorage.questsData();
+   if(Array.isArray(data?.quests))entries=data.quests;
+  }catch{}
+  if(token!==questSerial||captured!==SkazStorage.snapshotKey())return;
+  if(!active()){questStatus='idle';return;}
+  quests=entries??[];
+  questStatus=entries?'ready':'error';
+
+  // Leave working actions and their keyboard focus in place when the sidebar data arrives.
+  const panel=document.getElementById('play-quests-panel');
+  if(panel){
+   panel.outerHTML=questPanel();
+   const list=document.querySelector?.('#play-quests-panel [data-play-list]');
+   if(list)list.scrollTop=scrollPositions.quests||0;
+  }
+ }
  const settledEntries=result=>result.status==='fulfilled'&&Array.isArray(result.value?.entries)?result.value.entries:null;
  async function load(retryButton){
   if(retryButton&&(status==='loading'||status==='retrying'))return;
@@ -249,12 +277,12 @@ const SkazPlay = (()=>{
   const partial=status==='ready'&&(bookUnavailable||inventoryUnavailable);
   const focusAnchor=retryButton&&document.activeElement===retryButton?document.getElementById('play-content'):null;
   status=partial?'retrying':'loading';
+  if(questStatus==='idle'||questStatus==='error')void loadQuests();
   refresh();
   if(focusAnchor&&document.activeElement===document.body)focusAnchor.focus({preventScroll:true});
-  const [spellResult,inventoryResult,questResult]=await Promise.allSettled([
+  const [spellResult,inventoryResult]=await Promise.allSettled([
    !partial||bookUnavailable?SkazStorage.spellbookData():{entries:book},
    !partial||inventoryUnavailable?SkazStorage.inventoryData():{entries:items},
-   !partial||questError?SkazStorage.questsData():{quests},
   ]);
   if(token!==serial||captured!==SkazStorage.snapshotKey())return;
   if(!active()){status='idle';return;}
@@ -266,8 +294,6 @@ const SkazPlay = (()=>{
   items=blocked?[]:inventory??[];
   bookUnavailable=!blocked&&!spells;
   inventoryUnavailable=!blocked&&!inventory;
-  quests=questResult.status==='fulfilled'?questResult.value?.quests??[]:[];
-  questError=questResult.status==='rejected';
   status=blocked?'error':'ready';
   refresh();
   if((blocked||bookUnavailable||inventoryUnavailable)&&focusAnchor&&document.activeElement===focusAnchor){

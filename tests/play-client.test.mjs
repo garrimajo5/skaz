@@ -8,10 +8,10 @@ const itemChargesSource=await readFile(new URL('../client/item-charges.js',impor
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const presentationSource=await readFile(new URL('../client/play-presentation.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/play.js',import.meta.url),'utf8');
-function harness({quests=[],questFailure=false,spellLearning=null}={}){const elements=new Map(),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','quests'].map(kind=>({dataset:{playList:kind},scrollTop:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true});return elements.get(id);};
+function harness({quests=[],questFailure=false,spellLearning=null,questRequest=null}={}){const elements=new Map(),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','quests'].map(kind=>({dataset:{playList:kind},scrollTop:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true});return elements.get(id);};
  const context=vm.createContext({structuredClone,CSS:{escape:String},crypto:{randomUUID:()=> 'test-manual-cast'},page:'play',location:{protocol:'http:'},state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,maxHp:38,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
  document:{body:{closest:()=>null},getElementById:get,querySelectorAll:selector=>selector==='[data-play-list]'?lists:[],addEventListener:(event,fn)=>handlers[event]=fn},modal:value=>{html=value;get('dialog').open=true;},closeModal:()=>get('dialog').open=false,toast(){},go:value=>context.page=value,
- SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise((resolve,reject)=>requests.push({kind:'book',resolve,reject})),questsData:async()=>{if(questFailure)throw Error('offline');return {quests};},inventoryData:()=>new Promise((resolve,reject)=>requests.push({kind:'items',resolve,reject})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(itemChargesSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,document:context.document,setSession:(active,title)=>{context.SkazStorage.currentSession=()=>active;context.SkazStorage.sessionTitle=()=>title;},setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,selectCast:(id,value)=>handlers.change({target:{dataset:{playCastSelect:id},value}}),click:(id,dataset={},button={id,dataset})=>handlers.click({target:{closest:()=>button}})};
+ SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise((resolve,reject)=>requests.push({kind:'book',resolve,reject})),questsData:questRequest||(async()=>{if(questFailure)throw Error('offline');return {quests};}),inventoryData:()=>new Promise((resolve,reject)=>requests.push({kind:'items',resolve,reject})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(itemChargesSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,document:context.document,setSession:(active,title)=>{context.SkazStorage.currentSession=()=>active;context.SkazStorage.sessionTitle=()=>title;},setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,selectCast:(id,value)=>handlers.change({target:{dataset:{playCastSelect:id},value}}),click:(id,dataset={},button={id,dataset})=>handlers.click({target:{closest:()=>button}})};
 }
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 test('play art keeps spell circle, stable action IDs and item quantity independent of image loading',async()=>{
@@ -199,6 +199,37 @@ test('play search does not show a late private result after context changed',asy
 
 test('reopening play search invalidates the previous request even in the same character snapshot',async()=>{const h=harness();await loaded(h);await h.click('play-search');h.get('play-search-query').value='Old';const first=h.get('play-search-form').onsubmit({preventDefault(){}});await h.click('play-search');h.requests.find(r=>r.kind==='search').resolve({ok:true,json:async()=>({entries:[{name:{ru:'Old result',en:'Old'}}]})});await first;assert.doesNotMatch(h.html(),/Old result/);});
 test('leaving a loading play screen permits a new load on return',async()=>{const h=harness();h.api.view();await tick();h.api.remember('hero');h.api.remember('play');h.api.view();await tick();assert.equal(h.requests.length,4);h.requests[0].resolve({entries:[spell('Stale')]});h.requests[1].resolve({entries:[]});h.requests[2].resolve({entries:[spell('Fresh')]});h.requests[3].resolve({entries:[]});await tick();assert.match(h.get('play-content').innerHTML,/Fresh/);assert.doesNotMatch(h.get('play-content').innerHTML,/Stale/);});
+
+
+test('ready actions render before a delayed quest response and only the quest section updates',async()=>{
+ const pending=Promise.withResolvers(),h=harness({questRequest:()=>pending.promise});
+ await loaded(h,[spell('Action already ready')],[{catalogId:'potion',quantity:2,entry:{name:{ru:'Potion'},item:{type:'potion'}}}]);
+ const root=h.get('play-content'),before=root.innerHTML;
+ assert.match(before,/Action already ready/);
+ assert.match(before,/data-play-spend/);
+ assert.match(before,/Открываем задания/);
+ const questList=h.lists[2];h.scroll(2,27);questList.scrollTop=0;
+ h.document.querySelector=()=>questList;
+ pending.resolve({quests:[{status:'active',title:'Late quest',steps:[]}]});await tick();
+ assert.equal(questList.scrollTop,27);
+ assert.equal(root.innerHTML,before);
+ assert.match(h.get('play-quests-panel').outerHTML,/Late quest/);
+});
+
+test('a late quest from the old hero cannot replace the new hero section',async()=>{
+ const requests=[];
+ const h=harness({questRequest:()=>{const next=Promise.withResolvers();requests.push(next);return next.promise;}});
+ await loaded(h,[spell('Old action')]);
+ h.context('other');h.api.view();await tick();
+ const [book,inventory]=h.requests.slice(-2);
+ book.resolve({entries:[spell('New action')]});inventory.resolve({entries:[]});
+ await tick();assert.match(h.get('play-content').innerHTML,/New action/);
+ requests[1].resolve({quests:[{status:'active',title:'New quest',steps:[]}]});await tick();
+ const panel=h.get('play-quests-panel'),active=panel.outerHTML;
+ assert.match(active,/New quest/);
+ requests[0].resolve({quests:[{status:'active',title:'Private old quest',steps:[]}]});await tick();
+ assert.equal(panel.outerHTML,active);
+});
 
 test('play quest summary shows only active next steps, escapes text and tolerates quest API failure',async()=>{
  const h=harness({quests:[{status:'active',title:'<Quest>',steps:[{title:'Done',done:true},{title:'<Next>',done:false}]},{status:'completed',title:'Hidden quest',steps:[]}]});await loaded(h);
