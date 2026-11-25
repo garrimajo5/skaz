@@ -530,6 +530,27 @@ body[data-theme="polar"] .play-effects {
     padding-block-start: clamp(62px, 8.3dvh, 84px);
   }
   body[data-page="play"] .play-resources { padding-inline-start: 28px; }
+  body[data-page="play"] .play-spell-scopes button[data-play-spell-scope] {
+    position: relative;
+    isolation: isolate;
+    border-color: transparent;
+    border-radius: 999px;
+    background: transparent;
+  }
+  body[data-page="play"] .play-spell-scopes button[data-play-spell-scope]::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 8px -1px;
+    border: 1px solid var(--line);
+    border-radius: inherit;
+    background: var(--workspace-play-filter-bg, var(--raised));
+    pointer-events: none;
+  }
+  body[data-page="play"] .play-spell-scopes button[data-play-spell-scope][aria-pressed="true"]::before {
+    border-color: var(--accent);
+    background: var(--workspace-play-filter-active-bg, var(--raised));
+  }
   #play-quick-item-charges:not(:empty) { display: grid; gap: 7px; order: -1; }
   .play-charge-heading { display: flex; gap: 8px; align-items: baseline; justify-content: space-between; }
   .play-charge-heading > div { min-width: 0; }
