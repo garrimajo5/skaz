@@ -254,15 +254,15 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
  .hp-entry .dialog-actions{margin-top:8px}
 }
 
-/* The safety confirmation and the amount must both fit on a low landscape screen. */
+/* Keep the next health action on screen in low landscape. */
 @media (max-height: 320px) and (orientation: landscape) {
- #dialog:has(.hp-entry input[type="number"]) {
+ #dialog:has(.hp-entry input[type="number"], .death-actions) {
   margin: auto;
   width: min(560px, calc(100% - 16px));
   max-height: calc(100dvh - 8px);
   border-radius: var(--radius-l);
  }
- #dialog-content:has(.hp-entry) { padding: 8px 12px; }
+ #dialog-content:has(.hp-entry, .death-actions) { padding: 8px 12px; }
  .hp-entry {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(112px, 40%);
@@ -276,7 +276,7 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
   margin: 0;
   padding-inline-end: 52px;
  }
- #dialog:has(.hp-entry) > .dialog-close {
+ #dialog:has(.hp-entry, .death-actions) > .dialog-close {
   inset-block-start: 8px;
   inset-inline-end: 8px;
   width: var(--touch);
@@ -292,6 +292,12 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
  }
  .hp-entry .dialog-actions { margin: 0; padding-block: 4px; }
  .hp-entry .primary { min-height: var(--touch); }
+ #dialog-content:has(> .death-actions) > h2 {
+  margin: 0 52px 4px 0;
+  font-size: 20px;
+  line-height: 1.2;
+ }
+ #dialog-content:has(> .death-actions) > p { margin-block: 4px; }
 }
 
 .quick-concentration-row.concentration-pending{border:1px solid var(--warn);border-radius:var(--radius-m);padding:8px;flex-wrap:wrap}.concentration-question{display:grid;gap:6px;color:var(--warn);min-width:230px;font-size:14px}.concentration-question>div{display:flex;gap:8px}.concentration-question button{min-height:44px;flex:1;color:var(--text);background:var(--panel)}
