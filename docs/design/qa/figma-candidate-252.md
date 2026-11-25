@@ -18,4 +18,4 @@
 
 ## Осталось
 
-Выпуск согласованного пакета [#402](https://github.com/garrimajo5/skaz/pull/402) и [#403](https://github.com/garrimajo5/skaz/pull/403) `35d31c5` ждёт подтверждения после отказа автоматической проверки. Снимки на этой странице показывают более свежие исходники. Pixel_8 в последнем свободном окне показал системный ANR Chrome. На физическом Xiaomi Pad 6 остаётся [двухчасовая сессия #15](https://github.com/garrimajo5/skaz/issues/15). Итоговую сверку [#252](https://github.com/garrimajo5/skaz/issues/252) и этап M2 принимает владелец.
+Выпуск согласованного пакета [#402](https://github.com/garrimajo5/skaz/pull/402) и [#403](https://github.com/garrimajo5/skaz/pull/403) `35d31c5` ждёт подтверждения после отказа автоматической проверки. Снимки на этой странице показывают более свежие исходники. После восстановления Chrome [сценарии на Pixel_8 проверены отдельно](figma-mobile-and-loading-252.md#pixel_8). На физическом Xiaomi Pad 6 остаётся [двухчасовая сессия #15](https://github.com/garrimajo5/skaz/issues/15). Итоговую сверку [#252](https://github.com/garrimajo5/skaz/issues/252) и этап M2 принимает владелец.
