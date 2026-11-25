@@ -57,3 +57,31 @@ test('health dialog returns focus to a refreshed button only on the same screen 
  vm.runInContext('restoreHealthDialogFocus()', context);
  assert.equal(focusOptions.length, 2);
 });
+
+test('campaign return keeps the shortcut when visible and falls back to the visible campaign entry after rotation', () => {
+ const body=source.slice(source.indexOf('function returnFromCampaign(){'),source.indexOf('let healthDialogTrigger = null;'));
+ const focused=[], pages=[];
+ let wide=true;
+ const option=(name,shown)=>({
+  isConnected:true,
+  getClientRects:()=>shown()?[{}]:[],
+  focus:()=>focused.push(name),
+ });
+ const shortcut=option('shortcut',()=>wide);
+ const compact=option('compact',()=>!wide);
+ const context=vm.createContext({
+  go:page=>pages.push(page),
+  SkazStorage:{contextKey:()=> 'hero-a'},
+  SkazPlay:{mode:()=> 'play'},
+  window:{scrollTo(){}},
+  document:{getElementById:()=>null},
+  $$:()=>[shortcut,compact],
+  campaignReturn:{page:'play',context:'hero-a',scroll:0,target:shortcut},
+ });
+ vm.runInContext(body+'\nreturnFromCampaign();',context);
+ wide=false;
+ context.campaignReturn={page:'play',context:'hero-a',scroll:0,target:shortcut};
+ vm.runInContext('returnFromCampaign();',context);
+ assert.deepEqual(pages,['play','play']);
+ assert.deepEqual(focused,['shortcut','compact']);
+});

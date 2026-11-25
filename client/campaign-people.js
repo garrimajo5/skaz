@@ -292,11 +292,17 @@ const SkazCampaign = (function(){
           ${SkazStorage.access()?.import===false?'':'<label class="file-label">Импортировать пакет<input id="campaign-transfer-file" type="file" accept=".json,application/json"></label>'}
         </div></details>`;
   }
-  function mount(main){
+  /**
+   * @param {HTMLElement} main
+   * @param {string | null} initialSection An explicit section requested by the outer navigation.
+   */
+  function mount(main, initialSection=null){
     const scope=api().scope();
     const existing=main.querySelector('#campaign-screen');
-    if(!existing||view.scope?.key!==scope?.key){
-      ++serial; view={section:'overview',query:'',selectedId:null,scope}; version=null;writable=null;
+    const section=initialSection&&Object.hasOwn(sections,initialSection)?initialSection:null;
+    const replaceScreen=!existing||view.scope?.key!==scope?.key;
+    if(replaceScreen){
+      ++serial; view={section:section||'overview',query:'',selectedId:null,scope}; version=null;writable=null;
       history=null;historyWaiting=false;listTrigger=null;listScroll=0;returnFocus=false;result=null;failure='';
       if(editor){editor=null;closeModal();}
       // Existing fragments are replaced only on entry or a context change.
@@ -316,12 +322,13 @@ const SkazCampaign = (function(){
       el('campaign-content').innerHTML=note('Подключись к игре, чтобы открыть кампанию.','status');
       return;
     }
+    if(section&&!replaceScreen){navigate(section);return;}
     if(writable!==canWrite()){
       writable=canWrite();draw({renew:true});
     }
     if(version!==scope.revision){
       version=scope.revision;
-      void load({holdResults:Boolean(result)});
+      void load({holdResults:Boolean(result),focus:Boolean(section)});
     }
   }
   function unmount(){

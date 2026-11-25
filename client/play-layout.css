@@ -1,5 +1,6 @@
 /* Quick access uses the existing theme tokens and command controls. */
 .shell > header { grid-column: 1 / -1; }
+.sidebar nav [data-campaign-people-shortcut] { display: none; }
 .workspace-brand, .workspace-summary { display: none; }
 .sidebar nav button .nav-play-label {
   width: auto;
@@ -507,6 +508,7 @@ body[data-theme="polar"] .play-effects {
     --workspace-portrait-bg: #b8a181;
     --workspace-portrait-ink: #172332;
   }
+  .sidebar nav [data-campaign-people-shortcut]:not([hidden]) { display: flex; }
   body[data-page="play"] .play-hero-band { min-block-size: 92px; }
   body[data-page="play"] .play-hero-subclass { display: inline; }
   body[data-page="play"] .shell:has(.play-session) > header #session-name-label { display: none; }
