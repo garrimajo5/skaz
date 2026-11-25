@@ -260,7 +260,7 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
   margin: auto;
   width: min(560px, calc(100% - 16px));
   max-height: calc(100dvh - 8px);
-  border-radius: var(--radius-l);
+  border-radius:var(--radius-l);
  }
  #dialog-content:has(.hp-entry, .death-actions, #confirm-death, #play-search-panel) { padding: 8px 12px; }
  .hp-entry {
