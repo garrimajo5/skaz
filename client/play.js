@@ -2,12 +2,13 @@ const SkazPlay = (()=>{
  const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  let key='',owner='',serial=0,searchSerial=0,status='idle',book=[],items=[],quests=[],questError=false,scrollPositions={},spellScope='combat';
  let castLevels={}, returnFocus=null;
+ let bookUnavailable=false, inventoryUnavailable=false;
  const spellScopes=[
   ['combat','В бою'],['action','Действие'],['bonus','Бонусное'],
   ['reaction','Реакция'],['exploration','Вне боя'],['all','Все']
  ];
  const mode=()=>{try{return sessionStorage.getItem('skaz-play-mode-v1')==='play'?'play':'prepare';}catch{return 'prepare';}};
- function remember(page){if(page!=='play'){returnFocus=null;++serial;++searchSerial;if(status==='loading')status='idle';}try{sessionStorage.setItem('skaz-play-mode-v1',page==='play'?'play':'prepare');}catch{}}
+ function remember(page){if(page!=='play'){returnFocus=null;++serial;++searchSerial;if(status==='loading'||status==='retrying')status='idle';}try{sessionStorage.setItem('skaz-play-mode-v1',page==='play'?'play':'prepare');}catch{}}
  const active=()=>typeof page!=='undefined'&&page==='play';
  function captureFocus(){
   const focused=document.activeElement;
@@ -28,7 +29,7 @@ const SkazPlay = (()=>{
   if(!returnFocus||document.getElementById('dialog')?.open)return;
   if(returnFocus.context===SkazStorage.contextKey()&&(returnFocus.afterModal||document.activeElement===document.body)){
    let target=document.querySelector?.('.play-screen '+returnFocus.selector);
-   if(!target&&status==='loading')return;
+   if(!target&&(status==='loading'||status==='retrying'))return;
    if(target?.disabled){
     const row=target.closest('.play-spell-action,.play-item');
     target=row?.querySelector('[data-play-read]')||document.getElementById('play-content');
@@ -56,7 +57,7 @@ const SkazPlay = (()=>{
   };
  }
  function view(){
-  const next=SkazStorage.snapshotKey();if(next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];quests=[];questError=false;++serial;}
+  const next=SkazStorage.snapshotKey();if(next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];quests=[];questError=false;bookUnavailable=false;inventoryUnavailable=false;++serial;}
   if(status==='idle'){status='loading';const token=serial;queueMicrotask(()=>{if(token===serial&&active())load();});}
   renderChargeTracker();
   const stats=SkazStorage.stats(),sheet=SkazStorage.sheet?.();
@@ -204,7 +205,21 @@ const SkazPlay = (()=>{
   const consumables=items.filter(x=>{const info=x.entry.item||x.entry.artifact;return info?.charges||['potion','scroll'].includes(info?.type);}).sort((a,b)=>a.entry.name.ru.localeCompare(b.entry.name.ru,'ru'));
   const latest=[...state.journal,...state.notes].sort((a,b)=>(b.at||0)-(a.at||0))[0];
   const recent=latest&&SkazPlayPresentation.note(latest,SkazCasting.readManualNote(latest));
-  return `${spellPanel(spells,consumables.length>0,level)}<div class="play-side">${consumables.length?'<section class="panel play-consumables"><h2 id="play-consumables-title" tabindex="-1">Расходники и заряды</h2><div class="play-list" tabindex="0" role="region" aria-label="Расходники и заряды" data-play-list="items">':''}${consumables.map(consumableRow).join('')||'<section class="panel play-empty"><button data-play-prepare="inventory">Добавить расходники <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></section>'}${consumables.length?'</div><p class="small">−1 списывает предмет. Эффект подтверждается отдельно.</p></section>':''}${questPanel()}${recent?`<section class="panel play-last"><h2>Последняя запись</h2><strong>${escape(recent.title)}</strong><p>${escape(recent.text)}</p><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Личная заметка</button></section>`:'<section class="panel play-empty"><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Первая личная заметка</button></section>'}</div>`;
+  const notice=bookUnavailable||inventoryUnavailable
+   ?'<div class="notice play-list-notice"><span>'+(bookUnavailable?'Книга заклинаний недоступна.':'Расходники недоступны.')+'</span>'+
+     (status==='retrying'?'<span role="status">Повторяем загрузку…</span>':'<button id="play-retry" aria-label="Повторить загрузку '+(bookUnavailable?'книги заклинаний':'расходников')+'">Повторить</button>')+'</div>'
+   :'';
+  const spellContent=bookUnavailable?'':spellPanel(spells,consumables.length>0,level);
+  const inventoryContent=inventoryUnavailable?'':consumables.length
+   ?`<section class="panel play-consumables"><h2 id="play-consumables-title" tabindex="-1">Расходники и заряды</h2>
+     <div class="play-list" tabindex="0" role="region" aria-label="Расходники и заряды" data-play-list="items">${consumables.map(consumableRow).join('')}</div>
+     <p class="small">−1 списывает предмет. Эффект подтверждается отдельно.</p></section>`
+   :'<section class="panel play-empty"><button data-play-prepare="inventory">Добавить расходники <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></section>';
+  const itemsFirst=!spells.length&&consumables.length>0;
+  const recentContent=recent
+   ?`<section class="panel play-last"><h2>Последняя запись</h2><strong>${escape(recent.title)}</strong><p>${escape(recent.text)}</p><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Личная заметка</button></section>`
+   :'<section class="panel play-empty"><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Первая личная заметка</button></section>';
+  return `${notice}${itemsFirst?'':spellContent}<div class="play-side">${inventoryContent}${itemsFirst?spellContent:''}${questPanel()}${recentContent}</div>`;
  }
  function questPanel(){
   const activeQuests=quests.filter(q=>q.status==='active');
@@ -215,7 +230,7 @@ const SkazPlay = (()=>{
   const root=document.getElementById('play-quick-item-charges');
   if(!root)return;
   root.innerHTML='';
-  if(status!=='ready'||typeof SkazItemCharges==='undefined')return;
+  if(!['ready','retrying'].includes(status)||inventoryUnavailable||typeof SkazItemCharges==='undefined')return;
   const charged=items.filter(item=>SkazItemCharges.maximum(item.entry));
   if(charged.length!==1||charged[0].quantity!==1)return;
   const item=charged[0],balance=SkazItemCharges.balance(item,0);
@@ -227,28 +242,35 @@ const SkazPlay = (()=>{
  }
 
  function refresh(){if(!active()||key!==SkazStorage.snapshotKey())return;renderChargeTracker();const root=document.getElementById('play-content');if(root){captureFocus();root.innerHTML=content(actorLevel(SkazStorage.sheet?.()));restoreFocus();document.querySelectorAll('[data-play-list]').forEach(list=>{list.scrollTop=scrollPositions[list.dataset.playList]||0;});}}
+ const settledEntries=result=>result.status==='fulfilled'&&Array.isArray(result.value?.entries)?result.value.entries:null;
  async function load(retryButton){
+  if(retryButton&&(status==='loading'||status==='retrying'))return;
   const token=++serial,captured=key;
+  const partial=status==='ready'&&(bookUnavailable||inventoryUnavailable);
   const focusAnchor=retryButton&&document.activeElement===retryButton?document.getElementById('play-content'):null;
-  status='loading';
+  status=partial?'retrying':'loading';
   refresh();
   if(focusAnchor&&document.activeElement===document.body)focusAnchor.focus({preventScroll:true});
-  try{
-   const [spells,inventory,questResult]=await Promise.all([
-    SkazStorage.spellbookData(),SkazStorage.inventoryData(),SkazStorage.questsData().catch(()=>null)
-   ]);
-   if(token!==serial||captured!==SkazStorage.snapshotKey()||!active())return;
-   book=spells.entries;
-   items=inventory.entries;
-   quests=questResult?.quests||[];
-   questError=questResult===null;
-   status='ready';
-  }catch{
-   if(token!==serial||captured!==SkazStorage.snapshotKey()||!active())return;
-   status='error';
-  }
+  const [spellResult,inventoryResult,questResult]=await Promise.allSettled([
+   !partial||bookUnavailable?SkazStorage.spellbookData():{entries:book},
+   !partial||inventoryUnavailable?SkazStorage.inventoryData():{entries:items},
+   !partial||questError?SkazStorage.questsData():{quests},
+  ]);
+  if(token!==serial||captured!==SkazStorage.snapshotKey())return;
+  if(!active()){status='idle';return;}
+  const spells=settledEntries(spellResult),inventory=settledEntries(inventoryResult);
+  const invalidSnapshot=[spellResult,inventoryResult].some(result=>
+   result.status==='rejected'&&[401,403,404,409].includes(result.reason?.status));
+  const blocked=invalidSnapshot||(!spells&&!inventory);
+  book=blocked?[]:spells??[];
+  items=blocked?[]:inventory??[];
+  bookUnavailable=!blocked&&!spells;
+  inventoryUnavailable=!blocked&&!inventory;
+  quests=questResult.status==='fulfilled'?questResult.value?.quests??[]:[];
+  questError=questResult.status==='rejected';
+  status=blocked?'error':'ready';
   refresh();
-  if(status==='error'&&focusAnchor&&document.activeElement===focusAnchor){
+  if((blocked||bookUnavailable||inventoryUnavailable)&&focusAnchor&&document.activeElement===focusAnchor){
    document.getElementById('play-retry')?.focus({preventScroll:true});
   }
  }

@@ -11,7 +11,7 @@ const source=await readFile(new URL('../client/play.js',import.meta.url),'utf8')
 function harness({quests=[],questFailure=false,spellLearning=null}={}){const elements=new Map(),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','quests'].map(kind=>({dataset:{playList:kind},scrollTop:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true});return elements.get(id);};
  const context=vm.createContext({structuredClone,CSS:{escape:String},crypto:{randomUUID:()=> 'test-manual-cast'},page:'play',location:{protocol:'http:'},state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,maxHp:38,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
  document:{body:{closest:()=>null},getElementById:get,querySelectorAll:selector=>selector==='[data-play-list]'?lists:[],addEventListener:(event,fn)=>handlers[event]=fn},modal:value=>{html=value;get('dialog').open=true;},closeModal:()=>get('dialog').open=false,toast(){},go:value=>context.page=value,
- SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise(resolve=>requests.push({kind:'book',resolve})),questsData:async()=>{if(questFailure)throw Error('offline');return {quests};},inventoryData:()=>new Promise((resolve,reject)=>requests.push({kind:'items',resolve,reject})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(itemChargesSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,document:context.document,setSession:(active,title)=>{context.SkazStorage.currentSession=()=>active;context.SkazStorage.sessionTitle=()=>title;},setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,selectCast:(id,value)=>handlers.change({target:{dataset:{playCastSelect:id},value}}),click:(id,dataset={},button={id,dataset})=>handlers.click({target:{closest:()=>button}})};
+ SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise((resolve,reject)=>requests.push({kind:'book',resolve,reject})),questsData:async()=>{if(questFailure)throw Error('offline');return {quests};},inventoryData:()=>new Promise((resolve,reject)=>requests.push({kind:'items',resolve,reject})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(itemChargesSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,document:context.document,setSession:(active,title)=>{context.SkazStorage.currentSession=()=>active;context.SkazStorage.sessionTitle=()=>title;},setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,selectCast:(id,value)=>handlers.change({target:{dataset:{playCastSelect:id},value}}),click:(id,dataset={},button={id,dataset})=>handlers.click({target:{closest:()=>button}})};
 }
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 test('play art keeps spell circle, stable action IDs and item quantity independent of image loading',async()=>{
@@ -76,6 +76,69 @@ test('empty play panels have one preparation action and no blank list or pager',
  assert.equal((html.match(/class="panel play-empty"/g)||[]).length,4);assert.doesNotMatch(html,/class="play-list"|data-play-page/);
  await h.click('',{playPrepare:'spells'});assert.equal(h.page(),'spells');
 });
+
+test('the working book or inventory remains available and retries only the failed list',async()=>{
+ const potion={catalogId:'potion',quantity:2,entry:{name:{ru:'Зелье'},item:{type:'potion'}}};
+ for(const missing of ['book','items']){
+  const h=harness(),root=h.get('play-content');
+  h.api.view();await tick();
+  const supply={book:{entries:[spell('Available spell')]},items:{entries:[potion]}};
+  for(const request of h.requests){
+   if(request.kind===missing)request.reject(Object.assign(Error('temporarily unavailable'),{status:503}));
+   else request.resolve(supply[request.kind]);
+  }
+  await tick();
+  const kept=missing==='book'?/data-play-spend="potion"/:/Available spell/;
+  const badHeading=missing==='book'?/Книга заклинаний недоступна/:/Расходники недоступны/;
+  const hiddenPreparation=missing==='book'?/data-play-prepare="spells"/:/data-play-prepare="inventory"/;
+  assert.match(root.innerHTML,kept);
+  assert.match(root.innerHTML,badHeading);
+  assert.doesNotMatch(root.innerHTML,hiddenPreparation);
+  await h.click('play-retry');await tick();
+  assert.match(root.innerHTML,kept);
+  assert.match(root.innerHTML,/Повторяем загрузку/);
+  assert.equal(h.requests.length,3);
+  assert.equal(h.requests.at(-1).kind,missing);
+  h.requests.at(-1).resolve(supply[missing]);await tick();
+  assert.match(root.innerHTML,/data-play-spend="potion"/);
+  assert.match(root.innerHTML,/Available spell/);
+  assert.doesNotMatch(root.innerHTML,/play-retry|Повторяем загрузку/);
+ }
+});
+
+test('access denial or a mismatched revision hides both lists even when the other read succeeded',async()=>{
+ for(const status of [401,403,404,409]){
+  const h=harness(),root=h.get('play-content');
+  h.api.view();await tick();
+  h.requests[0].resolve({entries:[spell('Previous snapshot')]});
+  h.requests[1].reject(Object.assign(Error('unsafe snapshot'),{status}));
+  await tick();
+  assert.match(root.innerHTML,/Игровые списки недоступны/);
+  assert.doesNotMatch(root.innerHTML,/Previous snapshot/);
+ }
+});
+
+test('a denied retry removes previously visible items from the same snapshot',async()=>{
+ const h=harness(),root=h.get('play-content'),potion={catalogId:'potion',quantity:1,entry:{name:{ru:'Зелье'},item:{type:'potion'}}};
+ h.api.view();await tick();
+ h.requests[0].reject(Object.assign(Error('temporary'),{status:503}));
+ h.requests[1].resolve({entries:[potion]});await tick();
+ assert.match(root.innerHTML,/data-play-spend="potion"/);
+ await h.click('play-retry');await tick();
+ h.requests.at(-1).reject(Object.assign(Error('denied'),{status:403}));await tick();
+ assert.match(root.innerHTML,/Игровые списки недоступны/);
+ assert.doesNotMatch(root.innerHTML,/data-play-spend/);
+});
+
+test('available consumables precede the spell preparation action when the book is empty',async()=>{
+ const h=harness();
+ await loaded(h,[],[{catalogId:'potion',quantity:2,entry:{name:{ru:'Potion'},item:{type:'potion'}}}]);
+ const html=h.get('play-content').innerHTML;
+ assert.ok(html.indexOf('data-play-spend="potion"')>=0);
+ assert.ok(html.indexOf('data-play-spend="potion"')<html.indexOf('data-play-prepare="spells"'));
+ assert.doesNotMatch(html,/Игровые списки недоступны/);
+});
+
 test('retry keeps focus in the list while loading, restores retry on failure and respects a later focus move',async()=>{
  const h=harness(),document=h.document,root=h.get('play-content'),dialog=h.get('dialog');
  dialog.open=false;
@@ -104,15 +167,15 @@ test('retry keeps focus in the list while loading, restores retry on failure and
  };
  h.api.view();
  await tick();
- h.requests.at(-1).reject(Error('offline'));
+ for(const request of h.requests.slice(-2))request.reject(Error('offline'));
  await tick();
  await retryClick();
- h.requests.at(-1).reject(Error('still offline'));
+ for(const request of h.requests.slice(-2))request.reject(Error('still offline'));
  await tick();
  assert.equal(document.activeElement,retry);
  await retryClick();
  document.activeElement=outside;
- h.requests.at(-1).reject(Error('offline again'));
+ for(const request of h.requests.slice(-2))request.reject(Error('offline again'));
  await tick();
  assert.equal(document.activeElement,outside);
  await retryClick();

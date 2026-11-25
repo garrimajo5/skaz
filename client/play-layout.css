@@ -102,6 +102,15 @@ body[data-theme="polar"] .play-effects {
 .play-layout #play-content { display: block; }
 #play-quick-item-charges { display: none; }
 .play-layout #play-content:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.play-list-notice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin-block-end: 8px;
+  padding: 4px 8px;
+}
 .play-layout .play-spells { padding: 0; border: 0; background: transparent; }
 .play-layout .play-spell-scopes { margin-bottom: 6px; }
 .play-layout .play-spell-scopes button { background: var(--workspace-play-filter-bg, var(--raised)); }
