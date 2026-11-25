@@ -515,3 +515,42 @@ test('cast price follows the selected command, with distinct free and manual pat
  assert.match(h.get('play-content').innerHTML,/Сотворить: Paid · Выбор счётчика/);
  assert.equal(h.casts.length,1);
 });
+
+test('returning to game search focuses the re-rendered result only in the captured context',async()=>{
+ const h=harness();
+ await loaded(h);
+ const focused=[],scrolled=[];
+ let buttons,renderCount=0;
+ const select=h.document.querySelectorAll;
+ h.document.querySelectorAll=selector=>{
+  if(selector!=='[data-play-search-result]')return select(selector);
+  const render=++renderCount;
+  buttons=['0','1'].map(index=>({
+   dataset:{playSearchResult:index},
+   focus:options=>focused.push([render,index,options.preventScroll]),
+   scrollIntoView:options=>scrolled.push([render,index,options.block]),
+  }));
+  return buttons;
+ };
+ await h.click('play-search');
+ h.get('play-search-query').value='fire';
+ const search=h.get('play-search-form').onsubmit({preventDefault(){}});
+ const entries=[{name:{ru:'Первый',en:'First'}},{name:{ru:'Второй',en:'Second'}}];
+ h.requests.find(r=>r.kind==='search').resolve({ok:true,json:async()=>({entries})});
+ await search;
+ assert.deepEqual(focused,[]);
+ buttons[1].onclick();
+ assert.equal(h.reads[0][0],entries[1]);
+ const back=h.reads[0][1];
+ back();
+ assert.match(h.html(),/value="fire"/);
+ assert.deepEqual(focused,[[3,'1',true]]);
+ assert.deepEqual(scrolled,[[3,'1','nearest']]);
+ assert.equal(h.requests.filter(r=>r.kind==='search').length,1);
+ h.context('another-hero');
+ const before=h.html();
+ back();
+ assert.equal(h.html(),before);
+ assert.equal(renderCount,3);
+ assert.equal(focused.length,1);
+});
