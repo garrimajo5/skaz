@@ -66,10 +66,26 @@ const SkazPlayPresentation = (() => {
     </div>`;
   }
 
+  /** Formats the label, cost and warning already chosen by the action controller.
+   * @param {string} label
+   * @param {string} [cost]
+   * @param {string} [warning]
+   */
+  function commandCopy(label, cost = '', warning = '') {
+    const price = cost ? `<small class="play-cost">${escape(cost)}</small>` : '';
+    const caution = warning ? `<small class="play-cast-warning">${escape(warning)}</small>` : '';
+    return `${price}<span class="play-command-label">${escape(label)}</span>${caution}`;
+  }
+
+  /** @param {Pick<WorkspaceActor, 'heroName' | 'className' | 'level'>} view */
+  function identityCopy(view) {
+    const character = [view.className, Number.isInteger(view.level) ? `${view.level} уровень` : ''].filter(Boolean).join(' · ');
+    return {character, initial: Array.from(view.heroName.trim())[0] || '?'};
+  }
+
   /** @param {WorkspaceActor} view */
   function actorBand(view) {
-    const character = [view.className, Number.isInteger(view.level) ? `${view.level} уровень` : ''].filter(Boolean).join(' · ');
-    const initial = Array.from(view.heroName.trim())[0] || '?';
+    const {character, initial} = identityCopy(view);
     return `<div class="play-hero-band" role="group" aria-label="Состояние активного персонажа">
         <div class="play-hero-name">
           <span class="play-hero-initial" aria-hidden="true">${escape(initial)}</span>
@@ -82,6 +98,19 @@ const SkazPlayPresentation = (() => {
         </div>
         ${typeof view.gold === 'number' ? `<div class="play-gold"><small>Кошелёк</small><strong>${escape(view.gold)} зм</strong></div>` : ''}
       </div>`;
+  }
+
+  /**
+   * @param {string} value
+   * @param {string} context
+   */
+  function healthAmount(value, context) {
+    return `<div class="quick-health-amount">
+      <label for="quick-hp-amount">Изменить хиты</label>
+      <button type="button" data-health-step="-1" aria-label="Уменьшить количество хитов">−</button>
+      <input id="quick-hp-amount" type="number" inputmode="numeric" min="1" max="999" step="1" value="${escape(value)}" data-health-context="${escape(context)}" autocomplete="off">
+      <button type="button" data-health-step="1" aria-label="Увеличить количество хитов">+</button>
+    </div>`;
   }
 
   /** @param {boolean} historyAvailable */
@@ -137,5 +166,5 @@ const SkazPlayPresentation = (() => {
       text:manual.level+' круг · без расхода ячейки.'+agreement+(manual.reason?' '+manual.reason:'')};
   }
 
-  return {castCost, prepare, resources, screen, note};
+  return {castCost, commandCopy, healthAmount, identityCopy, prepare, resources, screen, note};
 })();

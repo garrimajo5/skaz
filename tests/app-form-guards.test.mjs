@@ -26,6 +26,26 @@ test('initial links take precedence over remembered Quick Access, which remains 
  assert.equal(harness({hash:''}).run('page'),'hero');
 });
 
+test('workspace sidebar tracks the same active hero and session and hides during initial load',()=>{
+ const h=harness();
+ h.run("SkazStorage.readyToDisplay=()=>false;render();");
+ assert.equal(h.get('.workspace-summary').hidden,true);
+ h.run("SkazStorage.readyToDisplay=()=>true;state.profile.name='🔭 Мира';SkazStorage.sheet=()=>({className:'Волшебник',level:6,counters:[]});SkazStorage.sessionTitle=()=>'<Башня>';SkazStorage.sessionDate=()=> '2026-11-24';render();");
+ assert.equal(h.get('.workspace-summary').hidden,false);
+ assert.equal(h.get('#workspace-player-name').textContent,'🔭 Мира');
+ assert.equal(h.get('#workspace-player-initial').textContent,'🔭');
+ assert.equal(h.get('#workspace-player-class').textContent,'Волшебник · 6 уровень');
+ assert.equal(h.get('#workspace-session-name').textContent,'<Башня>');
+ assert.equal(h.get('#workspace-session-date').dateTime,'2026-11-24');
+ assert.equal(h.get('#workspace-session-date').hidden,false);
+ h.run("state.profile.name='Луна';SkazStorage.sheet=()=>({className:'Воин',level:null,counters:[]});SkazStorage.sessionTitle=()=> 'Другой берег';SkazStorage.sessionDate=()=>'';render();");
+ assert.equal(h.get('#workspace-player-class').textContent,'Воин');
+ assert.equal(h.get('#workspace-player-name').textContent,'Луна');
+ assert.equal(h.get('#workspace-session-name').textContent,'Другой берег');
+ assert.equal(h.get('#workspace-session-date').hidden,true);
+ assert.equal(h.writes.length,0);
+});
+
 test('profile and inventory render the same escaped hero and a single resource mount',()=>{
  const h=harness();
  h.run("state.profile.name='<Miren>';state.tempHp=3");
@@ -161,6 +181,28 @@ test('undo refuses a different game and failed undo does not create a new invers
  const other=harness();await other.run("change('Урон применён',()=>{state.hp-=7})");other.run("SkazStorage.contextKey=()=> 'other'");await other.get('#undo').onclick();assert.equal(other.writes.length,1);assert.equal(other.state().hp,21);
  const failed=harness();await failed.run("change('Урон применён',()=>{state.hp-=7})");failed.run("SkazStorage.commit=async()=>{throw new Error('Нет соединения')}");const undo=failed.get('#undo').onclick;await undo();await undo();
  assert.equal(failed.state().hp,21);assert.match(failed.get('#toast').innerHTML,/Не сохранено/);assert.doesNotMatch(failed.get('#toast').innerHTML,/<button/);
+});
+
+test('wide hit amount is scoped to the current game and prefills the existing health preview',()=>{
+ const h=harness();
+ const inline=h.get('#quick-hp-amount');
+ inline.dataset.healthContext='same';
+ inline.value='5';
+ h.run("page='play'");
+ assert.match(h.run('quickHealthAmount()'),/value="5"/);
+ h.run("SkazStorage.contextKey=()=> 'another hero'");
+ assert.match(h.run('quickHealthAmount()'),/value=""/);
+ h.run("page='hero'");
+ assert.equal(h.run('quickHealthAmount()'),'');
+ h.run("hpDialog(false,false,'5')");
+ assert.equal(h.get('#hp-value').value,'5');
+ assert.match(h.get('#hp-preview').textContent,/28 → 23 хитов/);
+ h.get('#hp-half').onclick();
+ assert.match(h.get('#hp-preview').textContent,/28 → 26 хитов/);
+ assert.equal(h.writes.length,0);
+ h.run("hpDialog(false,false,'1000')");
+ assert.equal(h.get('#apply-hp').disabled,true);
+ assert.equal(h.writes.length,0);
 });
 
 test('health entry starts empty, previews clamping and submits explicit numbers with Enter',async()=>{

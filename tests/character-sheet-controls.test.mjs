@@ -36,6 +36,7 @@ test('tracker shapes differ without colour and filled marks spend and empty mark
  const fields={name:'2 круг',label:'Ячейка 2 круга',current:2,max:3,attributes:d=>'data-delta="'+d+'"',pending:[1]};
  const slots=api.tracker({...fields,shape:'circle'}),classResource=api.tracker({...fields,shape:'diamond'});
  assert.match(slots,/tracker-mark circle/);assert.match(classResource,/tracker-mark diamond/);
+ assert.match(slots,/<span class="tracker-name">2 круг<\/span> <span class="tracker-balance">2 \/ 3<\/span>/);
  assert.equal((slots.match(/data-delta="-1"/g)||[]).length,2);assert.equal((slots.match(/data-delta="1"/g)||[]).length,1);
  assert.match(slots,/Ячейка 2 круга, доступна/);assert.match(slots,/Ячейка 2 круга, потрачена/);assert.equal((slots.match(/Ждёт подтверждения сервера/g)||[]).length,1);
 });

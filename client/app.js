@@ -83,8 +83,20 @@ function inventoryPage(){
 }
 function concentrationQuestion(){const check=state.concentrationChecks?.[0];if(!check||!state.concentration||check.spell!==state.concentration)return '';return `<div class="concentration-question" role="status"><strong>Проверка концентрации · СЛ ${check.dc}</strong><span>Урон ${check.damage} · осталось ${state.concentrationChecks.length}</span><div>${[['pass','Прошёл'],['fail','Провалил']].map(([answer,label])=>`<button data-concentration-answer="${answer}" data-check-id="${esc(check.id)}" data-snapshot="${esc(SkazStorage.snapshotKey())}" ${(SkazStorage.canResource?.()??SkazStorage.editable())?'':'disabled'}>${label}</button>`).join('')}</div></div>`;}
 function answerConcentration(answer,id,snapshot){if(!['pass','fail'].includes(answer)||snapshot!==SkazStorage.snapshotKey()||state.concentrationChecks?.[0]?.id!==id)return toast('Проверка изменилась. Открой текущую игру');return resourceAction({kind:'health',operation:answer,checkId:id,temporaryBefore:state.tempHp||0,concentrationBefore:state.concentration},1,answer==='pass'?'Концентрация сохранена':'Концентрация провалена');}
+function quickHealthAmount() {
+ if (page !== 'play') return '';
+ const context = SkazStorage.contextKey(), field = $('#quick-hp-amount');
+ return SkazPlayPresentation.healthAmount(field?.dataset.healthContext === context ? field.value : '', context);
+}
+function stepQuickHealthAmount(step) {
+ const field = $('#quick-hp-amount');
+ if (!field) return;
+ if (step === '1') field.stepUp();
+ else if (field.value) field.stepDown();
+}
+
 function healthVitals(){const d=SkazHealth.deathState(state.hp,state.deathSaves),low=state.hp>0&&state.hp<=state.maxHp/4;const hp=`<strong aria-label="Хиты: ${state.hp} из ${state.maxHp}${state.tempHp?`; временные хиты: ${state.tempHp}`:''}">${state.hp}/${state.maxHp} <span>ХИТЫ</span><i class="quick-health-meter" aria-hidden="true"><i style="width:${100*state.hp/(state.maxHp+(state.tempHp||0))}%"></i>${state.tempHp?`<i class="hp-temporary" style="width:${100*state.tempHp/(state.maxHp+state.tempHp)}%"></i>`:''}</i>${state.tempHp?`<span class="temp-hp-chip"><span data-ui-icon="shield" aria-hidden="true"></span>+${state.tempHp} временных</span>`:''}</strong>`;
- if(state.hp>0)return `<div class="quick-vitals ${low?'wounded':''}">${hp}${low?'<span class="health-state-label">Тяжело ранен</span>':''}<button data-health="damage" class="red">− Урон</button><button data-health="heal" class="green">+ Лечение</button></div>`;
+ if(state.hp>0)return `<div class="quick-vitals ${low?'wounded':''}">${hp}${low?'<span class="health-state-label">Тяжело ранен</span>':''}${quickHealthAmount()}<button data-health="damage" class="red">− Урон</button><button data-health="heal" class="green">+ Лечение</button></div>`;
  const label={dying:'Без сознания',stable:'Стабилизирован · без сознания',dead:'Погиб'}[d.status];return `<div class="quick-vitals zero-hp">${hp}<strong class="health-state-label">${label}</strong><button id="death-saves" aria-label="Спасброски от смерти. Успехи: ${d.successes} из 3. Провалы: ${d.failures} из 3.">Успехи: ${d.successes}/3 · Провалы: ${d.failures}/3</button><button data-health="heal" ${d.status==='dead'?'disabled data-resource-unavailable="true"':''}>+ Лечение — очнуться</button></div>`;}
 function deathDialog(){const d=SkazHealth.deathState(state.hp,state.deathSaves),key=SkazStorage.snapshotKey();if(state.hp!==0)return;modal(`<h2>Спасброски от смерти</h2><p>${{dying:'Без сознания',stable:'Стабилизирован · без сознания',dead:'Погиб'}[d.status]}</p><p>Успехи: ${d.successes}/3 · Провалы: ${d.failures}/3</p><div class="death-actions">${[['death-success','Успех (итог ≥10)'],['death-failure','Провал (итог <10)'],['death-1','Натуральная 1 · два провала'],['death-20','Натуральная 20 · 1 хит'],['death-stabilize','Стабилизировать']].map(([op,label])=>`<button data-death-operation="${op}" ${d.status!=='dying'?'disabled':''}>${label}</button>`).join('')}<button id="death-damage" ${d.status==='dead'?'disabled':''}>Урон при 0 хитов</button><button id="death-critical" ${d.status==='dead'?'disabled':''}>Критический урон при 0 хитов</button></div><p>Бросок выполняется вручную. При 0 хитов урон означает провал, критический — два. Натуральная 20 восстанавливает 1 хит. Обычное лечение не воскрешает погибшего.</p>`);
  $$('[data-death-operation]').forEach(b=>b.onclick=()=>{if(key!==SkazStorage.snapshotKey())return toast('Игра изменилась. Открой спасброски заново');const r={kind:'health',operation:b.dataset.deathOperation,temporaryBefore:state.tempHp||0,concentrationBefore:state.concentration,deathBefore:SkazHealth.deathState(state.hp,state.deathSaves)},p=SkazHealth.project(state.hp,state.maxHp,state.tempHp||0,r,1);const apply=()=>{if(resourceAction(r,1,b.textContent)){closeModal();}};if(p.deathSaves.status==='dead')confirmDeath(apply,key);else apply();});$('#death-damage').onclick=()=>hpDialog(false,false);$('#death-critical').onclick=()=>hpDialog(false,true);}
@@ -101,6 +113,7 @@ function editConditions(){
 function quickPanel(){return `${healthVitals()}<div class="quick-resources" tabindex="0" aria-label="Ресурсы: нажми заполненную — потратить, пустую — вернуть">${resourceControls()}</div><div class="quick-concentration-row ${state.concentrationChecks?.length?'concentration-pending':''}">${state.concentration?`<span class="quick-concentration" title="Концентрация: ${esc(state.concentration)}"><span data-ui-icon="focus"></span> ${esc(state.concentration)}</span><button id="quick-end-concentration" data-concentration="${esc(state.concentration)}" data-snapshot="${esc(SkazStorage.snapshotKey())}" aria-label="Завершить концентрацию: ${esc(state.concentration)}" ${SkazStorage.editable()?'':'disabled'}>Снять</button>`:'<span class="quick-concentration">Без концентрации</span>'}${concentrationQuestion()}</div>${conditionChips()}<div class="quick-extras"><button id="quick-conditions" aria-label="Изменить состояния персонажа" ${SkazStorage.editable()?'':'disabled'}>Состояния</button><button id="rest" class="secondary"><span data-ui-icon="rest"></span> Отдых</button><button id="quick-note" aria-label="Быстрая личная заметка" ${SkazStorage.editable()?'':'disabled'}><span data-ui-icon="note"></span> Заметка</button><button id="quick-pending" ${SkazStorage.pendingCount?.()?'':'hidden'} aria-label="Не подтверждено сервером: ${SkazStorage.pendingCount?.()||0}. Открыть состояние сохранения"><span class="ui-inline-icon" data-ui-icon="pending"></span> <span id="quick-pending-count">${SkazStorage.pendingCount?.()||0}</span></button></div>`;}
 function render(){
  const main=$('#main'), quick=$('#quick-state'), home=$('#quick-state-home');
+ const workspaceSummary=$('.workspace-summary');
  if(!main||!quick||!home)return;
  if(page==='play') SkazPlay.captureFocus();
  if(quick.parentElement!==home) home.append(quick);
@@ -117,14 +130,27 @@ function render(){
  $$('[data-campaign-map]').forEach(button=>{button.hidden=hasCampaign;});
  const playMode=page==='campaign' ? (campaignReturn?.page==='play' || SkazPlay.mode()==='play') : page==='play';
  $$('[data-play-mode]').forEach(button=>button.setAttribute('aria-pressed',String((playMode?'play':'prepare')===button.dataset.playMode)));
- if(SkazStorage.readyToDisplay?.()===false){
+ const ready=SkazStorage.readyToDisplay?.()!==false;
+ workspaceSummary.hidden=!ready;
+ if(!ready){
   $('#campaign-name').textContent='';
   $('#session-name-label').textContent='Открываем игру…';
   quick.innerHTML='';
   main.innerHTML='<div class="panel" role="status"><h1>Открываем твою игру</h1><p>Загружаем сохранённый лист и проверяем доступ.</p></div>';
   return;
  }
- $('#session-name-label').textContent=[state.profile.name,SkazStorage.sessionTitle(),SkazStorage.sessionDate()].filter(Boolean).join(' · ');
+ const sessionName=SkazStorage.sessionTitle(),sessionDate=SkazStorage.sessionDate();
+ $('#session-name-label').textContent=[state.profile.name,sessionName,sessionDate].filter(Boolean).join(' · ');
+ const actor=SkazPlay.actorIdentity();
+ const identity=SkazPlayPresentation.identityCopy(actor);
+ $('#workspace-session-name').textContent=sessionName;
+ const workspaceDate=$('#workspace-session-date');
+ workspaceDate.textContent=sessionDate;
+ workspaceDate.dateTime=sessionDate;
+ workspaceDate.hidden=!sessionDate;
+ $('#workspace-player-initial').textContent=identity.initial;
+ $('#workspace-player-name').textContent=actor.heroName;
+ $('#workspace-player-class').textContent=identity.character;
  $('#campaign-name').textContent=state.profile.campaign;
  quick.innerHTML=quickPanel();
  if(page==='campaign')SkazCampaign.mount(main);
@@ -241,12 +267,13 @@ function resourceAction(resource,delta,label,undoable=true,targetMutationId){
  }catch(error){toast(error.message,undefined,{error:true,persistent:true});return false;}
 }
 const healthRecent=new Map();
-function hpDialog(heal=false,critical=false){
+function hpDialog(heal=false,critical=false,prefill=''){
  if(state.deathSaves?.status==='dead')return toast('Обычное лечение не воскрешает погибшего');
  const openedKey=SkazStorage.snapshotKey(),context=(typeof SkazAccount==='undefined'?'local':SkazAccount.userId||'local')+':'+SkazStorage.contextKey(),old=state.hp;
  let temporary=false,resistance=false,vulnerability=false,submitted=false;const recent=healthRecent.get(context)||[];
  modal('<div class="hp-entry"><div class="overline">ЗДОРОВЬЕ · '+old+'/'+state.maxHp+'</div><h2 id="hp-title">'+ (heal?'Восстановить хиты':'Получить урон')+'</h2><div class="hp-tabs" role="group" aria-label="Операция здоровья"><button id="hp-damage">Урон</button><button id="hp-heal">Лечение</button><button id="hp-temporary">Временные</button></div><label id="hp-label" for="hp-value">'+(heal?'Количество лечения':'Итоговый урон после всех эффектов')+'</label><input id="hp-value" type="number" inputmode="numeric" min="1" max="999" value="" autocomplete="off"><div id="hp-factors" class="hp-factors" role="group" aria-label="Модификатор урона"><button id="hp-half">Сопротивление ÷2</button><button id="hp-double">Уязвимость ×2</button></div><p id="hp-preview" aria-live="polite">Введи количество</p><div id="hp-bar" class="hp-preview-bar" aria-hidden="true"></div><p id="hp-concentration" class="hp-concentration" aria-live="polite"></p><div class="hp-keypad">'+['1','2','3','4','5','6','7','8','9','⌫','0','+5'].map(key=>'<button type="button" data-hp-key="'+key+'" aria-label="'+(key==='⌫'?'Удалить последнюю цифру':key)+'">'+(key==='⌫'?'<span data-ui-icon="backspace"></span>':key)+'</button>').join('')+'</div><div class="hp-recent" role="group" aria-label="Недавние значения">'+recent.map(n=>'<button type="button" data-hp-recent="'+n+'">'+n+'</button>').join('')+'</div><div class="dialog-actions"><button class="primary" id="apply-hp" disabled>Применить</button></div></div>');
  const field=$('#hp-value'),apply=$('#apply-hp'),preview=$('#hp-preview');
+ field.value=prefill;
  const value=()=>Number(field.value),valid=()=>Number.isInteger(value())&&value()>=(temporary?0:1)&&value()<=999&&field.value!=='';
  const amount=()=>heal||temporary?value():Math.floor(value()/(resistance?2:1))*(vulnerability?2:1);
  const result=()=>SkazHealth.project(old,state.maxHp,state.tempHp||0,{kind:'health',operation:temporary?'temporary':heal?'heal':critical?'critical-damage':'damage',temporaryBefore:state.tempHp||0,concentrationBefore:state.concentration,deathBefore:SkazHealth.deathState(state.hp,state.deathSaves)},amount());
@@ -318,7 +345,12 @@ function addNote(map=false){
   });
  };
 }
-document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b||b.disabled||SkazCharacterSheet.suppressTrackerClick(e))return;if(b.dataset.concentrationAnswer){answerConcentration(b.dataset.concentrationAnswer,b.dataset.checkId,b.dataset.snapshot);return}if(b.dataset.health){hpDialog(b.dataset.health==='heal');return}if(b.dataset.resource){
+document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b||b.disabled||SkazCharacterSheet.suppressTrackerClick(e))return;if(b.dataset.concentrationAnswer){answerConcentration(b.dataset.concentrationAnswer,b.dataset.checkId,b.dataset.snapshot);return}if(b.dataset.healthStep){stepQuickHealthAmount(b.dataset.healthStep);return}
+ if(b.dataset.health){
+  const amount=b.closest?.('.play-resources')?$('#quick-hp-amount'):null;
+  hpDialog(b.dataset.health==='heal',false,amount?.getClientRects().length?amount.value:'');
+  return;
+ }if(b.dataset.resource){
  if(SkazStorage.sheet?.()||(SkazStorage.resourceDelta&&location.protocol!=='file:'?!SkazStorage.canResource():!canChange()))return;
  const key=b.dataset.resource,delta=Number(b.dataset.delta),level=Number(key.slice(4));
  if(![-1,1].includes(delta)||!(key==='inspiration'||[1,2,3].includes(level)&&key==='slot'+level))return;

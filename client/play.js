@@ -38,11 +38,12 @@ const SkazPlay = (()=>{
   returnFocus=null;
  }
  function actorLevel(sheet){return sheet?sheet.level:5;}
+ function actorIdentity(sheet=SkazStorage.sheet?.()){
+  return {heroName:state.profile.name,className:sheet?.className||'Бард',level:actorLevel(sheet)};
+ }
  function actorView(sheet=SkazStorage.sheet?.(),stats=SkazStorage.stats()){
   return {
-   heroName:state.profile.name,
-   className:sheet?.className||'Бард',
-   level:actorLevel(sheet),
+   ...actorIdentity(sheet),
    session:SkazStorage.sessionTitle?.()||'',
    hp:state.hp,
    maxHp:state.maxHp,
@@ -115,7 +116,7 @@ const SkazPlay = (()=>{
   const agreement=manual&&SkazCasting.manualAgreement(snapshot,item.catalogId,level);
   const cost=manual?(agreement?'Согласовано с мастером':sheet?'нет доступного счётчика':'нет ячеек '+level+'+'):SkazPlayPresentation.castCost(enabled,level,!!sheet,circle);
   const visibleCost=choices?SkazPlayPresentation.castCost(enabled,level,!!sheet,circle,true):cost;
-  return '<div class="play-casting-controls">'+choices+'<button class="play-cast" data-play-cast="'+escape(item.catalogId)+'" '+(enabled?'':'disabled')+' aria-label="'+escape(label+': '+item.entry.name.ru+(cost?' · '+cost:'')+(warning?' · '+warning:''))+'"><span>'+escape(label)+'</span>'+(visibleCost?'<small class="play-cost">'+escape(visibleCost)+'</small>':'')+(warning?'<small class="play-cast-warning">Сменит конц.</small>':'')+'</button></div>';
+  return '<div class="play-casting-controls">'+choices+'<button class="play-cast play-action-command" data-play-cast="'+escape(item.catalogId)+'" '+(enabled?'':'disabled')+' aria-label="'+escape(label+': '+item.entry.name.ru+(cost?' · '+cost:'')+(warning?' · '+warning:''))+'">'+SkazPlayPresentation.commandCopy(label,visibleCost,warning?'Сменит конц.':'')+'</button></div>';
  }
  function openManualCast(item,captured,snapshot){
   const {catalogId,entry}=item,level=entry.spell.level;
@@ -187,8 +188,8 @@ const SkazPlay = (()=>{
   const name=escape(entry.name.ru),id=escape(catalogId);
   const chargeAction=charges&&Array.from({length:quantity},(_,index)=>chargeCounts?.[index]).some(value=>value==null)?'Указать заряды':'Заряды';
   const action=charges
-   ?`<button data-play-charges="${id}" aria-label="${chargeAction}: ${name}">${chargeAction}</button>`
-   :`<button data-play-spend="${id}" aria-label="Списать один: ${name}" ${SkazStorage.editable()?'':'disabled'}>Списать <small class="play-cost">1 предмет</small></button>`;
+   ?`<button class="play-action-command" data-play-charges="${id}" aria-label="${chargeAction}: ${name}">${SkazPlayPresentation.commandCopy(chargeAction)}</button>`
+   :`<button class="play-action-command" data-play-spend="${id}" aria-label="Списать один: ${name}" ${SkazStorage.editable()?'':'disabled'}>${SkazPlayPresentation.commandCopy('Списать','1 предмет')}</button>`;
   const art=typeof SkazArt!=='undefined'?SkazArt.markup(entry):'';
   return `<div class="play-item"><button class="play-row" data-play-read="item" data-id="${id}">${art}<strong>${name}</strong><span class="play-item-balance">${details}</span></button>${action}</div>`;
  }
@@ -229,5 +230,5 @@ const SkazPlay = (()=>{
   if(b.dataset.playCharges){const item=items.find(x=>x.catalogId===b.dataset.playCharges);if(item)SkazStorage.editCharges(item);return;}
   if(b.dataset.playSpend){const item=items.find(x=>x.catalogId===b.dataset.playSpend);if(!item)return;try{await SkazStorage.spendInventoryOne(item,key);toast('Списан один предмет. Эффект не применён автоматически.');}catch(error){toast(error.message);}}
  });
- return {actorView,view,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus};
+ return {actorIdentity,actorView,view,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus};
 })();
