@@ -182,8 +182,11 @@ const SkazPlay = (()=>{
   const balance='×'+quantity;
   const shown=charges?Array.from({length:Math.min(quantity,3)},(_,index)=>chargeCounts?.[index]):[];
   const more=quantity-shown.length;
-  const full=charges?balance+' · заряды '+shown.map(value=>value??'не указаны').join(' / ')+(more?' · ещё '+more:''):balance;
-  const compact=charges?balance+' · '+shown.map(value=>value??'?').join(' / ')+(more?' +'+more:''):'';
+  const single=charges&&quantity===1?SkazItemCharges.balance(item,0):null;
+  const fullCounts=single?.value!=null?single.value+' из '+single.maximum:shown.map(value=>value??'не указаны').join(' / ');
+  const compactCounts=single?.value!=null?single.value+'/'+single.maximum:shown.map(value=>value??'?').join(' / ');
+  const full=charges?balance+' · заряды '+fullCounts+(more?' · ещё '+more:''):balance;
+  const compact=charges?balance+' · '+compactCounts+(more?' +'+more:''):'';
   const details=charges?`<span class="play-balance-full">${full}</span><span class="play-balance-short" aria-hidden="true">${compact}</span>`:balance;
   const name=escape(entry.name.ru),id=escape(catalogId);
   const chargeAction=charges&&Array.from({length:quantity},(_,index)=>chargeCounts?.[index]).some(value=>value==null)?'Указать заряды':'Заряды';
