@@ -559,12 +559,13 @@ test('game search leaves the input mounted and skips results for a replaced draf
  const h=harness();
  await loaded(h);
  await h.click('play-search');
- const field=h.get('play-search-query'),list=h.get('play-search-results');
+ const field=h.get('play-search-query'),list=h.get('play-search-results'),status=h.get('play-search-status');
  const original=h.html();
  const submit=()=>h.get('play-search-form').onsubmit({preventDefault(){}});
  field.value='fire';
  const first=submit();
- assert.match(list.textContent,/Ищем/);
+ assert.match(original,/id="play-search-status" role="status"/);
+ assert.match(status.textContent,/Ищем/);
  field.value='fireball';
  h.requests.filter(r=>r.kind==='search').at(-1).resolve({
   ok:true,json:async()=>({entries:[{name:{ru:'Старый результат',en:'Old result'}}]}),
@@ -572,7 +573,7 @@ test('game search leaves the input mounted and skips results for a replaced draf
  await first;
  assert.equal(field.value,'fireball');
  assert.equal(h.html(),original);
- assert.match(list.textContent,/Запрос изменён/);
+ assert.match(status.textContent,/Запрос изменён/);
  assert.doesNotMatch(list.innerHTML,/Old result/);
  const second=submit();
  h.requests.filter(r=>r.kind==='search').at(-1).resolve({
@@ -580,6 +581,8 @@ test('game search leaves the input mounted and skips results for a replaced draf
  });
  await second;
  assert.match(list.innerHTML,/Fireball/);
+ assert.equal(status.textContent,'Показано результатов: 1.');
+ assert.equal(status.className,'visually-hidden');
  assert.equal(h.html(),original);
  assert.equal(field.value,'fireball');
 });
