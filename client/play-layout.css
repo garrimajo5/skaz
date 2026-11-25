@@ -57,6 +57,7 @@ body[data-page="play"] .play-session {
 .play-hero-band strong { font-size: 18px; font-weight: 600; }
 .play-hero-name { display: flex; min-width: 0; align-items: center; gap: 12px; overflow-wrap: anywhere; }
 .play-hero-subclass { display: none; }
+.play-hero-name .play-active-hero-label { display: none; }
 .play-hero-initial {
   display: grid;
   flex: 0 0 42px;
@@ -572,6 +573,28 @@ body[data-theme="polar"] .play-effects {
   #workspace-campaign-settings:hover { color: var(--accent); border-color: var(--line); }
   body[data-page="play"] .play-hero-band { min-block-size: 92px; }
   body[data-page="play"] .play-hero-subclass { display: inline; }
+  body[data-page="play"] .play-hero-name .play-active-hero-label { display: block; }
+  body[data-page="play"] .play-hero-band > div > small:first-child,
+  body[data-page="play"] .play-active-hero-label {
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  body[data-page="play"] .play-effects > div > span {
+    border-radius: 999px;
+    background: var(--workspace-effect-idle, var(--raised));
+  }
+  body[data-page="play"] .play-effects > div > .play-condition-effect {
+    background: var(--workspace-effect-condition, color-mix(in srgb, var(--warn) 14%, var(--panel)));
+  }
+  body[data-page="play"] .play-effects > div > .play-concentration-effect {
+    background: var(--workspace-focus-bg, color-mix(in srgb, var(--accent) 14%, var(--panel)));
+  }
+  body[data-page="play"][data-theme="polar"] .play-effects {
+    --workspace-effect-idle: #173742;
+    --workspace-effect-condition: #302c22;
+    --workspace-focus-bg: #322d4b;
+  }
   body[data-page="play"] .play-hero-band:has(.play-gold) {
     grid-template-columns: minmax(0, 1fr) 13.5% minmax(24px, max-content) minmax(0, 1.17fr) 19%;
     column-gap: 16px;

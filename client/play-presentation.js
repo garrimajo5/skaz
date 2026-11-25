@@ -104,7 +104,7 @@ const SkazPlayPresentation = (() => {
     return `<div class="play-hero-band" role="group" aria-label="Состояние активного персонажа">
         <div class="play-hero-name">
           <span class="play-hero-initial" aria-hidden="true">${escape(initial)}</span>
-          <div><strong>${escape(view.heroName)}</strong><small>${escape(character)}${view.subclass?`<span class="play-hero-subclass"> · ${escape(view.subclass)}</span>`:''}</small></div>
+          <div><small class="play-active-hero-label" aria-hidden="true">Активный персонаж</small><strong>${escape(view.heroName)}</strong><small>${escape(character)}${view.subclass?`<span class="play-hero-subclass"> · ${escape(view.subclass)}</span>`:''}</small></div>
         </div>
         <div class="play-hp-summary"><small>Хиты</small><strong>${escape(view.hp)}<span> / ${escape(view.maxHp)}</span></strong><progress value="${escape(view.hp)}" max="${escape(view.maxHp)}" aria-hidden="true"></progress>${view.tempHp ? `<small>+${escape(view.tempHp)} временных</small>` : ''}</div>
         <div class="play-armor-summary"><small>КД</small><strong>${escape(view.armorClass)}</strong></div>
