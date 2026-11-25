@@ -775,7 +775,7 @@ const SkazStorage = (() => {
     if(canResource()&&resourceQueue?.length&&resourceContextMatches()&&resourceQueue.snapshot.inventory)return {revision,context:activeContext,entries:structuredClone(resourceQueue.snapshot.inventory)};
     if(demo || status!=='ready')throw new Error('Сначала сохрани черновик или подключись к серверу');
     const key=snapshotKey(),data=await request('/api/inventory');
-    if(key!==snapshotKey()||JSON.stringify(data.context)!==JSON.stringify(activeContext)||data.revision!==revision)throw new Error('Игра изменилась. Открой инвентарь заново.');
+    if(key!==snapshotKey()||JSON.stringify(data.context)!==JSON.stringify(activeContext)||data.revision!==revision)throw Object.assign(new Error('Игра изменилась. Открой инвентарь заново.'),{status:409});
     inventoryCache=structuredClone(data);return data;
   }
   async function spendInventoryOne(item,key){
@@ -787,7 +787,7 @@ const SkazStorage = (() => {
     if(canResource()&&resourceContextMatches()&&resourceQueue?.snapshot?.spellbook)return {revision,context:activeContext,spellLearning:resourceQueue.snapshot.spellLearning??null,entries:structuredClone(resourceQueue.snapshot.spellbook).map(({alwaysPrepared,...entry})=>alwaysPreparedIds.has(entry.catalogId)?{...entry,alwaysPrepared:true}:entry)};
     if(demo || status!=='ready')throw new Error('Сначала сохрани черновик или подключись к серверу');
     const key=snapshotKey(),data=await request('/api/spellbook');
-    if(key!==snapshotKey() || JSON.stringify(data.context)!==JSON.stringify(activeContext) || data.revision!==revision)throw new Error('Игра изменилась. Обнови страницу и открой книгу снова.');
+    if(key!==snapshotKey() || JSON.stringify(data.context)!==JSON.stringify(activeContext) || data.revision!==revision)throw Object.assign(new Error('Игра изменилась. Обнови страницу и открой книгу снова.'),{status:409});
     return data;
   }
   async function spellbook() {
