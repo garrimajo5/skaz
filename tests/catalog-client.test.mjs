@@ -25,7 +25,7 @@ function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning
   vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   const view = options => vm.runInContext('SkazCatalog', context).view(options);
-  return { factsCalls,readerSize:(height,position='sticky')=>{readerHeight=height;readerPosition=position;},focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { factsCalls,readSnapshot:(...args)=>vm.runInContext('SkazCatalog',context).readSnapshot(...args),readerSize:(height,position='sticky')=>{readerHeight=height;readerPosition=position;},focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>{isOpen=false;closeHandlers.splice(0).forEach(fn=>fn());}, otherModal:()=>{isOpen=true;dialog='<h2>Other</h2>'},
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -586,5 +586,29 @@ test('catalog uses shared checked spell facts with base dice and keeps changed p
   if(changed)assert.doesNotMatch(h.region.innerHTML,/catalog-tile-effect/);
   else assert.match(h.region.innerHTML,/class="catalog-tile-effect"[^>]*>спас ЛОВ · 1к6 кислота \(база\)<\/span>/);
   h.detail();assert.ok(h.dialog().includes(card.name.ru));if(changed)assert.match(h.dialog(),/Личное правило: 9d20/);assert.equal(h.additions.length,0);
+ }
+});
+
+
+test('game reference marks existing spell, creature and item facts for the compact reader', () => {
+ const cases=[
+  ['spell:magic-missile',[['Накладывание','1 действие'],['Дистанция','120 футов'],['Концентрация','Не нужна']]],
+  ['monster:goblin',[['Класс доспеха','15'],['Хиты (базовые)','7'],['Опасность','1/4']]],
+  ['item:potion-of-healing',[['Настройка','Не требуется'],['Лечение','2d4 + 2']]],
+ ];
+ const entries=bundledCatalog().bundle.entries;
+ for(const [suffix,expected] of cases){
+  const record=entries.find(entry=>entry.id.endsWith(':'+suffix));
+  assert.ok(record,suffix);
+  const h=harness();
+  let returned=false;
+  h.readSnapshot(record,()=>{returned=true;},()=>true,'К поиску');
+  const html=h.dialog();
+  const chosen=[...html.matchAll(/<div class="catalog-fact-primary"><dt>([^<]+)<\/dt><dd>([^<]+)<\/dd><\/div>/g)].map(match=>match.slice(1));
+  assert.deepEqual(chosen,expected,suffix);
+  assert.match(html,/class="catalog-reference-note"/);
+  assert.doesNotMatch(html,/catalog-add-inventory|catalog-add-spell/);
+  h.click('catalog-reference-back');
+  assert.ok(returned);
  }
 });

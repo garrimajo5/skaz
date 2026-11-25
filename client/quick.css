@@ -494,3 +494,87 @@ body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
 .temp-hp-chip [data-ui-icon],.temp-hp-chip .ui-icon{width:18px;height:18px}
 .temp-hp-chip{display:flex!important;align-items:center;gap:5px;white-space:nowrap}
 .temp-hp-chip [data-ui-icon],.temp-hp-chip .ui-icon{color:inherit!important}
+
+/* Keep the title and primary facts in view when reading from Game. */
+@media (max-height: 320px) and (orientation: landscape) {
+ body[data-page="play"] #dialog:has(.catalog-reference-note) {
+  max-height: calc(100dvh - 8px);
+ }
+ body[data-page="play"] #dialog:has(#catalog-detail-title) #dialog-content:has(.catalog-reference-note) {
+  display: grid;
+  align-content: start;
+  align-items: start;
+  grid-template-columns: max-content minmax(0, 1fr) auto;
+  grid-auto-rows: max-content;
+  column-gap: 8px;
+  padding: 8px 12px;
+  max-height: calc(100dvh - 10px);
+ }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) > * { grid-column: 1 / -1; }
+ body[data-page="play"] #dialog:has(.catalog-reference-note) > .dialog-close {
+  inset-block-start: 8px;
+  inset-inline-end: 8px;
+  width: var(--touch);
+  height: var(--touch);
+  padding: 0;
+ }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-reader-nav {
+  grid-row: 1;
+  display: flex;
+  overflow: auto;
+  margin: 0 var(--touch) 4px 0;
+  padding: 0 4px 3px;
+ }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-reader-nav button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+ }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-reader-name { display: none; }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-facts h3 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+ }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) #catalog-reference-back {
+  grid-area: 2 / 1 / 4 / 2;
+  min-height: var(--touch);
+  padding-block: 4px;
+ }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-reader-edition,
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-reader-alias {
+  margin-block: 0;
+  font-size: 12px;
+  line-height: 1.2;
+ }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-reader-edition { grid-area: 2 / 2; }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-reader-alias { grid-area: 4 / 2; }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) #catalog-detail-title {
+  grid-area: 3 / 2;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+ }
+ body[data-page="play"] #dialog:has(#catalog-detail-title) #dialog-content:has(.catalog-reference-note) .skaz-art-card {
+  grid-area: 2 / 3 / 5 / 4;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+ }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-facts {
+  grid-row: 5;
+  margin-block: 4px 12px;
+ }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-reference-note { grid-row: 6; }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-facts dl {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 4px;
+  margin-block: 4px 8px;
+ }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-facts dl > div { padding: 4px; }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-facts :is(dt, dd) { line-height: 1.3; }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-facts dd { margin-block-start: 2px; }
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-fact-primary { order: -1; }
+}
