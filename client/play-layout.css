@@ -225,7 +225,7 @@ body[data-theme="polar"] .play-effects {
 .play-resources #play-history .ui-icon { width: 16px; height: 16px; }
 
 @media (min-width: 1000px) and (min-height: 600px) and (orientation: landscape) {
-  html:has(body[data-page="play"] .play-heading) {
+  html:has(body[data-workspace-shell="shared"]) {
     --workspace-heading-height: 56px;
     scroll-padding-block-start: calc(var(--workspace-heading-height) + 8px);
   }
@@ -500,7 +500,7 @@ body[data-theme="polar"] .play-effects {
   .play-resources .quick-vitals { order: -2; padding: 0 0 8px; border: 0; border-bottom: 1px solid var(--line); }
 }
 @media (max-width: 999px), (max-height: 599px), (orientation: portrait) {
-  html:has(body[data-page="play"]) { scroll-padding-block-end: var(--bottom-reserve, 190px); }
+  html:has(body[data-workspace-shell="shared"]) { scroll-padding-block-end: var(--bottom-reserve, 190px); }
   body[data-workspace-shell="shared"] .shell { display: block; }
   body[data-workspace-shell="shared"] .sidebar { display: none; }
   .play-layout { display: flex; flex-direction: column; }
