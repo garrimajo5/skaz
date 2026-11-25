@@ -150,7 +150,7 @@ const SkazPlayPresentation = (() => {
   function screen(view) {
     const initiative = `${view.initiative >= 0 ? '+' : ''}${view.initiative}`;
     return `<section class="play-screen" aria-label="Игровой экран">
-      ${heading('Быстрый доступ', view.session, `<button id="play-edit"><span data-ui-icon="profile" aria-hidden="true"></span> Лист персонажа</button><button id="play-search">Поиск правил</button>`)}
+      ${heading('Быстрый доступ', view.session, `<button id="play-edit"><span data-ui-icon="profile" aria-hidden="true"></span> Лист <span class="play-edit-detail">персонажа</span></button><button id="play-search">Поиск правил</button>`)}
       ${actorBand(view)}
       <div class="play-layout">
         <div class="play-actions">
