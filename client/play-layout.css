@@ -47,6 +47,7 @@ body[data-workspace-shell="shared"] .shell main {
 .play-hero-band small { display: block; color: var(--muted); }
 .play-hero-band strong { font-size: 18px; font-weight: 600; }
 .play-hero-name { display: flex; min-width: 0; align-items: center; gap: 12px; overflow-wrap: anywhere; }
+.play-hero-subclass { display: none; }
 .play-hero-initial {
   display: grid;
   flex: 0 0 42px;
@@ -505,6 +506,7 @@ body[data-theme="polar"] .play-effects {
     --workspace-portrait-ink: #172332;
   }
   body[data-page="play"] .play-hero-band { min-block-size: 92px; }
+  body[data-page="play"] .play-hero-subclass { display: inline; }
   body[data-page="play"] .play-hero-band:has(.play-gold) {
     grid-template-columns: minmax(0, 1fr) 13.5% minmax(24px, max-content) minmax(0, 1.17fr) 19%;
     column-gap: 16px;

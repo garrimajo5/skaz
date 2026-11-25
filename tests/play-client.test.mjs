@@ -300,6 +300,18 @@ test('quick access has one resource mount and keeps actor identity in its status
  assert.doesNotMatch(safe,/" onfocus="bad"/);
 });
 
+test('hero band renders the saved subclass, escapes it and omits the separator for an empty subclass',()=>{
+ const h=harness();
+ const sheet={className:'Волшебник',level:3,subclass:'Школа <Прорицания>'};
+ h.setSheet(sheet);
+ assert.equal(h.api.actorIdentity().subclass,sheet.subclass);
+ const html=h.api.view();
+ assert.match(html,/Волшебник · 3 уровень<span class="play-hero-subclass"> · Школа &lt;Прорицания&gt;<\/span>/);
+ assert.doesNotMatch(html,/<Прорицания>/);
+ h.setSheet({...sheet,subclass:''});
+ assert.doesNotMatch(h.api.view(),/play-hero-subclass/);
+});
+
 test('Quick Access keeps the real session number, title and legacy fallback',()=>{
  const h=harness();
  h.setSession({name:'<Маяк>',number:8},'Сохранённое название');

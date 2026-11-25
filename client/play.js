@@ -39,7 +39,7 @@ const SkazPlay = (()=>{
  }
  function actorLevel(sheet){return sheet?sheet.level:5;}
  function actorIdentity(sheet=SkazStorage.sheet?.()){
-  return {heroName:state.profile.name,className:sheet?.className||'Бард',level:actorLevel(sheet)};
+  return {heroName:state.profile.name,className:sheet?.className||'Бард',level:actorLevel(sheet),subclass:sheet?.subclass||''};
  }
  function actorView(sheet=SkazStorage.sheet?.(),stats=SkazStorage.stats()){
   return {
