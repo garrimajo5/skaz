@@ -453,11 +453,18 @@ body[data-theme="polar"] .play-effects {
 @media (min-width: 1320px) and (min-height: 600px) and (orientation: landscape) {
   body { --workspace-wide-gutter: clamp(35px, 3.6vw, 64px); }
   .shell > header { padding-inline-end: var(--workspace-wide-gutter); }
+  .workspace-session-card {
+    border-color: var(--workspace-session-line, var(--line));
+    background: var(--workspace-session-bg, var(--panel));
+  }
+  .workspace-session-card p { letter-spacing: .08em; text-transform: uppercase; }
   body[data-theme="polar"] {
     --workspace-sidebar-bg: #081c27;
     --workspace-heading-bg: #07151d;
     --workspace-hero-bg: #0e2a35;
     --workspace-nav-active-bg: #15343f;
+    --workspace-session-bg: #0c2631;
+    --workspace-session-line: #22424d;
   }
   body[data-theme="polar"][data-page="play"] .shell > main {
     --workspace-play-card-bg: #0e252f;

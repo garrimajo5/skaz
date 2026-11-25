@@ -150,11 +150,12 @@ function render(){
   return;
  }
  const sessionTitle=SkazStorage.sessionTitle(),sessionDate=SkazStorage.sessionDate();
- const sessionName=workspacePage?SkazPlayPresentation.sessionCaption(SkazStorage.currentSession?.(),sessionTitle):sessionTitle;
+ const workspaceSession=workspacePage?SkazStorage.currentSession?.():undefined;
+ const sessionName=SkazPlayPresentation.sessionCaption(workspaceSession,sessionTitle);
  $('#session-name-label').textContent=[state.profile.name,sessionName,sessionDate].filter(Boolean).join(' · ');
  const actor=SkazPlay.actorIdentity();
  const identity=SkazPlayPresentation.identityCopy(actor);
- $('#workspace-session-name').textContent=sessionName;
+ $('#workspace-session-name').textContent=workspaceSession?.name||sessionName;
  const workspaceDate=$('#workspace-session-date');
  workspaceDate.textContent=sessionDate;
  workspaceDate.dateTime=sessionDate;
