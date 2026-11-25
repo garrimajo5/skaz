@@ -298,6 +298,8 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
 }
 @media(max-width:420px){
  .bottomnav button{min-width:min(44px,14%)}
+ .bottomnav button span:where(:not([data-ui-icon])){font-size:clamp(10.5px,2.9vw,11px)!important;line-height:13px;letter-spacing:-.02em}
+ .bottomnav button:not([data-page="play"],[data-page="campaign"])>span:last-child{white-space:nowrap}
  .bottomnav [data-page="play"]{flex:1.22}
  .bottomnav .nav-play-caption,
  .bottomnav .nav-library-short{font-size:10px!important;line-height:12px}
