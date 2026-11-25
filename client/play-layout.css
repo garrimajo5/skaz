@@ -124,6 +124,7 @@ body[data-theme="polar"] .play-effects {
 .play-action-command:not(:disabled) .play-command-label { color: var(--accent); }
 .play-layout .play-cast-warning { color: var(--warn); }
 .play-layout .play-cast:has(.play-cast-warning) { padding-block: 1px; line-height: 14px; }
+.tracker-balance .tracker-maximum { font: inherit; color: inherit; }
 .play-cast-picker, .play-concentration-marker,
 .play-spell-copy .play-action-kind, .play-action-command .play-price-caption { display: none; }
 @container (max-width: 410px) {
@@ -533,6 +534,23 @@ body[data-theme="polar"] .play-effects {
     padding-block-start: clamp(62px, 8.3dvh, 84px);
   }
   body[data-page="play"] .play-resources { padding-inline-start: 28px; }
+  .play-resources .resource-group .tracker-balance {
+    color: var(--workspace-vital-text, var(--text));
+    font-size: 23px;
+    font-variant-numeric: tabular-nums;
+  }
+  .play-resources .tracker-balance .tracker-maximum {
+    font-size: 13px;
+    color: color-mix(in srgb, var(--text) 20%, var(--muted));
+  }
+  .play-resources .tracker-mark.circle {
+    height: 6px;
+    border-width: 1px;
+    color: var(--muted);
+  }
+  .play-resources .tracker-mark.circle.available {
+    color: var(--workspace-charge-filled, var(--accent));
+  }
   body[data-page="play"] .play-spell-scopes button[data-play-spell-scope] {
     position: relative;
     isolation: isolate;
