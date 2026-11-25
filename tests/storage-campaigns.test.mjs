@@ -26,7 +26,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
   if(withQueue)vm.runInContext(queueSource,context);
   vm.runInContext(profileRulesSource,context);vm.runInContext(conditionsSource,context);vm.runInContext(sheetSource,context);
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
-  return { api: vm.runInContext('SkazStorage', context), get, messages, messageOptions, archiveCalls, references, downloads, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
+  return { api: vm.runInContext('SkazStorage', context), document:context.document, get, messages, messageOptions, archiveCalls, references, downloads, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
     click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
     installArt:(art,cards)=>{context.SkazArt=art;context.SkazPersonalArtCards=cards;},
     profileRecovery:()=>{context.document.body={dataset:{profileEditors:'disabled'}};},
@@ -1092,6 +1092,54 @@ test('explicit queue reconciliation archives exact commands, checks intervening 
  assert.equal(h.state().hp,10);assert.equal(h.api.editable(),true);
  const archived=[...local.values.keys()].find(k=>k.startsWith(key+':archive:'));assert.equal(local.getItem(archived),saved);
  h.api.settings();h.get('#saved-drafts').onclick();assert.match(h.dialog(),/Архив очереди/);
+});
+
+test('queue review restores menu focus without overriding an unrelated focus or reused dialog',async()=>{
+ const h=harness(memory(),memory(),async(url,options)=>{
+  if(options.method)throw new Error('offline');
+  return response(payload(0));
+ },undefined,undefined,true);
+ await h.api.boot();
+ h.api.resourceDelta({kind:'hp'},-2,h.api.snapshotKey());
+ await tick();
+
+ const {document}=h,body={},dialog=h.get('#dialog'),summary=h.get('#session-menu > summary');
+ const trigger={id:'resource-review'},content={},outside={};
+ document.body=body;
+ dialog.contains=element=>element===content;
+ let closeListener,returns=0;
+ dialog.addEventListener=(event,callback,options)=>{
+  assert.equal(event,'close');
+  assert.equal(options.once,true);
+  closeListener=callback;
+ };
+ summary.focus=options=>{
+  assert.equal(options.preventScroll,true);
+  returns++;
+  document.activeElement=summary;
+ };
+ async function review(){
+  document.activeElement=trigger;
+  await h.click('resource-review');
+  h.get('#resource-review-accept').isConnected=true;
+  assert.equal(typeof closeListener,'function');
+  return closeListener;
+ }
+
+ let close=await review();
+ document.activeElement=content;
+ close();
+ assert.equal(document.activeElement,summary);
+ close=await review();
+ document.activeElement=outside;
+ close();
+ assert.equal(document.activeElement,outside);
+ close=await review();
+ document.activeElement=body;
+ h.get('#resource-review-accept').isConnected=false;
+ close();
+ assert.equal(document.activeElement,body);
+ assert.equal(returns,1);
 });
 
 

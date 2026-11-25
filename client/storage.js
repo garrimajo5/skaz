@@ -130,9 +130,21 @@ const SkazStorage = (() => {
     if(resourceSending||captured!==JSON.stringify(resourceQueue.data))throw new Error('Очередь изменилась. Открой сверку заново');
     if(remote?.schemaVersion!==1||!remote.state||!Number.isSafeInteger(remote.revision)||!remote.context)throw new Error('Сервер не подтвердил игру');
     normalizedStats(remote.characterStats);normalizedSheet(remote.characterSheet);adoptPermissions(remote);
+    const focusContext=contextKey(),restoreMenuFocus=document.activeElement?.id==='resource-review';
     modal(`<h2>Сверить очередь</h2><p>${resourceQueue.length} действий остаются в браузере. На сервере: ${esc(remote.state.profile.name)}, хиты ${remote.state.hp}/${remote.state.maxHp}. Версия ${remote.revision}.</p><p>При конфликте часть действий уже могла сохраниться. Автоматического объединения нет. Скачай очередь и сравни историю перед ручной корректировкой.</p><p>«Принять сервер» уберёт эти действия из отправки и сохранит их отдельным архивом в этом браузере. На сервер ничего не записывается.</p><div class="dialog-actions"><button id="resource-review-download">Скачать очередь</button><button id="resource-review-accept">Принять сервер и архивировать очередь</button></div>`);
     $('#resource-review-download').onclick=()=>download(JSON.parse(captured),'skaz-resource-queue.json');
-    $('#resource-review-accept').onclick=async()=>{
+    const accept=$('#resource-review-accept');
+    if(restoreMenuFocus){
+      const dialog=$('#dialog');
+      dialog.addEventListener('close',()=>{
+        const focused=document.activeElement;
+        if(dialog.open||!accept.isConnected||focusContext!==contextKey())return;
+        if(focused===document.body||dialog.contains(focused)){
+          $('#session-menu > summary')?.focus({preventScroll:true});
+        }
+      },{once:true});
+    }
+    accept.onclick=async()=>{
       try{
         if(resourceSending||captured!==JSON.stringify(resourceQueue.data))throw new Error('Очередь изменилась. Открой сверку заново');
         const fresh=await request('/api/workspace');
