@@ -100,12 +100,24 @@ export function validateSpellChoice(plan,choiceId,selectedIds,{knownIds=[]}={}){
  return [...selectedIds];
 }
 
+const resourceId = (classId, key) => 'class-' + classId + '-' + key;
+const spellSlotKey = circle => 'slot-' + circle;
+const pactSlotKey = 'pact-slots';
+const spellSlotKeys = [pactSlotKey, ...Array.from({length: 9}, (_, index) => spellSlotKey(index + 1))];
+
+/** @param {{classId: string, resources: Array<{resourceId: string, counterId: string}>} | null} ledger */
+export function boundSpellSlotCounterIds(ledger) {
+ if (!ledger) return [];
+ const slotIds = new Set(spellSlotKeys.map(key => resourceId(ledger.classId, key)));
+ return ledger.resources.filter(resource => slotIds.has(resource.resourceId)).map(resource => resource.counterId);
+}
+
 export function classResourceMaximums(classId,level,abilities){
  const c=classProgression(classId,level),r=c.progression;
  for(const key of ['str','dex','con','int','wis','cha'])integer(abilities?.[key],1,30,'Нужны все шесть характеристик 1–30');
  const mod=key=>Math.floor((abilities[key]-10)/2),resources=[];
- const add=(key,name,max,recovery)=>resources.push({id:'class-'+classId+'-'+key,name,max,recovery});
- for(const [i,max] of (r.spellSlots||[]).entries())if(max)add('slot-'+(i+1),'Ячейки '+(i+1)+' круга',max,'long-rest');
+ const add=(key,name,max,recovery)=>resources.push({id:resourceId(classId,key),name,max,recovery});
+ for(const [i,max] of (r.spellSlots||[]).entries())if(max)add(spellSlotKey(i+1),'Ячейки '+(i+1)+' круга',max,'long-rest');
  if(classId==='barbarian')add('rage','Ярость',r.rages,'long-rest');
  if(classId==='bard')add('inspiration','Вдохновение барда',Math.max(1,mod('cha')),level>=5?'short-rest':'long-rest');
  if(classId==='cleric'&&level>=2)add('channel','Божественный канал',level>=18?3:level>=6?2:1,'short-rest');
@@ -126,7 +138,7 @@ export function classResourceMaximums(classId,level,abilities){
  if(classId==='sorcerer'&&level>=2)add('sorcery','Единицы чародейства',r.sorceryPoints,'long-rest');
  if(classId==='warlock'){
   if(level===20)add('eldritch-master','Таинственный мастер',1,'long-rest');
-  add('pact-slots','Ячейки магии договора '+r.pactSlotLevel+' круга',r.pactSlots,'short-rest');
+  add(pactSlotKey,'Ячейки магии договора '+r.pactSlotLevel+' круга',r.pactSlots,'short-rest');
   for(const [at,circle] of [[11,6],[13,7],[15,8],[17,9]])if(level>=at)add('arcanum-'+circle,'Таинственный арканум '+circle+' круга',1,'long-rest');
  }
  if(classId==='wizard')add('arcane-recovery','Магическое восстановление',1,'day');

@@ -1277,6 +1277,26 @@ test('Land bonus stays editable but cannot be removed; another hero clears its p
  other=true;await h.api.refreshAfterAdvancement();assert.deepEqual(Array.from(h.api.unlimitedResources()),[]);h.api.editSpell(entry,'known');assert.match(h.dialog(),/value="remove"/);
 });
 
+
+test('confirmed spell slot marks survive a resource queue reload and clear independently on hero switch',async()=>{
+ const local=memory(),session=memory();let offline=false,other=false;
+ const fetch=async()=>{
+  if(offline)throw Error('offline');
+  return response({...payload(other?2:0,other?'second':'first'),...(other?{}:{spellSlotCounterIds:['confirmed-slot']})});
+ };
+ let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();
+ assert.equal(h.api.isSpellSlotCounter('confirmed-slot'),true);
+ assert.equal(h.api.isSpellSlotCounter('class-wizard-slot-1'),false);
+ other=true;await h.api.refreshAfterAdvancement();
+ assert.equal(h.api.isSpellSlotCounter('confirmed-slot'),false);
+ other=false;await h.api.refreshAfterAdvancement();
+ assert.equal(h.api.isSpellSlotCounter('confirmed-slot'),true);
+ offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();
+ h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();
+ assert.equal(h.api.pendingCount(),1);
+ assert.equal(h.api.isSpellSlotCounter('confirmed-slot'),true);
+});
+
 test('confirmed class skills survive an offline resource projection and clear on hero switch',async()=>{
  const local=memory(),session=memory(),skills={classId:'bard',level:3,proficiency:2,skills:[{id:'arcana',name:'Магия',ability:'int',rank:'expertise',modifier:5}],jackOfAllTrades:true};let offline=false,other=false;const fetch=async()=>{if(offline)throw Error('offline');return response({...payload(other?2:0,other?'other':'first'),...(other?{}:{classSkills:skills})});};let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.classSkills().skills[0].modifier,5);const copy=h.api.classSkills();copy.skills[0].modifier=100;assert.equal(h.api.classSkills().skills[0].modifier,5);offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.classSkills().skills[0].modifier,5);
  // Switching uses a fresh synchronized client; pending mutations must remain scoped.

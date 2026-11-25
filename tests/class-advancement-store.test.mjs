@@ -90,6 +90,31 @@ test('explicit baseline binding retains spent uses and scales only the selected 
  }finally{s.close();}
 });
 
+
+test('workspace shows only explicitly confirmed spell slot counters, including Pact Magic',()=>{
+ const cases=[
+  {classId:'wizard',level:3,resourceId:'class-wizard-slot-1',max:4,lookalike:'class-wizard-slot-2'},
+  {classId:'warlock',level:2,resourceId:'class-warlock-pact-slots',max:2,lookalike:'class-warlock-slot-1'},
+ ];
+ for(const {classId,level,resourceId,max,lookalike} of cases){
+  const s=openStore(':memory:',{classAdvancement:true});
+  try{
+   prepare(s,classId,level);
+   const manual={id:lookalike,name:'Ячейки 1 круга',current:1,max:4};
+   const bound={id:'player-named-slot',name:'Запас магии',current:1,max};
+   s.saveCharacterSheet(fields(s,{sheet:{...s.read().characterSheet,counters:[manual,bound]}}));
+   assert.deepEqual(s.read().spellSlotCounterIds,[]);
+   const command=fields(s,{classId,bindings:[{resourceId,counterId:bound.id}],create:[]});
+   const snapshot=s.bindClassResources(command);
+   assert.deepEqual(snapshot.spellSlotCounterIds,[bound.id]);
+   assert.deepEqual(s.bindClassResources(command).spellSlotCounterIds,[bound.id]);
+   const next=s.changeCharacterCounter(fields(s,{counterId:bound.id,delta:-1}));
+   assert.deepEqual(next.spellSlotCounterIds,[bound.id]);
+   assert.deepEqual(next.characterSheet.counters,[manual,{...bound,current:0}]);
+  }finally{s.close();}
+ }
+});
+
 test('binding requires explicit unique targets and exact baseline maxima; no names are inferred',()=>{
  const s=openStore(':memory:',{classAdvancement:true});try{
   prepare(s,'cleric',5);s.saveCharacterSheet(fields(s,{sheet:{...s.read().characterSheet,counters:[{id:'manual-channel',name:'Божественный канал',current:0,max:2}]}}));const before=s.read(),q=fields(s,{classId:'cleric',bindings:[{resourceId:'class-cleric-channel',counterId:'manual-channel'}],create:[]});
