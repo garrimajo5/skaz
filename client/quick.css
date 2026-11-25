@@ -363,6 +363,9 @@ body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
  .quick-state .resource-dots{flex-wrap:nowrap}
 }
 
+#dialog .list-row:has(> [data-resource-undo]) { flex-wrap: wrap; }
+#dialog .list-row > [data-resource-undo] { flex: none; white-space: nowrap; }
+
 /* Readable secondary labels without shrinking critical state text. */
 .play-screen .tag,.play-screen small,.quick-state small,.quick-state .resource-name{font-size:12px}
 .play-screen .play-spell-copy small{font-size:13px}
