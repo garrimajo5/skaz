@@ -51,10 +51,12 @@ test('the shared workspace keeps the session number in headings and uses the sav
  const h=harness({hash:'#spells'});
  h.run("state.profile.name='Мирен';SkazStorage.currentSession=()=>({name:'',number:1});SkazStorage.sessionTitle=()=> 'Сессия 1';render();");
  assert.equal(h.get('#workspace-session-name').textContent,'Сессия 01');
+ assert.equal(h.get('#workspace-session-name').title,'Сессия 01');
  assert.equal(h.get('#session-name-label').textContent,'Мирен · Сессия 01');
  assert.match(h.get('#main').innerHTML,/<p class="play-session">Сессия 01<\/p>/);
  h.run("SkazStorage.currentSession=()=>({name:'<Башня>',number:2});SkazStorage.sessionTitle=()=> '<Башня>';SkazStorage.sessionDate=()=> '2026-11-24';render();");
  assert.equal(h.get('#workspace-session-name').textContent,'<Башня>');
+ assert.equal(h.get('#workspace-session-name').title,'<Башня>');
  assert.equal(h.get('#session-name-label').textContent,'Мирен · Сессия 02 · <Башня> · 2026-11-24');
  assert.match(h.get('#main').innerHTML,/<p class="play-session">Сессия 02 · &lt;Башня&gt;<\/p>/);
  assert.equal(h.get('#workspace-session-date').dateTime,'2026-11-24');

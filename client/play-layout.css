@@ -318,7 +318,7 @@ body[data-theme="polar"] .play-effects {
 
   .workspace-summary:not([hidden]) {
     display: grid;
-    gap: 16px;
+    gap: 12px;
     flex: none;
     margin-block-start: auto;
     padding-block: 16px 8px;
@@ -338,6 +338,10 @@ body[data-theme="polar"] .play-effects {
     font-size: var(--ui-small);
   }
   .workspace-session-card strong {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     font: 17px 'PT Serif', Georgia, serif;
   }
   .workspace-session-card time {
@@ -511,6 +515,7 @@ body[data-theme="polar"] .play-effects {
     padding-block: 13px 3px;
     padding-inline-end: calc(var(--workspace-tools-width) + 12px);
   }
+  body[data-page="play"] .shell:has(.play-session) > header #session-name-label { display: none; }
   body[data-page="play"] .play-heading #play-edit { flex: none; }
   body[data-page="play"] .play-session {
     font-size: 11px;
@@ -547,7 +552,6 @@ body[data-theme="polar"] .play-effects {
   #workspace-campaign-settings:hover { color: var(--accent); border-color: var(--line); }
   body[data-page="play"] .play-hero-band { min-block-size: 92px; }
   body[data-page="play"] .play-hero-subclass { display: inline; }
-  body[data-page="play"] .shell:has(.play-session) > header #session-name-label { display: none; }
   body[data-page="play"] .play-hero-band:has(.play-gold) {
     grid-template-columns: minmax(0, 1fr) 13.5% minmax(24px, max-content) minmax(0, 1.17fr) 19%;
     column-gap: 16px;
