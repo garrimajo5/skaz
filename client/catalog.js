@@ -434,12 +434,18 @@ const SkazCatalog = (() => {
       if(['catalog-detail-title','catalog-body-title','catalog-material-title','catalog-links-title','catalog-source-title'].includes(id)){
         const target=document.getElementById(id);
         if(target){
+          const content=document.getElementById('dialog-content');
+          if(id==='catalog-detail-title'&&referenceReturn?.label){
+            content.scrollTop=0;
+            target.focus({preventScroll:true});
+            return;
+          }
           if(id==='catalog-source-title')target.parentElement.open=true;
           const toolbar=document.querySelector('#dialog .catalog-reference-navigation');
           const nav=document.querySelector('#dialog .catalog-reader-nav');
           // Measure the sticky element on each jump because the available space can change.
           const sticky=[toolbar,nav].find(element=>element&&getComputedStyle(element).position==='sticky');
-          const padding=sticky?parseFloat(getComputedStyle(document.getElementById('dialog-content')).paddingTop)||0:0;
+          const padding=sticky?parseFloat(getComputedStyle(content).paddingTop)||0:0;
           const reserved=sticky?sticky.getBoundingClientRect().height+padding:0;
           target.style.scrollMarginTop=(reserved+16)+'px';
           target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'instant'});
