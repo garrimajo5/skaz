@@ -500,11 +500,17 @@ body[data-theme="polar"] .play-effects {
   }
   body[data-page="play"] .play-heading {
     min-height: var(--workspace-heading-height);
+    flex-wrap: nowrap;
     background: var(--workspace-heading-bg, var(--bg));
     padding-block: 13px 3px;
     padding-inline-end: calc(var(--workspace-tools-width) + 12px);
   }
+  body[data-page="play"] .play-heading > div { flex: 1; }
+  body[data-page="play"] .play-heading #play-edit { flex: none; }
   body[data-page="play"] .play-session {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     font-size: 11px;
     letter-spacing: .1em;
     text-transform: uppercase;
