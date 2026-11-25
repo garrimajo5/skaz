@@ -81,9 +81,11 @@ const SkazPlayPresentation = (() => {
    * @param {string} label
    * @param {string} [cost]
    * @param {string} [warning]
+   * @param {boolean} [hasFixedPrice] The cost is known before opening the action.
    */
-  function commandCopy(label, cost = '', warning = '') {
-    const price = cost ? `<small class="play-cost">${escape(cost)}</small>` : '';
+  function commandCopy(label, cost = '', warning = '', hasFixedPrice = false) {
+    const caption = hasFixedPrice && cost ? '<small class="play-price-caption" aria-hidden="true">Цена</small>' : '';
+    const price = cost ? `${caption}<small class="play-cost">${escape(cost)}</small>` : '';
     const caution = warning ? `<small class="play-cast-warning">${escape(warning)}</small>` : '';
     return `${price}<span class="play-command-label">${escape(label)}</span>${caution}`;
   }

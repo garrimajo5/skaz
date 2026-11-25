@@ -19,7 +19,7 @@ test('play art keeps spell circle, stable action IDs and item quantity independe
  const item={catalogId:'potion',quantity:2,entry:{id:'potion',kind:'item',name:{ru:'Potion'},item:{type:'potion'}}};
  await loaded(h,[s],[item]);const html=h.get('play-content').innerHTML;
  assert.match(html,/data-skaz-art="fireball"/);assert.match(html,/aria-label="3 круг">3/);assert.match(html,/data-play-cast="fireball"/);
- assert.match(html,/data-skaz-art="potion"/);assert.match(html,/×2/);assert.match(html,/data-play-spend="potion"[^>]*><small class="play-cost">1 предмет<\/small><span class="play-command-label">Списать<\/span>/);
+ assert.match(html,/data-skaz-art="potion"/);assert.match(html,/×2/);assert.match(html,/data-play-spend="potion"[^>]*><small class="play-price-caption" aria-hidden="true">Цена<\/small><small class="play-cost">1 предмет<\/small><span class="play-command-label">Списать<\/span>/);
  assert.equal(h.requests.filter(r=>r.kind==='search').length,0);assert.equal(h.casts.length,0);assert.equal(h.spends.length,0);
  await h.click('',{playRead:'item',id:'potion'});assert.equal(h.reads[0][0],item.entry);
 });
@@ -326,6 +326,7 @@ test('Quick Access keeps the real session number, title and legacy fallback',()=
 
 test('cast price follows the selected command, with distinct free and manual paths',async()=>{
  const h=harness(),free=spell('Free',0),paid=spell('Paid',1),exhausted=spell('Exhausted',4);
+ paid.entry.spell.castingTime='1 действие';
  await loaded(h,[free,paid,exhausted]);
  let html=h.get('play-content').innerHTML;
  assert.match(html,/Применить: Free · Без ячейки/);
@@ -335,7 +336,10 @@ test('cast price follows the selected command, with distinct free and manual pat
  html=h.get('play-content').innerHTML;
  assert.match(html,/Сотворить: Paid · 1 ячейка · 3 круг/);
  assert.match(html,/data-level="3" aria-pressed="true" aria-label="3 круг · осталось 1"/);
- assert.match(html,/<small class="play-cost">1 ячейка<\/small><span class="play-command-label">Сотворить<\/span>/);
+ assert.match(html,/<small class="play-price-caption" aria-hidden="true">Цена<\/small><small class="play-cost">1 ячейка<\/small><span class="play-command-label">Сотворить<\/span>/);
+ assert.match(html,/<h3 class="play-action-heading">Действие<\/h3>/);
+ assert.match(html,/<small class="play-action-kind" aria-hidden="true">Действие<\/small><strong>Paid<\/strong>/);
+ assert.doesNotMatch(html,/<small class="play-price-caption" aria-hidden="true">Цена<\/small><small class="play-cost">нет ячеек/);
  await h.click('',{playCast:'Paid'});
  assert.equal(h.casts[0][1].level,3);
  h.setSheet({level:5,counters:[{current:1}]});

@@ -124,7 +124,8 @@ body[data-theme="polar"] .play-effects {
 .play-action-command:not(:disabled) .play-command-label { color: var(--accent); }
 .play-layout .play-cast-warning { color: var(--warn); }
 .play-layout .play-cast:has(.play-cast-warning) { padding-block: 1px; line-height: 14px; }
-.play-cast-picker, .play-concentration-marker { display: none; }
+.play-cast-picker, .play-concentration-marker,
+.play-spell-copy .play-action-kind, .play-action-command .play-price-caption { display: none; }
 @container (max-width: 410px) {
   .play-layout .play-spell-action { padding: 0 2px 0 3px; gap: 4px; }
   .play-layout .play-spell-action > .play-spell-row { gap: 4px; padding-block: 0; line-height: 1.15; }
@@ -553,6 +554,31 @@ body[data-theme="polar"] .play-effects {
     border-color: var(--accent);
     background: var(--workspace-play-filter-active-bg, var(--raised));
   }
+  body[data-page="play"] .play-spells .play-action-heading {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  body[data-page="play"] .play-spell-action { min-height: 64px; }
+  body[data-page="play"] .play-spell-action > .play-spell-row {
+    min-height: 62px;
+    max-height: none;
+    padding-inline: 7px;
+  }
+  body[data-page="play"] .play-spell-action .play-cast { min-height: 62px; }
+  body[data-page="play"] :is(.play-spell-copy .play-action-kind, .play-action-command .play-price-caption) {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  body[data-page="play"] .play-spell-copy .play-action-kind { margin-block-end: 2px; }
   #play-quick-item-charges:not(:empty) { display: grid; gap: 7px; order: -1; }
   .play-charge-heading { display: flex; gap: 8px; align-items: baseline; justify-content: space-between; }
   .play-charge-heading > div { min-width: 0; }
