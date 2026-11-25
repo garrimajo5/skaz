@@ -62,6 +62,7 @@ const SkazPlay = (()=>{
   const actor=actorView(sheet,stats);
   return SkazPlayPresentation.screen({
    ...actor,
+   session:SkazPlayPresentation.sessionCaption(SkazStorage.currentSession?.(),actor.session),
    initiative:stats.initiative,
    speed:stats.speed,
    checks:SkazCharacterSheet.abilityRow(stats,sheet),
