@@ -248,7 +248,7 @@ function restoreHealthDialogFocus() {
  if (replacement && !replacement.disabled) replacement.focus({preventScroll: true});
 }
 function closeModal(){if(typeof SkazCampaign==='undefined'||SkazCampaign.allowClose())$('#dialog').close()}
-let toastTimer,toastVersion=0;function toast(text,undo,{error=false,persistent=false}={}){clearTimeout(toastTimer);const version=++toastVersion;let used=false;$('#toast').dataset.kind=error?'error':'success';$('#toast').innerHTML=`<span>${esc(text)}</span>${undo?'<button id="undo">Отменить</button>':''}`;$('#toast').classList.add('show');if(undo)$('#undo').onclick=()=>{if(used||version!==toastVersion)return;used=true;clearTimeout(toastTimer);$('#undo').disabled=true;$('#toast').classList.remove('show');return undo()};if(!persistent)toastTimer=setTimeout(()=>{if(version===toastVersion){toastVersion++;$('#toast').classList.remove('show')}},undo?12000:5000)}
+let toastTimer,toastVersion=0;function toast(text,undo,{error=false,persistent=false}={}){clearTimeout(toastTimer);const version=++toastVersion;let used=false;$('#toast').dataset.kind=error?'error':'success';$('#toast').innerHTML=`<span${persistent?' tabindex="0"':''}>${esc(text)}</span>${undo?'<button id="undo">Отменить</button>':''}`;$('#toast').classList.add('show');if(undo)$('#undo').onclick=()=>{if(used||version!==toastVersion)return;used=true;clearTimeout(toastTimer);$('#undo').disabled=true;$('#toast').classList.remove('show');return undo()};if(!persistent)toastTimer=setTimeout(()=>{if(version===toastVersion){toastVersion++;$('#toast').classList.remove('show')}},undo?12000:5000)}
 function canChange(){
  if(SkazStorage.editable())return true;
  const message='Сначала обнови игру или заверши сохранение. Введённые данные остаются в форме.';
