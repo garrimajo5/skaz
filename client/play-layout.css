@@ -482,6 +482,9 @@ body[data-theme="polar"] .play-effects {
     --workspace-heading-bg: #07151d;
     --workspace-hero-bg: #0e2a35;
     --workspace-nav-active-bg: #15343f;
+    --workspace-nav-active-text: #e4f5f2;
+    --workspace-nav-active-icon: #3bd2c0;
+    --workspace-nav-idle-text: #91a8ad;
     --workspace-session-bg: #0c2631;
     --workspace-session-line: #22424d;
   }
@@ -535,7 +538,16 @@ body[data-theme="polar"] .play-effects {
     max-height: calc(100dvh - var(--workspace-heading-height) - 24px);
   }
   body[data-page="play"] .shell:has(.play-heading) .session-menu-content { top: 100%; }
-  .sidebar nav button { padding-inline: 12px; font-size: 15px; }
+  .sidebar nav button {
+    padding-inline: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--workspace-nav-idle-text, var(--muted));
+  }
+  .sidebar nav button:is(:hover, :focus-visible):not(.active) { color: var(--text); }
+  .sidebar nav button.active { color: var(--workspace-nav-active-text, var(--text)); }
+  .sidebar nav button.active .nav-play-label { color: inherit; }
+  .sidebar nav button.active [data-ui-icon] { color: var(--workspace-nav-active-icon, var(--accent)); }
 }
 
 @media (min-width: 1320px) and (min-height: 900px) and (orientation: landscape) {
