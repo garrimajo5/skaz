@@ -515,4 +515,6 @@ body[data-theme="polar"] .play-effects {
 @media (max-width: 420px) {
   body[data-page="hero"] .statrow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   body[data-page="hero"] .statrow .stat { padding-inline: 8px; overflow-wrap: anywhere; }
+  .play-hero-band:has(.play-gold) .play-effects { grid-column: 1; }
+  .play-gold { grid-column: 2 / -1; justify-self: end; }
 }
