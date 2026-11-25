@@ -588,6 +588,32 @@ body[data-theme="polar"] .play-effects {
     padding-inline: 7px;
   }
   body[data-page="play"] .play-spell-action .play-cast { min-height: 62px; }
+  .play-layout .play-side > .play-consumables {
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+  .play-layout .play-consumables .play-item {
+    min-height: 64px;
+    margin-block-end: 5px;
+    padding-inline-start: 8px;
+    gap: 6px;
+    border: 1px solid var(--workspace-play-card-line, var(--line));
+    border-radius: var(--radius-s);
+    background: var(--workspace-play-card-bg, var(--panel));
+  }
+  .play-layout .play-consumables .play-item > .play-row {
+    min-height: 62px;
+    padding-inline: 7px;
+    background: transparent;
+    border-color: transparent;
+  }
+  .play-layout .play-consumables .play-item > .play-row:hover { border-color: var(--accent); }
+  .play-layout .play-consumables .play-item > .play-action-command {
+    min-height: 62px;
+    border-radius: 0 var(--radius-s) var(--radius-s) 0;
+    background: var(--workspace-play-price-bg, var(--raised));
+  }
   body[data-page="play"] :is(.play-spell-copy .play-action-kind, .play-action-command .play-price-caption) {
     display: block;
     color: var(--muted);
