@@ -144,7 +144,7 @@ button{min-width:var(--touch)}.dialog-close{min-width:var(--touch);min-height:va
  .bottomnav{padding:2px 8px;min-height:48px;height:52px}.bottomnav button{min-height:48px;padding:2px 8px;font-size:0}.bottomnav button span{display:block;font-size:12px}
  .session-menu-content{max-height:calc(100dvh - 72px)}
 }
-#toast button{flex-shrink:0}#toast>span{min-width:0;overflow-wrap:anywhere}
+#toast button{flex-shrink:0}#toast button:focus-visible{outline-color:currentColor}#toast>span{min-width:0;overflow-wrap:anywhere}
 @media(max-width:550px){.page-top .character-edit{max-width:none}.character-edit{flex-direction:row;flex-wrap:wrap;justify-content:flex-start}.character-edit button{flex:0 1 auto}}
 /* Game lists retain one continuous reading position instead of pagination. */
 .play-screen .play-list{display:flex;flex-direction:column;overflow-y:auto;min-height:0;overscroll-behavior:contain;scrollbar-gutter:stable}
