@@ -21,6 +21,15 @@ function harness({hash='#hero',rememberedMode=null,protocol='http:'}={}){
  return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset,classList:{contains:()=>false}})}})};
 }
 
+test('persistent toast content can be reached by keyboard without adding a stop to ordinary confirmations',()=>{
+ const h=harness();
+ h.run("toast('Обычное уведомление',()=>{})");
+ assert.doesNotMatch(h.get('#toast').innerHTML,/<span tabindex=/);
+ assert.match(h.get('#toast').innerHTML,/id="undo"/);
+ h.run("toast('Проверить <данные>',undefined,{error:true,persistent:true})");
+ assert.match(h.get('#toast').innerHTML,/<span tabindex="0">Проверить &lt;данные&gt;<\/span>/);
+});
+
 test('initial links take precedence over remembered Quick Access, which remains the default without a link',()=>{
  assert.equal(harness({hash:'#journal',rememberedMode:'play'}).run('page'),'journal');
  assert.equal(harness({hash:'',rememberedMode:'play'}).run('page'),'play');
