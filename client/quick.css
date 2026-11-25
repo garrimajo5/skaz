@@ -348,6 +348,14 @@ body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
  .quick-state{flex-wrap:nowrap;align-items:center;overflow-x:auto;overflow-y:hidden;max-height:86px;gap:12px}
  .quick-state>*{flex:0 0 auto;max-width:none}
  .quick-state .quick-vitals{flex:0 0 auto;flex-wrap:nowrap}
+ body[data-hp-state=zero] .quick-state .quick-vitals.zero-hp {
+  grid-template-columns: repeat(2, max-content);
+  align-items: center;
+  gap: 4px 8px;
+  min-width: 0;
+  max-width: none;
+ }
+ .quick-state .quick-vitals.zero-hp > strong { width: auto; }
  .quick-state .quick-concentration-row{flex:0 0 170px;width:170px}
  .quick-state .quick-extras{flex-wrap:nowrap}
  .quick-state .quick-resources{width:max-content;flex:0 0 auto!important}
