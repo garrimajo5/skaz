@@ -555,10 +555,14 @@ const SkazStorage = (() => {
   async function campaigns() {
     if (demo || status !== 'ready') return toast('Кампании доступны после подключения и сохранения черновика');
     const key=snapshotKey();
-    modal('<h2>Твои кампании</h2><p>Загружаем список…</p>');
+    modal('<h2>Твои кампании</h2><p role="status">Загружаем список…</p>');
+    const dialog=document.getElementById('dialog'), content=document.getElementById('dialog-content');
+    const loading=content.firstElementChild;
+    const stillLoading=()=>document.getElementById('dialog')===dialog&&dialog.open&&
+      content.firstElementChild===loading&&key===snapshotKey();
     try {
       const data = await request('/api/campaigns');
-      if(key!==snapshotKey())return;
+      if(!stillLoading())return;
       modal(`<div class="overline">D&D 2014 · КАМПАНИИ</div><h2>Кампании и персонажи</h2><p>Выбран: ${esc(state.profile.name)}. Выбор героя сохраняется в этой вкладке и не переключает другие окна. Ресурсы и личные записи у каждого персонажа свои, журнал сессии, задания и карта — общие.</p><div class="settings-actions">${data.campaigns.map((game,index)=>`<section class="panel"><h3>${esc(game.name)}</h3><div class="character-choices">${game.characters.map((character,ci)=>`<button data-select-character="${index}:${ci}" ${character.id===activeContext?.characterId?'disabled':''}>${esc(character.name)}${character.id===activeContext?.characterId?' · Выбран':' <span class="ui-inline-icon" data-ui-icon="arrow-right"></span>'}</button>`).join('')}</div>${game.id===activeContext?.campaignId?'<button id="new-character"><span class="ui-inline-icon" data-ui-icon="add"></span> Персонаж из демо-шаблона</button>':''}</section>`).join('')}<button id="new-campaign" class="primary">Новая кампания из демо-шаблона</button></div>`);
       $$('[data-select-character]').forEach(button=>button.onclick=async()=>{
         if(key!==snapshotKey())return toast('Игра изменилась. Открой список заново.');
@@ -577,7 +581,9 @@ const SkazStorage = (() => {
           try { await campaignCommand('create', { state: next }); } catch (error) { toast(error.message); }
         };
       };
-    } catch { modal('<h2>Не удалось загрузить кампании</h2><p>Проверь соединение и открой список снова.</p>'); }
+    } catch {
+      if(stillLoading())modal('<h2>Не удалось загрузить кампании</h2><p>Проверь соединение и открой список снова.</p>');
+    }
   }
   function queuedInventory(){const snapshot=resourceQueue?.snapshot;if(resourceQueue?.length&&resourceContextMatches()&&snapshot.inventory)return {revision,context:activeContext,entries:snapshot.inventory,undo:null};return null;}
   let inventorySerial=0;
@@ -1166,7 +1172,7 @@ const SkazStorage = (() => {
     if (id === 'edit-stats') editStats();
     if (id === 'edit-resources') editResources();
     if (id === 'session-settings') sessions();
-    if (id === 'campaign-settings') campaigns();
+    if (id === 'campaign-settings' || (id === 'workspace-campaign-settings' && can('select'))) campaigns();
     if(id==='sync-history-chip'||id==='play-history')try{await showResourceHistory();}catch(error){toast(error.message);}
     if (id === 'data-settings') settings();
     if(id==='resource-send')await flushResources();

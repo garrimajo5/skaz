@@ -1,7 +1,7 @@
 /* Quick access uses the existing theme tokens and command controls. */
 .shell > header { grid-column: 1 / -1; }
 .sidebar nav [data-campaign-people-shortcut] { display: none; }
-.workspace-brand, .workspace-summary { display: none; }
+.workspace-brand, .workspace-summary, #workspace-campaign-settings { display: none; }
 .sidebar nav button .nav-play-label {
   width: auto;
   height: auto;
@@ -344,13 +344,20 @@ body[data-theme="polar"] .play-effects {
     color: var(--muted);
     font-size: var(--ui-small);
   }
+  .workspace-player-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-block-start: 1px solid var(--line);
+  }
   .workspace-player-link {
     display: flex;
+    flex: 1;
+    min-width: 0;
     align-items: center;
     gap: 10px;
     min-height: 52px;
     padding-block: 8px;
-    border-block-start: 1px solid var(--line);
     color: var(--text);
   }
   .workspace-player-link:hover { color: var(--accent); }
@@ -531,6 +538,18 @@ body[data-theme="polar"] .play-effects {
     --workspace-portrait-ink: #172332;
   }
   .sidebar nav [data-campaign-people-shortcut]:not([hidden]) { display: flex; }
+  #workspace-campaign-settings:not([hidden]) {
+    display: grid;
+    place-items: center;
+    flex: none;
+    inline-size: var(--touch);
+    min-block-size: var(--touch);
+    padding: 0;
+    border-color: transparent;
+    background: transparent;
+    color: var(--muted);
+  }
+  #workspace-campaign-settings:hover { color: var(--accent); border-color: var(--line); }
   body[data-page="play"] .play-hero-band { min-block-size: 92px; }
   body[data-page="play"] .play-hero-subclass { display: inline; }
   body[data-page="play"] .shell:has(.play-session) > header #session-name-label { display: none; }
@@ -538,7 +557,7 @@ body[data-theme="polar"] .play-effects {
     grid-template-columns: minmax(0, 1fr) 13.5% minmax(24px, max-content) minmax(0, 1.17fr) 19%;
     column-gap: 16px;
   }
-  body[data-page="play"] .play-hero-initial { height: 44px; flex-basis: 44px; }
+  body[data-page="play"] .play-hero-band .play-hero-initial { height: 44px; flex-basis: 44px; }
   body[data-page="play"] .play-hp-summary {
     min-width: 0;
     padding-inline-end: 6px;

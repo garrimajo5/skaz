@@ -163,6 +163,7 @@ function render(){
  $('#workspace-player-initial').textContent=identity.initial;
  $('#workspace-player-name').textContent=actor.heroName;
  $('#workspace-player-class').textContent=identity.character;
+ $('#workspace-campaign-settings').hidden=location.protocol==='file:'||SkazStorage.can?.('select')!==true;
  $('#campaign-name').textContent=state.profile.campaign;
  quick.innerHTML=quickPanel();
  if(page==='campaign'){
