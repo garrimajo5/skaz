@@ -543,7 +543,10 @@ body[data-theme="polar"] .play-effects {
   body[data-page="play"] .play-layout {
     grid-template-columns: minmax(0, 1fr) 300px;
     gap: 32px;
-    padding-block-start: clamp(62px, 8.3dvh, 84px);
+    padding-block-start: clamp(62px, 8dvh, 84px);
+  }
+  body[data-page="play"] .play-actions > h2 { margin-block-end: 4px; }
+  body[data-page="play"] .play-spell-scopes { margin-block-end: 0;
   }
   body[data-page="play"] .play-resources { padding-inline-start: 28px; }
   .play-resources .resource-group .tracker-balance {
