@@ -6,6 +6,7 @@ import {invocationRequiredSpellIds} from './class-invocation-sources.mjs';
 import {unlimitedResourceViews} from './class-unlimited.mjs';
 import {alwaysPreparedOrigins} from './class-subclass-prepared.mjs';
 import {spellLearningMode} from './spell-learning.mjs';
+import {boundSpellSlotCounterIds} from './class-progression.mjs';
 import {buildAdvancementChange,validateAdvancementCommand,validateAdvancementSnapshot,buildResourceBinding,validateResourceBindingCommand} from './class-advancement.mjs';
 import {checkAdvancementCompatibility,setupAdvancement,readAdvancement,persistAdvancement} from './class-advancement-store.mjs';
 import {validateResourceCommand,applyResourceCommand} from './resource-operations.mjs';
@@ -140,7 +141,7 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
       characterStats,
       profileRuleWarnings:ProfileRules.warnings({stats:characterStats,sheet:characterSheet}),
       characterSheet, spellLearning, classSaveBenefits:classSaveBenefits(advancement),classCheckBenefits:classCheckBenefits(advancement),classSkills:advancement?.version===17?rogueSkillView(advancement.rogueSkills,{classId:advancement.classId,level:advancement.level,abilities:characterStats.abilities}):loreSkillView(advancement,characterStats),alwaysPreparedSpellIds:alwaysPreparedOrigins(advancement).map(o=>o.catalogId),unlimitedResources:unlimitedResourceViews(advancement),classGrantedSpellIds:[13,14,15].includes(advancement?.version)?[...new Set([...advancement.spells.map(o=>o.catalogId),...(advancement.version===14?invocationRequiredSpellIds(advancement):[]),...(advancement.version===15?advancement.lore.secrets?.spellIds||[]:[])])]:[11,12].includes(advancement?.version)?[advancement.subclass.bonusCantrip.catalogId]:[],
-      ...(classAdvancement?{advancement}:{}),
+      ...(classAdvancement?{advancement,spellSlotCounterIds:boundSpellSlotCounterIds(advancement)}:{}),
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
   function exportActive(version = 2) {

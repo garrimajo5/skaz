@@ -41,6 +41,23 @@ test('tracker shapes differ without colour and filled marks spend and empty mark
  assert.match(slots,/Ячейка 2 круга, доступна/);assert.match(slots,/Ячейка 2 круга, потрачена/);assert.equal((slots.match(/Ждёт подтверждения сервера/g)||[]).length,1);
 });
 
+
+test('confirmed spell slot uses the same marks as regular slots and a matching manual name stays a diamond',()=>{
+ const counters=[
+  {id:'confirmed-slot',name:'Мои чары',current:1,max:2},
+  {id:'class-wizard-slot-1',name:'Ячейки 1 круга',current:1,max:2},
+ ];
+ const context=vm.createContext({
+  structuredClone,esc:String,
+  SkazStorage:{sheet:()=>({counters}),snapshotKey:()=> 'hero:revision',canResource:()=>true,isSpellSlotCounter:id=>id==='confirmed-slot'},
+ });
+ vm.runInContext(profileRulesSource,context);vm.runInContext(source,context);
+ const html=vm.runInContext('SkazCharacterSheet.controls()',context);
+ assert.match(html,/data-counter-id="confirmed-slot" data-counter-delta="-1"[^>]*><i aria-hidden="true" class="tracker-mark circle available"/);
+ assert.match(html,/data-counter-id="class-wizard-slot-1" data-counter-delta="-1"[^>]*><i aria-hidden="true" class="tracker-mark diamond available"/);
+ assert.match(html,/Мои чары/);
+});
+
 test('hold recovery emits once on release, suppresses ghost click and cancels scrolling or stale context',()=>{
  const events={};let now=0,key='hero-a',clicks=[];const context=vm.createContext({structuredClone,Date:{now:()=>now},document:{addEventListener:(name,handler)=>events[name]=handler},SkazStorage:{snapshotKey:()=>key}});vm.runInContext(profileRulesSource,context);vm.runInContext(source,context);const api=vm.runInContext('SkazCharacterSheet',context);api.bindTrackerGestures();
  const button={dataset:{tracker:'true',resource:'slot2',delta:'-1'},isConnected:true,click(){clicks.push(this.dataset.delta);}},event=(overrides={})=>({pointerId:1,button:0,isPrimary:true,clientX:20,clientY:20,target:{closest:()=>button},preventDefault(){},...overrides});
