@@ -509,6 +509,7 @@ body[data-theme="polar"] .play-effects {
   }
   body[data-page="play"] .play-hero-band { min-block-size: 92px; }
   body[data-page="play"] .play-hero-subclass { display: inline; }
+  body[data-page="play"] .shell:has(.play-session) > header #session-name-label { display: none; }
   body[data-page="play"] .play-hero-band:has(.play-gold) {
     grid-template-columns: minmax(0, 1fr) 13.5% minmax(24px, max-content) minmax(0, 1.17fr) 19%;
     column-gap: 16px;
