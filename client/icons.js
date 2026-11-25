@@ -29,6 +29,7 @@ const SkazIcons=(()=>{
  "school-transmutation": "<path d=\"M3 7h15l-4-4M21 17H6l4 4M3 11V7M21 13v4\"/>",
  "school-unknown": "<path d=\"m12 2 10 10-10 10L2 12zM9 9a3 3 0 0 1 6 0c0 2-3 2-3 4M12 17h.01\"/>"
 };
+ shapes["workspace-crest"]='<path opacity=".55" d="M12 .6 23.4 12 12 23.4 .6 12Z"/><path opacity=".32" d="m6.7 11.9 5.3-5.3 5.3 5.3-5.3 5.3z"/><path d="M15.9 9.6a4.3 4.3 0 0 0-6.2 5.6m4.3-.1 1.3-1.4"/>';
  shapes.refresh='<path d="M20 7a9 9 0 1 0 1 8M20 2v6h-6"/>';
  shapes.close='<path d="m6 6 12 12M18 6 6 18"/>';
  shapes.more='<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>';

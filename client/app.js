@@ -170,14 +170,33 @@ function returnFromCampaign(){
  if(focus)focus.focus({preventScroll:true});
  else if(back.page!=='play')document.getElementById('main').focus({preventScroll:true});
 }
+let healthDialogTrigger = null;
 function modal(html){
  const menu=document.getElementById('session-menu');if(menu)menu.open=false;
  const dialog=$('#dialog'),content=$('#dialog-content');
+ if (!dialog.open) {
+  const trigger = document.activeElement?.closest("#quick-state button[data-health]");
+  healthDialogTrigger = trigger ? {trigger, page, context: SkazStorage.contextKey()} : null;
+ }
  content.innerHTML=html;SkazStorage.decorate?.(content);
  if(!dialog.open)dialog.showModal();
  content.scrollTop=0;
  content.scrollLeft=0;
  content.focus({preventScroll:true});
+}
+function restoreHealthDialogFocus() {
+ const dialog = $('#dialog');
+ if (dialog.open) return;
+ const previous = healthDialogTrigger;
+ healthDialogTrigger = null;
+ // The server can refresh the panel while this dialog is open.
+ if (!previous || previous.trigger.isConnected || previous.page !== page ||
+     previous.context !== SkazStorage.contextKey()) return;
+ const focused = document.activeElement;
+ if (focused !== document.body && !dialog.contains(focused)) return;
+ const replacement = $$("#quick-state button[data-health]").find(button =>
+  button.dataset.health === previous.trigger.dataset.health);
+ if (replacement && !replacement.disabled) replacement.focus({preventScroll: true});
 }
 function closeModal(){if(typeof SkazCampaign==='undefined'||SkazCampaign.allowClose())$('#dialog').close()}
 let toastTimer,toastVersion=0;function toast(text,undo,{error=false,persistent=false}={}){clearTimeout(toastTimer);const version=++toastVersion;let used=false;$('#toast').dataset.kind=error?'error':'success';$('#toast').innerHTML=`<span>${esc(text)}</span>${undo?'<button id="undo">Отменить</button>':''}`;$('#toast').classList.add('show');if(undo)$('#undo').onclick=()=>{if(used||version!==toastVersion)return;used=true;clearTimeout(toastTimer);$('#undo').disabled=true;$('#toast').classList.remove('show');return undo()};if(!persistent)toastTimer=setTimeout(()=>{if(version===toastVersion){toastVersion++;$('#toast').classList.remove('show')}},undo?12000:5000)}
@@ -313,6 +332,7 @@ if(b.dataset?.editConditions!==undefined){editConditions();return;}switch(b.id){
 document.addEventListener('input',e=>{if(e.target.id==='spell-search'){spellQuery=e.target.value;$('#spell-results').innerHTML=spellCards()}});
 document.addEventListener('change',e=>{if(e.target.id==='spell-scope'){spellFilter=e.target.value;$('#spell-results').innerHTML=spellCards()}if(e.target.id==='spell-level'){spellLevel=e.target.value;$('#spell-results').innerHTML=spellCards()}if(e.target.dataset.check){const id=e.target.dataset.check,checked=e.target.checked;change('Обновлён этап задания',()=>{state.checks[id]=checked})}});
 $('#dialog').addEventListener('click',e=>{if(e.target===$('#dialog')){const r=$('#dialog').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeModal()}});
+$('#dialog').addEventListener('close', restoreHealthDialogFocus);
 $('#dialog').addEventListener('cancel',event=>{if(typeof SkazCampaign!=='undefined'&&!SkazCampaign.allowClose())event.preventDefault();});
 window.addEventListener('hashchange',()=>go(location.hash.slice(1)));
 const initialPage=location.hash.slice(1);
