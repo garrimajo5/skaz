@@ -96,6 +96,27 @@ test('the first confirmed game list is usable while the other list waits',async(
  }
 });
 
+test('a later list response restores keyboard focus on already known empty-list actions',async()=>{
+ for(const [known,section] of [['book','spells'],['items','inventory']]){
+  const h=harness(),doc=h.document,root=h.get('play-content');
+  const id='play-prepare-'+section;
+  const makeButton=()=>({id,dataset:{playPrepare:section},closest:()=>root,focus(){doc.activeElement=this;}});
+  let button,markup='';
+  Object.defineProperty(root,'innerHTML',{get:()=>markup,set(value){
+   if(button&&doc.activeElement===button)doc.activeElement=doc.body;
+   markup=value;button=markup.includes('id="'+id+'"')?makeButton():undefined;
+  }});
+  doc.querySelector=s=>s==='.play-screen #'+id?button:null;
+  h.get('dialog').open=false;
+  h.api.view();await tick();
+  h.requests.find(r=>r.kind===known).resolve({entries:[]});await tick();
+  button.focus();const original=button;
+  h.requests.find(r=>r.kind!==known).resolve({entries:[]});await tick();
+  assert.notEqual(button,original);
+  assert.equal(doc.activeElement,button);
+ }
+});
+
 test('an explicit denied fragment clears already shown lists and suppresses late successes',async()=>{
  for(const order of ['success-first','denial-first']){
   const h=harness(),root=h.get('play-content');
