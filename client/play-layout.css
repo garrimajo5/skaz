@@ -507,7 +507,6 @@ body[data-theme="polar"] .play-effects {
   }
   body[data-page="play"] .play-heading {
     min-height: var(--workspace-heading-height);
-    flex-wrap: nowrap;
     background: var(--workspace-heading-bg, var(--bg));
     padding-block: 13px 3px;
     padding-inline-end: calc(var(--workspace-tools-width) + 12px);
@@ -707,7 +706,7 @@ body[data-theme="polar"] .play-effects {
 
 /* Keep the first action in view when the fixed pult takes up a short phone screen. */
 @media (max-width: 420px) and (max-height: 740px) and (orientation: portrait) {
-  body[data-page="play"] .play-heading { flex-wrap: nowrap; padding-block: 4px; }
+  body[data-page="play"] .play-heading { padding-block: 4px; }
   body[data-page="play"] .play-heading #play-edit { white-space: nowrap; }
   body[data-page="play"] .play-hero-band { padding-block: 8px; }
   body[data-page="play"] .play-layout { padding-top: 4px; }
@@ -723,7 +722,8 @@ body[data-theme="polar"] .play-effects {
 }
 
 @media (min-width: 1320px) and (min-height: 600px) and (orientation: landscape),
-       (max-width: 420px) and (max-height: 740px) and (orientation: portrait) {
+       (max-width: 650px) and (orientation: portrait) {
+  body[data-page="play"] .play-heading { flex-wrap: nowrap; }
   body[data-page="play"] .play-heading > div { flex: 1; }
   body[data-page="play"] .play-session {
     overflow: hidden;
