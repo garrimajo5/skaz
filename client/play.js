@@ -330,25 +330,67 @@ const SkazPlay = (()=>{
    }
   }));
  }
+
  function search(initial=''){
-  const captured=SkazStorage.snapshotKey(),openedPage=page,instance=++searchSerial;let request=0,query=initial,results=[];
+  const captured=SkazStorage.snapshotKey(),openedPage=page,instance=++searchSerial;
+  let request=0,results=[];
   const valid=()=>instance===searchSerial&&page===openedPage&&captured===SkazStorage.snapshotKey();
-  const draw=(focusIndex=null)=>{if(!valid())return;modal(`<section id="play-search-panel"><h2>Правила во время игры</h2><form id="play-search-form"><label for="play-search-query">Название RU / EN</label><input id="play-search-query" type="search" maxlength="200" value="${escape(query)}"><button type="submit">Найти</button></form><div id="play-search-results">${results.map((e,i)=>`<button class="play-row" data-play-search-result="${i}">${escape(e.name.ru)} · ${escape(e.name.en)}</button>`).join('')||'<p>Введи название заклинания, предмета или правила.</p>'}</div></section>`);
-   document.getElementById('play-search-form').onsubmit=async event=>{event.preventDefault();if(!valid())return;query=document.getElementById('play-search-query').value.trim();if(!query)return;const token=++request;document.getElementById('play-search-results').textContent='Ищем…';try{const response=await fetch('/api/catalog?'+new URLSearchParams({q:query,limit:'8'}),{cache:'no-store',signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error();const data=await response.json();if(token!==request||!valid()||!document.getElementById('dialog')?.open||!document.getElementById('play-search-panel'))return;results=data.entries;draw();if(!results.length)document.getElementById('play-search-results').textContent='Ничего не найдено. Измени название.';}catch{if(token===request&&valid()&&document.getElementById('play-search-results'))document.getElementById('play-search-results').textContent='Поиск недоступен. Повтори запрос.';}};
-   const buttons=document.querySelectorAll('[data-play-search-result]');
-   for(const button of buttons)button.onclick=()=>{
-    const index=Number(button.dataset.playSearchResult);
-    const entry=results[index];
-    if(!entry||!valid())return;
-    ++request;
-    SkazCatalog.readSnapshot(entry,()=>draw(index),valid,'К поиску');
+  const draw=(value=initial,focusIndex=null)=>{
+   if(!valid())return;
+   modal(`<section id="play-search-panel"><h2>Правила во время игры</h2><form id="play-search-form"><label for="play-search-query">Название RU / EN</label><input id="play-search-query" type="search" maxlength="200" value="${escape(value)}"><button type="submit">Найти</button></form><div id="play-search-results"></div></section>`);
+   const field=document.getElementById('play-search-query');
+   const list=document.getElementById('play-search-results');
+   const paintResults=(selectedIndex=null)=>{
+    list.innerHTML=results.map((entry,index)=>`<button class="play-row" data-play-search-result="${index}">${escape(entry.name.ru)} · ${escape(entry.name.en)}</button>`).join('');
+    const buttons=document.querySelectorAll('[data-play-search-result]');
+    for(const button of buttons)button.onclick=()=>{
+     const index=Number(button.dataset.playSearchResult);
+     const entry=results[index];
+     if(!entry||!valid())return;
+     const draft=field.value;
+     ++request;
+     SkazCatalog.readSnapshot(entry,()=>draw(draft,index),valid,'К поиску');
+    };
+    if(selectedIndex!==null){
+     const selected=buttons[selectedIndex];
+     selected?.focus({preventScroll:true});
+     selected?.scrollIntoView({block:'nearest'});
+    }
    };
-   if(focusIndex!==null){
-    const selected=buttons[focusIndex];
-    selected?.focus({preventScroll:true});
-    selected?.scrollIntoView({block:'nearest'});
-   }
-  };draw();if(initial)document.getElementById('play-search-form').requestSubmit();
+   if(results.length)paintResults(focusIndex);
+   else list.textContent='Введи название заклинания, предмета или правила.';
+   document.getElementById('play-search-form').onsubmit=async event=>{
+    event.preventDefault();
+    const submitted=field.value.trim();
+    if(!valid()||!submitted)return;
+    const token=++request;
+    results=[];
+    list.textContent='Ищем…';
+    let found;
+    try{
+     const response=await fetch('/api/catalog?'+new URLSearchParams({q:submitted,limit:'8'}),{cache:'no-store',signal:AbortSignal.timeout(10000)});
+     if(!response.ok)throw Error();
+     const data=await response.json();
+     if(Array.isArray(data.entries))found=data.entries;
+    }catch{
+     found=undefined;
+    }
+    if(token!==request||!valid()||!document.getElementById('dialog')?.open||list!==document.getElementById('play-search-results'))return;
+    if(field.value.trim()!==submitted){
+     list.textContent='Запрос изменён. Нажми «Найти».';
+     return;
+    }
+    if(!found){
+     list.textContent='Поиск недоступен. Повтори запрос.';
+     return;
+    }
+    results=found;
+    if(results.length)paintResults();
+    else list.textContent='Ничего не найдено. Измени название.';
+   };
+  };
+  draw();
+  if(initial)document.getElementById('play-search-form').requestSubmit();
  }
  document.addEventListener('submit',event=>{if(event.target.id==='header-search'){event.preventDefault();search(document.getElementById('header-search-query').value.trim());}});
  document.addEventListener('scroll',event=>{
