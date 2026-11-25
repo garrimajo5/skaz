@@ -500,7 +500,10 @@ body[data-theme="polar"] .play-effects {
     --workspace-play-health-adjust-bg: #14333e;
     --workspace-play-damage-bg: #593336;
     --workspace-play-heal-bg: #14323d;
-    background: #081821;
+    background: radial-gradient(ellipse 39% 312px at 81% 198px, #0d2632 20%, #0a202a 62%, transparent 100%), #081821;
+  }
+  body[data-theme="polar"][data-page="play"] :is(.play-heading h1, .play-actions > h2, .play-resources > h2, .play-hero-name strong) {
+    color: #f2eadc;
   }
   html:has(body[data-page="play"] .play-heading) { --workspace-heading-height: 78px; }
   body[data-page="play"] .shell:has(.play-heading) {
