@@ -1175,7 +1175,9 @@ test('enabled advancement downloads v13 without confusing schema version with ga
 test('session header uses confirmed sequence for unnamed sessions and preserves supplied names',async()=>{
  let current={...payload(0),session:{name:null,playedOn:null},sessionNumber:3};
  const h=harness(memory(),memory(),async()=>response(current));await h.api.boot();assert.equal(h.api.sessionTitle(),'Сессия 3');
+ assert.deepEqual({...h.api.currentSession()},{name:'',number:3});
  current={...current,session:{name:'Маяк',playedOn:'2026-11-12'}};await h.api.boot();assert.equal(h.api.sessionTitle(),'Маяк');
+ assert.deepEqual({...h.api.currentSession()},{name:'Маяк',number:3});
 });
 
 test('learning policy and legacy spell marks survive offline resource queue reload',async()=>{

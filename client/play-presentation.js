@@ -55,6 +55,16 @@ const SkazPlayPresentation = (() => {
 
 
   /**
+   * @param {{name: string, number: number|null} | undefined} session
+   * @param {string} fallback
+   */
+  function sessionCaption(session, fallback) {
+    if (!session || typeof session.number !== 'number' || !Number.isSafeInteger(session.number) || session.number < 1) return fallback;
+    const index = 'Сессия ' + String(session.number).padStart(2, '0');
+    return session.name ? index + ' · ' + session.name : index;
+  }
+
+  /**
    * @param {string} title
    * @param {string} session
    * @param {string} actions Trusted markup from the current page renderer.
@@ -86,6 +96,8 @@ const SkazPlayPresentation = (() => {
   /** @param {WorkspaceActor} view */
   function actorBand(view) {
     const {character, initial} = identityCopy(view);
+    const effects = view.conditions.map(condition => `<span class="play-condition-effect">${escape(condition)}</span>`);
+    if (view.concentration) effects.unshift(`<span class="play-concentration-effect"><span class="ui-inline-icon" data-ui-icon="focus" aria-hidden="true"></span><span class="visually-hidden">Концентрация </span>${escape(view.concentration)}</span>`);
     return `<div class="play-hero-band" role="group" aria-label="Состояние активного персонажа">
         <div class="play-hero-name">
           <span class="play-hero-initial" aria-hidden="true">${escape(initial)}</span>
@@ -94,7 +106,7 @@ const SkazPlayPresentation = (() => {
         <div class="play-hp-summary"><small>Хиты</small><strong>${escape(view.hp)}<span> / ${escape(view.maxHp)}</span></strong><progress value="${escape(view.hp)}" max="${escape(view.maxHp)}" aria-hidden="true"></progress>${view.tempHp ? `<small>+${escape(view.tempHp)} временных</small>` : ''}</div>
         <div><small>КД</small><strong>${escape(view.armorClass)}</strong></div>
         <div class="play-effects"><small>Состояния и эффекты</small>
-          <div>${[view.concentration, ...view.conditions].filter(effect => !!effect).map(effect => `<span>${escape(effect || '')}</span>`).join('') || '<span>Без отмеченных эффектов</span>'}</div>
+          <div>${effects.join('') || '<span>Без отмеченных эффектов</span>'}</div>
         </div>
         ${typeof view.gold === 'number' ? `<div class="play-gold"><small>Кошелёк</small><strong>${escape(view.gold)} зм</strong></div>` : ''}
       </div>`;
@@ -166,5 +178,5 @@ const SkazPlayPresentation = (() => {
       text:manual.level+' круг · без расхода ячейки.'+agreement+(manual.reason?' '+manual.reason:'')};
   }
 
-  return {castCost, commandCopy, healthAmount, identityCopy, prepare, resources, screen, note};
+  return {castCost, commandCopy, healthAmount, identityCopy, sessionCaption, prepare, resources, screen, note};
 })();

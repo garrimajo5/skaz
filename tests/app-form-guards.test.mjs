@@ -59,6 +59,17 @@ test('profile and inventory render the same escaped hero and a single resource m
  }
 });
 
+test('workspace band keeps typed concentration and conditions separate from hero resources',()=>{
+ const h=harness();
+ h.run("state.concentration='<Иллюзия>';state.conditions={active:['poisoned'],exhaustion:0};");
+ const content=h.run('hero()');
+ assert.match(content,/class="play-concentration-effect"[^>]*>[\s\S]*data-ui-icon="focus"[\s\S]*Концентрация [\s\S]*&lt;Иллюзия&gt;/);
+ assert.match(content,/class="play-condition-effect">Отравлен<\/span>/);
+ assert.doesNotMatch(content,/<Иллюзия>|Без отмеченных эффектов/);
+ h.run('state.concentration=null;state.conditions={active:[],exhaustion:0};');
+ assert.match(h.run('hero()'),/Без отмеченных эффектов/);
+});
+
 test('the shared hero page keeps manual-rule warnings and recovery status',()=>{
  const h=harness();
  h.run("state.profile.name='QA Герой';const baseStats=SkazStorage.stats();SkazStorage.stats=()=>({...baseStats,abilities:{...baseStats.abilities,dex:31}});SkazStorage.profileEditorsAvailable=()=>false;");
