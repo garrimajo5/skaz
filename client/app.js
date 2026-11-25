@@ -155,7 +155,9 @@ function render(){
  $('#session-name-label').textContent=[state.profile.name,sessionName,sessionDate].filter(Boolean).join(' · ');
  const actor=SkazPlay.actorIdentity();
  const identity=SkazPlayPresentation.identityCopy(actor);
- $('#workspace-session-name').textContent=workspaceSession?.name||sessionName;
+ const sessionCardTitle=$('#workspace-session-name');
+ sessionCardTitle.textContent=workspaceSession?.name||sessionName;
+ sessionCardTitle.title=sessionCardTitle.textContent;
  const workspaceDate=$('#workspace-session-date');
  workspaceDate.textContent=sessionDate;
  workspaceDate.dateTime=sessionDate;
