@@ -36,6 +36,31 @@ test('one charged item presents its numeric remainder and shared maximum without
  assert.equal((html.match(/Указать заряды/g)||[]).length,2);
  assert.equal(h.chargeEdits.length,0);
 });
+test('Quick Access shows a single charged item without rounding, aggregating copies or retaining an old hero result',async()=>{
+ const item=(id='one',count=4,quantity=1,maximum=7)=>({
+  catalogId:id,quantity,chargeCounts:[count],
+  entry:{id,kind:'item',name:{ru:id},item:{type:'wand',charges:{max:maximum}}}
+ });
+ for(const [entries,copy,marks,filled] of [
+  [[item('<one>')],/4 <small>\/ 7<\/small>/,7,4],
+  [[item('zero',0)],/0 <small>\/ 7<\/small>/,7,0],
+  [[item('over',8)],/8 <small>\/ 7<\/small>/,7,7],
+  [[item('unknown',null)],/Не указаны/,0,0],
+  [[item('large',11,1,30)],/11 <small>\/ 30<\/small>/,0,0],
+  [[item('copies',4,2)],/^$/,0,0],
+  [[item('one'),item('other')],/^$/,0,0],
+ ]){
+  const h=harness(),summary=h.get('play-quick-item-charges');
+  await loaded(h,[],entries);
+  assert.match(summary.innerHTML,copy);
+  assert.doesNotMatch(summary.innerHTML,/<one>/);
+  assert.equal((summary.innerHTML.match(/<\/span>/g)||[]).length,marks===0?(summary.innerHTML?1:0):marks+1);
+  assert.equal((summary.innerHTML.match(/class="filled"/g)||[]).length,filled);
+  h.context('new hero');h.api.view();await tick();
+  assert.equal(summary.innerHTML,'');
+ }
+});
+
 const spell=(id,level=1,status='prepared')=>({catalogId:id,status,entry:{id,name:{ru:id,en:id},spell:{level}}});
 async function loaded(h,book=[],items=[]){h.api.view();await tick();h.requests.find(r=>r.kind==='book').resolve({entries:book});h.requests.find(r=>r.kind==='items').resolve({entries:items});await tick();}
 

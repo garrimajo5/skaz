@@ -58,6 +58,7 @@ const SkazPlay = (()=>{
  function view(){
   const next=SkazStorage.snapshotKey();if(next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];quests=[];questError=false;++serial;}
   if(status==='idle'){status='loading';const token=serial;queueMicrotask(()=>{if(token===serial&&active())load();});}
+  renderChargeTracker();
   const stats=SkazStorage.stats(),sheet=SkazStorage.sheet?.();
   const actor=actorView(sheet,stats);
   return SkazPlayPresentation.screen({
@@ -210,7 +211,22 @@ const SkazPlay = (()=>{
   if(!activeQuests.length)return '<section class="panel play-empty"><button data-play-prepare="quests">'+(questError?'Задания недоступны · открыть <span class="ui-inline-icon" data-ui-icon="arrow-right"></span>':'Выбрать задание <span class="ui-inline-icon" data-ui-icon="arrow-right"></span>')+'</button></section>';
   return '<section class="panel play-quests"><h2>Текущие задания</h2><div class="play-list" tabindex="0" role="region" aria-label="Текущие задания" data-play-list="quests">'+activeQuests.map(q=>'<button class="play-row" data-play-prepare="quests"><strong>'+escape(q.title)+'</strong><span>'+escape(q.steps.find(s=>!s.done)?.title||'Все этапы отмечены')+'</span></button>').join('')+'</div></section>';
  }
- function refresh(){if(!active()||key!==SkazStorage.snapshotKey())return;const root=document.getElementById('play-content');if(root){captureFocus();root.innerHTML=content(actorLevel(SkazStorage.sheet?.()));restoreFocus();document.querySelectorAll('[data-play-list]').forEach(list=>{list.scrollTop=scrollPositions[list.dataset.playList]||0;});}}
+ function renderChargeTracker(){
+  const root=document.getElementById('play-quick-item-charges');
+  if(!root)return;
+  root.innerHTML='';
+  if(status!=='ready'||typeof SkazItemCharges==='undefined')return;
+  const charged=items.filter(item=>SkazItemCharges.maximum(item.entry));
+  if(charged.length!==1||charged[0].quantity!==1)return;
+  const item=charged[0],balance=SkazItemCharges.balance(item,0);
+  if(!balance)return;
+  const {value,maximum}=balance;
+  const numeric=value===null?'Не указаны':escape(value)+' <small>/ '+escape(maximum)+'</small>';
+  const marks=value!==null&&maximum<=12?'<div class="play-charge-marks" aria-hidden="true">'+Array.from({length:maximum},(_,i)=>'<span'+(i<value?' class="filled"':'')+'></span>').join('')+'</div>':'';
+  root.innerHTML='<div class="play-charge-heading"><div><strong class="tracker-name">'+escape(item.entry.name.ru)+'</strong><small>Заряды</small></div><span class="tracker-balance play-charge-balance">'+numeric+'</span></div>'+marks;
+ }
+
+ function refresh(){if(!active()||key!==SkazStorage.snapshotKey())return;renderChargeTracker();const root=document.getElementById('play-content');if(root){captureFocus();root.innerHTML=content(actorLevel(SkazStorage.sheet?.()));restoreFocus();document.querySelectorAll('[data-play-list]').forEach(list=>{list.scrollTop=scrollPositions[list.dataset.playList]||0;});}}
  async function load(retryButton){
   const token=++serial,captured=key;
   const focusAnchor=retryButton&&document.activeElement===retryButton?document.getElementById('play-content'):null;
