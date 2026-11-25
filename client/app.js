@@ -391,6 +391,18 @@ function editProfile(){
 SkazStorage.boot();
 
 // Reserve the measured bars, including wrapping and safe-area padding.
+$('#quick-state').addEventListener('focusin', event => {
+ const panel = event.currentTarget, button = event.target;
+ if (!button.matches('button:focus-visible') || panel.scrollWidth <= panel.clientWidth || getComputedStyle(panel).overflowX !== 'auto') return;
+ requestAnimationFrame(() => {
+  if (document.activeElement !== button) return;
+  const bounds = button.getBoundingClientRect();
+  const start = panel.getBoundingClientRect().left + panel.clientLeft;
+  const end = start + panel.clientWidth;
+  if (bounds.left < start) panel.scrollLeft += bounds.left - start - 4;
+  else if (bounds.right > end) panel.scrollLeft += bounds.right - end + 4;
+ });
+});
 if(typeof ResizeObserver!=='undefined'){
  const measure=()=>{const bar=document.getElementById('quick-state'),nav=document.querySelector('.bottomnav');const navHeight=nav&&getComputedStyle(nav).display!=='none'?nav.getBoundingClientRect().height:0;document.documentElement.style.setProperty('--nav-height',navHeight+'px');document.documentElement.style.setProperty('--bottom-reserve',(bar&&getComputedStyle(bar).getPropertyValue('--pult-side').trim()!=='1'?bar.getBoundingClientRect().height:0)+navHeight+24+'px');};
  const observer=new ResizeObserver(measure);for(const el of [document.getElementById('quick-state'),document.querySelector('.bottomnav')])if(el)observer.observe(el);window.addEventListener('resize',measure);measure();
