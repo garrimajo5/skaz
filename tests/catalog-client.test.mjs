@@ -615,3 +615,14 @@ test('game reference marks existing spell, creature and item facts for the compa
   assert.ok(returned);
  }
 });
+
+test('the game reader goes to the actual top and keeps the heading focused',()=>{
+ const h=harness();
+ h.readSnapshot(entry,()=>{},()=>true,'К поиску');
+ h.region.scrollTop=117;
+ h.readerToolbarSize(55);
+ h.click('',{catalogSection:'catalog-detail-title'});
+ assert.equal(h.region.scrollTop,0);
+ assert.deepEqual(h.movement.map(([action])=>action),['focus']);
+ assert.equal(h.movement[0][1].preventScroll,true);
+});
