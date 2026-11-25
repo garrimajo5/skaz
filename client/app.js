@@ -147,7 +147,8 @@ function render(){
   main.innerHTML='<div class="panel" role="status"><h1>Открываем твою игру</h1><p>Загружаем сохранённый лист и проверяем доступ.</p></div>';
   return;
  }
- const sessionName=SkazStorage.sessionTitle(),sessionDate=SkazStorage.sessionDate();
+ const sessionTitle=SkazStorage.sessionTitle(),sessionDate=SkazStorage.sessionDate();
+ const sessionName=workspacePage?SkazPlayPresentation.sessionCaption(SkazStorage.currentSession?.(),sessionTitle):sessionTitle;
  $('#session-name-label').textContent=[state.profile.name,sessionName,sessionDate].filter(Boolean).join(' · ');
  const actor=SkazPlay.actorIdentity();
  const identity=SkazPlayPresentation.identityCopy(actor);
