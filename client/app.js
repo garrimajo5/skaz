@@ -4,7 +4,7 @@ let state;try{state={...structuredClone(initial),...JSON.parse(localStorage.getI
 if(location.protocol!=='file:')state=structuredClone(initial);
 state.theme=SkazStorage.preference();
 if(!['polar','coal','atlas'].includes(state.theme))state.theme='polar';
-let campaignReturn=null, campaignEntrySection=null;
+let campaignReturn=null, campaignEntry=null;
 let page='hero',spellFilter='all',spellQuery='',spellLevel='all',place='lighthouse',paused=false;
 const save=()=>SkazStorage.setTheme(state.theme);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -165,9 +165,10 @@ function render(){
  $('#campaign-name').textContent=state.profile.campaign;
  quick.innerHTML=quickPanel();
  if(page==='campaign'){
-  const section=campaignEntrySection;
-  campaignEntrySection=null;
-  SkazCampaign.mount(main,section);
+  const entry=campaignEntry;
+  campaignEntry=null;
+  const focused=document.activeElement;
+  SkazCampaign.mount(main,entry&&{section:entry.section,focus:focused===entry.trigger||focused===document.body});
  }else main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage,play:()=>SkazPlay.view()}[page]||hero)();
  $('#play-quick-slot')?.append(quick);
  $$('[data-page]').forEach(button=>{
@@ -193,12 +194,12 @@ function go(p, campaignSection=null){
   campaignReturn={page,context:SkazStorage.contextKey(),scroll:window.scrollY,target,focusId:focus?.id};
  }else if(page==='campaign' && p!=='campaign') SkazCampaign.unmount();
  page=p;
- campaignEntrySection=p==='campaign'?campaignSection:null;
+ campaignEntry=p==='campaign'&&campaignSection?{section:campaignSection,trigger:document.activeElement}:null;
  if(p!=='campaign')SkazPlay.remember(p);
  history.replaceState(null,'','#'+p);
  render();
  window.scrollTo({top:0,behavior:'instant'});
- if(p==='campaign')document.getElementById('campaign-title')?.focus({preventScroll:true});
+ if(p==='campaign'&&!campaignSection)document.getElementById('campaign-title')?.focus({preventScroll:true});
 }
 function returnFromCampaign(){
  const back=campaignReturn;

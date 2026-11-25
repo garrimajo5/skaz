@@ -294,12 +294,12 @@ const SkazCampaign = (function(){
   }
   /**
    * @param {HTMLElement} main
-   * @param {string | null} initialSection An explicit section requested by the outer navigation.
+   * @param {{section: string, focus: boolean} | null} entry An explicit section requested by the outer navigation.
    */
-  function mount(main, initialSection=null){
+  function mount(main, entry=null){
     const scope=api().scope();
     const existing=main.querySelector('#campaign-screen');
-    const section=initialSection&&Object.hasOwn(sections,initialSection)?initialSection:null;
+    const section=entry&&Object.hasOwn(sections,entry.section)?entry.section:null;
     const replaceScreen=!existing||view.scope?.key!==scope?.key;
     if(replaceScreen){
       ++serial; view={section:section||'overview',query:'',selectedId:null,scope}; version=null;writable=null;
@@ -322,25 +322,28 @@ const SkazCampaign = (function(){
       el('campaign-content').innerHTML=note('Подключись к игре, чтобы открыть кампанию.','status');
       return;
     }
-    if(section&&!replaceScreen){navigate(section);return;}
-    if(writable!==canWrite()){
-      writable=canWrite();draw({renew:true});
+    if(section&&!replaceScreen)navigate(section,null,false);
+    else {
+      if(writable!==canWrite()){
+        writable=canWrite();draw({renew:true});
+      }
+      if(version!==scope.revision){
+        version=scope.revision;
+        void load({holdResults:Boolean(result)});
+      }
     }
-    if(version!==scope.revision){
-      version=scope.revision;
-      void load({holdResults:Boolean(result),focus:Boolean(section)});
-    }
+    if(section&&entry.focus)el('campaign-section-heading')?.focus({preventScroll:true});
   }
   function unmount(){
     ++serial;
     subscriptions?.abort();
     root=null;
   }
-  function navigate(section,person=null){
+  function navigate(section,person=null,focusAfterLoad=true){
     if(!Object.hasOwn(sections,section))return;
     view.section=section;view.selectedId=person;history=null;historyWaiting=false;result=null;failure='';
     draw({renew:true});
-    void load({focus:true});
+    void load({focus:focusAfterLoad});
   }
   function search(event){
     if(event.target.id!=='campaign-search')return;
