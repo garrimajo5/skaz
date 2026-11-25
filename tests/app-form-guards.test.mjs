@@ -96,6 +96,19 @@ test('workspace band keeps typed concentration and conditions separate from hero
  assert.match(h.run('hero()'),/Без отмеченных эффектов/);
 });
 
+test('confirmed session labels are shared by Quick Access and other workspace pages',()=>{
+ const h=harness();
+ h.run("SkazStorage.inventory=()=>{};SkazStorage.currentSession=()=>({number:2,name:'<Север>'});SkazStorage.sessionTitle=()=>'<Север>';render();");
+ for(const route of ['play','hero','spells','inventory','journal','quests']){
+  h.run(`go('${route}')`);
+  assert.match(h.get('#main').innerHTML,/class="play-session">Сессия 02 · &lt;Север&gt;<\/p>/);
+ }
+
+ h.run("SkazStorage.currentSession=()=>({number:null,name:'<Север>'});render();");
+ assert.match(h.get('#main').innerHTML,/class="play-session">&lt;Север&gt;<\/p>/);
+ assert.equal(h.writes.length,0);
+});
+
 test('the shared hero page keeps manual-rule warnings and recovery status',()=>{
  const h=harness();
  h.run("state.profile.name='QA Герой';const baseStats=SkazStorage.stats();SkazStorage.stats=()=>({...baseStats,abilities:{...baseStats.abilities,dex:31}});SkazStorage.profileEditorsAvailable=()=>false;");

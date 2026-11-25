@@ -44,7 +44,7 @@ const SkazPlay = (()=>{
  function actorView(sheet=SkazStorage.sheet?.(),stats=SkazStorage.stats()){
   return {
    ...actorIdentity(sheet),
-   session:SkazStorage.sessionTitle?.()||'',
+   session:SkazPlayPresentation.sessionCaption(SkazStorage.currentSession?.(),SkazStorage.sessionTitle?.()||''),
    hp:state.hp,
    maxHp:state.maxHp,
    tempHp:state.tempHp,
@@ -62,7 +62,6 @@ const SkazPlay = (()=>{
   const actor=actorView(sheet,stats);
   return SkazPlayPresentation.screen({
    ...actor,
-   session:SkazPlayPresentation.sessionCaption(SkazStorage.currentSession?.(),actor.session),
    initiative:stats.initiative,
    speed:stats.speed,
    checks:SkazCharacterSheet.abilityRow(stats,sheet),
