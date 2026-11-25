@@ -36,7 +36,7 @@ test('tracker shapes differ without colour and filled marks spend and empty mark
  const fields={name:'2 круг',label:'Ячейка 2 круга',current:2,max:3,attributes:d=>'data-delta="'+d+'"',pending:[1]};
  const slots=api.tracker({...fields,shape:'circle'}),classResource=api.tracker({...fields,shape:'diamond'});
  assert.match(slots,/tracker-mark circle/);assert.match(classResource,/tracker-mark diamond/);
- assert.match(slots,/<span class="tracker-name">2 круг<\/span> <span class="tracker-balance">2 \/ 3<\/span>/);
+ assert.match(slots,/<span class="tracker-name">2 круг<\/span> <span class="tracker-balance">2 <small class="tracker-maximum">\/ 3<\/small><\/span>/);
  assert.equal((slots.match(/data-delta="-1"/g)||[]).length,2);assert.equal((slots.match(/data-delta="1"/g)||[]).length,1);
  assert.match(slots,/Ячейка 2 круга, доступна/);assert.match(slots,/Ячейка 2 круга, потрачена/);assert.equal((slots.match(/Ждёт подтверждения сервера/g)||[]).length,1);
 });
@@ -86,7 +86,7 @@ test('Champion shows a conditional physical check without changing saves, mental
 
 test('manual excess renders numeric controls even above a zero or small maximum',()=>{
  for(const [current,max] of [[8,7],[1,0]]){
-  const html=controls(current,max);assert.ok(html.includes(current+' / '+max));
+  const html=controls(current,max);assert.ok(html.includes(current+' <small class="tracker-maximum">/ '+max+'</small>'));
   assert.ok(html.includes('data-counter-delta="-1"'));assert.ok(html.includes('data-counter-delta="1"'));
   assert.equal((html.match(/<button /g)||[]).length,2);
  }
