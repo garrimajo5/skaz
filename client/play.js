@@ -333,9 +333,21 @@ const SkazPlay = (()=>{
  function search(initial=''){
   const captured=SkazStorage.snapshotKey(),openedPage=page,instance=++searchSerial;let request=0,query=initial,results=[];
   const valid=()=>instance===searchSerial&&page===openedPage&&captured===SkazStorage.snapshotKey();
-  const draw=()=>{if(!valid())return;modal(`<section id="play-search-panel"><h2>Правила во время игры</h2><form id="play-search-form"><label for="play-search-query">Название RU / EN</label><input id="play-search-query" type="search" maxlength="200" value="${escape(query)}"><button type="submit">Найти</button></form><div id="play-search-results">${results.map((e,i)=>`<button class="play-row" data-play-search-result="${i}">${escape(e.name.ru)} · ${escape(e.name.en)}</button>`).join('')||'<p>Введи название заклинания, предмета или правила.</p>'}</div></section>`);
+  const draw=(focusIndex=null)=>{if(!valid())return;modal(`<section id="play-search-panel"><h2>Правила во время игры</h2><form id="play-search-form"><label for="play-search-query">Название RU / EN</label><input id="play-search-query" type="search" maxlength="200" value="${escape(query)}"><button type="submit">Найти</button></form><div id="play-search-results">${results.map((e,i)=>`<button class="play-row" data-play-search-result="${i}">${escape(e.name.ru)} · ${escape(e.name.en)}</button>`).join('')||'<p>Введи название заклинания, предмета или правила.</p>'}</div></section>`);
    document.getElementById('play-search-form').onsubmit=async event=>{event.preventDefault();if(!valid())return;query=document.getElementById('play-search-query').value.trim();if(!query)return;const token=++request;document.getElementById('play-search-results').textContent='Ищем…';try{const response=await fetch('/api/catalog?'+new URLSearchParams({q:query,limit:'8'}),{cache:'no-store',signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error();const data=await response.json();if(token!==request||!valid()||!document.getElementById('dialog')?.open||!document.getElementById('play-search-panel'))return;results=data.entries;draw();if(!results.length)document.getElementById('play-search-results').textContent='Ничего не найдено. Измени название.';}catch{if(token===request&&valid()&&document.getElementById('play-search-results'))document.getElementById('play-search-results').textContent='Поиск недоступен. Повтори запрос.';}};
-   document.querySelectorAll('[data-play-search-result]').forEach(button=>button.onclick=()=>{const entry=results[Number(button.dataset.playSearchResult)];if(entry&&valid()){++request;SkazCatalog.readSnapshot(entry,draw,valid,'К поиску');}});
+   const buttons=document.querySelectorAll('[data-play-search-result]');
+   for(const button of buttons)button.onclick=()=>{
+    const index=Number(button.dataset.playSearchResult);
+    const entry=results[index];
+    if(!entry||!valid())return;
+    ++request;
+    SkazCatalog.readSnapshot(entry,()=>draw(index),valid,'К поиску');
+   };
+   if(focusIndex!==null){
+    const selected=buttons[focusIndex];
+    selected?.focus({preventScroll:true});
+    selected?.scrollIntoView({block:'nearest'});
+   }
   };draw();if(initial)document.getElementById('play-search-form').requestSubmit();
  }
  document.addEventListener('submit',event=>{if(event.target.id==='header-search'){event.preventDefault();search(document.getElementById('header-search-query').value.trim());}});
