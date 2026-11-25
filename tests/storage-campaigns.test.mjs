@@ -20,7 +20,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { querySelector:get, createElement:()=>({click(){downloads.push(this.download);}}), getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')&&!get('inventory-page').innerHTML.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
-    SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-queued-undo]' ? [get('queued-undo-button')] : selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>{dialog=html;get('dialog').open=true;}, closeModal() {dialog='';get('dialog').open=false;}, toast: (value,undo,options) => {messages.push(value);messageOptions.push(options);},
+    SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-queued-undo]' ? [get('queued-undo-button')] : selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>{dialog=html;get('dialog').open=true;get('dialog-content').firstElementChild={};}, closeModal() {dialog='';get('dialog').open=false;}, toast: (value,undo,options) => {messages.push(value);messageOptions.push(options);},
   });
   vm.runInContext(itemChargesSource,context);
   if(withQueue)vm.runInContext(queueSource,context);
@@ -137,6 +137,31 @@ test('same revision with a different context or a restored older revision is als
   let first=true;const h=harness(memory(),memory(),async()=>response(first?(first=false,payload(4)):remote));
   await h.api.boot();await h.click('sync-check');assert.equal(h.api.editable(),false);assert.match(h.api.contextKey(),/first/);
  }
+});
+
+test('the campaign picker does not open after its loading dialog was dismissed', async () => {
+ const pending=Promise.withResolvers();
+ const h=harness(memory(),memory(),url=>url==='/api/campaigns'?pending.promise:response(payload(0)));
+ await h.api.boot();
+ await h.click('workspace-campaign-settings');
+ assert.match(h.dialog(),/Загружаем список/);
+ h.get('dialog').open=false;
+ pending.resolve(response({campaigns:[]}));
+ await tick();
+ assert.equal(h.get('dialog').open,false);
+});
+
+test('a failed campaign list does not replace a newer dialog', async () => {
+ const pending=Promise.withResolvers();
+ const h=harness(memory(),memory(),url=>url==='/api/campaigns'?pending.promise:response(payload(0)));
+ await h.api.boot();
+ await h.click('campaign-settings');
+ assert.match(h.dialog(),/Загружаем список/);
+ h.api.settings();
+ const newerDialog=h.dialog();
+ pending.reject(new Error('network error'));
+ await tick();
+ assert.equal(h.dialog(),newerDialog);
 });
 
 test('failed creation survives reload and retries the original POST key; pending blocks writes and switching', async () => {

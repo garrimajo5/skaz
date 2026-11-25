@@ -22,10 +22,15 @@
     <strong id="workspace-session-name"></strong>
     <time id="workspace-session-date" hidden></time>
   </div>
-  <a class="workspace-player-link" href="#hero">
-    <span class="play-hero-initial" id="workspace-player-initial" aria-hidden="true"></span>
-    <span><strong id="workspace-player-name"></strong><small id="workspace-player-class"></small></span>
-  </a>
+  <div class="workspace-player-row">
+    <a class="workspace-player-link" href="#hero">
+      <span class="play-hero-initial" id="workspace-player-initial" aria-hidden="true"></span>
+      <span><strong id="workspace-player-name"></strong><small id="workspace-player-class"></small></span>
+    </a>
+    <button type="button" id="workspace-campaign-settings" aria-label="Кампании и персонажи" title="Кампании и персонажи" aria-haspopup="dialog" hidden>
+      <span data-ui-icon="more" aria-hidden="true"></span>
+    </button>
+  </div>
 </section><div class="sidebar-foot"><div class="edition">D&D 5e · 2014</div><p>Твоя история.<br>Ничего не потеряется.</p><button class="text-button" id="about">О прототипе <span class="ui-inline-icon" data-ui-icon="external"></span></button></div></aside><main id="main" tabindex="-1"></main></div>
 <nav class="bottomnav" aria-label="Навигация по игре"><button data-page="play"><span data-ui-icon="play"></span><span class="nav-play-caption">Быстрый доступ</span></button><button data-page="spells"><span data-ui-icon="magic"></span><span>Магия</span></button><button id="catalog-inventory-open" data-page="inventory"><span data-ui-icon="bag"></span><span>Вещи</span></button><button data-page="journal"><span data-ui-icon="journal"></span><span>Журнал</span></button><button data-page="quests"><span data-ui-icon="flag"></span><span>Задания</span></button><button data-page="map" data-campaign-map><span data-ui-icon="map"></span><span>Карта</span></button><button data-page="campaign" data-campaign-entry aria-label="Кампания" hidden><span data-ui-icon="flag"></span><span class="nav-campaign-caption">Кампа&shy;ния</span></button><button data-page="library"><span data-ui-icon="library"></span><span class="nav-library-full">Справочник</span><span class="nav-library-short">Справка</span></button></nav>
 <div id="quick-state-home"><div id="quick-state" class="quick-state" aria-label="Быстрые действия персонажа"></div></div><dialog id="dialog"><div id="dialog-content" tabindex="-1"></div><button class="dialog-close" aria-label="Закрыть"><span data-ui-icon="close"></span></button></dialog><div id="toast" role="status" aria-live="polite"></div><script src="profile-rules.js"></script><script src="conditions.js"></script><script src="icons.js"></script><script src="personal-art-session.js"></script><script src="account.js"></script><script src="health.js"></script><script src="item-charges.js"></script><script src="casting.js"></script><script src="spell-facts.js"></script><script src="resource-queue.js"></script><script src="art-cache.js"></script><script src="art.js"></script><script src="ui.js"></script>
