@@ -254,15 +254,15 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
  .hp-entry .dialog-actions{margin-top:8px}
 }
 
-/* Keep the next health action on screen in low landscape. */
+/* Keep the first dialog action on screen in low landscape. */
 @media (max-height: 320px) and (orientation: landscape) {
- #dialog:has(.hp-entry input[type="number"], .death-actions, #confirm-death) {
+ #dialog:has(.hp-entry input[type="number"], .death-actions, #confirm-death, #play-search-panel) {
   margin: auto;
   width: min(560px, calc(100% - 16px));
   max-height: calc(100dvh - 8px);
   border-radius: var(--radius-l);
  }
- #dialog-content:has(.hp-entry, .death-actions, #confirm-death) { padding: 8px 12px; }
+ #dialog-content:has(.hp-entry, .death-actions, #confirm-death, #play-search-panel) { padding: 8px 12px; }
  .hp-entry {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(112px, 40%);
@@ -276,7 +276,7 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
   margin: 0;
   padding-inline-end: 52px;
  }
- #dialog:has(.hp-entry, .death-actions, #confirm-death) > .dialog-close {
+ #dialog:has(.hp-entry, .death-actions, #confirm-death, #play-search-panel) > .dialog-close {
   inset-block-start: 8px;
   inset-inline-end: 8px;
   width: var(--touch);
@@ -308,6 +308,19 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
   padding-inline-end: 48px;
  }
  #dialog-content:has(> #confirm-death) > h2 { margin-inline-end: 0; }
+ #play-search-panel h2 {
+  margin: 0 52px 4px 0;
+  font-size: 20px;
+  line-height: 1.2;
+ }
+ #play-search-form {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 8px;
+ }
+ #play-search-form label { margin: 0 52px 0 0; }
+ #play-search-form :is(input, button) { min-height: var(--touch); }
+ #play-search-form input { min-width: 0; }
+ #play-search-results { margin-top: 8px; }
 }
 
 .quick-concentration-row.concentration-pending{border:1px solid var(--warn);border-radius:var(--radius-m);padding:8px;flex-wrap:wrap}.concentration-question{display:grid;gap:6px;color:var(--warn);min-width:230px;font-size:14px}.concentration-question>div{display:flex;gap:8px}.concentration-question button{min-height:44px;flex:1;color:var(--text);background:var(--panel)}
