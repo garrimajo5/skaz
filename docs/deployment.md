@@ -1,17 +1,17 @@
-# Текущий выпуск — 7aa60ad, 25.11.2026
+# Текущий выпуск — a70ba97, 25.11.2026
 
-Выпущена [«Магия» в общей оболочке Figma](https://github.com/garrimajo5/skaz/pull/368).
-На точном архиве прошли сборка, три проверки типов и 2 190/2 190 тестов Linux.
-SHA-256 архива `bf807cfe015eeabb936f99aa4272ac961d2087fe47f3604759edcee7814b5863`.
-[Снимки до и после](design/qa/figma-spellbook-shell-252.md), [подтверждение выпуска](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7162639352).
+Опубликованы четыре правки оболочки Figma. Единая подпись сессии, навигация на 320 px,
+фокус фильтров «Магии» и компактная полоса героя собраны в одном выпуске.
+На точном архиве прошли сборка, три проверки типов и 2 192/2 192 тестов Linux.
+SHA-256 архива `8932bebc52c63060fd4cff89df2c4df8a8ba90b36d1526d226d6d7efdb5b8314`.
+[Проверки Edge, Pixel_8 и выпуска](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7162933184).
 
 Из резервной копии восстановлены и сверены 48 таблиц SQLite. По HTTPS подтверждены оба
-входа, изолированная книга, экспорт v15 и точные клиентские файлы. Временный доступ
-и вымышленная игра удалены. Проверка штатной готовности входа прошла до и после очистки.
+входа, изолированная книга, экспорт v15 и пять клиентских файлов. Временный доступ
+и вымышленная игра удалены. Сервис, Nginx и оба таймера активны после очистки.
 Редакторы, повышение и персонажи кампании включены, личный арт выключен.
 
-
-Предыдущие выпуски: [полоса героя и ресурсы `f0d86d4`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7161166893), [карточки, остатки и ввод хитов `4c5f2aa`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7159824462), [знак и фокус `5b649b2`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7158545519), [единая навигация `bb5d2ec`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7157875624), [верхняя зона `b1c53cb`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7147687422), [нижняя навигация `9e14403`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7146901097), [ускорение проверки PNG `965fdb7`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7145442722), [компактные остатки зарядов `8c06020`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7145077330), [имена действий инвентаря `9a0cd36`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7144322620), [компактный выбор круга `4eb182e`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7143945211), [сжатие индекса `af642e4`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7142855569), [миниатюры и узкий инвентарь `debfdc3`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7142236605), [выбор круга `8ebbe8d`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7141163036), [плотность расходников `7639310`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7139981089), [кнопки здоровья `4cc7636`](https://github.com/garrimajo5/skaz/issues/31#issuecomment-7137546052), [системные значки `f7bd297`](https://github.com/garrimajo5/skaz/issues/55#issuecomment-7136355370), [первый запуск справочника `bf92f07`](https://github.com/garrimajo5/skaz/issues/50#issuecomment-7134866255), [поиск `5bd6139`](https://github.com/garrimajo5/skaz/issues/49#issuecomment-7133769223), [ручные заряды `f8d505e`](https://github.com/garrimajo5/skaz/issues/48#issuecomment-7133381809), [ручное сотворение `6a09875`](https://github.com/garrimajo5/skaz/issues/45#issuecomment-7132205232), [прямые ссылки и книга `1eb69f9`](design/qa/navigation-intent-44.md), [единая подпись навигации `c5a5a13`](design/qa/tablet-navigation-42.md), [вкладка «Персонажи» `4f092b8`](https://github.com/garrimajo5/skaz/issues/88#issuecomment-7129239809), [API картотеки `2410183`](https://github.com/garrimajo5/skaz/issues/87#issuecomment-7128279711), [ручной профиль `373d4c5`](https://github.com/garrimajo5/skaz/issues/81#issuecomment-7113442737), [оболочка `2a332ec`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7109218961). Двухчасовая физическая проверка Xiaomi Pad 6 остаётся в #15.
+Предыдущие выпуски: [«Магия» в оболочке Figma `7aa60ad`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7162639352), [полоса героя и ресурсы `f0d86d4`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7161166893), [карточки, остатки и ввод хитов `4c5f2aa`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7159824462), [знак и фокус `5b649b2`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7158545519), [единая навигация `bb5d2ec`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7157875624), [верхняя зона `b1c53cb`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7147687422), [нижняя навигация `9e14403`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7146901097), [ускорение проверки PNG `965fdb7`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7145442722), [компактные остатки зарядов `8c06020`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7145077330), [имена действий инвентаря `9a0cd36`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7144322620), [компактный выбор круга `4eb182e`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7143945211), [сжатие индекса `af642e4`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7142855569), [миниатюры и узкий инвентарь `debfdc3`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7142236605), [выбор круга `8ebbe8d`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7141163036), [плотность расходников `7639310`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7139981089), [кнопки здоровья `4cc7636`](https://github.com/garrimajo5/skaz/issues/31#issuecomment-7137546052), [системные значки `f7bd297`](https://github.com/garrimajo5/skaz/issues/55#issuecomment-7136355370), [первый запуск справочника `bf92f07`](https://github.com/garrimajo5/skaz/issues/50#issuecomment-7134866255), [поиск `5bd6139`](https://github.com/garrimajo5/skaz/issues/49#issuecomment-7133769223), [ручные заряды `f8d505e`](https://github.com/garrimajo5/skaz/issues/48#issuecomment-7133381809), [ручное сотворение `6a09875`](https://github.com/garrimajo5/skaz/issues/45#issuecomment-7132205232), [прямые ссылки и книга `1eb69f9`](design/qa/navigation-intent-44.md), [единая подпись навигации `c5a5a13`](design/qa/tablet-navigation-42.md), [вкладка «Персонажи» `4f092b8`](https://github.com/garrimajo5/skaz/issues/88#issuecomment-7129239809), [API картотеки `2410183`](https://github.com/garrimajo5/skaz/issues/87#issuecomment-7128279711), [ручной профиль `373d4c5`](https://github.com/garrimajo5/skaz/issues/81#issuecomment-7113442737), [оболочка `2a332ec`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7109218961). Двухчасовая физическая проверка Xiaomi Pad 6 остаётся в #15.
 
 ## Как читать этот документ
 
@@ -75,12 +75,20 @@ nginx -t
 5. Под lock атомарно переключить current и перезапустить сервис. Проверить
    HTTPS, внешний 401, личный вход и Secure/HttpOnly/SameSite=Strict cookie,
    health, точную версию, экспорт/сохранность, чужой Origin, нужные сценарии,
-   службы и таймеры. Использовать вымышленный QA-аккаунт; отозвать проверочный сеанс.
+   службы и таймеры.
+   Используй разрешённые QA-аккаунты. Если создаёшь временный личный доступ, закрепи
+   владельца только за его вымышленной кампанией. Проверь готовность входа с этой
+   кампанией и после её удаления на восстановленной копии. Удали временный доступ
+   перед перезапуском и проверь готовность после удаления последнего временного QA-аккаунта.
 6. Записать версию, доказательства, ограничения, backup/restore, флаги и откат
    в текущую сводку; подробный протокол — в отдельный отчёт/PR. Передать smoke QA.
    Released не означает приёмку этапа владельцем.
 
 ## Совместимый откат
+
+При дефекте пакета навигации и фильтров переключи current на `7aa60ad` под deployment lock.
+Используй ту же SQLite, конфигурацию и флаги. После перезапуска проверь оба входа,
+«Магию» и экспорт v15.
 
 Для дефекта общей оболочки «Магии» переключить current на `f0d86d4` под deployment lock с той же SQLite, настройками Nginx и флагами. Проверить оба входа, книгу и экспорт v15 после перезапуска.
 
