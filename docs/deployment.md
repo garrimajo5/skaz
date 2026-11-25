@@ -1,11 +1,11 @@
-# Текущий runtime — b1c53cb, 25.11.2026
+# Текущий runtime — bb5d2ec, 25.11.2026
 
-Выпущена [верхняя зона «Быстрого доступа» по Figma](https://github.com/garrimajo5/skaz/pull/359).
+Выпущена [единая широкая навигация](https://github.com/garrimajo5/skaz/pull/361).
 Linux 2 183/2 183, сборка и типизация прошли. Дерево совпадает со слитым
-`c86f8f8`. SHA-256 архива
-`73534cc1e9400467995969d4533527c4e7f36e82a59dd6feb23cad716e7f3941`.
-[Проверки и снимки](design/qa/figma-workspace-header-252.md).
-[Подтверждение выпуска](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7147687422).
+`7276336`. SHA-256 архива
+`1301537a7d73b58428db927edea5128cad435b48b9210ea67613b4c128c2c245`.
+[Проверки и снимки](design/qa/stable-workspace-nav-252.md).
+[Подтверждение выпуска](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7157875624).
 
 На обеих версиях восстановлены и сверены 48 таблиц SQLite. По HTTPS
 проверены обе ступени входа, вымышленная игра, экспорт v15, картотека,
@@ -13,7 +13,7 @@ HTML приложения и CSS оболочки. Индекс совпал п�
 gzip, 243 037 байт без сжатия). Временные входы и игра удалены.
 Картотека, повышение и редакторы включены, формат v15, личный арт выключен.
 
-Предыдущие выпуски: [нижняя навигация `9e14403`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7146901097), [ускорение проверки PNG `965fdb7`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7145442722), [компактные остатки зарядов `8c06020`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7145077330), [имена действий инвентаря `9a0cd36`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7144322620), [компактный выбор круга `4eb182e`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7143945211), [сжатие индекса `af642e4`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7142855569), [миниатюры и узкий инвентарь `debfdc3`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7142236605), [выбор круга `8ebbe8d`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7141163036), [плотность расходников `7639310`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7139981089), [кнопки здоровья `4cc7636`](https://github.com/garrimajo5/skaz/issues/31#issuecomment-7137546052), [системные значки `f7bd297`](https://github.com/garrimajo5/skaz/issues/55#issuecomment-7136355370), [первый запуск справочника `bf92f07`](https://github.com/garrimajo5/skaz/issues/50#issuecomment-7134866255), [поиск `5bd6139`](https://github.com/garrimajo5/skaz/issues/49#issuecomment-7133769223), [ручные заряды `f8d505e`](https://github.com/garrimajo5/skaz/issues/48#issuecomment-7133381809), [ручное сотворение `6a09875`](https://github.com/garrimajo5/skaz/issues/45#issuecomment-7132205232), [прямые ссылки и книга `1eb69f9`](design/qa/navigation-intent-44.md), [единая подпись навигации `c5a5a13`](design/qa/tablet-navigation-42.md), [вкладка «Персонажи» `4f092b8`](https://github.com/garrimajo5/skaz/issues/88#issuecomment-7129239809), [API картотеки `2410183`](https://github.com/garrimajo5/skaz/issues/87#issuecomment-7128279711), [ручной профиль `373d4c5`](https://github.com/garrimajo5/skaz/issues/81#issuecomment-7113442737), [оболочка `2a332ec`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7109218961). Двухчасовая физическая проверка Xiaomi Pad 6 остаётся в #15.
+Предыдущие выпуски: [верхняя зона `b1c53cb`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7147687422), [нижняя навигация `9e14403`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7146901097), [ускорение проверки PNG `965fdb7`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7145442722), [компактные остатки зарядов `8c06020`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7145077330), [имена действий инвентаря `9a0cd36`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7144322620), [компактный выбор круга `4eb182e`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7143945211), [сжатие индекса `af642e4`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7142855569), [миниатюры и узкий инвентарь `debfdc3`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7142236605), [выбор круга `8ebbe8d`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7141163036), [плотность расходников `7639310`](https://github.com/garrimajo5/skaz/issues/34#issuecomment-7139981089), [кнопки здоровья `4cc7636`](https://github.com/garrimajo5/skaz/issues/31#issuecomment-7137546052), [системные значки `f7bd297`](https://github.com/garrimajo5/skaz/issues/55#issuecomment-7136355370), [первый запуск справочника `bf92f07`](https://github.com/garrimajo5/skaz/issues/50#issuecomment-7134866255), [поиск `5bd6139`](https://github.com/garrimajo5/skaz/issues/49#issuecomment-7133769223), [ручные заряды `f8d505e`](https://github.com/garrimajo5/skaz/issues/48#issuecomment-7133381809), [ручное сотворение `6a09875`](https://github.com/garrimajo5/skaz/issues/45#issuecomment-7132205232), [прямые ссылки и книга `1eb69f9`](design/qa/navigation-intent-44.md), [единая подпись навигации `c5a5a13`](design/qa/tablet-navigation-42.md), [вкладка «Персонажи» `4f092b8`](https://github.com/garrimajo5/skaz/issues/88#issuecomment-7129239809), [API картотеки `2410183`](https://github.com/garrimajo5/skaz/issues/87#issuecomment-7128279711), [ручной профиль `373d4c5`](https://github.com/garrimajo5/skaz/issues/81#issuecomment-7113442737), [оболочка `2a332ec`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7109218961). Двухчасовая физическая проверка Xiaomi Pad 6 остаётся в #15.
 
 ## Как читать этот документ
 
@@ -83,6 +83,10 @@ nginx -t
    Released не означает приёмку этапа владельцем.
 
 ## Совместимый откат
+
+При дефекте широкой навигации вернуться к `b1c53cb` с той же SQLite,
+конфигурацией Nginx и флагами. После переключения проверить оба входа,
+переходы между «Быстрым доступом», «Магией» и «Картой», пульт и сохранение.
 
 При дефекте верхней зоны или боковой навигации вернуться к `9e14403`
 с той же SQLite, конфигурацией Nginx и флагами. После переключения
