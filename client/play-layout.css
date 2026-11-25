@@ -194,13 +194,20 @@ body[data-workspace-shell="shared"] .shell main {
 .play-resources #play-history .ui-icon { width: 16px; height: 16px; }
 
 @media (min-width: 1000px) and (min-height: 600px) and (orientation: landscape) {
-  body[data-workspace-shell="shared"] { --workspace-nav-width: clamp(146px, 14.75vw, 225px); }
-  body[data-workspace-shell="shared"] .shell { grid-template-columns: var(--workspace-nav-width) minmax(0, 1fr); }
-  body[data-workspace-shell="shared"] .shell > header { grid-area: 1 / 2; }
-  body[data-workspace-shell="shared"] .shell > header .brand { display: none; }
-  body[data-workspace-shell="shared"] .shell > main { grid-area: 2 / 2; }
-  body[data-workspace-shell="shared"] #quick-state-home > .quick-state { left: var(--workspace-nav-width); }
-  body[data-workspace-shell="shared"] .sidebar {
+  body {
+    --workspace-nav-width: clamp(146px, 14.75vw, 225px);
+    --workspace-quick-width: 300px;
+  }
+  #toast {
+    left: calc(var(--workspace-nav-width) + var(--workspace-quick-width) + 24px);
+    max-width: calc(100vw - var(--workspace-nav-width) - var(--workspace-quick-width) - 48px);
+    transform: none;
+  }
+  .shell { grid-template-columns: var(--workspace-nav-width) minmax(0, 1fr); }
+  .shell > header { grid-area: 1 / 2; }
+  .shell > header .brand { display: none; }
+  .shell > main { grid-area: 2 / 2; }
+  .sidebar {
     grid-area: 1 / 1 / span 2;
     position: sticky;
     top: 0;
@@ -211,7 +218,7 @@ body[data-workspace-shell="shared"] .shell main {
     padding: 12px clamp(12px, 1.2vw, 18px);
     background: var(--workspace-sidebar-bg, var(--bg));
   }
-  body[data-workspace-shell="shared"] .workspace-brand {
+  .workspace-brand {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -221,7 +228,7 @@ body[data-workspace-shell="shared"] .shell main {
     margin-block-end: 12px;
     padding-inline: 12px;
   }
-  body[data-workspace-shell="shared"] .workspace-brand .brandline {
+  .workspace-brand .brandline {
     display: block;
     margin: 0;
     padding: 0;
@@ -229,10 +236,19 @@ body[data-workspace-shell="shared"] .shell main {
     letter-spacing: normal;
     color: var(--muted);
   }
-  body[data-workspace-shell="shared"] .sidebar nav button { justify-content: flex-start; text-align: left; flex-direction: row; min-height: var(--touch); gap: 8px; padding: 7px; font-size: 13px; overflow-wrap: anywhere; }
-  body[data-workspace-shell="shared"] .sidebar nav button.active { background: var(--workspace-nav-active-bg, var(--raised)); }
-  body[data-workspace-shell="shared"] .sidebar nav button > span:first-child { flex: none; }
-  body[data-workspace-shell="shared"] .sidebar nav button .nav-play-label { flex: 1; justify-items: start; text-align: left; }
+  .sidebar nav button {
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: row;
+    min-height: var(--touch);
+    gap: 8px;
+    padding: 7px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+  .sidebar nav button.active { background: var(--workspace-nav-active-bg, var(--raised)); }
+  .sidebar nav button > span:first-child { flex: none; }
+  .sidebar nav button .nav-play-label { flex: 1; justify-items: start; text-align: left; }
   .play-resources {
     position: sticky;
     top: 68px;
@@ -259,9 +275,11 @@ body[data-workspace-shell="shared"] .shell main {
   .play-resources .resource-dots button:disabled { border: 1px dashed var(--muted); }
   .play-resources .tracker-mark.circle { width: 31px; height: 8px; border-radius: 4px; }
   .play-resources .quick-vitals { padding-top: 8px; border-top: 1px solid var(--line); }
-  body[data-page="play"] #toast { left: 50%; max-width: 90vw; }
+  body[data-page="play"] #toast { left: 50%; max-width: 90vw; transform: translateX(-50%); }
 }
 @media (min-width: 1320px) and (min-height: 600px) and (orientation: landscape) {
+  body { --workspace-wide-gutter: clamp(35px, 3.6vw, 64px); }
+  .shell > header { padding-inline-end: var(--workspace-wide-gutter); }
   body[data-theme="polar"] {
     --workspace-sidebar-bg: #081c27;
     --workspace-heading-bg: #07151d;
@@ -277,13 +295,12 @@ body[data-workspace-shell="shared"] .shell main {
     width: var(--workspace-tools-width);
     height: var(--workspace-heading-height);
     border-bottom: 0;
-    padding-inline-end: clamp(35px, 3.6vw, 64px);
     background: var(--workspace-heading-bg, var(--bg));
   }
   body[data-workspace-shell="shared"][data-page="play"] .shell:has(.play-heading) > main {
     grid-row: 1 / span 2;
   }
-  body[data-page="play"] .play-screen { --play-gutter: clamp(35px, 3.6vw, 64px); }
+  body[data-page="play"] .play-screen { --play-gutter: var(--workspace-wide-gutter); }
   body[data-page="play"] .play-hero-band { background: var(--workspace-hero-bg, var(--panel)); }
   body[data-page="play"] .play-heading {
     min-height: var(--workspace-heading-height);
@@ -301,7 +318,7 @@ body[data-workspace-shell="shared"] .shell main {
     max-height: calc(100dvh - var(--workspace-heading-height) - 24px);
   }
   body[data-page="play"] .shell:has(.play-heading) .session-menu-content { top: 100%; }
-  body[data-workspace-shell="shared"] .sidebar nav button { padding-inline: 12px; font-size: 15px; }
+  .sidebar nav button { padding-inline: 12px; font-size: 15px; }
 }
 
 @media (min-width: 1000px) and (min-height: 600px) and (max-height: 720px) and (orientation: landscape) {
