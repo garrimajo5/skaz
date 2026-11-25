@@ -472,6 +472,10 @@ body[data-theme="polar"] .play-effects {
   }
   body[data-page="play"] .play-screen { --play-gutter: var(--workspace-wide-gutter); }
   body[data-page="play"] .play-hero-band { background: var(--workspace-hero-bg, var(--panel)); }
+  body[data-page="play"] .play-hero-name strong {
+    font-family: 'PT Serif', Georgia, serif;
+    font-weight: 400;
+  }
   body[data-page="play"] .play-heading {
     min-height: var(--workspace-heading-height);
     background: var(--workspace-heading-bg, var(--bg));
