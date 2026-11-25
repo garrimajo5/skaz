@@ -512,12 +512,8 @@ body[data-theme="polar"] .play-effects {
     padding-block: 13px 3px;
     padding-inline-end: calc(var(--workspace-tools-width) + 12px);
   }
-  body[data-page="play"] .play-heading > div { flex: 1; }
   body[data-page="play"] .play-heading #play-edit { flex: none; }
   body[data-page="play"] .play-session {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     font-size: 11px;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -722,6 +718,16 @@ body[data-theme="polar"] .play-effects {
     block-size: 1px;
     overflow: hidden;
     clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1320px) and (min-height: 600px) and (orientation: landscape),
+       (max-width: 420px) and (max-height: 740px) and (orientation: portrait) {
+  body[data-page="play"] .play-heading > div { flex: 1; }
+  body[data-page="play"] .play-session {
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
   }
 }
