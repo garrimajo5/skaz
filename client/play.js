@@ -257,6 +257,10 @@ const SkazPlay = (()=>{
   renderChargeTracker();
   const root=document.getElementById('play-content');
   if(!root)return;
+  const scopes=root.querySelector('[data-play-list="scopes"]');
+  if(scopes && scopes.scrollWidth>scopes.clientWidth) {
+   scrollPositions.scopes=scopes.scrollLeft;
+  }
   captureFocus();
   root.innerHTML=content(actorLevel(SkazStorage.sheet?.()));
   restoreFocus();
