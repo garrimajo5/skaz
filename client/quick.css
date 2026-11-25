@@ -496,7 +496,7 @@ body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
 .temp-hp-chip [data-ui-icon],.temp-hp-chip .ui-icon{color:inherit!important}
 
 /* Keep the title and primary facts in view when reading from Game. */
-@media (max-height: 320px) and (orientation: landscape), (max-width: 480px) and (orientation: portrait) {
+@media (max-height: 500px) and (orientation: landscape), (max-width: 480px) and (orientation: portrait) {
  body[data-page="play"] #dialog:has(.catalog-reference-note) {
   max-height: calc(100dvh - 8px);
  }
@@ -630,5 +630,16 @@ body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
  }
  body[data-page="play"] #dialog-content:has(.catalog-reference-note) .catalog-facts dl {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+ }
+}
+
+/* Standard landscape phones have room for a larger cover in the same layout. */
+@media (min-height: 321px) and (max-height: 500px) and (orientation: landscape) {
+ body[data-page="play"] #dialog-content:has(.catalog-reference-note) #catalog-detail-title {
+  font-size: 24px;
+ }
+ body[data-page="play"] #dialog:has(#catalog-detail-title) #dialog-content:has(.catalog-reference-note) .skaz-art-card {
+  width: 72px;
+  height: 72px;
  }
 }
