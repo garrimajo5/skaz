@@ -396,8 +396,9 @@ body[data-workspace-shell="shared"] .shell main {
     background: color-mix(in srgb, var(--red) 11%, var(--panel));
   }
 }
-@media (max-height: 719px) {
+@media (min-width: 1000px) and (min-height: 600px) and (max-height: 719px) and (orientation: landscape) {
   .workspace-summary:not([hidden]) { display: none; }
+  .sidebar nav { gap: 4px; }
 }
 @media (min-width: 1320px) and (min-height: 600px) and (orientation: landscape) {
   body { --workspace-wide-gutter: clamp(35px, 3.6vw, 64px); }
