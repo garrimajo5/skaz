@@ -77,6 +77,61 @@ test('empty play panels have one preparation action and no blank list or pager',
  await h.click('',{playPrepare:'spells'});assert.equal(h.page(),'spells');
 });
 
+test('the first confirmed game list is usable while the other list waits',async()=>{
+ const potion={catalogId:'potion',quantity:2,entry:{name:{ru:'Зелье'},item:{type:'potion'}}};
+ const supply={book:{entries:[spell('Готовый заговор',0,'known')]},items:{entries:[potion]}};
+ for(const waiting of ['book','items']){
+  const h=harness(),root=h.get('play-content');
+  h.api.view();await tick();
+  const confirmed=waiting==='book'?'items':'book';
+  h.requests.find(r=>r.kind===confirmed).resolve(supply[confirmed]);await tick();
+  assert.match(root.innerHTML,confirmed==='book'?/Готовый заговор/:/data-play-spend="potion"/);
+  assert.match(root.innerHTML,waiting==='book'?/Открываем книгу заклинаний/:/Открываем расходники/);
+  assert.doesNotMatch(root.innerHTML,waiting==='book'?/data-play-prepare="spells"/:/data-play-prepare="inventory"/);
+  assert.doesNotMatch(root.innerHTML,/id="play-retry"/);
+  h.requests.find(r=>r.kind===waiting).resolve(supply[waiting]);await tick();
+  assert.match(root.innerHTML,/Готовый заговор/);
+  assert.match(root.innerHTML,/data-play-spend="potion"/);
+  assert.doesNotMatch(root.innerHTML,/Открываем книгу заклинаний|Открываем расходники/);
+ }
+});
+
+test('a later list response restores keyboard focus on already known empty-list actions',async()=>{
+ for(const [known,section] of [['book','spells'],['items','inventory']]){
+  const h=harness(),doc=h.document,root=h.get('play-content');
+  const id='play-prepare-'+section;
+  const makeButton=()=>({id,dataset:{playPrepare:section},closest:()=>root,focus(){doc.activeElement=this;}});
+  let button,markup='';
+  Object.defineProperty(root,'innerHTML',{get:()=>markup,set(value){
+   if(button&&doc.activeElement===button)doc.activeElement=doc.body;
+   markup=value;button=markup.includes('id="'+id+'"')?makeButton():undefined;
+  }});
+  doc.querySelector=s=>s==='.play-screen #'+id?button:null;
+  h.get('dialog').open=false;
+  h.api.view();await tick();
+  h.requests.find(r=>r.kind===known).resolve({entries:[]});await tick();
+  button.focus();const original=button;
+  h.requests.find(r=>r.kind!==known).resolve({entries:[]});await tick();
+  assert.notEqual(button,original);
+  assert.equal(doc.activeElement,button);
+ }
+});
+
+test('an explicit denied fragment clears already shown lists and suppresses late successes',async()=>{
+ for(const order of ['success-first','denial-first']){
+  const h=harness(),root=h.get('play-content');
+  h.api.view();await tick();
+  const book=h.requests.find(r=>r.kind==='book'),items=h.requests.find(r=>r.kind==='items');
+  const success=()=>book.resolve({entries:[spell('Список до отзыва')]});
+  const denial=()=>items.reject(Object.assign(Error('access changed'),{status:403}));
+  if(order==='success-first'){success();await tick();assert.match(root.innerHTML,/Список до отзыва/);denial();}
+  else{denial();await tick();success();}
+  await tick();
+  assert.match(root.innerHTML,/Игровые списки недоступны/);
+  assert.doesNotMatch(root.innerHTML,/Список до отзыва|data-play-cast|data-play-spend/);
+ }
+});
+
 test('the working book or inventory remains available and retries only the failed list',async()=>{
  const potion={catalogId:'potion',quantity:2,entry:{name:{ru:'Зелье'},item:{type:'potion'}}};
  for(const missing of ['book','items']){
