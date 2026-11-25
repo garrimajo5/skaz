@@ -100,18 +100,22 @@ body[data-theme="polar"] .play-effects {
 .play-layout #play-content { display: block; }
 .play-layout .play-spells { padding: 0; border: 0; background: transparent; }
 .play-layout .play-spell-scopes { margin-bottom: 6px; }
+.play-layout .play-spell-scopes button { background: var(--workspace-play-filter-bg, var(--raised)); }
+.play-layout .play-spell-scopes button[aria-pressed="true"] {
+  background: var(--workspace-play-filter-active-bg, var(--raised));
+}
 .play-layout .play-list { max-height: none; overflow: visible; scrollbar-gutter: auto; }
 .play-layout .play-spell-action {
   margin-bottom: 5px;
   padding: 0 0 0 8px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--workspace-play-card-line, var(--line));
   border-radius: var(--radius-s);
-  background: var(--panel);
+  background: var(--workspace-play-card-bg, var(--panel));
   gap: 6px;
 }
 .play-layout .play-spell-row { text-align: left; }
 .play-layout .play-casting-controls { max-width: 100%; flex-wrap: wrap; }
-.play-layout .play-cast { min-height: var(--resource-touch); max-width: none; background: var(--raised); }
+.play-layout .play-cast { min-height: var(--resource-touch); max-width: none; background: var(--workspace-play-price-bg, var(--raised)); }
 .play-layout .play-cast:not(:disabled):hover { border-color: var(--accent); }
 .play-layout .play-cost { display: block; color: inherit; font-size: var(--ui-small); font-weight: 600; }
 .play-action-command:not(:disabled) .play-command-label { color: var(--accent); }
@@ -220,7 +224,7 @@ body[data-theme="polar"] .play-effects {
 .play-character-checks summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .quick-health-amount { display: none; }
-.play-resources { border-inline-start: 1px solid var(--line); padding-inline-start: 15px; }
+.play-resources { border-inline-start: 1px solid var(--workspace-play-rule, var(--line)); padding-inline-start: 15px; }
 .play-resources #play-history { min-height: var(--touch); width: 100%; margin-top: 12px; }
 .play-resources #play-history .ui-icon { width: 16px; height: 16px; }
 
@@ -405,7 +409,7 @@ body[data-theme="polar"] .play-effects {
   .quick-health-amount input {
     appearance: textfield;
     color: var(--text);
-    background: var(--panel);
+    background: var(--workspace-play-health-value-bg, var(--panel));
     border: 1px solid var(--control-line);
     font: 24px 'PT Serif', Georgia, serif;
     text-align: center;
@@ -418,12 +422,14 @@ body[data-theme="polar"] .play-effects {
     min-width: var(--touch);
     min-height: var(--touch);
     padding: 4px;
+    background: var(--workspace-play-health-adjust-bg, var(--raised));
   }
   .quick-health-amount button:first-of-type { border-radius: var(--radius-s) 0 0 var(--radius-s); }
   .quick-health-amount button:last-of-type { border-radius: 0 var(--radius-s) var(--radius-s) 0; }
   .play-resources button[data-health="damage"] {
-    background: color-mix(in srgb, var(--red) 11%, var(--panel));
+    background: var(--workspace-play-damage-bg, color-mix(in srgb, var(--red) 11%, var(--panel)));
   }
+  .play-resources button[data-health="heal"] { background: var(--workspace-play-heal-bg, var(--raised)); }
 }
 @media (min-width: 1000px) and (min-height: 600px) and (max-height: 719px) and (orientation: landscape) {
   .workspace-summary:not([hidden]) { display: none; }
@@ -437,6 +443,19 @@ body[data-theme="polar"] .play-effects {
     --workspace-heading-bg: #07151d;
     --workspace-hero-bg: #0e2a35;
     --workspace-nav-active-bg: #15343f;
+  }
+  body[data-theme="polar"][data-page="play"] .shell > main {
+    --workspace-play-card-bg: #0e252f;
+    --workspace-play-card-line: #22424d;
+    --workspace-play-price-bg: #133440;
+    --workspace-play-rule: #162e39;
+    --workspace-play-filter-bg: #0d2631;
+    --workspace-play-filter-active-bg: #173d42;
+    --workspace-play-health-value-bg: #0e2833;
+    --workspace-play-health-adjust-bg: #14333e;
+    --workspace-play-damage-bg: #593336;
+    --workspace-play-heal-bg: #14323d;
+    background: #081821;
   }
   html:has(body[data-page="play"] .play-heading) { --workspace-heading-height: 78px; }
   body[data-page="play"] .shell:has(.play-heading) {
