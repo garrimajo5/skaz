@@ -512,6 +512,14 @@ body[data-theme="polar"] .play-effects {
     padding-inline-end: 6px;
     border-inline-end: 1px solid var(--line);
   }
+  body[data-page="play"][data-theme="polar"] .play-hero-band { --workspace-vital-text: #f2eadb; }
+  body[data-page="play"] .play-hero-band :is(.play-hp-summary, .play-armor-summary) > strong {
+    color: var(--workspace-vital-text, var(--text));
+    font: 400 25px/1.25 'PT Serif', Georgia, serif;
+    font-variant-numeric: tabular-nums;
+  }
+  body[data-page="play"] .play-armor-summary > strong { font-size: 23px; }
+  body[data-page="play"] .play-hp-summary strong span { font: 400 13px Inter, sans-serif; }
   body[data-page="play"] .play-hp-summary progress { width: min(100%, 150px); }
   body[data-page="play"] .play-layout {
     grid-template-columns: minmax(0, 1fr) 300px;

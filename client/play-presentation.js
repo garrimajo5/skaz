@@ -104,7 +104,7 @@ const SkazPlayPresentation = (() => {
           <div><strong>${escape(view.heroName)}</strong><small>${escape(character)}</small></div>
         </div>
         <div class="play-hp-summary"><small>Хиты</small><strong>${escape(view.hp)}<span> / ${escape(view.maxHp)}</span></strong><progress value="${escape(view.hp)}" max="${escape(view.maxHp)}" aria-hidden="true"></progress>${view.tempHp ? `<small>+${escape(view.tempHp)} временных</small>` : ''}</div>
-        <div><small>КД</small><strong>${escape(view.armorClass)}</strong></div>
+        <div class="play-armor-summary"><small>КД</small><strong>${escape(view.armorClass)}</strong></div>
         <div class="play-effects"><small>Состояния и эффекты</small>
           <div>${effects.join('') || '<span>Без отмеченных эффектов</span>'}</div>
         </div>
