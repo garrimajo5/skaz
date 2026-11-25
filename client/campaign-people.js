@@ -236,13 +236,15 @@ const SkazCampaign = (function(){
       places:places.places,
     };
   }
-  async function load({focus=false,holdResults=false}={}){
+  async function load({focus=false,holdResults=false,retry}={}){
     const scope=api().scope();
     if(!scope||!rootActive())return;
     const request=++serial;
     const panel=view.section, selected=view.selectedId, query=view.query;
     const last=holdResults?result:null;
+    const focusAnchor=retry&&document.activeElement===retry?el('campaign-content'):null;
     loading=true;failure='';result=last;draw();
+    if(focusAnchor&&document.activeElement===document.body)focusAnchor.focus({preventScroll:true});
     try{
       if(panel==='actions')result={};
       else if(panel==='journal'){
@@ -266,6 +268,9 @@ const SkazCampaign = (function(){
     }
     if(!current(request))return;
     loading=false;draw();
+    if(failure&&focusAnchor&&document.activeElement===focusAnchor){
+      el('campaign-notice')?.querySelector('[data-campaign-action="reload"]')?.focus({preventScroll:true});
+    }
     if(returnFocus&&view.section==='people'&&!view.selectedId){
       returnFocus=false;
       const opener=Array.from(root.querySelectorAll('[data-campaign-action="person-open"]'))
@@ -280,7 +285,7 @@ const SkazCampaign = (function(){
       <nav class="campaign-sections" aria-label="Разделы кампании">
         ${Object.entries(sections).map(([id,label])=>button(label,'section',id)).join('')}
       </nav><p id="campaign-save-status" role="status" class="small" hidden></p>
-      <div id="campaign-notice"></div><div id="campaign-pending" class="campaign-controls"></div><div id="campaign-content" class="campaign-stack"></div>
+      <div id="campaign-notice"></div><div id="campaign-pending" class="campaign-controls"></div><div id="campaign-content" class="campaign-stack" tabindex="-1"></div>
       <details class="campaign-transfer" ${api().needsTransferFile()?'open':''}><summary>Перенос кампании</summary>
         ${api().needsTransferFile()?'<p id="campaign-transfer-recover" role="status">Выбери тот же файл, чтобы повторить незавершённый импорт.</p>':''}
         <div class="campaign-controls">${button('Скачать пакет кампании','transfer-export')}
@@ -370,7 +375,7 @@ const SkazCampaign = (function(){
     switch(action){
       case 'section': return navigate(id);
       case 'return-game': return returnFromCampaign();
-      case 'reload': return load({holdResults:true});
+      case 'reload': return load({holdResults:true,retry:target});
       case 'recover-person': return recoverPerson(target);
       case 'people-back': returnFocus=true;return navigate('people');
       case 'person-open':
