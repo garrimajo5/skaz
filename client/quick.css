@@ -256,13 +256,13 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
 
 /* Keep the first dialog action on screen in low landscape. */
 @media (max-height: 320px) and (orientation: landscape) {
- #dialog:has(.hp-entry input[type="number"], .death-actions, #confirm-death, #play-search-panel) {
+ #dialog:has(.hp-entry input[type="number"], .death-actions, #confirm-death) {
   margin: auto;
   width: min(560px, calc(100% - 16px));
   max-height: calc(100dvh - 8px);
   border-radius:var(--radius-l);
  }
- #dialog-content:has(.hp-entry, .death-actions, #confirm-death, #play-search-panel) { padding: 8px 12px; }
+ #dialog-content:has(.hp-entry, .death-actions, #confirm-death) { padding: 8px 12px; }
  .hp-entry {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(112px, 40%);
@@ -276,7 +276,7 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
   margin: 0;
   padding-inline-end: 52px;
  }
- #dialog:has(.hp-entry, .death-actions, #confirm-death, #play-search-panel) > .dialog-close {
+ #dialog:has(.hp-entry, .death-actions, #confirm-death) > .dialog-close {
   inset-block-start: 8px;
   inset-inline-end: 8px;
   width: var(--touch);
@@ -308,6 +308,27 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
   padding-inline-end: 48px;
  }
  #dialog-content:has(> #confirm-death) > h2 { margin-inline-end: 0; }
+}
+
+/* Short search dialogs preserve space for the result list. */
+@media (max-height: 500px) and (orientation: landscape), (max-width: 480px) and (orientation: portrait) {
+ #dialog:has(#play-search-panel) {
+  margin: auto;
+  width: min(560px, calc(100% - 16px));
+  max-height: calc(100dvh - 8px);
+  border-radius:var(--radius-l);
+ }
+ #dialog-content:has(#play-search-panel) {
+  padding: 8px 12px;
+  max-height: calc(100dvh - 10px);
+ }
+ #dialog:has(#play-search-panel) > .dialog-close {
+  inset-block-start: 8px;
+  inset-inline-end: 8px;
+  width: var(--touch);
+  height: var(--touch);
+  padding: 0;
+ }
  #play-search-panel h2 {
   margin: 0 52px 4px 0;
   font-size: 20px;
