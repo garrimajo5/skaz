@@ -36,6 +36,14 @@ body[data-workspace-shell="shared"] .shell main {
 .play-heading #play-edit { min-height: var(--touch); font-size: 13px; }
 .play-heading #play-edit .ui-icon { width: 16px; height: 16px; }
 
+body[data-page="play"] .play-heading { flex-wrap: nowrap; }
+body[data-page="play"] .play-heading > div { flex: 1; }
+body[data-page="play"] .play-session {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .play-hero-band {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) auto auto minmax(0, 1.5fr) auto;
@@ -721,17 +729,6 @@ body[data-theme="polar"] .play-effects {
     block-size: 1px;
     overflow: hidden;
     clip-path: inset(50%);
-    white-space: nowrap;
-  }
-}
-
-@media (min-width: 1320px) and (min-height: 600px) and (orientation: landscape),
-       (max-width: 650px) and (orientation: portrait) {
-  body[data-page="play"] .play-heading { flex-wrap: nowrap; }
-  body[data-page="play"] .play-heading > div { flex: 1; }
-  body[data-page="play"] .play-session {
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
   }
 }
