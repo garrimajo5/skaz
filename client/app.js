@@ -36,8 +36,16 @@ function hero(){
  return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(sheet,stats),title:'Персонаж',actions,content});
 }
 function pending(){return events.filter(e=>!state.accepted.includes(e.id)&&!state.dismissed.includes(e.id))}
-function spellsPage(){if(location.protocol==='file:')return demoSpellsPage();return SkazSpellbook.view()+`<details class="demo-section"><summary>Демонстрационные заклинания и ячейки барда 5 уровня</summary>${demoSpellsPage()}</details>`}
-function demoSpellsPage(){return heading('КНИГА ЗАКЛИНАНИЙ','Слова обретают силу','Харизма +4 · Атака заклинанием +7 · Сложность спасброска 15')+`<div class="notice"><button id="open-spellbook" class="primary">Мои заклинания из каталога</button><p><b>Ниже — 8 демонстрационных заклинаний.</b> Сохранённые записи каталога доступны отдельной кнопкой.</p> Описания здесь сокращены для проверки UX.</div><div class="filters"><input id="spell-search" aria-label="Найти заклинание" placeholder="Название на русском или английском…" value="${esc(spellQuery)}"><select id="spell-scope" aria-label="Доступность"><option value="all" ${spellFilter==='all'?'selected':''}>Весь каталог</option><option value="known" ${spellFilter==='known'?'selected':''}>Мои заклинания</option></select><select id="spell-level" aria-label="Круг заклинания"><option value="all">Все круги</option>${[0,1,2,3].map(l=>`<option value="${l}" ${String(l)===spellLevel?'selected':''}>${l===0?'Заговоры':l+' круг'}</option>`).join('')}</select></div><div id="spell-results" class="spell-grid">${spellCards()}</div>`}
+function spellsPage(){
+ if(location.protocol==='file:')return demoSpellsPage();
+ const content=SkazSpellbook.view()+`<details class="demo-section"><summary>Демонстрационные заклинания и ячейки барда 5 уровня</summary>${demoSpellsPage({showHeading:false})}</details>`;
+ const label=(SkazStorage.can?.('character')??true)?'Добавить из справочника':'Открыть справочник';
+ const actions=`<button data-page="library" class="primary">${label}</button>`;
+ return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Магия',actions,content});
+}
+function demoSpellsPage({showHeading=true}={}){
+ const stats='Харизма +4 · Атака заклинанием +7 · Сложность спасброска 15';
+ return (showHeading?heading('КНИГА ЗАКЛИНАНИЙ','Слова обретают силу',stats):`<p class="small">${stats}</p>`)+`<div class="notice"><button id="open-spellbook" class="primary">Мои заклинания из каталога</button><p><b>Ниже — 8 демонстрационных заклинаний.</b> Сохранённые записи каталога доступны отдельной кнопкой.</p> Описания здесь сокращены для проверки UX.</div><div class="filters"><input id="spell-search" aria-label="Найти заклинание" placeholder="Название на русском или английском…" value="${esc(spellQuery)}"><select id="spell-scope" aria-label="Доступность"><option value="all" ${spellFilter==='all'?'selected':''}>Весь каталог</option><option value="known" ${spellFilter==='known'?'selected':''}>Мои заклинания</option></select><select id="spell-level" aria-label="Круг заклинания"><option value="all">Все круги</option>${[0,1,2,3].map(l=>`<option value="${l}" ${String(l)===spellLevel?'selected':''}>${l===0?'Заговоры':l+' круг'}</option>`).join('')}</select></div><div id="spell-results" class="spell-grid">${spellCards()}</div>`}
 function spellCards(){const list=spells.filter(s=>(spellFilter!=='known'||s.known)&&(spellLevel==='all'||s.level===Number(spellLevel))&&(s.name+' '+s.en).toLowerCase().includes(spellQuery.toLowerCase()));return list.length?list.map(s=>`<button class="spell" data-spell="${s.id}"><div class="spell-top"><span class="spell-level">${s.level===0?'<span data-ui-icon="magic"></span>':String(s.level).padStart(2,'0')}</span><span class="tag ${s.known?'accent':''}">${s.known?'Известно':'В каталоге'}</span></div><h3>${s.name}</h3><p>${s.desc}</p><div class="spell-meta"><span>${s.time}</span><span>${s.range}</span>${s.conc?'<span><span data-ui-icon="focus"></span> Концентрация</span>':''}</div></button>`).join(''):'<div class="empty full">Ничего не найдено. Попробуй другое название или убери фильтры.</div>'}
 function timelinePanel(title,empty,entries){
  const rows=[...entries].sort((a,b)=>b.at-a.at).map(raw=>SkazPlayPresentation.note(raw,typeof SkazCasting==='undefined'?null:SkazCasting.readManualNote(raw))).map(entry=>`
@@ -119,7 +127,7 @@ function render(){
  if(quick.parentElement!==home) home.append(quick);
  document.body.dataset.page=page;
  const workspacePage=['play','hero','inventory','library','campaign'].includes(page)||
-  (location.protocol!=='file:'&&['journal','quests'].includes(page));
+  (location.protocol!=='file:'&&['spells','journal','quests'].includes(page));
  document.body.dataset.workspaceShell=workspacePage?'shared':'';
  document.body.dataset.hpState=state.hp===0?'zero':'normal';
  document.body.dataset.examples=SkazStorage.showExamples?.()?'show':'hide';
