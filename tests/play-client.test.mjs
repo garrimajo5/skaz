@@ -9,9 +9,9 @@ const sheetSource=await readFile(new URL('../client/character-sheet.js',import.m
 const presentationSource=await readFile(new URL('../client/play-presentation.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/play.js',import.meta.url),'utf8');
 function harness({quests=[],questFailure=false,spellLearning=null}={}){const elements=new Map(),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','quests'].map(kind=>({dataset:{playList:kind},scrollTop:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true});return elements.get(id);};
- const context=vm.createContext({structuredClone,crypto:{randomUUID:()=> 'test-manual-cast'},page:'play',location:{protocol:'http:'},state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,maxHp:38,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
- document:{body:{},getElementById:get,querySelectorAll:selector=>selector==='[data-play-list]'?lists:[],addEventListener:(event,fn)=>handlers[event]=fn},modal:value=>{html=value;get('dialog').open=true;},closeModal:()=>get('dialog').open=false,toast(){},go:value=>context.page=value,
- SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise(resolve=>requests.push({kind:'book',resolve})),questsData:async()=>{if(questFailure)throw Error('offline');return {quests};},inventoryData:()=>new Promise(resolve=>requests.push({kind:'items',resolve})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(itemChargesSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,setSession:(active,title)=>{context.SkazStorage.currentSession=()=>active;context.SkazStorage.sessionTitle=()=>title;},setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,selectCast:(id,value)=>handlers.change({target:{dataset:{playCastSelect:id},value}}),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}})};
+ const context=vm.createContext({structuredClone,CSS:{escape:String},crypto:{randomUUID:()=> 'test-manual-cast'},page:'play',location:{protocol:'http:'},state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,maxHp:38,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
+ document:{body:{closest:()=>null},getElementById:get,querySelectorAll:selector=>selector==='[data-play-list]'?lists:[],addEventListener:(event,fn)=>handlers[event]=fn},modal:value=>{html=value;get('dialog').open=true;},closeModal:()=>get('dialog').open=false,toast(){},go:value=>context.page=value,
+ SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise(resolve=>requests.push({kind:'book',resolve})),questsData:async()=>{if(questFailure)throw Error('offline');return {quests};},inventoryData:()=>new Promise((resolve,reject)=>requests.push({kind:'items',resolve,reject})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(itemChargesSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,document:context.document,setSession:(active,title)=>{context.SkazStorage.currentSession=()=>active;context.SkazStorage.sessionTitle=()=>title;},setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,selectCast:(id,value)=>handlers.change({target:{dataset:{playCastSelect:id},value}}),click:(id,dataset={},button={id,dataset})=>handlers.click({target:{closest:()=>button}})};
 }
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 test('play art keeps spell circle, stable action IDs and item quantity independent of image loading',async()=>{
@@ -51,6 +51,54 @@ test('empty play panels have one preparation action and no blank list or pager',
  assert.equal((html.match(/class="panel play-empty"/g)||[]).length,4);assert.doesNotMatch(html,/class="play-list"|data-play-page/);
  await h.click('',{playPrepare:'spells'});assert.equal(h.page(),'spells');
 });
+test('retry keeps focus in the list while loading, restores retry on failure and respects a later focus move',async()=>{
+ const h=harness(),document=h.document,root=h.get('play-content'),dialog=h.get('dialog');
+ dialog.open=false;
+ const outside={closest:()=>null};
+ let markup='';
+ const retry={id:'play-retry',dataset:{},closest:()=>root,focus:()=>{document.activeElement=retry;}};
+ Object.assign(root,{id:'play-content',dataset:{},closest:()=>root,focus:()=>{document.activeElement=root;}});
+ Object.defineProperty(root,'innerHTML',{
+  get:()=>markup,
+  set(value){
+   if(document.activeElement===retry)document.activeElement=document.body;
+   markup=value;
+  }
+ });
+ const element=document.getElementById;
+ document.getElementById=id=>id==='play-retry'?(markup.includes('id="play-retry"')?retry:null):element(id);
+ document.querySelector=selector=>{
+  if(selector==='.play-screen #play-retry')return document.getElementById('play-retry');
+  if(selector==='.play-screen #play-content')return root;
+  return null;
+ };
+ const retryClick=async()=>{
+  retry.focus();
+  await h.click('play-retry',{},retry);
+  assert.equal(document.activeElement,root);
+ };
+ h.api.view();
+ await tick();
+ h.requests.at(-1).reject(Error('offline'));
+ await tick();
+ await retryClick();
+ h.requests.at(-1).reject(Error('still offline'));
+ await tick();
+ assert.equal(document.activeElement,retry);
+ await retryClick();
+ document.activeElement=outside;
+ h.requests.at(-1).reject(Error('offline again'));
+ await tick();
+ assert.equal(document.activeElement,outside);
+ await retryClick();
+ const [book,items]=h.requests.slice(-2);
+ book.resolve({entries:[spell('Ready')]});
+ items.resolve({entries:[]});
+ await tick();
+ assert.match(markup,/Ready/);
+ assert.equal(document.activeElement,root);
+});
+
 test('play loading drops responses after context changes and clears previous lists',async()=>{
  const h=harness();h.api.view();await tick();h.context('b');h.api.view();await tick();h.requests[0].resolve({entries:[spell('Old private')]});h.requests[1].resolve({entries:[]});await tick();assert.doesNotMatch(h.get('play-content').innerHTML,/Old private/);h.requests[2].resolve({entries:[spell('New')]});h.requests[3].resolve({entries:[]});await tick();assert.match(h.get('play-content').innerHTML,/New/);
 });

@@ -98,6 +98,7 @@ body[data-theme="polar"] .play-effects {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
 }
 .play-layout #play-content { display: block; }
+.play-layout #play-content:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .play-layout .play-spells { padding: 0; border: 0; background: transparent; }
 .play-layout .play-spell-scopes { margin-bottom: 6px; }
 .play-layout .play-spell-scopes button { background: var(--workspace-play-filter-bg, var(--raised)); }

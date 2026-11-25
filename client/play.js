@@ -211,7 +211,31 @@ const SkazPlay = (()=>{
   return '<section class="panel play-quests"><h2>Текущие задания</h2><div class="play-list" tabindex="0" role="region" aria-label="Текущие задания" data-play-list="quests">'+activeQuests.map(q=>'<button class="play-row" data-play-prepare="quests"><strong>'+escape(q.title)+'</strong><span>'+escape(q.steps.find(s=>!s.done)?.title||'Все этапы отмечены')+'</span></button>').join('')+'</div></section>';
  }
  function refresh(){if(!active()||key!==SkazStorage.snapshotKey())return;const root=document.getElementById('play-content');if(root){captureFocus();root.innerHTML=content(actorLevel(SkazStorage.sheet?.()));restoreFocus();document.querySelectorAll('[data-play-list]').forEach(list=>{list.scrollTop=scrollPositions[list.dataset.playList]||0;});}}
- async function load(){const token=++serial,captured=key;status='loading';refresh();try{const [spells,inventory,questResult]=await Promise.all([SkazStorage.spellbookData(),SkazStorage.inventoryData(),SkazStorage.questsData().catch(()=>null)]);if(token!==serial||captured!==SkazStorage.snapshotKey()||!active())return;book=spells.entries;items=inventory.entries;quests=questResult?.quests||[];questError=questResult===null;status='ready';}catch{if(token!==serial||captured!==SkazStorage.snapshotKey()||!active())return;status='error';}refresh();}
+ async function load(retryButton){
+  const token=++serial,captured=key;
+  const focusAnchor=retryButton&&document.activeElement===retryButton?document.getElementById('play-content'):null;
+  status='loading';
+  refresh();
+  if(focusAnchor&&document.activeElement===document.body)focusAnchor.focus({preventScroll:true});
+  try{
+   const [spells,inventory,questResult]=await Promise.all([
+    SkazStorage.spellbookData(),SkazStorage.inventoryData(),SkazStorage.questsData().catch(()=>null)
+   ]);
+   if(token!==serial||captured!==SkazStorage.snapshotKey()||!active())return;
+   book=spells.entries;
+   items=inventory.entries;
+   quests=questResult?.quests||[];
+   questError=questResult===null;
+   status='ready';
+  }catch{
+   if(token!==serial||captured!==SkazStorage.snapshotKey()||!active())return;
+   status='error';
+  }
+  refresh();
+  if(status==='error'&&focusAnchor&&document.activeElement===focusAnchor){
+   document.getElementById('play-retry')?.focus({preventScroll:true});
+  }
+ }
  function search(initial=''){
   const captured=SkazStorage.snapshotKey(),openedPage=page,instance=++searchSerial;let request=0,query=initial,results=[];
   const valid=()=>instance===searchSerial&&page===openedPage&&captured===SkazStorage.snapshotKey();
@@ -226,7 +250,7 @@ const SkazPlay = (()=>{
   const input=event.target,id=input.dataset?.playCastSelect;
   if(id&&active()&&key===SkazStorage.snapshotKey())changeCastLevel(id,Number(input.value));
  });
- document.addEventListener('click',async event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.playMode){closeModal();go(b.dataset.playMode==='play'?'play':'hero');return;}if(!active())return;if(b.id==='play-edit'){go('hero');return;}if(b.id==='play-search'){search();return;}if(b.id==='play-checks'){SkazCharacterSheet.checks();return;}if(key!==SkazStorage.snapshotKey())return;if(spellScopes.some(([id])=>id===b.dataset.playSpellScope)){spellScope=b.dataset.playSpellScope;scrollPositions.spells=0;refresh();document.querySelector?.('[data-play-spell-scope="'+spellScope+'"]')?.focus();return;}if(b.id==='play-retry'){void load();return;}if(b.id==='play-show-consumables'){const target=document.getElementById('play-consumables-title');target?.focus();return;}if(['spells','inventory','quests'].includes(b.dataset.playPrepare)){go(b.dataset.playPrepare);return;}
+ document.addEventListener('click',async event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.playMode){closeModal();go(b.dataset.playMode==='play'?'play':'hero');return;}if(!active())return;if(b.id==='play-edit'){go('hero');return;}if(b.id==='play-search'){search();return;}if(b.id==='play-checks'){SkazCharacterSheet.checks();return;}if(key!==SkazStorage.snapshotKey())return;if(spellScopes.some(([id])=>id===b.dataset.playSpellScope)){spellScope=b.dataset.playSpellScope;scrollPositions.spells=0;refresh();document.querySelector?.('[data-play-spell-scope="'+spellScope+'"]')?.focus();return;}if(b.id==='play-retry'){void load(b);return;}if(b.id==='play-show-consumables'){const target=document.getElementById('play-consumables-title');target?.focus();return;}if(['spells','inventory','quests'].includes(b.dataset.playPrepare)){go(b.dataset.playPrepare);return;}
   if(b.dataset.playCastLevel){const id=b.dataset.playCastLevel,level=Number(b.dataset.level);if(changeCastLevel(id,level))Array.from(document.querySelectorAll('[data-play-cast-level]')).find(x=>x.dataset.playCastLevel===id&&Number(x.dataset.level)===level)?.focus();return;}
   if(b.dataset.playCast){const item=book.find(x=>x.catalogId===b.dataset.playCast);if(item&&SkazStorage.canResource?.())openCast(item);return;}
   if(b.dataset.playRead){const item=(b.dataset.playRead==='spell'?book:items).find(x=>x.catalogId===b.dataset.id),captured=key;if(item)SkazCatalog.readSnapshot(item.entry,closeModal,()=>active()&&captured===SkazStorage.snapshotKey(),'К игре');}
