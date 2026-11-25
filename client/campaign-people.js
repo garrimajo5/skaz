@@ -292,11 +292,17 @@ const SkazCampaign = (function(){
           ${SkazStorage.access()?.import===false?'':'<label class="file-label">Импортировать пакет<input id="campaign-transfer-file" type="file" accept=".json,application/json"></label>'}
         </div></details>`;
   }
-  function mount(main){
+  /**
+   * @param {HTMLElement} main
+   * @param {{section: string, focus: boolean} | null} entry An explicit section requested by the outer navigation.
+   */
+  function mount(main, entry=null){
     const scope=api().scope();
     const existing=main.querySelector('#campaign-screen');
-    if(!existing||view.scope?.key!==scope?.key){
-      ++serial; view={section:'overview',query:'',selectedId:null,scope}; version=null;writable=null;
+    const section=entry&&Object.hasOwn(sections,entry.section)?entry.section:null;
+    const replaceScreen=!existing||view.scope?.key!==scope?.key;
+    if(replaceScreen){
+      ++serial; view={section:section||'overview',query:'',selectedId:null,scope}; version=null;writable=null;
       history=null;historyWaiting=false;listTrigger=null;listScroll=0;returnFocus=false;result=null;failure='';
       if(editor){editor=null;closeModal();}
       // Existing fragments are replaced only on entry or a context change.
@@ -316,24 +322,28 @@ const SkazCampaign = (function(){
       el('campaign-content').innerHTML=note('Подключись к игре, чтобы открыть кампанию.','status');
       return;
     }
-    if(writable!==canWrite()){
-      writable=canWrite();draw({renew:true});
+    if(section&&!replaceScreen)navigate(section,null,false);
+    else {
+      if(writable!==canWrite()){
+        writable=canWrite();draw({renew:true});
+      }
+      if(version!==scope.revision){
+        version=scope.revision;
+        void load({holdResults:Boolean(result)});
+      }
     }
-    if(version!==scope.revision){
-      version=scope.revision;
-      void load({holdResults:Boolean(result)});
-    }
+    if(section&&entry.focus)el('campaign-section-heading')?.focus({preventScroll:true});
   }
   function unmount(){
     ++serial;
     subscriptions?.abort();
     root=null;
   }
-  function navigate(section,person=null){
+  function navigate(section,person=null,focusAfterLoad=true){
     if(!Object.hasOwn(sections,section))return;
     view.section=section;view.selectedId=person;history=null;historyWaiting=false;result=null;failure='';
     draw({renew:true});
-    void load({focus:true});
+    void load({focus:focusAfterLoad});
   }
   function search(event){
     if(event.target.id!=='campaign-search')return;

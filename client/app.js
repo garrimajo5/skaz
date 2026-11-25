@@ -4,7 +4,7 @@ let state;try{state={...structuredClone(initial),...JSON.parse(localStorage.getI
 if(location.protocol!=='file:')state=structuredClone(initial);
 state.theme=SkazStorage.preference();
 if(!['polar','coal','atlas'].includes(state.theme))state.theme='polar';
-let campaignReturn=null;
+let campaignReturn=null, campaignEntry=null;
 let page='hero',spellFilter='all',spellQuery='',spellLevel='all',place='lighthouse',paused=false;
 const save=()=>SkazStorage.setTheme(state.theme);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -164,8 +164,12 @@ function render(){
  $('#workspace-player-class').textContent=identity.character;
  $('#campaign-name').textContent=state.profile.campaign;
  quick.innerHTML=quickPanel();
- if(page==='campaign')SkazCampaign.mount(main);
- else main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage,play:()=>SkazPlay.view()}[page]||hero)();
+ if(page==='campaign'){
+  const entry=campaignEntry;
+  campaignEntry=null;
+  const focused=document.activeElement;
+  SkazCampaign.mount(main,entry&&{section:entry.section,focus:focused===entry.trigger||focused===document.body});
+ }else main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage,play:()=>SkazPlay.view()}[page]||hero)();
  $('#play-quick-slot')?.append(quick);
  $$('[data-page]').forEach(button=>{
   const selected=button.dataset.page===page;
@@ -180,7 +184,7 @@ function render(){
  if(page==='play') SkazPlay.restoreFocus();
  if(page==='inventory') void SkazStorage.inventory({preserveDialog:true});
 }
-function go(p){
+function go(p, campaignSection=null){
  if(!['hero','spells','journal','quests','map','library','inventory','play','campaign'].includes(p) ||
     p==='campaign'&&!SkazStorage.campaignPeopleAvailable?.())p='hero';
  if(p==='campaign' && page!=='campaign'){
@@ -190,11 +194,12 @@ function go(p){
   campaignReturn={page,context:SkazStorage.contextKey(),scroll:window.scrollY,target,focusId:focus?.id};
  }else if(page==='campaign' && p!=='campaign') SkazCampaign.unmount();
  page=p;
+ campaignEntry=p==='campaign'&&campaignSection?{section:campaignSection,trigger:document.activeElement}:null;
  if(p!=='campaign')SkazPlay.remember(p);
  history.replaceState(null,'','#'+p);
  render();
  window.scrollTo({top:0,behavior:'instant'});
- if(p==='campaign')document.getElementById('campaign-title')?.focus({preventScroll:true});
+ if(p==='campaign'&&!campaignSection)document.getElementById('campaign-title')?.focus({preventScroll:true});
 }
 function returnFromCampaign(){
  const back=campaignReturn;
@@ -203,7 +208,10 @@ function returnFromCampaign(){
  go(same?back.page:SkazPlay.mode()==='play'?'play':'hero');
  if(!same)return;
  window.scrollTo({top:back.scroll,behavior:'instant'});
- const focus=back.target?.isConnected?back.target:back.focusId&&document.getElementById(back.focusId);
+ let focus=back.target?.isConnected?back.target:back.focusId&&document.getElementById(back.focusId);
+ if(back.target&&!focus?.getClientRects().length){
+  focus=$$('[data-page="campaign"][data-campaign-entry]').find(button=>button.getClientRects().length);
+ }
  if(focus)focus.focus({preventScroll:true});
  else if(back.page!=='play')document.getElementById('main').focus({preventScroll:true});
 }
@@ -370,7 +378,9 @@ document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b
  const title=key==='inspiration'?'Вдохновение барда · к8':level+' круг';
  if(SkazStorage.resourceDelta&&location.protocol!=='file:'){resourceAction(key==='inspiration'?{kind:'inspiration'}:{kind:'slot',level},delta,title+': '+before+' → '+next);return;}
  change(title+': '+before+' → '+next,()=>{if(key==='inspiration')state.inspiration=next;else state.slots[level]=next;log(title,before+' → '+next,'Ресурс')});return;
- }if(b.dataset.page){go(b.dataset.page);return}if(b.dataset.themeChoice){state.theme=b.dataset.themeChoice;save();render();return}if(b.dataset.spell){openSpell(b.dataset.spell);return}if(b.dataset.accept){acceptEvent(b.dataset.accept);return}if(b.dataset.dismiss){change('Событие пропущено',()=>state.dismissed.push(b.dataset.dismiss));return}if(b.dataset.editEvent){const id=b.dataset.editEvent;if(id==='quest'){modal('<div class="overline">РЕДАКТИРОВАНИЕ ЗАЦЕПКИ</div><h2>Уточнить услышанное</h2><label for="event-text">Текст зацепки</label><textarea id="event-text">Картограф не вернулся с маяка</textarea><div class="dialog-actions"><button class="primary" id="save-event">Сохранить в журнал</button></div>');$('#save-event').onclick=()=>{const text=$('#event-text').value.trim();if(!text)return;if(!canChange())return;closeModal();change('Уточнённая зацепка сохранена',()=>{state.accepted.push(id);state.eventEdits.quest=text;log(text,events.find(e=>e.id==='quest').source,'Зацепка')})}}else{modal(`<h2>Уточнить ${id==='gold'?'награду':'урон'}</h2><label for="event-value">Количество</label><input id="event-value" type="number" min="0" max="9999" value="${id==='gold'?25:7}"><div class="dialog-actions"><button class="primary" id="save-event">Подтвердить</button></div>`);$('#save-event').onclick=()=>{let n=Number($('#event-value').value);if(!Number.isInteger(n)||n<0||n>9999){toast('Укажи целое число от 0 до 9999');return}if(!canChange())return;closeModal();acceptEvent(id,n)}}return}if(b.dataset.place){place=b.dataset.place;go('map');return}if(b.dataset.mapPlace){place=b.dataset.mapPlace;render();return}if(b.classList.contains('dialog-close')){closeModal();return}if(b.dataset.roll){const r=1+Math.floor(Math.random()*20);modal(`<div class="overline">БРОСОК АТАКИ · РАПИРА</div><h2>${r+5} <span style="font-size:16px;color:var(--muted)">= ${r} + 5</span></h2><p>Демо-бросок к20. ${r===20?'Натуральная 20!':r===1?'Натуральная 1.':'Сравни результат с КД цели.'} Урон и попадание подтверждает мастер.</p>`);return}
+ }
+ if(b.dataset.campaignPeopleShortcut!==undefined){go('campaign','people');return;}
+ if(b.dataset.page){go(b.dataset.page);return}if(b.dataset.themeChoice){state.theme=b.dataset.themeChoice;save();render();return}if(b.dataset.spell){openSpell(b.dataset.spell);return}if(b.dataset.accept){acceptEvent(b.dataset.accept);return}if(b.dataset.dismiss){change('Событие пропущено',()=>state.dismissed.push(b.dataset.dismiss));return}if(b.dataset.editEvent){const id=b.dataset.editEvent;if(id==='quest'){modal('<div class="overline">РЕДАКТИРОВАНИЕ ЗАЦЕПКИ</div><h2>Уточнить услышанное</h2><label for="event-text">Текст зацепки</label><textarea id="event-text">Картограф не вернулся с маяка</textarea><div class="dialog-actions"><button class="primary" id="save-event">Сохранить в журнал</button></div>');$('#save-event').onclick=()=>{const text=$('#event-text').value.trim();if(!text)return;if(!canChange())return;closeModal();change('Уточнённая зацепка сохранена',()=>{state.accepted.push(id);state.eventEdits.quest=text;log(text,events.find(e=>e.id==='quest').source,'Зацепка')})}}else{modal(`<h2>Уточнить ${id==='gold'?'награду':'урон'}</h2><label for="event-value">Количество</label><input id="event-value" type="number" min="0" max="9999" value="${id==='gold'?25:7}"><div class="dialog-actions"><button class="primary" id="save-event">Подтвердить</button></div>`);$('#save-event').onclick=()=>{let n=Number($('#event-value').value);if(!Number.isInteger(n)||n<0||n>9999){toast('Укажи целое число от 0 до 9999');return}if(!canChange())return;closeModal();acceptEvent(id,n)}}return}if(b.dataset.place){place=b.dataset.place;go('map');return}if(b.dataset.mapPlace){place=b.dataset.mapPlace;render();return}if(b.classList.contains('dialog-close')){closeModal();return}if(b.dataset.roll){const r=1+Math.floor(Math.random()*20);modal(`<div class="overline">БРОСОК АТАКИ · РАПИРА</div><h2>${r+5} <span style="font-size:16px;color:var(--muted)">= ${r} + 5</span></h2><p>Демо-бросок к20. ${r===20?'Натуральная 20!':r===1?'Натуральная 1.':'Сравни результат с КД цели.'} Урон и попадание подтверждает мастер.</p>`);return}
 if(b.dataset?.editConditions!==undefined){editConditions();return;}switch(b.id){case'quick-conditions':editConditions();break;case'death-saves':deathDialog();break;case'play-note':case'quick-note':quickNote();break;case'quick-end-concentration':endConcentration(b.dataset.concentration,b.dataset.snapshot);break;case'quick-pending':{const menu=document.getElementById('session-menu');if(menu){menu.open=true;menu.querySelector?.('summary')?.focus();}break;}case'edit-profile':editProfile();break;case'damage':hpDialog();break;case'heal':hpDialog(true);break;case'add-note':addNote();break;case'map-note':addNote(true);break;case'pause':paused=!paused;render();break;case'restore-events':change('Пропущенные события возвращены',()=>{state.dismissed=[]});break;case'inspire':if(SkazStorage.sheet?.()){toast('Счётчики своего класса изменяются вручную');break;}if(state.inspiration>0)change('Вдохновение передано союзнику',()=>{state.inspiration--;log('Бардовское вдохновение','Союзник получает к8; осталось '+state.inspiration+'/4','Способность')});break;case'rest':if(state.hp===0){toast('При 0 хитах сначала нужна помощь или стабилизация');break;}if(SkazStorage.sheet?.()){const restKey=SkazStorage.snapshotKey();modal('<h2>Длительный отдых</h2><p>Если по правилам отдыха можно восстановить хиты, восстанови их до максимума и сними временные. Счётчики класса и кости хитов проверь вручную. Концентрация будет завершена.</p><button id="long-rest" class="primary">Восстановить хиты после отдыха</button>');$('#long-rest').onclick=()=>{if(restKey!==SkazStorage.snapshotKey())return toast('Игра изменилась. Открой отдых заново');if(!canChange())return;closeModal();change('Хиты после длительного отдыха',()=>{state.hp=state.maxHp;state.tempHp=0;state.concentration=null;log('Длительный отдых','Хиты восстановлены, временные сняты. Счётчики класса проверяются вручную.');});};break;}modal(`<div class="overline">ПЕРЕДЫШКА</div><h2>Время перевести дух</h2><p>В демо долгий отдых восстанавливает хиты, ячейки и вдохновение. Короткий отдых на 5 уровне восстанавливает вдохновение барда; кости хитов здесь ещё не реализованы.</p><div class="dialog-actions"><button id="short-rest">Короткий</button><button class="primary" id="long-rest">Долгий</button></div>`);$('#short-rest').onclick=()=>{if(!canChange())return;closeModal();change('Короткий отдых завершён',()=>{state.inspiration=4;log('Короткий отдых','Вдохновение восстановлено. Кости хитов не потрачены.')})};$('#long-rest').onclick=()=>{if(!canChange())return;closeModal();change('Долгий отдых завершён',()=>{state.hp=state.maxHp;state.tempHp=0;state.slots={1:4,2:3,3:2};state.inspiration=4;state.concentration=null;log('Долгий отдых','Хиты, ячейки и вдохновение восстановлены.')})};break;case'export-journal':{const text=['СКАЗ · '+SkazStorage.sessionTitle(),SkazStorage.sessionDate(),state.profile.campaign,'',...state.journal.map(e=>`${e.time} · ${e.title}\n${e.text}`),'Личные заметки персонажа (между сессиями)',...state.notes.map(e=>`${e.time} · ${e.title}\n${e.text}`)].join('\n\n');const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='skaz-journal.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Журнал подготовлен для скачивания');break}case'about-library':case'about':SkazStorage.settings();break;}});
 document.addEventListener('input',e=>{if(e.target.id==='spell-search'){spellQuery=e.target.value;$('#spell-results').innerHTML=spellCards()}});
 document.addEventListener('change',e=>{if(e.target.id==='spell-scope'){spellFilter=e.target.value;$('#spell-results').innerHTML=spellCards()}if(e.target.id==='spell-level'){spellLevel=e.target.value;$('#spell-results').innerHTML=spellCards()}if(e.target.dataset.check){const id=e.target.dataset.check,checked=e.target.checked;change('Обновлён этап задания',()=>{state.checks[id]=checked})}});
