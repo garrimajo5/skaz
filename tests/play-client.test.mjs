@@ -8,8 +8,8 @@ const itemChargesSource=await readFile(new URL('../client/item-charges.js',impor
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const presentationSource=await readFile(new URL('../client/play-presentation.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/play.js',import.meta.url),'utf8');
-function harness({quests=[],questFailure=false,spellLearning=null,questRequest=null}={}){const elements=new Map(),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','quests','scopes'].map(kind=>({dataset:{playList:kind},scrollTop:0,scrollLeft:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true,querySelector:()=>null});return elements.get(id);};
- const context=vm.createContext({structuredClone,CSS:{escape:String},crypto:{randomUUID:()=> 'test-manual-cast'},page:'play',location:{protocol:'http:'},state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,maxHp:38,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
+function harness({quests=[],questFailure=false,spellLearning=null,questRequest=null,dialog=null,environment={}}={}){const elements=new Map(dialog?[['dialog',dialog]]:[]),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','quests','scopes'].map(kind=>({dataset:{playList:kind},scrollTop:0,scrollLeft:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true,querySelector:()=>null});return elements.get(id);};
+ const context=vm.createContext({...environment,structuredClone,CSS:{escape:String},crypto:{randomUUID:()=> 'test-manual-cast'},page:'play',location:{protocol:'http:'},state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,maxHp:38,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
  document:{body:{closest:()=>null},getElementById:get,querySelectorAll:selector=>selector==='[data-play-list]'?lists:[],addEventListener:(event,fn)=>handlers[event]=fn},modal:value=>{html=value;get('dialog').open=true;},closeModal:()=>get('dialog').open=false,toast(){},go:value=>context.page=value,
  SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise((resolve,reject)=>requests.push({kind:'book',resolve,reject})),questsData:questRequest||(async()=>{if(questFailure)throw Error('offline');return {quests};}),inventoryData:()=>new Promise((resolve,reject)=>requests.push({kind:'items',resolve,reject})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(itemChargesSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,document:context.document,setSession:(active,title)=>{context.SkazStorage.currentSession=()=>active;context.SkazStorage.sessionTitle=()=>title;},setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,position)=>{const list=lists[index];list[list.dataset.playList==='scopes'?'scrollLeft':'scrollTop']=position;handlers.scroll({target:list});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,selectCast:(id,value)=>handlers.change({target:{dataset:{playCastSelect:id},value}}),click:(id,dataset={},button={id,dataset})=>handlers.click({target:{closest:()=>button}})};
 }
@@ -585,4 +585,65 @@ test('game search leaves the input mounted and skips results for a replaced draf
  assert.equal(status.className,'visually-hidden');
  assert.equal(h.html(),original);
  assert.equal(field.value,'fireball');
+});
+
+test('game search uses the visual viewport only while it is reduced without zoom',async()=>{
+ const windowEvents=new Map(),viewportEvents=new Map(),dialogEvents=new Map();
+ const attributes=new Map(),rules=new Map();
+ const dialog={
+  open:false,
+  searchPanel:true,
+  querySelector:selector=>selector==='#play-search-panel'&&dialog.searchPanel?{}:null,
+  setAttribute:(name,value)=>attributes.set(name,value),
+  getAttribute:name=>attributes.get(name)??null,
+  hasAttribute:name=>attributes.has(name),
+  removeAttribute:name=>attributes.delete(name),
+  style:{setProperty:(name,value)=>rules.set(name,value),removeProperty:name=>rules.delete(name)},
+  addEventListener:(name,fn)=>dialogEvents.set(name,fn),
+ };
+ const visualViewport={
+  height:311.8,offsetTop:138.4,scale:1,
+  addEventListener:(name,fn)=>viewportEvents.set(name,fn),
+ };
+ const environment={
+  visualViewport,innerHeight:568,
+  addEventListener:(name,fn)=>windowEvents.set(name,fn),
+ };
+ const h=harness({dialog,environment});
+ await loaded(h);
+ await h.click('play-search');
+ assert.ok(attributes.has('data-play-search-viewport'));
+ assert.equal(rules.get('--play-search-top'),'139px');
+ assert.equal(rules.get('--play-search-height'),'311px');
+ visualViewport.offsetTop=49.2;
+ viewportEvents.get('scroll')();
+ assert.equal(rules.get('--play-search-top'),'50px');
+ const field=h.get('play-search-query'),form=h.get('play-search-form');
+ field.value='fire';
+ h.document.activeElement=field;
+ let buttonFocused=false;
+ form.querySelector=()=>({focus:()=>{buttonFocused=true;}});
+ visualViewport.height=71;
+ viewportEvents.get('resize')();
+ assert.equal(attributes.get('data-play-search-viewport'),'compact');
+ const response=form.onsubmit({preventDefault(){}});
+ assert.equal(buttonFocused,true);
+ h.requests.at(-1).resolve({ok:true,json:async()=>({entries:[]})});
+ await response;
+ visualViewport.scale=1.5;
+ viewportEvents.get('resize')();
+ assert.equal(attributes.size,0);
+ assert.equal(rules.size,0);
+ visualViewport.scale=1;
+ windowEvents.get('resize')();
+ assert.ok(attributes.has('data-play-search-viewport'));
+ dialog.searchPanel=false;
+ viewportEvents.get('resize')();
+ assert.equal(attributes.size,0);
+ dialog.searchPanel=true;
+ viewportEvents.get('resize')();
+ dialog.open=false;
+ dialogEvents.get('close')();
+ assert.equal(rules.size,0);
+ assert.equal(attributes.size,0);
 });
