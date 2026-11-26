@@ -8,6 +8,12 @@ test('local sprite mounts once per slot, ignores foreign names and keeps symbols
  const schoolNames=api.names.filter(n=>n.startsWith('school-'));assert.equal(schoolNames.length,9);assert.ok(!api.markup('school-evocation').includes('#skaz-icon-magic"'));
 });
 test('all shipped radius declarations use tokens or intentional circles and build includes local sprite',async()=>{
- for(const name of ['style','quick','catalog']){const css=await readFile(new URL('../client/'+name+'.css',import.meta.url),'utf8');for(const m of css.matchAll(/border-radius:([^;}]+)/g))assert.match(m[1],/^(?:(?:var\(--[a-z-]+\)|50%|999px)\s*)+$/,name+': '+m[1]);}
+ for (const name of ['style','quick','catalog']) {
+  const css = await readFile(new URL('../client/'+name+'.css',import.meta.url),'utf8');
+  for (const [, declaration] of css.matchAll(/border-radius:([^;}]+)/g)) {
+   const value = declaration.trim();
+   assert.match(value,/^(?:(?:var\(--[a-z-]+\)|50%|999px)\s*)+$/,name+': '+value);
+  }
+ }
  const html=await readFile(new URL('../client/index.html',import.meta.url),'utf8');assert.ok(html.indexOf('src="icons.js"')<html.indexOf('src="art.js"'));assert.doesNotMatch(html,/[♙✧▣≋⚑◇▤⌕↶☾✎]/);
 });

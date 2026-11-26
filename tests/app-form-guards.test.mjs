@@ -384,7 +384,14 @@ test('manual-class rest restores health and clears temp HP without inventing cou
 
 test('concentration question remains visible independently of toast, is escaped and rejects stale buttons',()=>{
  const h=harness();h.run(`state.concentration='<Bless>';state.concentrationChecks=[{id:'damage-question',spell:'<Bless>',damage:8,dc:10}];`);
- assert.match(h.run('quickPanel()'),/Проверка концентрации · СЛ 10/);assert.match(h.run('quickPanel()'),/concentration-pending/);
+ const pending=h.run('quickPanel()');
+ assert.match(pending,/Проверка концентрации · СЛ 10/);
+ assert.match(pending,/concentration-pending/);
+ assert.ok(pending.indexOf('concentration-question')<pending.indexOf('quick-resources'));
+ const normal=h.run('state.concentrationChecks=[];quickPanel()');
+ assert.doesNotMatch(normal,/concentration-question|concentration-pending/);
+ assert.ok(normal.indexOf('quick-resources')<normal.indexOf('quick-concentration-row'));
+ h.run("state.concentrationChecks=[{id:'damage-question',spell:'<Bless>',damage:8,dc:10}]");
  h.run(`var answered=0;SkazStorage.resourceDelta=()=>{answered++;throw Error('unexpected')};answerConcentration('fail','damage-question','stale')`);assert.equal(h.run('answered'),0);
  h.run('state.concentration=null');assert.equal(h.run('concentrationQuestion()'),'');
 });
