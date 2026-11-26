@@ -92,6 +92,7 @@ test('the Magic route renders one shared heading and resource panel for the save
  assert.equal(h.run('document.body.dataset.workspaceShell'),'shared');
  assert.equal((html.match(/<h1>/g)||[]).length,1);
  assert.match(html,/<h1>Магия<\/h1>/);
+ assert.doesNotMatch(html,/play-section-caption/);
  assert.match(html,/&lt;Мирен&gt;/);
  assert.match(html,/Ворота прилива/);
  assert.equal((html.match(/id="play-quick-slot"/g)||[]).length,1);

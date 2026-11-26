@@ -152,9 +152,13 @@ const SkazPlayPresentation = (() => {
     </div>`;
   }
 
-  /** @param {boolean} historyAvailable */
-  function resources(historyAvailable) {
+  /**
+   * @param {boolean} historyAvailable
+   * @param {boolean} [quickAccess]
+   */
+  function resources(historyAvailable, quickAccess = false) {
     return `<aside class="play-resources" aria-labelledby="play-resources-title">
+          ${quickAccess ? '<p class="play-section-caption" aria-hidden="true">Остаток</p>' : ''}
           <h2 id="play-resources-title">Ресурсы</h2>
           <div id="play-quick-slot"></div>
           ${historyAvailable ? '<button id="play-history"><span data-ui-icon="undo" aria-hidden="true"></span> История и отмена</button>' : ''}
@@ -181,6 +185,7 @@ const SkazPlayPresentation = (() => {
       ${actorBand(view)}
       <div class="play-layout">
         <div class="play-actions">
+          <p class="play-section-caption" aria-hidden="true">Командная панель</p>
           <h2>Быстрые действия</h2>
           <div id="play-content" tabindex="-1" aria-live="polite">${view.content}</div>
           <details class="play-character-checks">
@@ -188,7 +193,7 @@ const SkazPlayPresentation = (() => {
             <div class="play-stats"><span>Инициатива ${escape(initiative)}</span><span>Скорость ${escape(view.speed)} фт</span><div class="play-spell-stats">${view.magicStats}</div>${view.checks}</div>
           </details>
         </div>
-        ${resources(view.historyAvailable)}
+        ${resources(view.historyAvailable, true)}
       </div>
     </section>`;
   }
