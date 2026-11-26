@@ -166,6 +166,14 @@ function quickPanel(){
  const question=concentrationQuestion();
  const concentration=`<div class="quick-concentration-row ${question?'concentration-pending':''}">${state.concentration?`<span class="quick-concentration" title="Концентрация: ${esc(state.concentration)}"><span data-ui-icon="focus"></span> ${esc(state.concentration)}</span><button id="quick-end-concentration" data-concentration="${esc(state.concentration)}" data-snapshot="${esc(SkazStorage.snapshotKey())}" aria-label="Завершить концентрацию: ${esc(state.concentration)}" ${SkazStorage.editable()?'':'disabled'}>Снять</button>`:'<span class="quick-concentration">Без концентрации</span>'}${question}</div>`;
  return `${question?concentration:''}${healthVitals()}<div class="quick-resources" tabindex="0" aria-label="Ресурсы: нажми заполненную — потратить, пустую — вернуть">${resourceControls()}</div>${charges}${question?'':concentration}${conditionChips()}<div class="quick-extras"><button id="quick-conditions" aria-label="Изменить состояния персонажа" ${SkazStorage.editable()?'':'disabled'}>Состояния</button><button id="rest" class="secondary"><span data-ui-icon="rest"></span> Отдых</button><button id="quick-note" aria-label="Быстрая личная заметка" ${SkazStorage.editable()?'':'disabled'}><span data-ui-icon="note"></span> Заметка</button><button id="quick-pending" ${SkazStorage.pendingCount?.()?'':'hidden'} aria-label="Не подтверждено сервером: ${SkazStorage.pendingCount?.()||0}. Открыть состояние сохранения"><span class="ui-inline-icon" data-ui-icon="pending"></span> <span id="quick-pending-count">${SkazStorage.pendingCount?.()||0}</span></button></div>`;}
+function revealBottomNavButton(nav, button) {
+ if(!button || !nav.clientWidth || nav.scrollWidth <= nav.clientWidth || !button.getClientRects().length) return;
+ const left = nav.getBoundingClientRect().left + nav.clientLeft;
+ const right = left + nav.clientWidth;
+ const target = button.getBoundingClientRect();
+ if(target.left < left) nav.scrollLeft += target.left - left;
+ else if(target.right > right) nav.scrollLeft += target.right - right;
+}
 function render(){
  const main=$('#main'), quick=$('#quick-state'), home=$('#quick-state-home');
  const workspaceSummary=$('.workspace-summary');
@@ -226,7 +234,11 @@ function render(){
   const nav=button.closest('nav');
   const selected=button.dataset.page===(nav&&page==='spells'?'hero':page);
   button.classList.toggle('active',selected);
-  if(nav) button.setAttribute('aria-current',selected?'page':'false');
+  if(nav){
+   const newlySelected = selected && button.getAttribute('aria-current') !== 'page';
+   button.setAttribute('aria-current',selected?'page':'false');
+   if(newlySelected && nav.classList.contains('bottomnav')) revealBottomNavButton(nav, button);
+  }
  });
  $$('[data-theme-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.themeChoice===state.theme)));
  const pendingCount=location.protocol==='file:'?pending().length:SkazEvents.pendingCount();
@@ -519,7 +531,16 @@ if(typeof ResizeObserver!=='undefined'){
  const nav = $('.bottomnav');
  const header = $('.shell > header');
  const rootStyle = document.documentElement.style;
+ let navWidth = 0;
+ let navScrollWidth = 0;
  const measure = () => {
+  if(nav && (nav.clientWidth !== navWidth || nav.scrollWidth !== navScrollWidth)){
+   navWidth = nav.clientWidth;
+   navScrollWidth = nav.scrollWidth;
+   const focus = document.activeElement;
+   const target = nav.contains(focus) ? focus.closest('button') : nav.querySelector('[aria-current="page"]');
+   revealBottomNavButton(nav, target);
+  }
   const navHeight = nav && getComputedStyle(nav).display !== 'none' ? nav.getBoundingClientRect().height : 0;
   const bottomBarHeight = bar && getComputedStyle(bar).getPropertyValue('--pult-side').trim() !== '1' ? bar.getBoundingClientRect().height : 0;
   rootStyle.setProperty('--workspace-header-height', (header?.getBoundingClientRect().height || 56) + 'px');

@@ -36,6 +36,24 @@ test('initial links take precedence over remembered Quick Access, which remains 
  assert.equal(harness({hash:''}).run('page'),'hero');
 });
 
+test('revealing a compact navigation button scrolls only the hidden part',()=>{
+ const h=harness();
+ const result=h.run(`(()=>{
+  const nav={clientWidth:320,clientLeft:2,scrollWidth:610,scrollLeft:0,getBoundingClientRect:()=>({left:0})};
+  const item=(left,right)=>({getClientRects:()=>[{}],getBoundingClientRect:()=>({left,right})});
+  revealBottomNavButton(nav,item(377,445));
+  const right=nav.scrollLeft;
+  revealBottomNavButton(nav,item(11,58));
+  const kept=nav.scrollLeft;
+  revealBottomNavButton(nav,item(-17,44));
+  const left=nav.scrollLeft;
+  nav.scrollWidth=nav.clientWidth;
+  revealBottomNavButton(nav,item(377,445));
+  return JSON.stringify([right,kept,left,nav.scrollLeft]);
+ })()`);
+ assert.deepEqual(JSON.parse(result),[123,123,104,104]);
+});
+
 test('workspace sidebar tracks the same active hero and session and hides during initial load',()=>{
  const h=harness();
  h.run("SkazStorage.readyToDisplay=()=>false;render();");
