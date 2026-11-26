@@ -93,6 +93,11 @@ const SkazPlayPresentation = (() => {
     return `${price}<span class="play-command-label">${escape(label)}</span>${caution}`;
   }
 
+  /** @param {'short-rest' | 'long-rest'} recovery */
+  function resourceRecovery(recovery) {
+    return recovery === 'short-rest' ? 'Короткий или длительный отдых' : 'Длительный отдых';
+  }
+
   /** @param {Pick<WorkspaceActor, 'heroName' | 'className' | 'level'>} view */
   function identityCopy(view) {
     const character = [view.className, Number.isInteger(view.level) ? `${view.level} уровень` : ''].filter(Boolean).join(' · ');
@@ -210,5 +215,5 @@ const SkazPlayPresentation = (() => {
       text:manual.level+' круг · без расхода ячейки.'+agreement+(manual.reason?' '+manual.reason:'')};
   }
 
-  return {castCost, commandCopy, healthAmount, identityCopy, sessionCaption, prepare, refreshActor, resources, screen, note};
+  return {castCost, commandCopy, healthAmount, resourceRecovery, identityCopy, sessionCaption, prepare, refreshActor, resources, screen, note};
 })();

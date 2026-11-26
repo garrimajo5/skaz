@@ -379,6 +379,30 @@ test('long rest clears temporary HP and one undo restores that reserve',async()=
  const h=harness();h.run('state.tempHp=8');h.click('rest');await h.get('#long-rest').onclick();await new Promise(r=>setImmediate(r));assert.equal(h.state().tempHp,0);assert.equal(h.state().hp,38);await h.get('#undo').onclick();assert.equal(h.state().tempHp,8);assert.equal(h.state().hp,28);
 });
 
+test('demo resources describe the same short and long rest effects that the form applies',async()=>{
+ const h=harness();
+ h.run('state.slots={1:1,2:0,3:0};state.inspiration=1;');
+ const html=h.run('resourceControls()');
+ assert.equal((html.match(/tracker-recovery">Длительный отдых/g)||[]).length,3);
+ assert.match(html,/tracker-recovery">Короткий или длительный отдых/);
+
+ h.click('rest');
+ await h.get('#short-rest').onclick();
+ await new Promise(resolve=>setImmediate(resolve));
+ assert.deepEqual(h.state().slots,{1:1,2:0,3:0});
+ assert.equal(h.state().inspiration,4);
+ assert.equal(h.state().hp,28);
+
+ h.click('rest');
+ await h.get('#long-rest').onclick();
+ await new Promise(resolve=>setImmediate(resolve));
+ assert.deepEqual(h.state().slots,{1:4,2:3,3:2});
+ assert.equal(h.state().hp,38);
+
+ h.run('SkazStorage.sheet=()=>({counters:[{id:"manual-counter",name:"Ручной счётчик",current:1,max:4}]})');
+ assert.doesNotMatch(h.run('resourceControls()'),/tracker-recovery/);
+});
+
 test('manual-class rest restores health and clears temp HP without inventing counter recovery',async()=>{
  const h=harness();h.run('state.tempHp=9;SkazStorage.sheet=()=>({counters:[{id:"counter-ki",current:1,max:4}]})');const before=h.state();h.click('rest');await h.get('#long-rest').onclick();await new Promise(r=>setImmediate(r));assert.equal(h.state().hp,38);assert.equal(h.state().tempHp,0);assert.deepEqual(h.state().slots,before.slots);assert.equal(h.state().inspiration,before.inspiration);
 });
