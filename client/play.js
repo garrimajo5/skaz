@@ -358,7 +358,8 @@ const SkazPlay = (()=>{
  }
  function search(initial=''){
   const captured=SkazStorage.snapshotKey(),openedPage=page,instance=++searchSerial;
-  let request=0,results=[];
+  const searchHint='Введи название заклинания, предмета или правила.';
+  let request=0,results=[],submittedQuery='';
   const valid=()=>instance===searchSerial&&page===openedPage&&captured===SkazStorage.snapshotKey();
   const draw=(value=initial,focusIndex=null)=>{
    if(!valid())return;
@@ -367,6 +368,18 @@ const SkazPlay = (()=>{
    const field=document.getElementById('play-search-query');
    const list=document.getElementById('play-search-results');
    const status=document.getElementById('play-search-status');
+   const clearResults=message=>{
+    results=[];
+    list.innerHTML='';
+    status.className='';
+    status.textContent=message;
+   };
+   field.oninput=()=>{
+    const query=field.value.trim();
+    if(!submittedQuery||query===submittedQuery)return;
+    ++request;
+    clearResults(query?'Запрос изменён. Нажми «Найти».':searchHint);
+   };
    const paintResults=(selectedIndex=null)=>{
     status.className='visually-hidden';
     status.textContent=`Показано результатов: ${results.length}.`;
@@ -375,7 +388,7 @@ const SkazPlay = (()=>{
     for(const button of buttons)button.onclick=()=>{
      const index=Number(button.dataset.playSearchResult);
      const entry=results[index];
-     if(!entry||!valid())return;
+     if(!entry||!valid()||field.value.trim()!==submittedQuery)return;
      const draft=field.value;
      ++request;
      SkazCatalog.readSnapshot(entry,()=>draw(draft,index),valid,'К поиску');
@@ -388,7 +401,7 @@ const SkazPlay = (()=>{
     }
    };
    if(results.length)paintResults(focusIndex);
-   else status.textContent='Введи название заклинания, предмета или правила.';
+   else status.textContent=searchHint;
    const form=document.getElementById('play-search-form');
    form.onsubmit=async event=>{
     event.preventDefault();
@@ -399,10 +412,8 @@ const SkazPlay = (()=>{
      form.querySelector('button[type=submit]')?.focus({preventScroll:true});
     }
     const token=++request;
-    results=[];
-    list.textContent='';
-    status.className='';
-    status.textContent='Ищем…';
+    submittedQuery=submitted;
+    clearResults('Ищем…');
     let found;
     try{
      const response=await fetch('/api/catalog?'+new URLSearchParams({q:submitted,limit:'8'}),{cache:'no-store',signal:AbortSignal.timeout(10000)});
