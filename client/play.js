@@ -203,7 +203,7 @@ const SkazPlay = (()=>{
    ?`<button class="play-action-command" data-play-charges="${id}" aria-label="${chargeAction}: ${name}">${SkazPlayPresentation.commandCopy(chargeAction)}</button>`
    :`<button class="play-action-command" data-play-spend="${id}" aria-label="Списать один: ${name}" ${SkazStorage.editable()?'':'disabled'}>${SkazPlayPresentation.commandCopy('Списать','1 предмет','',true)}</button>`;
   const art=typeof SkazArt!=='undefined'?SkazArt.markup(entry):'';
-  return `<div class="play-item"><button class="play-row" data-play-read="item" data-id="${id}">${art}<strong>${name}</strong><span class="play-item-balance">${details}</span></button>${action}</div>`;
+  return `<div class="play-item"><button class="play-row" data-play-read="item" data-id="${id}">${art}<span class="play-item-copy"><strong>${name}</strong><span class="play-item-balance">${details}</span></span></button>${action}</div>`;
  }
  function content(level){
   if(status==='loading'&&bookState!=='ready'&&inventoryState!=='ready')return '<p role="status">Открываем подготовленные заклинания и инвентарь…</p>';
