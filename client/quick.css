@@ -513,14 +513,23 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
  body[data-page="play"] .bottomnav, .bottomnav {
    --nav-safe-bottom: env(safe-area-inset-bottom, 0px);
    display: flex;
-   height: calc(64px + var(--nav-safe-bottom));
+   height: auto;
+   min-height: calc(64px + var(--nav-safe-bottom));
    box-sizing: border-box;
    gap: 0;
    padding: 4px 2px calc(4px + var(--nav-safe-bottom));
    align-items: stretch;
+   justify-content: flex-start;
+   overflow-x: auto;
+   overscroll-behavior-inline: contain;
  }
- .bottomnav button{flex:1;min-width:0;width:auto;padding:2px;overflow-wrap:anywhere}
- .bottomnav button span{font-size:12px!important;line-height:14px}
+ .bottomnav button {
+   flex: 1 0 44px;
+   min-inline-size: min-content;
+   width: auto;
+   padding: 2px;
+ }
+ .bottomnav button span { font-size: 12px !important; line-height: 1.2; }
  body[data-page="play"] .sidebar{display:none}
  .quick-state{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:4px 8px;max-height:150px;min-height:0;overflow-x:hidden;overflow-y:auto;box-sizing:border-box;padding:4px 8px}
  .quick-state>*{min-width:0;max-width:100%}
@@ -540,12 +549,11 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
  .bottomnav .nav-library-short{display:block;white-space:nowrap}
 }
 @media(max-width:420px){
- .bottomnav button{min-width:min(44px,14%)}
- .bottomnav button span:where(:not([data-ui-icon])){font-size:clamp(10.5px,2.9vw,11px)!important;line-height:13px;letter-spacing:-.02em}
+ .bottomnav button span:where(:not([data-ui-icon])){font-size:clamp(10.5px,2.9vw,11px)!important;line-height:1.2;letter-spacing:-.02em}
  .bottomnav button:not([data-page="play"],[data-page="campaign"])>span:last-child{white-space:nowrap}
- .bottomnav [data-page="play"]{flex:1.22}
+ .bottomnav [data-page="play"]{flex-grow:1.22}
  .bottomnav .nav-play-caption,
- .bottomnav .nav-library-short{font-size:10px!important;line-height:12px}
+ .bottomnav .nav-library-short{font-size:10px!important;line-height:1.2}
 }
 
 .tracker-mark{width:26px;height:26px}.tracker-mark.diamond{width:20px;height:20px}
