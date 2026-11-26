@@ -143,7 +143,11 @@ button{min-width:var(--touch)}.dialog-close{min-width:var(--touch);min-height:va
  .bottomnav{padding:2px 8px;min-height:48px;height:52px}.bottomnav button{min-height:48px;padding:2px 8px;font-size:0}.bottomnav button span{display:block;font-size:12px}
  .session-menu-content{max-height:calc(100dvh - 72px)}
 }
-#toast button{flex-shrink:0}#toast :is(button, span):focus-visible{outline-color:currentColor}#toast > span {
+#toast button { flex-shrink: 0; }
+#toast :is(button, span):focus-visible { outline-color: currentColor; }
+#toast[data-kind="success"]:not(:has(> span[tabindex])) { pointer-events: none; }
+#toast[data-kind="success"] > button { pointer-events: auto; }
+#toast > span {
  min-width: 0;
  max-block-size: max(2rem, calc(100dvh - var(--bottom-reserve, 190px) - 40px));
  overflow-y: auto;
@@ -155,6 +159,15 @@ button{min-width:var(--touch)}.dialog-close{min-width:var(--touch);min-height:va
   padding: 6px 12px;
  }
  #toast > span { max-block-size: 48px; }
+}
+@media (max-height: 260px) and (orientation: landscape) {
+ body:not(:has(.concentration-question)) #toast[data-kind="success"]:not(:has(> span[tabindex])) {
+  bottom: min(calc(var(--bottom-reserve, 190px) - 24px), max(0px, calc(100dvh - 120px)));
+  left: auto;
+  right: 12px;
+  max-width: min(380px, 55vw);
+  transform: none;
+ }
 }
 @media(max-width:550px){.page-top .character-edit{max-width:none}.character-edit{flex-direction:row;flex-wrap:wrap;justify-content:flex-start}.character-edit button{flex:0 1 auto}}
 /* Game lists retain one continuous reading position instead of pagination. */
