@@ -385,7 +385,7 @@ test('manual-class rest restores health and clears temp HP without inventing cou
 test('concentration question remains visible independently of toast, is escaped and rejects stale buttons',()=>{
  const h=harness();h.run(`state.concentration='<Bless>';state.concentrationChecks=[{id:'damage-question',spell:'<Bless>',damage:8,dc:10}];`);
  const pending=h.run('quickPanel()');
- assert.match(pending,/Проверка концентрации · СЛ 10/);
+ assert.match(pending,/Проверка концентрации<\/span> <span class="concentration-difficulty">СЛ 10/);
  assert.match(pending,/concentration-pending/);
  assert.ok(pending.indexOf('concentration-question')<pending.indexOf('quick-resources'));
  const normal=h.run('state.concentrationChecks=[];quickPanel()');
