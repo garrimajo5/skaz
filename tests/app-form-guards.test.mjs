@@ -85,13 +85,15 @@ test('profile and inventory render the same escaped hero and a single resource m
  }
 });
 
-test('the Magic route renders one shared heading and resource panel for the saved hero',()=>{
+test('the Magic deep link renders the character workspace and saved spellbook',()=>{
  const h=harness({hash:'#spells'});
  h.run("state.profile.name='<Мирен>';SkazStorage.sessionTitle=()=> 'Ворота прилива';render();");
  const html=h.get('#main').innerHTML;
  assert.equal(h.run('document.body.dataset.workspaceShell'),'shared');
  assert.equal((html.match(/<h1>/g)||[]).length,1);
- assert.match(html,/<h1>Магия<\/h1>/);
+ assert.match(html,/<h1>Персонаж<\/h1>/);
+ assert.match(html,/<a href="#spells" aria-current="page">Магия<\/a>/);
+ assert.match(html,/<a href="#hero">Лист<\/a>/);
  assert.doesNotMatch(html,/play-section-caption/);
  assert.match(html,/&lt;Мирен&gt;/);
  assert.match(html,/Ворота прилива/);
@@ -102,11 +104,21 @@ test('the Magic route renders one shared heading and resource panel for the save
  assert.equal(h.writes.length,0);
 });
 
+test('the character overview links to Magic without leaving the saved profile',()=>{
+ const h=harness();
+ assert.match(h.get('#main').innerHTML,/<a href="#hero" aria-current="page">Лист<\/a>/);
+ assert.match(h.get('#main').innerHTML,/<a href="#spells">Магия<\/a>/);
+ h.run("go('spells'); go('hero')");
+ assert.match(h.get('#main').innerHTML,/<a href="#hero" aria-current="page">Лист<\/a>/);
+ assert.equal(h.writes.length,0);
+});
+
 test('the offline demo still renders its title and spell controls directly',()=>{
  const h=harness({hash:'#spells',protocol:'file:'});
  const html=h.get('#main').innerHTML;
  assert.equal(h.run('document.body.dataset.workspaceShell'),'');
  assert.match(html,/<h1>Слова обретают силу<\/h1>/);
+ assert.match(html,/<a href="#spells" aria-current="page">Магия<\/a>/);
  assert.match(html,/id="spell-search"/);
  assert.doesNotMatch(html,/id="personal-spell-results"|id="play-quick-slot"/);
 });

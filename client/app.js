@@ -46,6 +46,12 @@ function resourceControls(level){
  })).join('');
  return '<section class="resource-controls" aria-label="Быстрые ресурсы">'+groups+'</section>';
 }
+function profileSections(active){
+ return `<nav class="profile-sections" aria-label="Разделы персонажа">
+   <a href="#hero"${active==='hero'?' aria-current="page"':''}>Лист</a>
+   <a href="#spells"${active==='spells'?' aria-current="page"':''}>Магия</a>
+ </nav>`;
+}
 function hero(){
  const sheet=SkazStorage.sheet?.(),stats=SkazStorage.stats();
  const signed=n=>(n>=0?"+":"−")+Math.abs(n);
@@ -54,15 +60,15 @@ function hero(){
  const recoveryNotice=SkazStorage.profileEditorsAvailable?.()===false?'<p class="notice" role="status">Режим восстановления: редакторы характеристик и класса временно отключены. Сохранённый профиль, игра и экспорт доступны.</p>':'';
  const warnings=SkazProfileRules.render(SkazProfileRules.warnings({stats,sheet}),false,{stats,sheet});
  const content=`${recoveryNotice}${warnings}<div class="hero-grid"><section>${lineage||state.profile.tagline ? `<div class="panel character"><div class="overline">${esc(lineage)}</div>${state.profile.tagline ? `<p>${esc(state.profile.tagline)}</p>` : ''}</div>` : ''}<div class="statrow"><div class="stat"><label>КЛАСС ДОСПЕХА</label><strong>${stats.armorClass}</strong></div><div class="stat"><label>ИНИЦИАТИВА</label><strong>${signed(stats.initiative)}</strong></div><div class="stat"><label>СКОРОСТЬ</label><strong>${stats.speed} <small style="font-size:11px">фт</small></strong></div></div></section></div><p class="small">${SkazStorage.manualStats?.()?"Ручные характеристики · КД, инициатива и скорость заданы итоговыми значениями":(sheet?"Статистики шаблона: настрой их под свой класс":"Характеристики шаблона барда 5 уровня")}</p><div class="spell-stats">${SkazCharacterSheet.spellTiles(stats,sheet)}</div><div class="abilities">${[['СИЛ','str'],['ЛОВ','dex'],['ТЕЛ','con'],['ИНТ','int'],['МДР','wis'],['ХАР','cha']].map(([title,id])=>`<div class="ability"><label>${title}</label><strong>${signed(Math.floor((stats.abilities[id]-10)/2))}</strong><small>${stats.abilities[id]}</small></div>`).join('')}</div><section class="panel hero-inventory"><div class="panel-title"><div><h2>Инвентарь</h2><p>${state.gold} зм · сохранённые предметы персонажа</p></div><button data-page="inventory">Открыть инвентарь <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></div><p class="small">Расходники и предметы с зарядами — в начале списка.</p></section><div class="two-col" style="margin-top:20px">${sheet?SkazCharacterSheet.view():`<section class="panel demo-example"><div class="panel-title"><h2>Под рукой</h2><span class="tag">Демо действий</span></div><div class="action-row"><div><strong>Рапира</strong><small>Действие · 1к8 + 2 колющего</small></div><button data-roll="rapier" ${SkazStorage.manualStats?.()?'disabled title="Демо-бросок не учитывает ручные характеристики"':''}>+5 <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></div><div class="action-row"><div><strong>Злая насмешка</strong><small>Заговор · Мудрость Сл 15 · 2к4</small></div><button data-spell="mockery">Читать</button></div><div class="action-row"><div><strong>Инвентарь</strong><small>Сохранённые предметы</small></div><button id="open-inventory">Открыть</button></div></section>`}<section class="panel session-card demo-example"><div class="panel-title"><h2>Нить приключения</h2><span class="tag accent">Демо сюжета</span></div><div class="overline" style="margin-top:24px">СВЕТ НА МЫСЕ</div><p class="quote">«Если маяк погас, значит, кто-то хотел, чтобы корабль не дошёл».</p><p>Мира, хозяйка трактира · Тихая гавань</p><button class="text-button" data-page="quests">Открыть задание <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button><button class="text-button" data-page="journal">${location.protocol==='file:'?(pending().length?pending().length+' события ждут подтверждения':'Все события разобраны'):'События текущей сессии'} <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></section></div>`;
- return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(sheet,stats),title:'Персонаж',actions,content});
+ return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(sheet,stats),title:'Персонаж',actions,content:profileSections('hero')+content});
 }
 function pending(){return events.filter(e=>!state.accepted.includes(e.id)&&!state.dismissed.includes(e.id))}
 function spellsPage(){
- if(location.protocol==='file:')return demoSpellsPage();
+ if(location.protocol==='file:')return profileSections('spells')+demoSpellsPage();
  const content=SkazSpellbook.view()+`<details class="demo-section"><summary>Демонстрационные заклинания и ячейки барда 5 уровня</summary>${demoSpellsPage({showHeading:false})}</details>`;
  const label=(SkazStorage.can?.('character')??true)?'Добавить из справочника':'Открыть справочник';
  const actions=`<button data-page="library" class="primary">${label}</button>`;
- return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Магия',actions,content});
+ return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Персонаж',actions,content:profileSections('spells')+content});
 }
 function demoSpellsPage({showHeading=true}={}){
  const stats='Харизма +4 · Атака заклинанием +7 · Сложность спасброска 15';
@@ -164,6 +170,7 @@ function render(){
  const main=$('#main'), quick=$('#quick-state'), home=$('#quick-state-home');
  const workspaceSummary=$('.workspace-summary');
  if(!main||!quick||!home)return;
+ const sectionFocus=document.activeElement?.closest?.('.profile-sections a');
  if(page==='play') SkazPlay.captureFocus();
  if(quick.parentElement!==home) home.append(quick);
  document.body.dataset.page=page;
@@ -216,15 +223,19 @@ function render(){
  }else main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage,play:()=>SkazPlay.view()}[page]||hero)();
  $('#play-quick-slot')?.append(quick);
  $$('[data-page]').forEach(button=>{
-  const selected=button.dataset.page===page;
+  const nav=button.closest('nav');
+  const selected=button.dataset.page===(nav&&page==='spells'?'hero':page);
   button.classList.toggle('active',selected);
-  if(button.closest('nav')) button.setAttribute('aria-current',selected?'page':'false');
+  if(nav) button.setAttribute('aria-current',selected?'page':'false');
  });
  $$('[data-theme-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.themeChoice===state.theme)));
  const pendingCount=location.protocol==='file:'?pending().length:SkazEvents.pendingCount();
  $('#pending-count').textContent=Number.isInteger(pendingCount)&&pendingCount>0?String(pendingCount):'';
  $('#pending-count').hidden=!(Number.isInteger(pendingCount)&&pendingCount>0);
  SkazStorage.decorate?.();
+ if(sectionFocus){
+  $$('.profile-sections a').find(link=>link.hash===sectionFocus.hash)?.focus({preventScroll:true});
+ }
  if(page==='play') SkazPlay.restoreFocus();
  if(page==='inventory') void SkazStorage.inventory({preserveDialog:true});
 }
@@ -438,6 +449,15 @@ function addNote(map=false){
   });
  };
 }
+document.addEventListener('click',e=>{
+ const section=e.target.closest('.profile-sections a');
+ if(!section||e.defaultPrevented||e.button!==0||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
+ e.preventDefault();
+ const target=section.hash.slice(1);
+ if(target===page)return;
+ history.pushState(null,'',section.hash);
+ go(target);
+});
 document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b||b.disabled||SkazCharacterSheet.suppressTrackerClick(e))return;if(b.dataset.concentrationAnswer){answerConcentration(b.dataset.concentrationAnswer,b.dataset.checkId,b.dataset.snapshot);return}if(b.dataset.healthStep){stepQuickHealthAmount(b.dataset.healthStep);return}
  if(b.dataset.health){
   const amount=b.closest?.('.play-resources')?$('#quick-hp-amount'):null;
