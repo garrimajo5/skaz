@@ -51,6 +51,45 @@ test('history renders numeric differences, sends addressed undo and keeps last c
  assert.equal(calls[0].url,'/api/resources/undo');assert.equal(calls[0].body.targetMutationId,'resource-target');assert.equal(calls[0].body.characterId,'first-hero');assert.equal(calls.length,1);
 });
 
+test('history refresh after addressed undo respects closed or replaced dialogs', async () => {
+  for (const mode of ['closed', 'replaced', 'still open']) {
+    const requestStarted = Promise.withResolvers();
+    const historyResponse = Promise.withResolvers();
+    const writes = [];
+    let historyReads = 0;
+    const change = {mutationId:'resource-target', label:'Health', createdAt:'2026-11-08T00:00:00Z',
+      changes:[{resource:{kind:'hp'}, before:28, after:25}], canUndo:true, undoKind:'resource'};
+    const h = harness(memory(), memory(), async (url, options) => {
+      if (url === '/api/history?scope=session') {
+        if (historyReads++ === 0) return response({changes:[change]});
+        requestStarted.resolve();
+        return historyResponse.promise;
+      }
+      if (options.method === 'POST') writes.push({url, ...JSON.parse(options.body)});
+      return response(payload(writes.length));
+    });
+    await h.api.boot();
+    h.api.settings();
+    await h.get('#change-history').onclick();
+    const undo = h.get('resource-undo-button');
+    undo.dataset.resourceUndo = '0';
+    const pending = undo.onclick();
+    await Promise.race([requestStarted.promise, pending.then(() => assert.fail('Expected a history refresh'))]);
+    if (mode === 'closed') h.get('dialog').open = false;
+    if (mode === 'replaced') h.api.addInventory(inventoryEntry);
+    const lastView = h.dialog();
+    historyResponse.resolve(response({changes:[]}));
+    await pending;
+    assert.equal(h.get('dialog').open, mode !== 'closed', mode);
+    if (mode === 'still open') assert.notEqual(h.dialog(), lastView);
+    else assert.equal(h.dialog(), lastView, mode);
+    assert.equal(writes.length, 1);
+    assert.equal(writes[0].url, '/api/resources/undo');
+    assert.equal(writes[0].targetMutationId, 'resource-target');
+    assert.deepEqual(h.messages, ['Изменение ресурса отменено']);
+  }
+});
+
 test('window header survives reload and failed-command retry without changing another window identity', async () => {
   const local = memory(), session = memory(), calls = [];
   let offline = false;
