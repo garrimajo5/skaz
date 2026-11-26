@@ -145,6 +145,7 @@ body[data-theme="polar"] .play-effects {
   text-align: left;
 }
 .play-layout .play-spell-copy strong { overflow-wrap: break-word; }
+.play-layout .play-spell-copy > :is(strong, small) { line-height: 1.25; }
 .play-layout .play-spell-copy > :is(small, .play-action-kind) { contain: inline-size; }
 .play-layout .play-casting-controls {
   max-width: 100%;
@@ -159,10 +160,17 @@ body[data-theme="polar"] .play-effects {
   background: var(--workspace-play-price-bg, var(--raised));
 }
 .play-layout .play-cast:not(:disabled):hover { border-color: var(--accent); }
-.play-layout .play-cost { display: block; color: inherit; font-size: var(--ui-small); font-weight: 600; }
+.play-layout .play-action-command > :is(.play-cost, .play-command-label, .play-cast-warning) {
+  display: block;
+  line-height: var(--play-command-line-height, 1.35);
+}
+.play-layout .play-cost { color: inherit; font-size: var(--ui-small); font-weight: 600; }
 .play-action-command:not(:disabled) .play-command-label { color: var(--accent); }
 .play-layout .play-cast-warning { color: var(--warn); }
-.play-layout .play-cast:has(.play-cast-warning) { padding-block: 1px; line-height: 14px; }
+.play-layout .play-cast:has(.play-cast-warning) {
+  --play-command-line-height: 1.25;
+  padding-block: 1px;
+}
 .tracker-balance .tracker-maximum { font: inherit; color: inherit; }
 .play-cast-picker, .play-concentration-marker,
 .play-spell-copy .play-action-kind, .play-action-command .play-price-caption { display: none; }
@@ -846,7 +854,7 @@ body[data-theme="polar"] .play-effects {
     color: var(--muted);
     font-size: 10px;
     font-weight: 600;
-    line-height: 14px;
+    line-height: 1.4;
     letter-spacing: .08em;
     text-transform: uppercase;
   }
