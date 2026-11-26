@@ -1176,6 +1176,23 @@ test('repeated manual counter buttons need no IDs and reject disabled or stale c
  await h.click('',dataset);assert.equal(writes.length,1);assert.match(h.messages.at(-1),/изменились/);
 });
 
+test('inventory retry anchors focus in the page before replacing its contents',async()=>{
+ const order=[];let available=false;
+ const h=harness(memory(),memory(),async url=>{
+  if(url!=='/api/inventory')return response(payload(0));
+  order.push('request');
+  if(!available)throw new Error('Offline');
+  return response({...payload(0),entries:[]});
+ });
+ await h.api.boot();h.setPage('inventory');await h.api.inventory();
+ assert.match(h.pageHtml(),/id="inventory-retry"/);
+ h.get('inventory-page').focus=options=>{
+  assert.equal(options.preventScroll,true);order.push('focus');
+ };
+ available=true;await h.get('#inventory-retry').onclick();
+ assert.deepEqual(order,['request','focus','request']);
+ assert.doesNotMatch(h.pageHtml(),/id="inventory-retry"/);assert.match(h.pageHtml(),/id="inventory-catalog"/);
+});
 test('inventory page prioritizes consumables and charges while actions retain original item identity',async()=>{
  const make=(id,name,info)=>({catalogId:id,quantity:1,entry:{id,name:{ru:name,en:id},item:info,source:{url:'https://example.com',title:'Test',version:'1',terms:'Test'}}});
  const entries=[make('armor','Адамантовый доспех',{type:'armor'}),make('potion','Зелье лечения',{type:'potion'}),make('wand','Волшебная палочка',{type:'wand',charges:{max:7}})];

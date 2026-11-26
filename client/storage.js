@@ -665,7 +665,14 @@ const SkazStorage = (() => {
         if(inPage&&refocusSearch)$(showSearch?'#inventory-query':'#inventory-catalog')?.focus({preventScroll:true});
       }
       drawInventory();
-    } catch { if(!visible())return; paintInventory('<h2>Не удалось открыть инвентарь</h2><p role="alert">Проверь соединение.</p><button id="inventory-retry">Повторить</button>'); $('#inventory-retry').onclick = inventory; }
+    } catch {
+      if(!visible())return;
+      paintInventory('<h2>Не удалось открыть инвентарь</h2><p role="alert">Проверь соединение.</p><button id="inventory-retry">Повторить</button>');
+      $('#inventory-retry').onclick = () => {
+        if(inPage)document.getElementById('inventory-page')?.focus({preventScroll:true});
+        return inventory();
+      };
+    }
   }
   function readInventoryItem(item) {
     if(!item?.entry)return;
