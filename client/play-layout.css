@@ -463,6 +463,10 @@ body[data-theme="polar"] .play-effects {
   .play-resources .resource-dots button:disabled { border: 1px dashed var(--muted); }
   .play-resources .tracker-mark.circle { width: 100%; height: 8px; border-radius: 4px; }
   .play-resources .quick-vitals { padding-top: 8px; border-top: 1px solid var(--line); }
+  .play-resources .quick-vitals:not(.zero-hp) > :is([data-health="damage"], [data-health="heal"]) {
+    padding-inline: 6px;
+    overflow-wrap: break-word;
+  }
   body[data-page="play"] #toast { left: 50%; max-width: 90vw; transform: translateX(-50%); }
 }
 @media (min-width: 1000px) and (min-height: 720px) and (orientation: landscape) {
