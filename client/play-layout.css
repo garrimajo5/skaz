@@ -308,7 +308,11 @@ body[data-theme="polar"] .play-effects {
     grid-template-columns: var(--workspace-nav-width) minmax(0, 1fr);
     grid-template-rows: auto minmax(0, 1fr);
   }
-  .shell > header { grid-area: 1 / 2; height: var(--workspace-heading-height, 56px); }
+  .shell > header {
+    grid-area: 1 / 2;
+    height: var(--workspace-heading-height, 56px);
+    background-color: var(--bg);
+  }
   .shell > header .brand { display: none; }
   .shell > main { grid-area: 2 / 2; }
   .sidebar {
