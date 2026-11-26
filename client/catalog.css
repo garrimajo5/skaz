@@ -55,6 +55,7 @@ dialog:has(#spell-inventory){max-width:760px}
 
 @media(min-width:651px){#spell-inventory-search{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.1fr) auto}#spell-inventory-search label:first-child{grid-column:auto}}
 #inventory-result-count{scroll-margin-top:12px}#inventory-result-count:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+:is(#inventory-page,#catalog-results):focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 /* Spell descriptions start in the first viewport; keep facts readable inline. */
 #dialog:has(.catalog-spell-actions) #catalog-detail-title{margin:8px 0;font-size:28px;line-height:1.2}
