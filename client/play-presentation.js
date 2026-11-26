@@ -25,6 +25,7 @@
  * @typedef {object} PreparationScreen
  * @property {WorkspaceActor} actor
  * @property {string} title
+ * @property {string} [titleId] Focus target when a page is mounted in place.
  * @property {string} [actions] Trusted markup from the current page renderer.
  * @property {string} content Trusted markup from the current page renderer.
  */
@@ -69,10 +70,12 @@ const SkazPlayPresentation = (() => {
    * @param {string} title
    * @param {string} session
    * @param {string} actions Trusted markup from the current page renderer.
+   * @param {string} [titleId]
    */
-  function heading(title, session, actions = '') {
+  function heading(title, session, actions = '', titleId) {
+    const focusTarget = titleId ? ` id="${escape(titleId)}" tabindex="-1"` : '';
     return `<div class="play-heading">
-      <div>${session ? `<p class="play-session">${escape(session)}</p>` : ''}<h1>${escape(title)}</h1></div>
+      <div>${sessionLine(session)}<h1${focusTarget}>${escape(title)}</h1></div>
       ${actions}
     </div>`;
   }
@@ -96,6 +99,27 @@ const SkazPlayPresentation = (() => {
     return {character, initial: Array.from(view.heroName.trim())[0] || '?'};
   }
 
+  /** @param {string} session */
+  function sessionLine(session) {
+    return session ? `<p class="play-session">${escape(session)}</p>` : '';
+  }
+
+  /** Refresh the displayed context without replacing the page controls.
+   * @param {HTMLElement} screen
+   * @param {WorkspaceActor} actor
+   */
+  function refreshActor(screen, actor) {
+    const headingContent = screen.querySelector('.play-heading > div');
+    const caption = headingContent?.querySelector('.play-session');
+    if (caption) {
+      if (actor.session) caption.textContent = actor.session;
+      else caption.remove();
+    } else if (actor.session) {
+      headingContent?.insertAdjacentHTML('afterbegin', sessionLine(actor.session));
+    }
+    const band = screen.querySelector('.play-hero-band');
+    if (band) band.outerHTML = actorBand(actor);
+  }
   /** @param {WorkspaceActor} view */
   function actorBand(view) {
     const {character, initial} = identityCopy(view);
@@ -140,7 +164,7 @@ const SkazPlayPresentation = (() => {
   /** @param {PreparationScreen} view */
   function prepare(view) {
     return `<section class="play-screen workspace-prepare">
-      ${heading(view.title, view.actor.session, view.actions)}
+      ${heading(view.title, view.actor.session, view.actions, view.titleId)}
       ${actorBand(view.actor)}
       <div class="play-layout">
         <div class="workspace-content">${view.content}</div>
@@ -181,5 +205,5 @@ const SkazPlayPresentation = (() => {
       text:manual.level+' круг · без расхода ячейки.'+agreement+(manual.reason?' '+manual.reason:'')};
   }
 
-  return {castCost, commandCopy, healthAmount, identityCopy, sessionCaption, prepare, resources, screen, note};
+  return {castCost, commandCopy, healthAmount, identityCopy, sessionCaption, prepare, refreshActor, resources, screen, note};
 })();

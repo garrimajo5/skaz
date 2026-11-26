@@ -187,7 +187,7 @@ const SkazCampaign = (function(){
   }
   function peopleSection(){
     return `<div class="campaign-toolbar"><h2 id="campaign-section-heading" tabindex="-1">Персонажи</h2>
-        ${canWrite()?button('Добавить персонажа','create','', 'class="primary"'):''}</div>
+        <div id="campaign-people-actions"></div></div>
       <form id="campaign-search" class="campaign-search">
         <label for="campaign-query">Найти по имени или сведениям
           <input id="campaign-query" name="q" type="search" maxlength="200" value="${esc(view.query)}"></label>
@@ -205,7 +205,7 @@ const SkazCampaign = (function(){
       `<section class="panel campaign-panel"><h3>В кампании пока нет известных персонажей</h3>
         ${canWrite()?note('Добавь имя или прозвище первого знакомого.'):note('Добавлять персонажей могут мастер и владелец.')}</section>`;
   }
-  function draw({renew=false}={}){
+  function draw(){
     if(!rootActive())return;
     const region=el('campaign-content'), alert=el('campaign-notice');
     if(!region||!alert)return;
@@ -215,7 +215,11 @@ const SkazCampaign = (function(){
       if(nav.closest('.campaign-sections'))nav.setAttribute('aria-current',nav.dataset.target===view.section?'page':'false');
     }
     if(view.section==='people'&&!view.selectedId){
-      if(renew||!el('campaign-search'))region.innerHTML=peopleSection();
+      if(!el('campaign-search'))region.innerHTML=peopleSection();
+      const actions=el('campaign-people-actions'), mayAddPerson=canWrite();
+      if(Boolean(actions.firstElementChild)!==mayAddPerson){
+        actions.innerHTML=mayAddPerson?button('Добавить персонажа','create','', 'class="primary"'):'';
+      }
       drawResults();
     }else if(view.section==='actions')region.innerHTML=actionsSection();
     else if(loading&&!result)region.innerHTML=note('Загружаем кампанию…','status');
@@ -279,10 +283,8 @@ const SkazCampaign = (function(){
       (opener||el('campaign-query'))?.focus({preventScroll:true});
     }else if(focus)(el('campaign-section-heading')||el('campaign-title'))?.focus({preventScroll:true});
   }
-  function titleMarkup(){
-    return `<div class="campaign-title"><h1 id="campaign-title" tabindex="-1">Кампания</h1>
-        ${button('Вернуться в игру','return-game')}</div>
-      <nav class="campaign-sections" aria-label="Разделы кампании">
+  function sectionMarkup(){
+    return `<nav class="campaign-sections" aria-label="Разделы кампании">
         ${Object.entries(sections).map(([id,label])=>button(label,'section',id)).join('')}
       </nav><p id="campaign-save-status" role="status" class="small" hidden></p>
       <div id="campaign-notice"></div><div id="campaign-pending" class="campaign-controls"></div><div id="campaign-content" class="campaign-stack" tabindex="-1"></div>
@@ -301,6 +303,7 @@ const SkazCampaign = (function(){
     const existing=main.querySelector('#campaign-screen');
     const section=entry&&Object.hasOwn(sections,entry.section)?entry.section:null;
     const replaceScreen=!existing||view.scope?.key!==scope?.key;
+    const actor=SkazPlay.actorView();
     if(replaceScreen){
       ++serial; view={section:section||'overview',query:'',selectedId:null,scope}; version=null;writable=null;
       history=null;historyWaiting=false;listTrigger=null;listScroll=0;returnFocus=false;result=null;failure='';
@@ -308,16 +311,20 @@ const SkazCampaign = (function(){
       // Existing fragments are replaced only on entry or a context change.
       subscriptions?.abort();
       subscriptions=new AbortController();
-      main.innerHTML=`<section class="play-screen workspace-prepare"><div class="play-layout">
-        <div class="workspace-content"><section id="campaign-screen" class="campaign-screen">${titleMarkup()}</section></div>
-        ${SkazPlayPresentation.resources(SkazPlay.actorView().historyAvailable)}
-      </div></section>`;
+      main.innerHTML=SkazPlayPresentation.prepare({
+        actor,
+        title:'Кампания',
+        titleId:'campaign-title',
+        actions:button('Вернуться в игру','return-game'),
+        content:`<section id="campaign-screen" class="campaign-screen">${sectionMarkup()}</section>`
+      });
       root=el('campaign-screen');
       const options={signal:subscriptions.signal};
+      main.querySelector('[data-campaign-action="return-game"]').addEventListener('click',click,options);
       root.addEventListener('click',click,options);
       root.addEventListener('submit',search,options);
       root.addEventListener('change',changeFile,options);
-    }
+    }else SkazPlayPresentation.refreshActor(main,actor);
     if(!scope){
       el('campaign-content').innerHTML=note('Подключись к игре, чтобы открыть кампанию.','status');
       return;
@@ -325,7 +332,7 @@ const SkazCampaign = (function(){
     if(section&&!replaceScreen)navigate(section,null,false);
     else {
       if(writable!==canWrite()){
-        writable=canWrite();draw({renew:true});
+        writable=canWrite();draw();
       }
       if(version!==scope.revision){
         version=scope.revision;
@@ -342,7 +349,7 @@ const SkazCampaign = (function(){
   function navigate(section,person=null,focusAfterLoad=true){
     if(!Object.hasOwn(sections,section))return;
     view.section=section;view.selectedId=person;history=null;historyWaiting=false;result=null;failure='';
-    draw({renew:true});
+    draw();
     void load({focus:focusAfterLoad});
   }
   function search(event){
@@ -452,7 +459,7 @@ const SkazCampaign = (function(){
         command.operation==='create'?null:api().person(scope,command.personId)]);
       if(!current(request))return;
       view.section='people';view.selectedId=payload?.person.id??null;
-      result={...refs,person:payload?.person};history=null;failure='';loading=false;draw({renew:true});
+      result={...refs,person:payload?.person};history=null;failure='';loading=false;draw();
       const id=command.operation==='remove-link-snapshot'?String(command.data.index):command.data.id??'';
       openEditor(command.operation,id,origin,recovery);
     }catch(error){

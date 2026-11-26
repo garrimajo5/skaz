@@ -492,6 +492,24 @@ test('Quick Access keeps the real session number, title and legacy fallback',()=
  assert.match(h.api.view(),/<p class="play-session">Текущая игра<\/p>/);
 });
 
+test('a retained workspace refresh updates session and hero without remounting actions',()=>{
+ const h=harness();
+ const presentation=vm.runInNewContext(presentationSource+'\nSkazPlayPresentation');
+ const actor=h.api.actorView();
+ const action='<button data-campaign-action="return-game">В игру</button>';
+ const html=presentation.prepare({actor,title:'Кампания',titleId:'campaign-title',actions:action,content:'<section id="campaign-content"></section>'});
+ assert.match(html,/<h1 id="campaign-title" tabindex="-1">Кампания<\/h1>/);
+ assert.ok(html.includes(action));
+ const caption={textContent:actor.session};
+ const header={querySelector:selector=>selector==='.play-session'?caption:null};
+ const band={outerHTML:''};
+ const screen={querySelector:selector=>selector==='.play-heading > div'?header:selector==='.play-hero-band'?band:null};
+ presentation.refreshActor(screen,{...actor,session:'Сессия 02 · <Север>',hp:14});
+ assert.equal(caption.textContent,'Сессия 02 · <Север>');
+ assert.match(band.outerHTML,/<strong>14<span> \/ 38<\/span>/);
+ assert.equal(Object.hasOwn(screen,'innerHTML'),false);
+});
+
 test('cast price follows the selected command, with distinct free and manual paths',async()=>{
  const h=harness(),free=spell('Free',0),paid=spell('Paid',1),exhausted=spell('Exhausted',4);
  paid.entry.spell.castingTime='1 действие';
