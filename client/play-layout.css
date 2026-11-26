@@ -723,7 +723,7 @@ body[data-theme="polar"] .play-effects {
     max-height: none;
     padding-inline: 7px;
   }
-  body[data-page="play"] .play-spell-action .play-cast { min-height: 62px; }
+  .play-layout .play-spell-action > .play-casting-controls { align-self: stretch; }
   .play-layout .play-side > .play-consumables {
     padding: 0;
     border: 0;
@@ -745,8 +745,9 @@ body[data-theme="polar"] .play-effects {
     border-color: transparent;
   }
   .play-layout .play-consumables .play-item > .play-row:hover { border-color: var(--accent); }
-  .play-layout .play-consumables .play-item > .play-action-command {
-    min-height: 62px;
+  .play-layout :is(.play-spell-action .play-casting-controls, .play-consumables .play-item) > .play-action-command {
+    min-block-size: 62px;
+    align-self: stretch;
     border-radius: 0 var(--radius-s) var(--radius-s) 0;
     background: var(--workspace-play-price-bg, var(--raised));
   }
