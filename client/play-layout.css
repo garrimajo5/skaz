@@ -715,6 +715,13 @@ body[data-theme="polar"] .play-effects {
   body[data-page="play"] .quick-vitals:not(.wounded, .zero-hp, :has(.temp-hp-chip)) .quick-health-amount input {
     grid-column: 2 / 4;
     grid-row: 2;
+    padding-block: 4px;
+    border-radius: 0;
+  }
+  body[data-page="play"] .quick-vitals:not(.wounded, .zero-hp, :has(.temp-hp-chip)) .quick-health-amount input:focus-visible { z-index: 1; }
+  body[data-page="play"] .quick-state .quick-vitals:not(.wounded, .zero-hp, :has(.temp-hp-chip))
+    button:is([data-health-step], [data-health="damage"], [data-health="heal"]) {
+    min-block-size: var(--touch);
   }
   body[data-page="play"] .quick-vitals:not(.wounded, .zero-hp, :has(.temp-hp-chip)) .quick-health-amount button {
     grid-row: 2;
