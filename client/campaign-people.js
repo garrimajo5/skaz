@@ -43,6 +43,16 @@ const SkazCampaign = (function(){
     slot.append(message);
     focus?.focus({preventScroll:true});
   }
+  function toolbarFeedbackSlot(width,height,start,end){
+    if(width>480||height>=500)return null;
+    const toolbar=el('campaign-people-toolbar');
+    const action=el('campaign-people-actions')?.getBoundingClientRect();
+    if(!toolbar||!action?.width)return null;
+    const bounds=toolbar.getBoundingClientRect();
+    // The heading and feedback share a column. The neighboring action keeps its touch target.
+    if(bounds.top<start||bounds.bottom>end||action.left-bounds.left<168)return null;
+    return el('campaign-toolbar-feedback');
+  }
   function positionNotice(){
     noticeFrame=0;
     const message=el('toast'), search=el('campaign-search'), viewport=window.visualViewport;
@@ -55,10 +65,12 @@ const SkazCampaign = (function(){
     const pultTop=pult&&getComputedStyle(pult).getPropertyValue('--pult-side').trim()!=='1'
       ?pult.getBoundingClientRect().top:viewportBottom;
     const end=Math.min(viewportBottom,pultTop);
-    const shortLayout=relevant&&viewportWidth>=620&&viewportHeight<=260;
-    const searchBounds=shortLayout&&search.getBoundingClientRect();
-    const inlineSlot=searchBounds&&searchBounds.top>=viewportTop&&searchBounds.bottom<=end
-      ?el('campaign-search-feedback'):null;
+    const searchBounds=relevant&&search.getBoundingClientRect();
+    const formVisible=searchBounds&&searchBounds.top>=viewportTop&&searchBounds.bottom<=end;
+    const shortLayout=formVisible&&viewportWidth>=620&&viewportHeight<=260;
+    const toolbarSlot=formVisible?toolbarFeedbackSlot(viewportWidth,viewportHeight,viewportTop,end):null;
+    const inlineSlot=shortLayout?el('campaign-search-feedback'):
+      toolbarSlot&&message.parentElement===toolbarSlot?toolbarSlot:null;
     const compact=Boolean(relevant&&viewportWidth<=360&&viewportHeight<500);
     moveNotice(message,inlineSlot||document.body);
     message?.classList.toggle('campaign-notice-compact',compact);
@@ -72,8 +84,9 @@ const SkazCampaign = (function(){
         rect.bottom>viewportTop && rect.top<end && rect.width>0 &&
         bounds.left<rect.right && bounds.right>rect.left);
       if(nearby.some(rect=>top<rect.bottom&&bottom>rect.top)){
-        shift=noticePlacement(top,bottom,viewportTop,end,nearby)
-          ??noticePlacement(top,bottom,viewportTop,end,[form])??0;
+        const placement=noticePlacement(top,bottom,viewportTop,end,nearby);
+        if(placement===undefined&&toolbarSlot)moveNotice(message,toolbarSlot);
+        else shift=placement??noticePlacement(top,bottom,viewportTop,end,[form])??0;
       }
     }
     if(shift!==noticeShift){
@@ -256,8 +269,11 @@ const SkazCampaign = (function(){
     </section>`;
   }
   function peopleSection(){
-    return `<div class="campaign-toolbar"><h2 id="campaign-section-heading" tabindex="-1">Персонажи</h2>
-        <div id="campaign-people-actions"></div></div>
+    return `<div id="campaign-people-toolbar" class="campaign-toolbar">
+        <h2 id="campaign-section-heading" tabindex="-1">Персонажи</h2>
+        <div id="campaign-toolbar-feedback"></div>
+        <div id="campaign-people-actions"></div>
+      </div>
       <div class="campaign-search-tools">
         <form id="campaign-search" class="campaign-search">
           <label for="campaign-query">Найти по имени или сведениям
