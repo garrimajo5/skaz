@@ -58,10 +58,12 @@ const SkazCampaign = (function(){
     if(!pult||getComputedStyle(pult).getPropertyValue('--pult-side').trim()==='1')return viewportBottom;
     return Math.min(viewportBottom,pult.getBoundingClientRect().top);
   }
+  function isNarrowKeyboardViewport(viewport){
+    return viewport?.scale===1&&viewport.width<=480&&window.innerHeight-viewport.height>48;
+  }
   function revealSearchForKeyboard(search,viewport){
     const query=el('campaign-query');
-    if(!query||!search||document.activeElement!==query||!viewport||
-      viewport.scale!==1||viewport.width>480||window.innerHeight-viewport.height<=48)return;
+    if(!query||!search||document.activeElement!==query||!isNarrowKeyboardViewport(viewport))return;
     const bottom=visibleContentBottom(viewport.offsetTop+viewport.height);
     const form=search.getBoundingClientRect();
     const gap=8;
@@ -101,7 +103,9 @@ const SkazCampaign = (function(){
       ),element=>element.getBoundingClientRect())].filter(rect=>
         rect.bottom>viewportTop && rect.top<end && rect.width>0 &&
         bounds.left<rect.right && bounds.right>rect.left);
-      if(nearby.some(rect=>top<rect.bottom&&bottom>rect.top)){
+      if(toolbarSlot&&isNarrowKeyboardViewport(viewport)&&bottom>viewportBottom){
+        moveNotice(message,toolbarSlot);
+      }else if(nearby.some(rect=>top<rect.bottom&&bottom>rect.top)){
         const placement=noticePlacement(top,bottom,viewportTop,end,nearby);
         if(placement===undefined&&toolbarSlot)moveNotice(message,toolbarSlot);
         else shift=placement??noticePlacement(top,bottom,viewportTop,end,[form])??0;
