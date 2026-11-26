@@ -161,6 +161,7 @@ function render(){
  const ready=SkazStorage.readyToDisplay?.()!==false;
  workspaceSummary.hidden=!ready;
  if(!ready){
+  if(page==='campaign')SkazCampaign.unmount();
   $('#campaign-name').textContent='';
   $('#session-name-label').textContent='Открываем игру…';
   quick.innerHTML='';
@@ -271,6 +272,10 @@ function toast(text,undo,{error=false,persistent=false}={}){
  const notification=$('#toast');
  clearTimeout(toastTimer);
  const version=++toastVersion;
+ const hide=()=>{
+  notification.classList.remove('show');
+  if(page==='campaign')SkazCampaign.scheduleNotice();
+ };
  let used=false;
  notification.dataset.kind=error?'error':'success';
  notification.innerHTML=`<span${persistent?' tabindex="0"':''}>${esc(text)}</span>${undo?'<button id="undo">Отменить</button>':''}`;
@@ -283,14 +288,14 @@ function toast(text,undo,{error=false,persistent=false}={}){
    used=true;
    clearTimeout(toastTimer);
    action.disabled=true;
-   notification.classList.remove('show');
+   hide();
    return undo();
   };
  }
  if(!persistent)toastTimer=setTimeout(()=>{
   if(version!==toastVersion)return;
   toastVersion++;
-  notification.classList.remove('show');
+  hide();
  },undo?12000:5000);
 }
 function canChange(){

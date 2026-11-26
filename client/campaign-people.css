@@ -150,6 +150,29 @@ body[data-page="campaign"]:not(:has(.concentration-question))
   box-sizing: border-box;
 }
 
+#campaign-search-feedback:empty { display: none; }
+.campaign-search-tools:has(> #campaign-search-feedback > #toast.show[data-kind="success"]):not(:has(> #campaign-search-feedback > #toast > span[tabindex])) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(168px, 260px);
+  align-items: end;
+  gap: 8px;
+}
+#campaign-search-feedback > #toast.show[data-kind="success"]:not(:has(> span[tabindex])) {
+  position: static;
+  inset: auto;
+  transform: none;
+  translate: none;
+  width: 100%;
+  max-width: none;
+  padding: 6px 8px;
+  gap: 6px;
+  font-size: 12px;
+}
+#campaign-search-feedback > #toast.show > span {
+  max-block-size: 44px;
+  pointer-events: auto;
+}
+
 @media (max-width: 420px) {
   .bottomnav [data-campaign-entry] {
     flex: 1.22;

@@ -37,23 +37,35 @@ const SkazCampaign = (function(){
       top+offset>=start+gap && bottom+offset<=end-gap &&
       obstacles.every(rect=>bottom+offset<=rect.top-gap || top+offset>=rect.bottom+gap));
   }
+  function moveNotice(message,slot=document.body){
+    if(!message||message.parentElement===slot)return;
+    const focus=message.contains(document.activeElement)?document.activeElement:null;
+    slot.append(message);
+    focus?.focus({preventScroll:true});
+  }
   function positionNotice(){
     noticeFrame=0;
     const message=el('toast'), search=el('campaign-search'), viewport=window.visualViewport;
     const relevant=search&&message?.matches(transientNotice)&&!document.querySelector('.concentration-question');
     const viewportHeight=viewport?.height??window.innerHeight;
-    const compact=Boolean(relevant&&(viewport?.width??window.innerWidth)<=360&&viewportHeight<500);
+    const viewportWidth=viewport?.width??window.innerWidth;
+    const viewportTop=viewport?.offsetTop??0;
+    const viewportBottom=viewportTop+viewportHeight;
+    const pult=relevant&&el('quick-state');
+    const pultTop=pult&&getComputedStyle(pult).getPropertyValue('--pult-side').trim()!=='1'
+      ?pult.getBoundingClientRect().top:viewportBottom;
+    const end=Math.min(viewportBottom,pultTop);
+    const shortLayout=relevant&&viewportWidth>=620&&viewportHeight<=260;
+    const searchBounds=shortLayout&&search.getBoundingClientRect();
+    const inlineSlot=searchBounds&&searchBounds.top>=viewportTop&&searchBounds.bottom<=end
+      ?el('campaign-search-feedback'):null;
+    const compact=Boolean(relevant&&viewportWidth<=360&&viewportHeight<500);
+    moveNotice(message,inlineSlot||document.body);
     message?.classList.toggle('campaign-notice-compact',compact);
     let shift=0;
-    if(relevant){
+    if(relevant&&!inlineSlot){
       const form=search.getBoundingClientRect(), bounds=message.getBoundingClientRect();
       const top=bounds.top-noticeShift, bottom=bounds.bottom-noticeShift;
-      const viewportTop=viewport?.offsetTop??0;
-      const viewportBottom=viewportTop+viewportHeight;
-      const pult=el('quick-state');
-      const pultTop=pult&&getComputedStyle(pult).getPropertyValue('--pult-side').trim()!=='1'
-        ?pult.getBoundingClientRect().top:viewportBottom;
-      const end=Math.min(viewportBottom,pultTop);
       const nearby=[form,...Array.from(document.querySelectorAll(
         '.shell > header, #main .play-heading, .campaign-sections, #campaign-people-actions'
       ),element=>element.getBoundingClientRect())].filter(rect=>
@@ -71,7 +83,8 @@ const SkazCampaign = (function(){
   }
   function scheduleNotice(){
     const message=el('toast');
-    if(!noticeFrame&&(noticeShift||message?.classList.contains('campaign-notice-compact')||message?.matches(transientNotice))){
+    const relocated=message&&message.parentElement!==document.body;
+    if(!noticeFrame&&(noticeShift||relocated||message?.classList.contains('campaign-notice-compact')||message?.matches(transientNotice))){
       noticeFrame=requestAnimationFrame(positionNotice);
     }
   }
@@ -245,11 +258,15 @@ const SkazCampaign = (function(){
   function peopleSection(){
     return `<div class="campaign-toolbar"><h2 id="campaign-section-heading" tabindex="-1">Персонажи</h2>
         <div id="campaign-people-actions"></div></div>
-      <form id="campaign-search" class="campaign-search">
-        <label for="campaign-query">Найти по имени или сведениям
-          <input id="campaign-query" name="q" type="search" maxlength="200" value="${esc(view.query)}"></label>
-        <button type="submit">Найти</button>
-      </form><div id="campaign-people-results" aria-live="polite"></div>`;
+      <div class="campaign-search-tools">
+        <form id="campaign-search" class="campaign-search">
+          <label for="campaign-query">Найти по имени или сведениям
+            <input id="campaign-query" name="q" type="search" maxlength="200" value="${esc(view.query)}"></label>
+          <button type="submit">Найти</button>
+        </form>
+        <div id="campaign-search-feedback"></div>
+      </div>
+      <div id="campaign-people-results" aria-live="polite"></div>`;
   }
   function drawResults(){
     const region=el('campaign-people-results');
@@ -271,7 +288,9 @@ const SkazCampaign = (function(){
     for(const nav of root.querySelectorAll('[data-campaign-action="section"]')){
       if(nav.closest('.campaign-sections'))nav.setAttribute('aria-current',nav.dataset.target===view.section?'page':'false');
     }
-    if(view.section==='people'&&!view.selectedId){
+    const peopleList=view.section==='people'&&!view.selectedId;
+    if(!peopleList)moveNotice(el('toast'));
+    if(peopleList){
       if(!el('campaign-search'))region.innerHTML=peopleSection();
       const actions=el('campaign-people-actions'), mayAddPerson=canWrite();
       if(Boolean(actions.firstElementChild)!==mayAddPerson){
@@ -363,6 +382,7 @@ const SkazCampaign = (function(){
     const replaceScreen=!existing||view.scope?.key!==scope?.key;
     const actor=SkazPlay.actorView();
     if(replaceScreen){
+      moveNotice(el('toast'));
       ++serial; view={section:section||'overview',query:'',selectedId:null,scope}; version=null;writable=null;
       history=null;historyWaiting=false;listTrigger=null;listScroll=0;returnFocus=false;result=null;failure='';
       if(editor){editor=null;closeModal();}
@@ -413,6 +433,7 @@ const SkazCampaign = (function(){
     noticeFrame=0;
     noticeShift=0;
     const message=el('toast');
+    moveNotice(message);
     message?.classList.remove('campaign-notice-compact');
     message?.style.removeProperty('--campaign-notice-shift');
   }
