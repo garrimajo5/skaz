@@ -115,7 +115,7 @@ const SkazCatalog = (() => {
       <form id="catalog-search" class="catalog-search">${showTitle?'<h1>Справочник</h1>':''}<label>Название или ключевые слова<input name="q" type="search" maxlength="200" placeholder="Например, Spellcasting" value="${escape(draft.q)}"></label><input type="hidden" name="kind" value="${escape(draft.kind)}"><details class="catalog-about"><summary>О каталоге 2014</summary><div class="notice"><b>Каталог пополняется</b><p>${coverage ? `В базе: ${coverage.total}. Справочных ссылок: ${coverage.referenceOnly}, личных записей: ${coverage.personal}, CC BY 4.0: ${coverage.openlyLicensed || 0}.` : 'Полнота базы пока не подтверждена.'} Предметы и артефакты можно добавить в инвентарь из карточки.${scopeText()}</p></div>
       <div class="catalog-tools" aria-label="Наполнение каталога"><button type="button" id="catalog-bundled">Проверенная подборка 2014</button><button type="button" id="catalog-help">Личный импорт</button><button type="button" id="catalog-inventory">Охват заклинаний SRD</button></div>
       </details><details class="catalog-filters"><summary>Фильтры</summary><label class="catalog-text-toggle"><input type="checkbox" name="scope" value="text" ${draft.scope==='text'?'checked':''}>И в описаниях</label><div id="catalog-specific" class="catalog-specific">${filterControl(draft.kind,draft[filterKeys[draft.kind]]||'',draft)}</div></details><div class="catalog-search-actions"><button type="submit" class="primary">Найти</button><button type="button" id="catalog-reset">Сбросить фильтры</button></div></form><div class="catalog-kinds" aria-label="Категория">${[['','Все'],...Object.entries(names)].map(([key,label])=>`<button data-catalog-kind="${key}" aria-pressed="${draft.kind===key}">${label}</button>`).join('')}</div>
-      ${layoutControl()}<div id="catalog-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div>
+      ${layoutControl()}<div id="catalog-results" role="region" aria-label="Результаты справочника" tabindex="-1" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div>
       <div class="catalog-footer"><p>В разделе магии доступны личный список из каталога и отдельные демонстрационные заклинания.</p><button data-page="spells">К моей магии <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></div>
     </section>`;
   }
@@ -456,7 +456,10 @@ const SkazCatalog = (() => {
     if(button.id==='catalog-related-retry'&&currentEntry)loadRelated(currentEntry,detailSerial);
     if(button.id==='catalog-detail-back'&&trail.length&&detailVisible(detailSerial))showDetails(trail.pop());
     if(button.id==='catalog-reference-back'&&referenceReturn){const previous=referenceReturn;if(!previous.valid())return;++detailSerial;referenceReturn=null;trail=[];previous.onBack();}
-    if (button.id === 'catalog-retry') load();
+    if (button.id === 'catalog-retry') {
+      document.getElementById('catalog-results')?.focus({preventScroll:true});
+      load();
+    }
     if (['catalog-prev','catalog-next','catalog-prev-bottom','catalog-next-bottom'].includes(button.id)) {
       if(status!=='ready'||!result)return;
       const next=button.id.startsWith('catalog-next');

@@ -42,7 +42,7 @@ test('embedded catalog delegates the title to the workspace and preserves search
   assert.doesNotMatch(embedded,/<h1>/);
   assert.match(embedded,/id="catalog-search"/);
   assert.match(embedded,/name="q"/);
-  assert.match(embedded,/id="catalog-results" aria-live="polite"/);
+  assert.match(embedded,/id="catalog-results"[^>]*tabindex="-1" aria-live="polite"/);
 });
 
 const settle = () => new Promise(resolve => setImmediate(resolve));
@@ -50,6 +50,17 @@ function respond(request, payload) { request.resolve({ ok: true, json: async () 
 const entry = { kind: 'mechanic', name: { ru: '<img src=x onerror=alert(1)>', en: 'Test' }, source: { title: 'Fixture', usage: 'personal', url: 'javascript:alert(1)', version: '1', terms: '<script>unsafe</script>' }, text: '<b>plain text</b>' };
 const coverage = { total: 1, referenceOnly: 0, personal: 1 };
 
+
+test('catalog retry anchors focus before replacing the error with loading and results',async()=>{
+ const h=harness();h.submit('rope');
+ h.requests[0].reject(new Error('Offline'));respond(h.requests[1],coverage);await settle();
+ assert.match(h.region.innerHTML,/id="catalog-retry"/);
+ h.click('catalog-retry');
+ assert.equal(h.movement[0][0],'focus');assert.equal(h.movement[0][1].preventScroll,true);
+ assert.doesNotMatch(h.region.innerHTML,/id="catalog-retry"/);
+ respond(h.requests[2],{entries:[entry],total:1});respond(h.requests[3],coverage);await settle();
+ assert.match(h.region.innerHTML,/id="catalog-result-heading"/);assert.equal(h.movement.length,1);
+});
 test('creature source coverage is bounded to named types and distinguishes prepared from installed',async()=>{
  const h=harness();h.submit('',{kind:'monster'});respond(h.requests[0],{entries:[],total:0});respond(h.requests[1],{...coverage,scopes:{srd51CreatureTypes:{fey:{expected:6,prepared:6,installed:0},plant:{expected:6,prepared:5,installed:3},construct:{expected:9,prepared:9,installed:5}}}});await settle();assert.match(h.typeRegion.innerHTML,/Охват выбранных типов SRD 5.1/);assert.match(h.view(),/Охват выбранных типов SRD 5.1/);assert.match(h.view(),/Феи: актуальных версий установлено 0, подготовлено 6 из 6/);assert.match(h.view(),/Растения: актуальных версий установлено 3, подготовлено 5 из 6/);assert.match(h.view(),/Конструкты: актуальных версий установлено 5, подготовлено 9 из 9/);assert.match(h.view(),/не полный бестиарий D&D/);h.submit('',{kind:'spell'});assert.doesNotMatch(h.view(),/Охват выбранных типов/);
 });

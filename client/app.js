@@ -87,7 +87,7 @@ function library(){
  });
 }
 function inventoryPage(){
- return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Инвентарь',content:'<section id="inventory-page" aria-label="Сохранённые предметы"><p role="status">Загружаем предметы…</p></section>'});
+ return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Инвентарь',content:'<section id="inventory-page" tabindex="-1" aria-label="Сохранённые предметы"><p role="status">Загружаем предметы…</p></section>'});
 }
 function concentrationQuestion(){const check=state.concentrationChecks?.[0];if(!check||!state.concentration||check.spell!==state.concentration)return '';return `<div class="concentration-question" role="status"><strong>Проверка концентрации · СЛ ${check.dc}</strong><span>Урон ${check.damage} · осталось ${state.concentrationChecks.length}</span><div>${[['pass','Прошёл'],['fail','Провалил']].map(([answer,label])=>`<button data-concentration-answer="${answer}" data-check-id="${esc(check.id)}" data-snapshot="${esc(SkazStorage.snapshotKey())}" ${(SkazStorage.canResource?.()??SkazStorage.editable())?'':'disabled'}>${label}</button>`).join('')}</div></div>`;}
 function answerConcentration(answer,id,snapshot){if(!['pass','fail'].includes(answer)||snapshot!==SkazStorage.snapshotKey()||state.concentrationChecks?.[0]?.id!==id)return toast('Проверка изменилась. Открой текущую игру');return resourceAction({kind:'health',operation:answer,checkId:id,temporaryBefore:state.tempHp||0,concentrationBefore:state.concentration},1,answer==='pass'?'Концентрация сохранена':'Концентрация провалена');}
