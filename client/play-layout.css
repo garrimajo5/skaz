@@ -228,7 +228,20 @@ body[data-theme="polar"] .play-effects {
 .play-consumables { container: consumables / inline-size; }
 .play-balance-short { display: none; }
 @container consumables (max-width: 310px) {
-  .play-layout .play-consumables .play-item > .play-row { padding-block: 1px; }
+  .play-layout .play-consumables .play-item {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .play-layout .play-consumables .play-item > .play-row {
+    flex: 1 1 8.5rem;
+    padding-block: 1px;
+  }
+  .play-layout .play-consumables .play-item > .play-action-command {
+    max-inline-size: 100%;
+    margin-inline-start: auto;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
   .play-layout .play-consumables .play-item > .play-row strong { line-height: 16px; }
   .play-layout .play-item-balance { line-height: 14px; }
   .play-balance-short { display: inline; }
