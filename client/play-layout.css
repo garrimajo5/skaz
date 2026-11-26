@@ -137,9 +137,13 @@ body[data-theme="polar"] .play-effects {
   flex-wrap: wrap;
 }
 .play-layout .play-spell-action > .play-spell-row {
-  flex: 1 1 6.5rem;
+  flex: 1 1 min-content;
+  min-inline-size: min(6.5rem, 100%);
+  max-inline-size: 100%;
   text-align: left;
 }
+.play-layout .play-spell-copy strong { overflow-wrap: break-word; }
+.play-layout .play-spell-copy > :is(small, .play-action-kind) { contain: inline-size; }
 .play-layout .play-casting-controls {
   max-width: 100%;
   flex-wrap: wrap;
@@ -225,7 +229,9 @@ body[data-theme="polar"] .play-effects {
 @container (min-width: 460px) {
   .play-layout :is(.play-casting-controls, .play-consumables .play-item) > .play-action-command {
     width: clamp(132px, 18cqw, 150px);
+    min-inline-size: min-content;
     min-height: 48px;
+    overflow-wrap: break-word;
     padding-inline: 10px;
     text-align: left;
   }
@@ -244,21 +250,23 @@ body[data-theme="polar"] .play-effects {
 .play-layout .play-side > .panel { max-height: none; margin: 0; min-height: 0; }
 .play-consumables { container: consumables / inline-size; }
 .play-balance-short { display: none; }
+.play-layout .play-consumables .play-item > .play-row {
+  flex: 1 1 min-content;
+  min-inline-size: min(8.5rem, 100%);
+  max-inline-size: 100%;
+}
+.play-layout .play-consumables .play-item > .play-action-command {
+  max-inline-size: 100%;
+  margin-inline-start: auto;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
 @container consumables (max-width: 310px) {
-  .play-layout .play-consumables .play-item {
-    display: flex;
-    flex-wrap: wrap;
-  }
   .play-layout .play-consumables .play-item > .play-row {
-    flex: 1 1 8.5rem;
+    flex-wrap: wrap;
     padding-block: 1px;
   }
-  .play-layout .play-consumables .play-item > .play-action-command {
-    max-inline-size: 100%;
-    margin-inline-start: auto;
-    white-space: normal;
-    overflow-wrap: anywhere;
-  }
+  .play-layout .play-consumables .play-item-copy { flex-basis: min-content; }
   .play-layout .play-consumables .play-item > .play-row strong { line-height: 16px; }
   .play-layout .play-item-balance { line-height: 14px; }
   .play-balance-short { display: inline; }
@@ -779,7 +787,6 @@ body[data-theme="polar"] .play-effects {
   }
   .play-layout .play-consumables .play-item > .play-row {
     min-height: 62px;
-    grid-template-columns: var(--play-card-art-size) minmax(0, 1fr);
     column-gap: var(--play-card-art-gap);
     padding-inline: 7px 8px;
     background: transparent;
