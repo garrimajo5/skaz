@@ -11,6 +11,8 @@
 | [Artificer 101: Armorer, Spells](https://www.dndbeyond.com/posts/912-artificer-101-armorer-from-tashas-cauldron-of) и [Artificer 101: Alchemist, Spells](https://www.dndbeyond.com/posts/908-artificer-101-alchemist-from-tashas-cauldron-of) | Редакционные статьи одного автора дают одинаковую формулу подготовки: модификатор Интеллекта + половина уровня изобретателя с округлением вниз, минимум одно. Это вспомогательное свидетельство, как указано в [#82](https://github.com/garrimajo5/skaz/issues/82#issuecomment-7115574783). |
 | [Tasha, Artificer → Class Features](https://www.dndbeyond.com/sources/dnd/tcoe/artificer#ClassFeatures) и [Eberron, Character Creation](https://www.dndbeyond.com/sources/dnd/erftlw/character-creation) | Открытое оглавление Tasha содержит ссылки на класс и подклассы. При переходе обе книги направили в магазин. Точный раздел опубликованного класса с исключением для общих ячеек и полный текст о всегда подготовленных заклинаниях не получены. |
 
+[FAQ Oracle of War v1.5](oracle-artificer-scope-2014.md) подтверждает выбор публикации Tasha для конкретной кампании и отдельный срок её инфузий. Абзац об округлении ячеек остаётся открытым.
+
 Проверен PDF Adventurers League на одной странице. SHA-256 `6ab6ee27f666c1acecc72621031244cecc85b0b2a1c710670e06ba9df5a9955f`. Граница раздела Spellcasting заканчивается перед Artificer Infusions. Сам PDF остаётся вне Git.
 
 ## Контрольные сценарии для следующего шага #82

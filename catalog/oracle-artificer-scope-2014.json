@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "campaign": "Oracle of War",
+  "campaignGuideVersion": "1.5",
+  "sources": {
+    "oracle-player-guide.pdf": {
+      "requestedUrl": "https://media.wizards.com/2021/dnd/downloads/OracleofWar_PGv1_5.pdf",
+      "finalUrl": "https://media.wizards.com/2021/dnd/downloads/OracleofWar_PGv1_5.pdf",
+      "status": 200,
+      "bytes": 434263,
+      "sha256": "13fae64ffcc255f800b99e333d3b56d32db38e588d180c5e5aa2562aa7e19f3c",
+      "capturedAt": "2026-11-26T22:42:08.264885+00:00",
+      "guide": "player",
+      "version": "1.5",
+      "pdfPageCount": 8,
+      "faqPage": 8,
+      "faqPart": 4,
+      "rightsEvidence": "publisher footer permits personal-use printing and copying",
+      "normalizedRegionSha256": {
+        "publication-choice": "325f1254fc1550b3b738d18b34ec07e89076a97745dbeee25d260df41433f831",
+        "campaign-infusions": "95561f021bbd67984c5b506895c35219b26dc3977190cac9cfa12eb45c26b0ab",
+        "wayfinder-eligibility": "67b990070ef58a2c77ee98ee1300f391b60ef5ad63fc432aa3d251aac23c26cf"
+      }
+    },
+    "oracle-dm-guide.pdf": {
+      "requestedUrl": "https://media.wizards.com/2021/dnd/downloads/OracleofWar_DMGv1_5.pdf",
+      "finalUrl": "https://media.wizards.com/2021/dnd/downloads/OracleofWar_DMGv1_5.pdf",
+      "status": 200,
+      "bytes": 368660,
+      "sha256": "162224dcdac296c9456a20f6a4936abce7f4c8511f84f45c66ef262ee1ff2d06",
+      "capturedAt": "2026-11-26T22:42:08.264885+00:00",
+      "guide": "dm",
+      "version": "1.5",
+      "pdfPageCount": 5,
+      "faqPage": 5,
+      "faqPart": 3,
+      "rightsEvidence": "publisher footer permits personal-use printing and copying",
+      "normalizedRegionSha256": {
+        "publication-choice": "325f1254fc1550b3b738d18b34ec07e89076a97745dbeee25d260df41433f831",
+        "campaign-infusions": "95561f021bbd67984c5b506895c35219b26dc3977190cac9cfa12eb45c26b0ab",
+        "wayfinder-eligibility": "67b990070ef58a2c77ee98ee1300f391b60ef5ad63fc432aa3d251aac23c26cf"
+      }
+    }
+  },
+  "witnesses": {
+    "publication-choice": {
+      "preferredSourceId": "117",
+      "errataUpdatesSourceId": "119"
+    },
+    "campaign-infusions": {
+      "excludedFromCampaignMagicItemLimit": true,
+      "endsAtAdventureEndUnlessWaived": true,
+      "mayInfuseAgainNextAdventure": true,
+      "waiverRequiresSameCharactersAndDmAcrossConsecutiveAdventures": true,
+      "waiverAtDmDiscretion": true
+    },
+    "wayfinder-eligibility": {
+      "eligibleInCampaignOnlyForExactMatchWithSourceId": "119"
+    }
+  },
+  "limits": {
+    "campaignSpecific": true,
+    "sameWitnessInBothGuides": true,
+    "globalPublicationEquivalenceEstablished": false,
+    "spellSlotRoundingVerified": false,
+    "automaticGrantOrRemoval": false,
+    "createsCatalogRecords": false,
+    "redistributionPermissionEstablished": false
+  }
+}
