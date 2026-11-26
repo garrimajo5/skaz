@@ -344,6 +344,31 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
  .play-search-feedback { margin-top: 8px; }
 }
 
+/* A software keyboard reduces the visible area without resizing the page. */
+#dialog[data-play-search-viewport]:has(#play-search-panel) {
+ position: fixed;
+ inset-block-start: calc(var(--play-search-top) + 4px);
+ inset-block-end: auto;
+ margin-block: 0;
+ max-height: calc(var(--play-search-height) - 8px);
+}
+#dialog[data-play-search-viewport] > #dialog-content:has(#play-search-panel) {
+ padding: 8px 12px;
+ max-height: calc(var(--play-search-height) - 10px);
+}
+#dialog[data-play-search-viewport] #play-search-panel {
+ display: flex;
+ flex-direction: column;
+ max-height: calc(var(--play-search-height) - 26px);
+}
+#dialog[data-play-search-viewport] #play-search-panel > :is(h2, form) { flex: none; }
+#dialog[data-play-search-viewport] #play-search-panel .play-search-feedback {
+ min-height: 0;
+ overflow: auto;
+ overscroll-behavior: contain;
+ padding: 4px;
+}
+
 .quick-concentration-row.concentration-pending{border:1px solid var(--warn);border-radius:var(--radius-m);padding:8px;flex-wrap:wrap}.concentration-question{display:grid;gap:6px;color:var(--warn);min-width:230px;font-size:14px}.concentration-question>div{display:flex;gap:8px}.concentration-question button{min-height:44px;flex:1;color:var(--text);background:var(--panel)}
 .concentration-question strong{color:var(--warn)!important;font-size:14px!important;white-space:normal!important}.concentration-question span{font-size:12px}
 @media(max-width:999px),(max-height:599px),(orientation:portrait){

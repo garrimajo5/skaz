@@ -331,6 +331,31 @@ const SkazPlay = (()=>{
   }));
  }
 
+
+ const searchViewport=globalThis.visualViewport;
+ function updateSearchViewport(){
+  if(!searchViewport)return;
+  const dialog=document.getElementById('dialog');
+  if(!dialog)return;
+  const obscured=innerHeight-searchViewport.height;
+  // Pinch zoom also shrinks the visual viewport, but should keep normal dialog behavior.
+  const reduced=dialog.open&&dialog.querySelector('#play-search-panel')&&searchViewport.scale===1&&obscured>48;
+  if(reduced){
+   dialog.setAttribute('data-play-search-viewport','');
+   dialog.style.setProperty('--play-search-top',Math.ceil(searchViewport.offsetTop)+'px');
+   dialog.style.setProperty('--play-search-height',Math.floor(searchViewport.height)+'px');
+  }else if(dialog.hasAttribute('data-play-search-viewport')){
+   dialog.removeAttribute('data-play-search-viewport');
+   dialog.style.removeProperty('--play-search-top');
+   dialog.style.removeProperty('--play-search-height');
+  }
+ }
+ if(searchViewport){
+  searchViewport.addEventListener('resize',updateSearchViewport);
+  searchViewport.addEventListener('scroll',updateSearchViewport);
+  globalThis.addEventListener('resize',updateSearchViewport);
+  document.getElementById('dialog')?.addEventListener('close',updateSearchViewport);
+ }
  function search(initial=''){
   const captured=SkazStorage.snapshotKey(),openedPage=page,instance=++searchSerial;
   let request=0,results=[];
@@ -338,6 +363,7 @@ const SkazPlay = (()=>{
   const draw=(value=initial,focusIndex=null)=>{
    if(!valid())return;
    modal(`<section id="play-search-panel"><h2>Правила во время игры</h2><form id="play-search-form"><label for="play-search-query">Название RU / EN</label><input id="play-search-query" type="search" maxlength="200" value="${escape(value)}"><button type="submit">Найти</button></form><div class="play-search-feedback"><div id="play-search-status" role="status"></div><div id="play-search-results"></div></div></section>`);
+   updateSearchViewport();
    const field=document.getElementById('play-search-query');
    const list=document.getElementById('play-search-results');
    const status=document.getElementById('play-search-status');
@@ -353,6 +379,7 @@ const SkazPlay = (()=>{
      const draft=field.value;
      ++request;
      SkazCatalog.readSnapshot(entry,()=>draw(draft,index),valid,'К поиску');
+     updateSearchViewport();
     };
     if(selectedIndex!==null){
      const selected=buttons[selectedIndex];
