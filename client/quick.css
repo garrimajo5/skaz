@@ -398,7 +398,39 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
 .concentration-question strong{color:var(--warn)!important;font-size:14px!important;white-space:normal!important}.concentration-question span{font-size:12px}
 @media(max-width:999px),(max-height:599px),(orientation:portrait){
  .quick-concentration-row.concentration-pending{flex-wrap:nowrap}
- .concentration-question{position:fixed;z-index:35;bottom:178px;right:12px;box-sizing:border-box;width:min(360px,calc(100vw - 24px));min-width:0;padding:12px;background:var(--panel);border:1px solid var(--warn);border-radius:var(--radius-m);box-shadow:0 4px 20px #0005}
+ .concentration-question {
+  --concentration-bottom: min(calc(var(--bottom-reserve, 190px) - 16px), max(8px, calc(100dvh - 136px)));
+  position: fixed;
+  z-index: 35;
+  bottom: var(--concentration-bottom);
+  right: 12px;
+  width: min(360px, calc(100vw - 24px));
+  min-width: 0;
+  max-block-size: calc(100dvh - var(--concentration-bottom) - 8px);
+  overflow-y: auto;
+  padding: 12px;
+  background: var(--panel);
+  border: 1px solid var(--warn);
+  border-radius: var(--radius-m);
+  box-shadow: 0 4px 20px #0005;
+ }
+}
+@media (max-height: 320px) and (orientation: landscape) {
+ .concentration-question {
+  top: 58px;
+  bottom: auto;
+  width: min(500px, calc(100vw - 24px));
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 8px;
+  padding: 6px 8px;
+  max-block-size: calc(100dvh - var(--nav-height, 0px) - 64px);
+ }
+ .concentration-question > div {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-items: center;
+ }
+ .concentration-question button { padding-inline: 8px; }
 }
 
 .quick-vitals.wounded strong,.quick-vitals.wounded .health-state-label{color:var(--warn)}.quick-vitals.wounded .quick-health-meter>i:first-child{background:var(--warn)}.health-state-label{font-size:14px!important;white-space:normal!important}.quick-vitals.zero-hp{display:flex;flex-wrap:wrap;gap:6px}.quick-vitals.zero-hp>strong{width:100%}.quick-vitals.zero-hp>button{min-height:44px!important}.death-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.death-actions button{min-height:44px}
