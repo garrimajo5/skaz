@@ -74,6 +74,7 @@ const SkazCatalog = (() => {
 
   let detailFilter='';
   let extraFilters={}, searchDraft=null;
+  const queryPending=()=>searchDraft!==null&&searchDraft.q.trim()!==query;
   const schools={abjuration:'Ограждение',conjuration:'Вызов',divination:'Прорицание',enchantment:'Очарование',evocation:'Воплощение',illusion:'Иллюзия',necromancy:'Некромантия',transmutation:'Преобразование'};
   const monsterTypes={aberration:'Аберрация',beast:'Зверь',celestial:'Небожитель',construct:'Конструкт',dragon:'Дракон',elemental:'Элементаль',fey:'Фея',fiend:'Исчадие',giant:'Великан',humanoid:'Гуманоид',monstrosity:'Монстр',ooze:'Слизь',plant:'Растение',undead:'Нежить'};
   const monsterSizes={tiny:'Крошечный',small:'Маленький',medium:'Средний',large:'Большой',huge:'Огромный',gargantuan:'Громадный'};
@@ -138,6 +139,7 @@ const SkazCatalog = (() => {
     }catch{/* A missing response must not be presented as an empty catalog. */}
   }
   function results() {
+    if(queryPending())return '<p class="empty">Запрос изменён. Результаты обновятся после поиска.</p>';
     if (status === 'loading' || status === 'idle') return '<p class="empty">Загружаем каталог…</p>';
     if (status === 'error') return '<div class="empty"><h2>Каталог недоступен</h2><p>Проверь, что локальный сервер запущен. Поиск сохранён — можно повторить запрос.</p><button id="catalog-retry">Повторить</button></div>';
     if(coverage?.total===0)return setupHint();
@@ -234,10 +236,15 @@ const SkazCatalog = (() => {
       if(heading){heading.focus({preventScroll:true});heading.scrollIntoView({block:'start',behavior:'auto'});}
     }
   }
+  function refreshResults() {
+    const region=document.getElementById('catalog-results');
+    if(!region)return;
+    region.innerHTML=results();
+    region.setAttribute('aria-busy', String(status==='loading'));
+  }
   function refresh() {
     if (typeof page !== 'undefined' && page === 'library') {
-      const region = document.getElementById('catalog-results');
-      if (region) { region.innerHTML = results(); region.setAttribute('aria-busy', String(status === 'loading')); }
+      refreshResults();
       const notice = document.querySelector('.catalog .notice p');
       if (notice && coverage) notice.textContent = `В базе: ${coverage.total}. Справочных ссылок: ${coverage.referenceOnly}, личных записей: ${coverage.personal}, CC BY 4.0: ${coverage.openlyLicensed || 0}. Предметы и артефакты можно добавить в инвентарь из карточки.${scopeText()}`;
       const typeRegion=document.getElementById('catalog-creature-coverage');
@@ -256,7 +263,7 @@ const SkazCatalog = (() => {
     return rows.length?`<section class="catalog-facts"><h3>Характеристики</h3><dl>${rows.join('')}</dl><p>Справочные данные. Эффекты автоматически не применяются.</p></section>`:'';
   }
   function details(index) {
-    if(ownerKey!==snapshot())return;
+    if(status!=='ready'||queryPending()||ownerKey!==snapshot())return;
     const entry = result?.entries[index];
     if (!entry) return;
     trail=[]; returnToInventory=false; referenceReturn=null; showDetails(entry);
@@ -412,9 +419,14 @@ const SkazCatalog = (() => {
   function rememberSearch(event){
     const field=event.target;
     if(field.form?.id!=='catalog-search'||!['q','scope','kind','level','school','ritual','concentration','challengeMin','challengeMax','monsterType','size','rarity','itemType','attunement','mechanicCategory'].includes(field.name))return;
+    const wasPending=queryPending();
     searchDraft={...(searchDraft||{q:query,scope:searchScope,kind,[filterKeys[kind]]:detailFilter,...extraFilters}),[field.name]:field.name==='scope'?(field.checked?'text':'name'):field.value};
-    clearTimeout(searchTimer);
-    if(field.name==='q')searchTimer=setTimeout(()=>{if(document.getElementById('catalog-search')!==field.form)return;field.form.requestSubmit();},200);
+    if(field.name==='q'){
+      clearTimeout(searchTimer);
+      const pending=queryPending();
+      if(pending!==wasPending)refreshResults();
+      if(pending)searchTimer=setTimeout(()=>{if(document.getElementById('catalog-search')!==field.form)return;field.form.requestSubmit();},200);
+    }
     if(field.name==='scope'&&event.type==='change')field.form.requestSubmit?.();
     if(field.name==='kind'){
       for(const key of ['level','school','ritual','concentration','challengeMin','challengeMax','monsterType','size','rarity','itemType','attunement','mechanicCategory'])delete searchDraft[key];
@@ -461,7 +473,7 @@ const SkazCatalog = (() => {
       load();
     }
     if (['catalog-prev','catalog-next','catalog-prev-bottom','catalog-next-bottom'].includes(button.id)) {
-      if(status!=='ready'||!result)return;
+      if(status!=='ready'||queryPending()||!result)return;
       const next=button.id.startsWith('catalog-next');
       if((next&&offset+limit>=result.total)||(!next&&offset===0))return;
       offset=Math.max(0,offset+(next?limit:-limit));load({focusResults:true});
