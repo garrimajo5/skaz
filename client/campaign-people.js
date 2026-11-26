@@ -409,9 +409,16 @@ const SkazCampaign = (function(){
     if(!file||!scope)return;
     const opened=serial;
     if(file.size>SkazCampaignModel.maxTransferBytes)return toast('Пакет больше 8 МиБ.',undefined,{error:true});
+    /** @type {unknown} */
+    let value;
     try{
-      const value=JSON.parse(await file.text());
-      if(!current(opened))return;
+      value=JSON.parse(await file.text());
+    }catch{
+      if(current(opened))toast('Не удалось прочитать JSON. Выбери целый пакет кампании СКАЗ.',undefined,{error:true});
+      return;
+    }
+    if(!current(opened))return;
+    try{
       const review=SkazCampaignModel.transferPreview(value);
       if(!review)throw new Error('Нужен пакет картотеки кампании v1 для D&D 2014.');
       modal(`<h2>Открыть пакет кампании</h2><p>${esc(review.name)} · ${esc(review.hero)}</p>
