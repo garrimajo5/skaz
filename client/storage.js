@@ -346,11 +346,15 @@ const SkazStorage = (() => {
     else if (draft.operation) download({ app: 'skaz-command', command: draft, note: 'Копия команды для сохранности. Повтор выполняется кнопкой в исходной вкладке; это не файл импорта прогресса.' }, 'skaz-pending-command.json');
     else download({ app: 'skaz', schemaVersion: 1, state: draft.state }, 'skaz-unsaved-draft.json');
   }
-  async function showResourceHistory(scope='session'){
+  async function showResourceHistory(scope='session', previousView=null){
+    const stillShowingHistory=()=>!previousView||(document.getElementById('dialog').open&&
+      document.getElementById('dialog-content').firstElementChild===previousView);
+    if(!stillShowingHistory())return;
     if(status==='denied'||permissions?.history===false||!permissions&&individual()||!loaded)return toast('История недоступна с текущими правами');
     const key=snapshotKey(),queued=structuredClone(resourceContextMatches()?resourceQueue?.data?.commands||[]:[]);let changes=[],unavailable=false;
     if(can('history')){try{({changes}=await request('/api/history?scope='+scope));}catch{unavailable=true;}}
     else unavailable=true;
+    if(!stillShowingHistory()||previousView&&status==='saving')return;
     if(key!==snapshotKey())throw new Error('Игра изменилась. Открой историю заново');
     const title=r=>r.name||({deathSaves:'Спасброски от смерти',concentrationChecks:'Проверки концентрации',concentration:'Концентрация',health:'Здоровье',tempHp:'Временные хиты',hp:'Хиты',maxHp:'Максимум хитов',gold:'Золото',inspiration:'Вдохновение',slot:r.level+' круг',counter:'Счётчик '+r.counterId,charges:'Заряды · экземпляр '+(r.unit+1),quantity:'Количество предметов'}[r.kind]||'Ресурс');
     const formatChange=change=>{
@@ -374,22 +378,34 @@ const SkazStorage = (() => {
       return `<div class="list-row history-pending"><div><strong>${command.targetMutationId?'Отмена · ':''}${esc(label)}${manual?'':': '+command.before+' → '+next}${health?' · временные '+command.resource.temporaryBefore+' → '+health.tempHp:''}</strong><small>${esc(resourceQueue?.data?.createdAt?.[command.mutationId]?new Date(resourceQueue.data.createdAt[command.mutationId]).toLocaleString('ru-RU'):'Время не записано')} · Ждёт подтверждения сервера</small>${!allowed?'<small>'+esc(reason||'Отмена недоступна с текущими правами')+'</small>':''}</div>${allowed?'<button data-queued-undo="'+esc(command.mutationId)+'">Отменить</button>':''}</div>`;
     }).join('')+(pending?'<div class="list-row history-pending"><strong>Правка листа · ждёт подтверждения сервера</strong></div>':'');
     modal(`<h2>История изменений</h2><button id="history-scope">${scope==='session'?'Показать все сессии':'Только текущая сессия'}</button>${localRows}${unavailable?'<p>Серверная история сейчас недоступна. Операции со статусом ожидания ещё не подтверждены сервером.</p>':''}<button id="history-refresh">Обновить историю</button><p>${scope==='session'?'Последние 50 сохранений текущей сессии. Старые записи без привязки доступны во всех сессиях.':'Последние 50 доступных сохранений всех сессий.'} Отмена здоровья восстанавливает связанные хиты и концентрацию, если после него здоровье не менялось. Отмена других ресурсов добавляет обратное изменение к текущему остатку; она не перематывает последующие действия. После ручных правок или при выходе за границы нужна сверка.</p>${changes.map((item,i)=>`<div class="list-row"><div><strong>${esc(item.label)}</strong><small>${esc(new Date(item.createdAt).toLocaleString('ru-RU'))} · Сохранено</small>${(item.changes||[]).map(formatChange).join('')}${!item.canUndo?`<small>${esc(item.undoReason||'Отмена недоступна')}</small>`:''}</div>${item.canUndo?`<button data-resource-undo="${i}">Отменить</button>`:''}</div>`).join('')||(unavailable?'':'<p>Подтверждённых сохранений нет.</p>')}`);
+    const historyView=document.getElementById('dialog-content').firstElementChild;
+    const refreshHistory=(nextScope=scope)=>showResourceHistory(nextScope,historyView);
     $$('[data-queued-undo]').forEach(button=>button.onclick=async()=>{
       try{
         if(key!==snapshotKey()||!canResource()||resourceSending)throw new Error('Игра или очередь изменилась. Обнови историю');
         resourceQueue.enqueueUndo(button.dataset.queuedUndo,crypto.randomUUID());resourceGeneration++;status='resource-pending';projectResources();render();
-        void flushResources();await showResourceHistory(scope);
+        void flushResources();await refreshHistory();
       }catch(error){toast(error.message);}
     });
-    $('#history-scope').onclick=()=>showResourceHistory(scope==='session'?'all':'session').catch(error=>toast(error.message));
-    $('#history-refresh').onclick=()=>showResourceHistory(scope).catch(error=>toast(error.message));
-    $$('[data-resource-undo]').forEach(button=>button.onclick=async()=>{
+    const scopeButton=$('#history-scope'), refreshButton=$('#history-refresh');
+    scopeButton.onclick=()=>refreshHistory(scope==='session'?'all':'session').catch(error=>toast(error.message));
+    refreshButton.onclick=()=>refreshHistory().catch(error=>toast(error.message));
+    const undoButtons=$$('[data-resource-undo]');
+    const historyControls=[scopeButton,refreshButton,...undoButtons];
+    undoButtons.forEach(button=>button.onclick=async()=>{
+      if(button.disabled)return;
+      if(key!==snapshotKey()||!can('character'))return toast('Игра изменилась. Открой историю заново',undefined,{error:true,persistent:true});
+      const item=changes[Number(button.dataset.resourceUndo)];
+      historyControls.forEach(control=>control.disabled=true);
       try{
-        if(key!==snapshotKey()||!can('character'))throw new Error('Игра изменилась. Открой историю заново');
-        button.disabled=true;const item=changes[Number(button.dataset.resourceUndo)];
-        await campaignCommand(item.undoKind==='inventory'?'inventory-undo':'resource-undo',{characterId:activeContext.characterId,targetMutationId:item.mutationId});
-        await showResourceHistory(scope);
-      }catch(error){toast(error.message,undefined,{error:true,persistent:true});}
+        await campaignCommand(item.undoKind==='inventory'?'inventory-undo':'resource-undo',
+          {characterId:activeContext.characterId,targetMutationId:item.mutationId}, undefined, {closeDialog:false});
+        await refreshHistory();
+      }catch(error){
+        toast(error.message,undefined,{error:true,persistent:true});
+      }finally{
+        historyControls.forEach(control=>control.disabled=false);
+      }
     });
   }
   function entityDraftLabel(draft){
@@ -439,7 +455,7 @@ const SkazStorage = (() => {
     if (activeContext && JSON.stringify(activeContext) !== JSON.stringify(context)) toast('Активная игра изменена');
     activeContext = context || null;
   }
-  async function campaignCommand(operation, data, formDraftKey) {
+  async function campaignCommand(operation, data, formDraftKey, {closeDialog=true}={}) {
     if (demo || status !== 'ready') throw new Error('Сначала сохрани черновик или загрузи актуальные данные');
     const action=operation==='select'?'select':operation==='create'?'newCampaign':['import-active','campaign-import'].includes(operation)?'import':['quest-create','quest-update','place-create','place-update','session','character-create'].includes(operation)?'shared':operation==='proposal-create'&&data.suggestion?.kind==='journal'?'shared':'character';
     requirePermission(action);
@@ -448,7 +464,7 @@ const SkazStorage = (() => {
     if(new Blob([JSON.stringify(command)]).size>limit)throw new Error(operation==='campaign-import'?'Пакет больше 8 МиБ. Для переноса используй резервную копию SQLite.':'Команда больше 512 КиБ. Для переноса используй резервную копию SQLite.');
     pending = { ...command, operation, ...(formDraftKey ? { formDraftKey } : {}) };
     rememberDraft();
-    closeModal();
+    if(closeDialog)closeModal();
     const payload = await sendPending();
     toast(operation === 'resource-undo' ? 'Изменение ресурса отменено' : operation === 'character-create' ? 'Создан персонаж: ' + payload.state.profile.name : operation === 'select' ? 'Выбран персонаж: ' + payload.state.profile.name : operation === 'proposal-create' ? 'Предложение ждёт подтверждения' : operation === 'proposal-decide' ? 'Решение по событию сохранено' : operation.startsWith('place-') ? 'Место сохранено' : operation.startsWith('quest-') ? 'Задание сохранено' : operation === 'spell-set' ? 'Список заклинаний сохранён' : ['import-active','campaign-import'].includes(operation) ? 'Игра импортирована в новую кампанию' : operation === 'inventory-charges' ? 'Остаток зарядов сохранён' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
     return payload;
