@@ -589,12 +589,13 @@ test('game search leaves the input mounted and skips results for a replaced draf
 
 test('game search uses the visual viewport only while it is reduced without zoom',async()=>{
  const windowEvents=new Map(),viewportEvents=new Map(),dialogEvents=new Map();
- const attributes=new Set(),rules=new Map();
+ const attributes=new Map(),rules=new Map();
  const dialog={
   open:false,
   searchPanel:true,
   querySelector:selector=>selector==='#play-search-panel'&&dialog.searchPanel?{}:null,
-  setAttribute:name=>attributes.add(name),
+  setAttribute:(name,value)=>attributes.set(name,value),
+  getAttribute:name=>attributes.get(name)??null,
   hasAttribute:name=>attributes.has(name),
   removeAttribute:name=>attributes.delete(name),
   style:{setProperty:(name,value)=>rules.set(name,value),removeProperty:name=>rules.delete(name)},
@@ -617,6 +618,18 @@ test('game search uses the visual viewport only while it is reduced without zoom
  visualViewport.offsetTop=49.2;
  viewportEvents.get('scroll')();
  assert.equal(rules.get('--play-search-top'),'50px');
+ const field=h.get('play-search-query'),form=h.get('play-search-form');
+ field.value='fire';
+ h.document.activeElement=field;
+ let buttonFocused=false;
+ form.querySelector=()=>({focus:()=>{buttonFocused=true;}});
+ visualViewport.height=71;
+ viewportEvents.get('resize')();
+ assert.equal(attributes.get('data-play-search-viewport'),'compact');
+ const response=form.onsubmit({preventDefault(){}});
+ assert.equal(buttonFocused,true);
+ h.requests.at(-1).resolve({ok:true,json:async()=>({entries:[]})});
+ await response;
  visualViewport.scale=1.5;
  viewportEvents.get('resize')();
  assert.equal(attributes.size,0);

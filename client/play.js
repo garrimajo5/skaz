@@ -341,7 +341,7 @@ const SkazPlay = (()=>{
   // Pinch zoom also shrinks the visual viewport, but should keep normal dialog behavior.
   const reduced=dialog.open&&dialog.querySelector('#play-search-panel')&&searchViewport.scale===1&&obscured>48;
   if(reduced){
-   dialog.setAttribute('data-play-search-viewport','');
+   dialog.setAttribute('data-play-search-viewport',searchViewport.height<172?'compact':'');
    dialog.style.setProperty('--play-search-top',Math.ceil(searchViewport.offsetTop)+'px');
    dialog.style.setProperty('--play-search-height',Math.floor(searchViewport.height)+'px');
   }else if(dialog.hasAttribute('data-play-search-viewport')){
@@ -389,10 +389,15 @@ const SkazPlay = (()=>{
    };
    if(results.length)paintResults(focusIndex);
    else status.textContent='Введи название заклинания, предмета или правила.';
-   document.getElementById('play-search-form').onsubmit=async event=>{
+   const form=document.getElementById('play-search-form');
+   form.onsubmit=async event=>{
     event.preventDefault();
     const submitted=field.value.trim();
     if(!valid()||!submitted)return;
+    // When only one row fits above the keyboard, close it before showing results.
+    if(document.activeElement===field&&document.getElementById('dialog')?.getAttribute('data-play-search-viewport')==='compact'){
+     form.querySelector('button[type=submit]')?.focus({preventScroll:true});
+    }
     const token=++request;
     results=[];
     list.textContent='';
