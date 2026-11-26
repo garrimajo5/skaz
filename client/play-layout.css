@@ -100,7 +100,8 @@ body[data-theme="polar"] .play-effects {
   gap: 18px;
   padding: 16px var(--play-gutter) 0;
 }
-.play-section-caption { display: none; }
+.play-section-caption, .tracker-recovery { display: none; }
+.tracker-copy { display: contents; }
 .play-layout h2:not(:where(.catalog *)) { font: 24px 'PT Serif', Georgia, serif; margin: 0 0 8px; }
 .play-layout .play-actions, .play-layout .play-resources, .workspace-content { min-width: 0; }
 .workspace-prepare .character-edit { flex-wrap: wrap; justify-content: flex-start; }
@@ -735,6 +736,19 @@ body[data-theme="polar"] .play-effects {
     grid-column: 3 / -1;
     grid-row: 3;
     margin-inline-start: 4px;
+  }
+  body[data-page="play"] .play-resources .tracker-heading:has(.tracker-copy) { align-items: center; }
+  body[data-page="play"] .play-resources .tracker-copy {
+    display: grid;
+    min-inline-size: 0;
+  }
+  body[data-page="play"] .play-resources .tracker-copy .tracker-name { line-height: 12px; }
+  body[data-page="play"] .play-resources .tracker-recovery {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
   }
   .play-resources .resource-group .tracker-balance {
     color: var(--workspace-vital-text, var(--text));
