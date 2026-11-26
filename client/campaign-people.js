@@ -55,7 +55,7 @@ const SkazCampaign = (function(){
         ?pult.getBoundingClientRect().top:viewportBottom;
       const end=Math.min(viewportBottom,pultTop);
       const nearby=[form,...Array.from(document.querySelectorAll(
-        'body > header, .campaign-screen .play-heading, .campaign-sections, #campaign-people-actions'
+        '.shell > header, #main .play-heading, .campaign-sections, #campaign-people-actions'
       ),element=>element.getBoundingClientRect())].filter(rect=>
         rect.bottom>viewportTop && rect.top<end && rect.width>0 &&
         bounds.left<rect.right && bounds.right>rect.left);
