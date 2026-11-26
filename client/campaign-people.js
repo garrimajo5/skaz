@@ -28,6 +28,53 @@ const SkazCampaign = (function(){
     `<label for="campaign-field-${name}">${label}</label><select id="campaign-field-${name}" name="${name}">
       <option value="">${esc(unknown)}</option>${rows.map(row=>`<option value="${esc(row.id)}" ${row.id===selected?'selected':''}>${esc(row.title)}</option>`).join('')}
     </select>`;
+  let noticeShift=0, noticeFrame=0;
+  const transientNotice='.show[data-kind="success"]:not(:has(> span[tabindex]))';
+  function noticePlacement(top,bottom,start,end,obstacles){
+    const gap=8;
+    const offsets=obstacles.flatMap(rect=>[rect.top-gap-bottom,rect.bottom+gap-top]);
+    return offsets.sort((a,b)=>Math.abs(a)-Math.abs(b)).find(offset=>
+      top+offset>=start+gap && bottom+offset<=end-gap &&
+      obstacles.every(rect=>bottom+offset<=rect.top-gap || top+offset>=rect.bottom+gap));
+  }
+  function positionNotice(){
+    noticeFrame=0;
+    const message=el('toast'), search=el('campaign-search'), viewport=window.visualViewport;
+    const relevant=search&&message?.matches(transientNotice)&&!document.querySelector('.concentration-question');
+    const viewportHeight=viewport?.height??window.innerHeight;
+    const compact=Boolean(relevant&&(viewport?.width??window.innerWidth)<=360&&viewportHeight<500);
+    message?.classList.toggle('campaign-notice-compact',compact);
+    let shift=0;
+    if(relevant){
+      const form=search.getBoundingClientRect(), bounds=message.getBoundingClientRect();
+      const top=bounds.top-noticeShift, bottom=bounds.bottom-noticeShift;
+      const viewportTop=viewport?.offsetTop??0;
+      const viewportBottom=viewportTop+viewportHeight;
+      const pult=el('quick-state');
+      const pultTop=pult&&getComputedStyle(pult).getPropertyValue('--pult-side').trim()!=='1'
+        ?pult.getBoundingClientRect().top:viewportBottom;
+      const end=Math.min(viewportBottom,pultTop);
+      const nearby=[form,...Array.from(document.querySelectorAll(
+        '.shell > header, #main .play-heading, .campaign-sections, #campaign-people-actions'
+      ),element=>element.getBoundingClientRect())].filter(rect=>
+        rect.bottom>viewportTop && rect.top<end && rect.width>0 &&
+        bounds.left<rect.right && bounds.right>rect.left);
+      if(nearby.some(rect=>top<rect.bottom&&bottom>rect.top)){
+        shift=noticePlacement(top,bottom,viewportTop,end,nearby)
+          ??noticePlacement(top,bottom,viewportTop,end,[form])??0;
+      }
+    }
+    if(shift!==noticeShift){
+      noticeShift=shift;
+      message?.style.setProperty('--campaign-notice-shift',shift+'px');
+    }
+  }
+  function scheduleNotice(){
+    const message=el('toast');
+    if(!noticeFrame&&(noticeShift||message?.classList.contains('campaign-notice-compact')||message?.matches(transientNotice))){
+      noticeFrame=requestAnimationFrame(positionNotice);
+    }
+  }
   function rootActive(){
     return root?.isConnected && api().scope()?.key===view.scope?.key;
   }
@@ -237,6 +284,7 @@ const SkazCampaign = (function(){
     else if(view.section==='overview'&&result)region.innerHTML=overview(result);
     else if(view.section==='journal'&&result)region.innerHTML=journalSection(result);
     else region.innerHTML='';
+    scheduleNotice();
   }
   async function references(scope, query='', {includeQuests=false,includePlaces=false}={}){
     const [people,sessions,quests,places]=await Promise.all([
@@ -334,9 +382,14 @@ const SkazCampaign = (function(){
       root.addEventListener('click',click,options);
       root.addEventListener('submit',search,options);
       root.addEventListener('change',changeFile,options);
+      window.addEventListener('scroll',scheduleNotice,{...options,passive:true,capture:true});
+      window.addEventListener('resize',scheduleNotice,options);
+      window.visualViewport?.addEventListener('resize',scheduleNotice,options);
+      window.visualViewport?.addEventListener('scroll',scheduleNotice,options);
     }else SkazPlayPresentation.refreshActor(main,actor);
     if(!scope){
       el('campaign-content').innerHTML=note('Подключись к игре, чтобы открыть кампанию.','status');
+      scheduleNotice();
       return;
     }
     if(section&&!replaceScreen)navigate(section,null,false);
@@ -350,11 +403,18 @@ const SkazCampaign = (function(){
       }
     }
     if(section&&entry.focus)el('campaign-section-heading')?.focus({preventScroll:true});
+    scheduleNotice();
   }
   function unmount(){
     ++serial;
     subscriptions?.abort();
     root=null;
+    if(noticeFrame)cancelAnimationFrame(noticeFrame);
+    noticeFrame=0;
+    noticeShift=0;
+    const message=el('toast');
+    message?.classList.remove('campaign-notice-compact');
+    message?.style.removeProperty('--campaign-notice-shift');
   }
   function navigate(section,person=null,focusAfterLoad=true){
     if(!Object.hasOwn(sections,section))return;
@@ -781,5 +841,5 @@ const SkazCampaign = (function(){
     return true;
   }
 
-  return {mount,unmount,allowClose};
+  return {mount,unmount,scheduleNotice,allowClose};
 })();
