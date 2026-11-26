@@ -492,7 +492,7 @@ body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
 .play-consumables .play-item{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .play-consumables .play-item>.play-row{display:flex;flex-wrap:nowrap;justify-content:flex-start;column-gap:8px;min-height:50px;padding:4px 8px}
 .play-consumables .play-item>.play-row .skaz-art{flex:none}
-.play-consumables .play-item-copy{display:block;flex:1;min-inline-size:0;max-inline-size:none;overflow:visible;white-space:normal}
+.play-consumables .play-item-copy{display:block;flex:1;min-inline-size:0;max-inline-size:none;overflow:visible;white-space:normal;font:inherit;color:inherit}
 .play-consumables .play-item-copy strong{display:block;overflow:visible;text-overflow:clip;overflow-wrap:break-word;line-height:1.25}
 .play-consumables .play-item-copy>.play-item-balance{display:block;max-width:none;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;line-height:1.25}
 .play-consumables .play-item>button:not(.play-row){justify-self:end;min-width:44px;min-height:44px;padding:4px 8px;font-size:12px;line-height:16px}

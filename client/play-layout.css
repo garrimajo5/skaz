@@ -262,7 +262,11 @@ body[data-theme="polar"] .play-effects {
   overflow-wrap: anywhere;
 }
 @container consumables (max-width: 310px) {
-  .play-layout .play-consumables .play-item > .play-row { padding-block: 1px; }
+  .play-layout .play-consumables .play-item > .play-row {
+    flex-wrap: wrap;
+    padding-block: 1px;
+  }
+  .play-layout .play-consumables .play-item-copy { flex-basis: min-content; }
   .play-layout .play-consumables .play-item > .play-row strong { line-height: 16px; }
   .play-layout .play-item-balance { line-height: 14px; }
   .play-balance-short { display: inline; }
