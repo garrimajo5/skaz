@@ -185,6 +185,7 @@ body[data-page="campaign"]:not(:has(.concentration-question))
   max-block-size: 44px;
   pointer-events: auto;
 }
+#campaign-toolbar-feedback > #toast > button { padding-inline: 8px; }
 #campaign-toolbar-feedback > #toast.show > span {
   max-block-size: min(44px, 2lh);
 }
