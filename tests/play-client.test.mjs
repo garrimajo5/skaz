@@ -458,6 +458,8 @@ test('play preserves metadata, reading and actions when same-ID personal text ha
 test('quick access has one resource mount and keeps actor identity in its status band',()=>{
  const h=harness(),html=h.api.view();
  assert.match(html,/<h1>Быстрый доступ<\/h1>/);
+ assert.match(html,/<p class="play-section-caption" aria-hidden="true">Командная панель<\/p>\s*<h2>Быстрые действия<\/h2>/);
+ assert.match(html,/<p class="play-section-caption" aria-hidden="true">Остаток<\/p>\s*<h2 id="play-resources-title">Ресурсы<\/h2>/);
  assert.match(html,/aria-label="Состояние активного персонажа"[\s\S]*<strong>Hero<\/strong>/);
  assert.match(html,/<strong>20<span> \/ 38<\/span>/);
  assert.equal((html.match(/id="play-quick-slot"/g)||[]).length,1);

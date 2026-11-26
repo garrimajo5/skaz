@@ -100,6 +100,7 @@ body[data-theme="polar"] .play-effects {
   gap: 18px;
   padding: 16px var(--play-gutter) 0;
 }
+.play-section-caption { display: none; }
 .play-layout h2:not(:where(.catalog *)) { font: 24px 'PT Serif', Georgia, serif; margin: 0 0 8px; }
 .play-layout .play-actions, .play-layout .play-resources, .workspace-content { min-width: 0; }
 .workspace-prepare .character-edit { flex-wrap: wrap; justify-content: flex-start; }
@@ -662,7 +663,20 @@ body[data-theme="polar"] .play-effects {
   body[data-page="play"] .play-layout {
     grid-template-columns: minmax(0, 1fr) 300px;
     gap: 32px;
-    padding-block-start: clamp(62px, 8dvh, 84px);
+    --play-section-caption-height: 24px;
+    padding-block-start: calc(clamp(62px, 8dvh, 84px) - var(--play-section-caption-height));
+  }
+  body[data-page="play"] .play-section-caption {
+    display: block;
+    min-block-size: var(--play-section-caption-height);
+    margin: 0;
+    padding-block-start: 8px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
   }
   body[data-page="play"] .play-actions > h2 { margin-block-end: 4px; }
   body[data-page="play"] .play-spell-scopes { margin-block-end: 0;
