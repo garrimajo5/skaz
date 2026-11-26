@@ -341,6 +341,21 @@ test('combat and exploration filters retain rituals, unknown entries and stable 
  await h.click('',{playRead:'spell',id:'Long'});assert.equal(h.reads[0][0].id,'Long');h.context('different');await h.click('',{playSpellScope:'combat'});assert.match(h.get('play-content').innerHTML,/data-id="Long"/);
 });
 
+test('wide action styling follows the casting group without replacing its label',async()=>{
+ const h=harness();
+ const action=spell('Fast'), bonus=spell('Quick'), reaction=spell('Interrupt');
+ action.entry.spell.castingTime='1 действие';
+ bonus.entry.spell.castingTime='1 бонусное действие';
+ reaction.entry.spell.castingTime='1 реакция';
+ await loaded(h,[action,bonus,reaction]);
+ await h.click('',{playSpellScope:'all'});
+ const html=h.get('play-content').innerHTML;
+ assert.match(html,/data-play-action-kind="action"><button[^>]*data-id="Fast"/);
+ assert.match(html,/data-play-action-kind="bonus"><button[^>]*data-id="Quick"/);
+ assert.match(html,/data-play-action-kind="reaction"><button[^>]*data-id="Interrupt"/);
+ assert.match(html,/>Бонусное действие<\/small>/);
+});
+
  test('only the recorded concentration spell receives an active marker',async()=>{const h=harness(),a=spell('Bless'),b=spell('Aid');a.entry.spell.concentration=true;h.concentration('Bless');await loaded(h,[a,b]);assert.equal((h.get('play-content').innerHTML.match(/is-concentrating/g)||[]).length,1);assert.match(h.get('play-content').innerHTML,/data-ui-icon="focus"><\/span> действует/);h.concentration('Aid');await h.click('',{playSpellScope:'all'});assert.doesNotMatch(h.get('play-content').innerHTML,/is-concentrating/);});
 
 test('cast form offers lowest available circle, warns on replacement and submits once; stale form cannot cast',async()=>{
