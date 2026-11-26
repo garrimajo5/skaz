@@ -134,9 +134,18 @@ body[data-theme="polar"] .play-effects {
   border-radius: var(--radius-s);
   background: var(--workspace-play-card-bg, var(--panel));
   gap: 6px;
+  flex-wrap: wrap;
 }
-.play-layout .play-spell-row { text-align: left; }
-.play-layout .play-casting-controls { max-width: 100%; flex-wrap: wrap; }
+.play-layout .play-spell-action > .play-spell-row {
+  flex: 1 1 6.5rem;
+  text-align: left;
+}
+.play-layout .play-casting-controls {
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-inline-start: auto;
+}
 .play-layout .play-cast {
   min-height: var(--resource-touch);
   max-inline-size: 100%;
@@ -152,9 +161,8 @@ body[data-theme="polar"] .play-effects {
 .play-cast-picker, .play-concentration-marker,
 .play-spell-copy .play-action-kind, .play-action-command .play-price-caption { display: none; }
 @container (max-width: 410px) {
-  .play-layout .play-spell-action { padding: 0 2px 0 3px; gap: 4px; flex-wrap: wrap; }
+  .play-layout .play-spell-action { padding: 0 2px 0 3px; gap: 4px; }
   .play-layout .play-spell-action > .play-spell-row {
-    flex: 1 1 6.5rem;
     gap: 4px;
     padding-block: 0;
     line-height: 1.15;
@@ -166,10 +174,6 @@ body[data-theme="polar"] .play-effects {
     overflow: hidden;
     clip-path: inset(50%);
     white-space: nowrap;
-  }
-  .play-layout .play-casting-controls {
-    justify-content: flex-end;
-    margin-inline-start: auto;
   }
   .play-layout .play-cast-levels { display: none; }
   .play-layout .play-cast-picker { display: block; position: relative; }
