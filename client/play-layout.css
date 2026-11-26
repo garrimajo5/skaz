@@ -229,7 +229,9 @@ body[data-theme="polar"] .play-effects {
 @container (min-width: 460px) {
   .play-layout :is(.play-casting-controls, .play-consumables .play-item) > .play-action-command {
     width: clamp(132px, 18cqw, 150px);
+    min-inline-size: min-content;
     min-height: 48px;
+    overflow-wrap: break-word;
     padding-inline: 10px;
     text-align: left;
   }
