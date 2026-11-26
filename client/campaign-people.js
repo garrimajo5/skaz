@@ -28,7 +28,7 @@ const SkazCampaign = (function(){
     `<label for="campaign-field-${name}">${label}</label><select id="campaign-field-${name}" name="${name}">
       <option value="">${esc(unknown)}</option>${rows.map(row=>`<option value="${esc(row.id)}" ${row.id===selected?'selected':''}>${esc(row.title)}</option>`).join('')}
     </select>`;
-  let noticeShift=0, noticeFrame=0;
+  let noticeShift=0, noticeFrame=0, viewportResized=false;
   const transientNotice='.show[data-kind="success"]:not(:has(> span[tabindex]))';
   function noticePlacement(top,bottom,start,end,obstacles){
     const gap=8;
@@ -50,21 +50,40 @@ const SkazCampaign = (function(){
     if(!toolbar||!action?.width)return null;
     const bounds=toolbar.getBoundingClientRect();
     // The heading and feedback share a column. The neighboring action keeps its touch target.
-    if(bounds.top<start||bounds.bottom>end||action.left-bounds.left<168)return null;
+    if(bounds.top<start||bounds.bottom>end||action.left-bounds.left<152)return null;
     return el('campaign-toolbar-feedback');
+  }
+  function visibleContentBottom(viewportBottom){
+    const pult=el('quick-state');
+    if(!pult||getComputedStyle(pult).getPropertyValue('--pult-side').trim()==='1')return viewportBottom;
+    return Math.min(viewportBottom,pult.getBoundingClientRect().top);
+  }
+  function isNarrowKeyboardViewport(viewport){
+    return viewport?.scale===1&&viewport.width<=480&&window.innerHeight-viewport.height>48;
+  }
+  function revealSearchForKeyboard(search,viewport){
+    const query=el('campaign-query');
+    if(!query||!search||document.activeElement!==query||!isNarrowKeyboardViewport(viewport))return;
+    const bottom=visibleContentBottom(viewport.offsetTop+viewport.height);
+    const form=search.getBoundingClientRect();
+    const gap=8;
+    if(form.bottom>bottom-gap&&form.height+gap<=bottom-viewport.offsetTop){
+      window.scrollBy({top:form.bottom-bottom+gap,behavior:'instant'});
+    }
   }
   function positionNotice(){
     noticeFrame=0;
     const message=el('toast'), search=el('campaign-search'), viewport=window.visualViewport;
+    if(viewportResized){
+      viewportResized=false;
+      revealSearchForKeyboard(search,viewport);
+    }
     const relevant=search&&message?.matches(transientNotice)&&!document.querySelector('.concentration-question');
     const viewportHeight=viewport?.height??window.innerHeight;
     const viewportWidth=viewport?.width??window.innerWidth;
     const viewportTop=viewport?.offsetTop??0;
     const viewportBottom=viewportTop+viewportHeight;
-    const pult=relevant&&el('quick-state');
-    const pultTop=pult&&getComputedStyle(pult).getPropertyValue('--pult-side').trim()!=='1'
-      ?pult.getBoundingClientRect().top:viewportBottom;
-    const end=Math.min(viewportBottom,pultTop);
+    const end=relevant?visibleContentBottom(viewportBottom):viewportBottom;
     const searchBounds=relevant&&search.getBoundingClientRect();
     const formVisible=searchBounds&&searchBounds.top>=viewportTop&&searchBounds.bottom<=end;
     const shortLayout=formVisible&&viewportWidth>=620&&viewportHeight<=260;
@@ -84,7 +103,9 @@ const SkazCampaign = (function(){
       ),element=>element.getBoundingClientRect())].filter(rect=>
         rect.bottom>viewportTop && rect.top<end && rect.width>0 &&
         bounds.left<rect.right && bounds.right>rect.left);
-      if(nearby.some(rect=>top<rect.bottom&&bottom>rect.top)){
+      if(toolbarSlot&&isNarrowKeyboardViewport(viewport)&&bottom>viewportBottom){
+        moveNotice(message,toolbarSlot);
+      }else if(nearby.some(rect=>top<rect.bottom&&bottom>rect.top)){
         const placement=noticePlacement(top,bottom,viewportTop,end,nearby);
         if(placement===undefined&&toolbarSlot)moveNotice(message,toolbarSlot);
         else shift=placement??noticePlacement(top,bottom,viewportTop,end,[form])??0;
@@ -98,9 +119,14 @@ const SkazCampaign = (function(){
   function scheduleNotice(){
     const message=el('toast');
     const relocated=message&&message.parentElement!==document.body;
-    if(!noticeFrame&&(noticeShift||relocated||message?.classList.contains('campaign-notice-compact')||message?.matches(transientNotice))){
+    if(!noticeFrame&&(viewportResized||noticeShift||relocated||
+      message?.classList.contains('campaign-notice-compact')||message?.matches(transientNotice))){
       noticeFrame=requestAnimationFrame(positionNotice);
     }
+  }
+  function visualViewportResized(){
+    viewportResized=true;
+    scheduleNotice();
   }
   function rootActive(){
     return root?.isConnected && api().scope()?.key===view.scope?.key;
@@ -421,7 +447,7 @@ const SkazCampaign = (function(){
       root.addEventListener('change',changeFile,options);
       window.addEventListener('scroll',scheduleNotice,{...options,passive:true,capture:true});
       window.addEventListener('resize',scheduleNotice,options);
-      window.visualViewport?.addEventListener('resize',scheduleNotice,options);
+      window.visualViewport?.addEventListener('resize',visualViewportResized,options);
       window.visualViewport?.addEventListener('scroll',scheduleNotice,options);
     }else SkazPlayPresentation.refreshActor(main,actor);
     if(!scope){
@@ -449,6 +475,7 @@ const SkazCampaign = (function(){
     if(noticeFrame)cancelAnimationFrame(noticeFrame);
     noticeFrame=0;
     noticeShift=0;
+    viewportResized=false;
     const message=el('toast');
     moveNotice(message);
     message?.classList.remove('campaign-notice-compact');
