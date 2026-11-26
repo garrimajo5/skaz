@@ -51,6 +51,38 @@ const entry = { kind: 'mechanic', name: { ru: '<img src=x onerror=alert(1)>', en
 const coverage = { total: 1, referenceOnly: 0, personal: 1 };
 
 
+test('catalog discards actionable results while the draft query differs', async () => {
+ const h=harness();
+ const old={...entry,name:{ru:'Опознание',en:'Identify'}}, fresh={...entry,name:{ru:'Волшебная стрела',en:'Magic Missile'}};
+ h.submit('Identify');
+ respond(h.requests[0],{entries:[old],total:1});
+ respond(h.requests[1],coverage);
+ await settle();
+ assert.match(h.region.innerHTML,/Опознание/);
+ h.draft('q',' Magic Missile ');
+ assert.match(h.region.innerHTML,/Запрос изменён/);
+ assert.doesNotMatch(h.region.innerHTML,/data-catalog-entry|Опознание/);
+ h.detail(0);
+ assert.equal(h.dialog(),'');
+ h.draft('q',' Identify ');
+ assert.match(h.region.innerHTML,/Опознание/);
+ assert.equal(h.requests.length,2);
+ h.submit('Identify');
+ h.draft('q','Magic Missile');
+ respond(h.requests[2],{entries:[old],total:1});
+ respond(h.requests[3],coverage);
+ await settle();
+ assert.match(h.region.innerHTML,/Запрос изменён/);
+ assert.doesNotMatch(h.region.innerHTML,/Опознание/);
+ h.submit('Magic Missile');
+ respond(h.requests[4],{entries:[fresh],total:1});
+ respond(h.requests[5],coverage);
+ await settle();
+ assert.match(h.region.innerHTML,/Волшебная стрела/);
+ h.detail(0);
+ assert.match(h.dialog(),/Волшебная стрела/);
+});
+
 test('catalog retry anchors focus before replacing the error with loading and results',async()=>{
  const h=harness();h.submit('rope');
  h.requests[0].reject(new Error('Offline'));respond(h.requests[1],coverage);await settle();
