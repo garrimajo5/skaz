@@ -459,7 +459,7 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
 }
 @media (min-height: 500px) and (orientation: portrait) {
  body:has(.concentration-question) #toast[data-kind="success"]:not(:has(> span[tabindex])) {
-  bottom: min(calc(var(--bottom-reserve, 190px) + 124px), calc(100dvh - 120px));
+  bottom: min(calc(var(--bottom-reserve, 190px) + 176px), calc(100dvh - 120px));
  }
 }
 
