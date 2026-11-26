@@ -192,7 +192,7 @@ body[data-page="campaign"]:not(:has(.concentration-question))
 
 @media (max-width: 420px) {
   .bottomnav [data-campaign-entry] {
-    flex: 1.22;
+    flex-grow: 1.22;
   }
 
   .bottomnav .nav-campaign-caption {
