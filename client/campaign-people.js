@@ -30,6 +30,13 @@ const SkazCampaign = (function(){
     </select>`;
   let noticeShift=0, noticeFrame=0;
   const transientNotice='.show[data-kind="success"]:not(:has(> span[tabindex]))';
+  function noticePlacement(top,bottom,start,end,obstacles){
+    const gap=8;
+    const offsets=obstacles.flatMap(rect=>[rect.top-gap-bottom,rect.bottom+gap-top]);
+    return offsets.sort((a,b)=>Math.abs(a)-Math.abs(b)).find(offset=>
+      top+offset>=start+gap && bottom+offset<=end-gap &&
+      obstacles.every(rect=>bottom+offset<=rect.top-gap || top+offset>=rect.bottom+gap));
+  }
   function positionNotice(){
     noticeFrame=0;
     const message=el('toast'), search=el('campaign-search'), viewport=window.visualViewport;
@@ -41,24 +48,25 @@ const SkazCampaign = (function(){
     if(relevant){
       const form=search.getBoundingClientRect(), bounds=message.getBoundingClientRect();
       const top=bounds.top-noticeShift, bottom=bounds.bottom-noticeShift;
-      if(top<form.bottom&&bottom>form.top&&bounds.left<form.right&&bounds.right>form.left){
-        const gap=8;
-        const viewportTop=viewport?.offsetTop??0;
-        const viewportBottom=viewportTop+viewportHeight;
-        const above=form.top-gap-bottom;
-        if(top+above>=viewportTop+gap)shift=above;
-        else{
-          const pult=el('quick-state');
-          const pultTop=pult&&getComputedStyle(pult).getPropertyValue('--pult-side').trim()!=='1'
-            ?pult.getBoundingClientRect().top:viewportBottom;
-          const below=form.bottom+gap-top;
-          if(bottom+below<=Math.min(viewportBottom,pultTop)-gap)shift=below;
-        }
+      const viewportTop=viewport?.offsetTop??0;
+      const viewportBottom=viewportTop+viewportHeight;
+      const pult=el('quick-state');
+      const pultTop=pult&&getComputedStyle(pult).getPropertyValue('--pult-side').trim()!=='1'
+        ?pult.getBoundingClientRect().top:viewportBottom;
+      const end=Math.min(viewportBottom,pultTop);
+      const nearby=[form,...Array.from(document.querySelectorAll(
+        'body > header, .campaign-screen .play-heading, .campaign-sections, #campaign-people-actions'
+      ),element=>element.getBoundingClientRect())].filter(rect=>
+        rect.bottom>viewportTop && rect.top<end && rect.width>0 &&
+        bounds.left<rect.right && bounds.right>rect.left);
+      if(nearby.some(rect=>top<rect.bottom&&bottom>rect.top)){
+        shift=noticePlacement(top,bottom,viewportTop,end,nearby)
+          ??noticePlacement(top,bottom,viewportTop,end,[form])??0;
       }
     }
     if(shift!==noticeShift){
       noticeShift=shift;
-      message.style.setProperty('--campaign-notice-shift',shift+'px');
+      message?.style.setProperty('--campaign-notice-shift',shift+'px');
     }
   }
   function scheduleNotice(){
