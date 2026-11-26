@@ -150,27 +150,43 @@ body[data-page="campaign"]:not(:has(.concentration-question))
   box-sizing: border-box;
 }
 
-#campaign-search-feedback:empty { display: none; }
+:is(#campaign-search-feedback, #campaign-toolbar-feedback):empty { display: none; }
+#campaign-people-toolbar:has(> #campaign-toolbar-feedback > #toast.show[data-kind="success"]):not(:has(> #campaign-toolbar-feedback > #toast > span[tabindex])) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+#campaign-people-toolbar > :is(h2, #campaign-toolbar-feedback) {
+  grid-area: 1 / 1;
+  min-inline-size: 0;
+}
+#campaign-people-toolbar > #campaign-people-actions { grid-area: 1 / 2; }
+#campaign-toolbar-feedback {
+  z-index: 1;
+  --campaign-feedback-padding: 0 6px;
+}
 .campaign-search-tools:has(> #campaign-search-feedback > #toast.show[data-kind="success"]):not(:has(> #campaign-search-feedback > #toast > span[tabindex])) {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(168px, 260px);
   align-items: end;
   gap: 8px;
 }
-#campaign-search-feedback > #toast.show[data-kind="success"]:not(:has(> span[tabindex])) {
+:is(#campaign-search-feedback, #campaign-toolbar-feedback) > #toast.show[data-kind="success"]:not(:has(> span[tabindex])) {
   position: static;
   inset: auto;
   transform: none;
   translate: none;
   width: 100%;
   max-width: none;
-  padding: 6px 8px;
+  padding: var(--campaign-feedback-padding, 6px 8px);
   gap: 6px;
   font-size: 12px;
 }
-#campaign-search-feedback > #toast.show > span {
+:is(#campaign-search-feedback, #campaign-toolbar-feedback) > #toast.show > span {
   max-block-size: 44px;
   pointer-events: auto;
+}
+#campaign-toolbar-feedback > #toast.show > span {
+  max-block-size: min(44px, 2lh);
 }
 
 @media (max-width: 420px) {
