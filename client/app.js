@@ -391,6 +391,11 @@ document.addEventListener('change',e=>{if(e.target.id==='spell-scope'){spellFilt
 $('#dialog').addEventListener('click',e=>{if(e.target===$('#dialog')){const r=$('#dialog').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeModal()}});
 $('#dialog').addEventListener('close', restoreHealthDialogFocus);
 $('#dialog').addEventListener('cancel',event=>{if(typeof SkazCampaign!=='undefined'&&!SkazCampaign.allowClose())event.preventDefault();});
+$('#skip-to-content').addEventListener('click',()=>{
+ const content=$('#main');
+ content.focus({preventScroll:true});
+ content.scrollIntoView({block:'start'});
+});
 window.addEventListener('hashchange',()=>go(location.hash.slice(1)));
 const initialPage=location.hash.slice(1);
 go(initialPage || (SkazPlay.mode()==='play' ? 'play' : 'hero'));
