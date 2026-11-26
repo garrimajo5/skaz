@@ -587,6 +587,46 @@ test('game search leaves the input mounted and skips results for a replaced draf
  assert.equal(field.value,'fireball');
 });
 
+test('editing game search clears displayed results and invalidates a pending lookup', async () => {
+ const h=harness();
+ await loaded(h);
+ await h.click('play-search');
+ const field=h.get('play-search-query'), list=h.get('play-search-results'), status=h.get('play-search-status');
+ const submit=()=>h.get('play-search-form').onsubmit({preventDefault(){}});
+ const searches=()=>h.requests.filter(r=>r.kind==='search');
+ const complete=entry=>searches().at(-1).resolve({ok:true,json:async()=>({entries:[entry]})});
+ const old={name:{ru:'Опознание',en:'Identify'}}, current={name:{ru:'Волшебная стрела',en:'Magic Missile'}};
+ field.value='Identify';
+ const initial=submit();
+ complete(old);
+ await initial;
+ assert.match(list.innerHTML,/Identify/);
+ field.value='  Identify ';
+ field.oninput();
+ assert.match(list.innerHTML,/Identify/);
+ field.value='Magic Missile';
+ field.oninput();
+ assert.equal(list.innerHTML,'');
+ assert.match(status.textContent,/Запрос изменён/);
+ assert.equal(searches().length,1);
+ const stale=submit();
+ field.value='';
+ field.oninput();
+ assert.match(status.textContent,/Введи название/);
+ complete(current);
+ await stale;
+ assert.equal(list.innerHTML,'');
+ assert.match(status.textContent,/Введи название/);
+ field.value='Magic Missile';
+ field.oninput();
+ const fresh=submit();
+ complete(current);
+ await fresh;
+ assert.match(list.innerHTML,/Magic Missile/);
+ assert.doesNotMatch(list.innerHTML,/Identify/);
+ assert.equal(searches().length,3);
+});
+
 test('game search uses the visual viewport only while it is reduced without zoom',async()=>{
  const windowEvents=new Map(),viewportEvents=new Map(),dialogEvents=new Map();
  const attributes=new Map(),rules=new Map();
