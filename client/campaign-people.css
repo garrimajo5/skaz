@@ -11,6 +11,20 @@
 
 body[data-page="campaign"] .play-heading > div { flex: 1 1 12ch; }
 
+body[data-page="campaign"]:not(:has(.concentration-question))
+  #toast.show[data-kind="success"]:not(:has(> span[tabindex])) {
+  translate: 0 var(--campaign-notice-shift, 0px);
+}
+body[data-page="campaign"]:not(:has(.concentration-question))
+  #toast.show.campaign-notice-compact[data-kind="success"]:not(:has(> span[tabindex])) {
+  padding-block: 6px;
+}
+body[data-page="campaign"]:not(:has(.concentration-question))
+  #toast.show.campaign-notice-compact[data-kind="success"]:not(:has(> span[tabindex])) > span {
+  max-block-size: 44px;
+  pointer-events: auto;
+}
+
 .campaign-screen > :is(#campaign-notice, #campaign-pending):empty,
 #campaign-people-actions:empty { display: none; }
 
