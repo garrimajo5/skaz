@@ -86,6 +86,28 @@ AC 16 и 230 HP совпадают в четырёх опубликованны�
 | cloud-2025.html | `9c3c8f1e735ab747f1be078f25de13d9ff2e73eb38e0e970da774827c9ef63e3` |
 | fire-2025.html | `663c3095674de8503395037a480444fea80b2a4c40bc2212a26225a547a5b1a2` |
 
+### Локаторы морозного и каменного великанов
+
+26.11.2026 у каждого великана проверены три цифровые строки издателя. Тип Giant и размер Huge совпадают в обеих тройках. У морозного везде CR 8 и Neutral Evil, у каменного CR 7 и Neutral. Издатель различает записи по источнику и ID. [Индекс Frost Giant](https://www.dndbeyond.com/monsters?page=62) · [Индекс Stone Giant](https://www.dndbeyond.com/monsters?filter-cr-max=19&filter-search=&filter-type=0&page=123&sort=cr)
+
+| Имя | Basic Rules (2014) | Storm King’s Thunder | Monster Manual (2025) |
+| --- | --- | --- | --- |
+| Frost Giant | [16867](https://www.dndbeyond.com/monsters/16867-frost-giant), 138 хитов, мультиатака состоит из двух ударов секирой, камень бросается отдельным действием | [324275](https://www.dndbeyond.com/monsters/324275-frost-giant-variant), публичный переход в магазин, на с. 246 одно дополнительное действие | [5195001](https://www.dndbeyond.com/monsters/5195001-frost-giant), 149 хитов, в мультиатаке можно сочетать секиру и лук, боевой клич даёт временные хиты |
+| Stone Giant | [17024](https://www.dndbeyond.com/monsters/17024-stone-giant), попадание камнем допускает спасбросок Силы СЛ 17 от падения, ловля камней имеет собственное условие | [324283](https://www.dndbeyond.com/monsters/324283-stone-giant-variant), публичный переход в магазин, на с. 246 два дополнительных действия | [5195220](https://www.dndbeyond.com/monsters/5195220-stone-giant), попадание валуном сбивает с ног цель Large или меньше, защитная реакция имеет перезарядку 5–6 |
+
+Для синтетической проверки одинакового CR у каменного великана подойдёт цель размера Medium с успешным спасброском Силы. На открытой карточке 2014 такой результат сохраняет её на ногах, а на карточке 2025 попадания достаточно для падения. По варианту SKT этот сценарий остаётся без результата. Страница 246 подтверждает структуру дополнительных действий. Полные блоки SKT, печатная эквивалентность, права и знаменатель остаются открытыми. Карточки 2025 служат сравнением версий. [Открытая страница приложения C](https://media.wizards.com/2016/dnd/downloads/SKT_GiantOptions.pdf) · [Описание отдельной редакции 2025](https://www.dndbeyond.com/posts/1913-updates-in-the-monster-manual-2025)
+
+Для воспроизведения примените существующий разбор rpgmonster-listing к двум индексам и выберите по три ID. В четырёх открытых карточках сверяйте блоки mon-stat-block и mon-stat-block-2024. Оба адреса вариантов отвечают 303 и передают официальный URL магазина Storm King’s Thunder. Таблица привязывает полный открытый HTML к снимкам вне Git.
+
+| Снимок | Байт | SHA-256 |
+| --- | ---: | --- |
+| frost-index.html | 412280 | 1947b4c8a2bb3b33bc405a4961017ef08f499b33b0d1ed5097bdd160b9e5f05d |
+| stone-index.html | 412073 | d1a9258d3bface34bc301788613fcec41b405800ed1880809c35cb5ae11f28b0 |
+| frost-2014.html | 367071 | 35d53af9295832c5907fc32222750d4d44f45d1aa9b543bbfde9310bcb680cd0 |
+| frost-2025.html | 304649 | 78dd8f5ba356062438181f0eccff310ebd7f41853219953dd401d82edeebea6d |
+| stone-2014.html | 363692 | d0231d53131e248ee9480677237b3b534d58fe8692650b13fd549d576d325518 |
+| stone-2025.html | 291520 | f8d3a7afeabf127650f549a2b8b3aca98817b99a0fb2416db2db3d0da6249eae |
+
 ### Hulking Crab и Huge Giant Crab
 
 Издательский индекс показывает обе карточки на одной странице. У Hulking Crab из SKT CR 5 и URL 17349. У Huge Giant Crab из Tales from the Yawning Portal CR 8 и URL 294086. У обеих записей тип Beast и размер Huge. У SKT есть самостоятельный заголовок в приложении C. Для обоих названий в текущем исходном снимке dnd.su совпадений по точному английскому имени нет. [Индекс издателя](https://www.dndbeyond.com/monsters?filter-search=&filter-senses=1&filter-type=0&page=16), [оглавление SKT](https://www.dndbeyond.com/sources/dnd/skt).
