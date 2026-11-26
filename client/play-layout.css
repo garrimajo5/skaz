@@ -284,6 +284,25 @@ body[data-theme="polar"] .play-effects {
 }
 .play-layout .play-side .play-empty { height: auto; max-height: none; }
 .play-layout .play-side .play-empty > button { white-space: normal; max-height: none; }
+.profile-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block-end: 16px;
+}
+.profile-sections a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--touch);
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--panel);
+  color: var(--text);
+  text-decoration: none;
+}
+.profile-sections a[aria-current="page"] { border-color: var(--accent); color: var(--accent); background: var(--raised); }
+.profile-sections a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .play-character-checks { margin-top: 14px; }
 .play-character-checks summary { display: list-item; padding: 10px 0; min-height: var(--touch); cursor: pointer; }
 .play-character-checks summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

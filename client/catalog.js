@@ -117,7 +117,7 @@ const SkazCatalog = (() => {
       <div class="catalog-tools" aria-label="Наполнение каталога"><button type="button" id="catalog-bundled">Проверенная подборка 2014</button><button type="button" id="catalog-help">Личный импорт</button><button type="button" id="catalog-inventory">Охват заклинаний SRD</button></div>
       </details><details class="catalog-filters"><summary>Фильтры</summary><label class="catalog-text-toggle"><input type="checkbox" name="scope" value="text" ${draft.scope==='text'?'checked':''}>И в описаниях</label><div id="catalog-specific" class="catalog-specific">${filterControl(draft.kind,draft[filterKeys[draft.kind]]||'',draft)}</div></details><div class="catalog-search-actions"><button type="submit" class="primary">Найти</button><button type="button" id="catalog-reset">Сбросить фильтры</button></div></form><div class="catalog-kinds" aria-label="Категория">${[['','Все'],...Object.entries(names)].map(([key,label])=>`<button data-catalog-kind="${key}" aria-pressed="${draft.kind===key}">${label}</button>`).join('')}</div>
       ${layoutControl()}<div id="catalog-results" role="region" aria-label="Результаты справочника" tabindex="-1" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div>
-      <div class="catalog-footer"><p>В разделе магии доступны личный список из каталога и отдельные демонстрационные заклинания.</p><button data-page="spells">К моей магии <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></div>
+      <div class="catalog-footer"><p>В разделе «Персонаж → Магия» доступны личная книга и демонстрационные заклинания.</p><button data-page="spells">К моей книге <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></div>
     </section>`;
   }
 
