@@ -171,14 +171,6 @@ body[data-theme="polar"] .play-effects {
     padding-block: 0;
     line-height: 1.15;
   }
-  .play-layout .play-spell-copy small {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
   .play-layout .play-cast-levels { display: none; }
   .play-layout .play-cast-picker { display: block; position: relative; }
   .play-layout .play-cast-select {
@@ -226,6 +218,16 @@ body[data-theme="polar"] .play-effects {
   }
   .play-layout .play-cast { min-width: 44px; padding: 2px 5px; }
 }
+@container (width < 350px) {
+  .play-layout .play-spell-copy small {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
 @container (min-width: 460px) {
   .play-layout :is(.play-casting-controls, .play-consumables .play-item) > .play-action-command {
     width: clamp(132px, 18cqw, 150px);
@@ -236,15 +238,6 @@ body[data-theme="polar"] .play-effects {
     text-align: left;
   }
   .play-layout .play-spell-action .play-action-command { border-radius: 0 var(--radius-s) var(--radius-s) 0; }
-}
-@container (350px <= width <= 410px) {
-  .play-layout .play-spell-copy small {
-    position: static;
-    width: auto;
-    height: auto;
-    clip-path: none;
-    text-overflow: ellipsis;
-  }
 }
 .play-layout .play-side { display: grid; gap: 8px; margin-top: 12px; overflow: visible; }
 .play-layout .play-side > .panel { max-height: none; margin: 0; min-height: 0; }
