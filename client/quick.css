@@ -430,7 +430,7 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
   grid-row: 1 / span 2;
   align-items: center;
  }
- .concentration-question button { padding-inline: 8px; }
+ .concentration-question button { padding-inline: 8px; flex-basis: auto; }
 }
 
 .quick-vitals.wounded strong,.quick-vitals.wounded .health-state-label{color:var(--warn)}.quick-vitals.wounded .quick-health-meter>i:first-child{background:var(--warn)}.health-state-label{font-size:14px!important;white-space:normal!important}.quick-vitals.zero-hp{display:flex;flex-wrap:wrap;gap:6px}.quick-vitals.zero-hp>strong{width:100%}.quick-vitals.zero-hp>button{min-height:44px!important}.death-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.death-actions button{min-height:44px}
