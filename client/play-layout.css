@@ -836,7 +836,29 @@ body[data-theme="polar"] .play-effects {
     letter-spacing: .08em;
     text-transform: uppercase;
   }
-  body[data-page="play"] .play-spell-copy .play-action-kind { margin-block-end: 2px; }
+  body[data-theme="polar"][data-page="play"] { --play-bonus-tone: #c4a5ec; }
+  body[data-theme="coal"][data-page="play"] { --play-bonus-tone: #cbb5e7; }
+  body[data-theme="atlas"][data-page="play"] { --play-bonus-tone: #694383; }
+  body[data-page="play"] .play-spell-action[data-play-action-kind="action"] {
+    --play-action-tone: var(--accent);
+  }
+  body[data-page="play"] .play-spell-action[data-play-action-kind="bonus"] {
+    --play-action-tone: var(--play-bonus-tone, var(--muted));
+  }
+  body[data-page="play"] .play-consumables .play-item { --play-action-tone: var(--warn); }
+  body[data-page="play"] :is(.play-spell-action[data-play-action-kind="action"],
+    .play-spell-action[data-play-action-kind="bonus"], .play-consumables .play-item)
+    .skaz-art:not(.skaz-art-loaded) {
+    background: color-mix(in srgb, var(--play-action-tone) 13%, var(--workspace-play-card-bg, var(--panel)));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--play-action-tone) 31%, transparent);
+  }
+  body[data-page="play"] .play-row .skaz-art:not(.skaz-art-loaded) .skaz-art-fallback [data-ui-icon] {
+    color: var(--play-action-tone, var(--muted));
+  }
+  body[data-page="play"] .play-spell-copy .play-action-kind {
+    margin-block-end: 2px;
+    color: var(--play-action-tone, var(--muted));
+  }
   #play-quick-item-charges:not(:empty) { display: grid; gap: 7px; order: -1; }
   .play-charge-heading { display: flex; gap: 8px; align-items: baseline; justify-content: space-between; }
   .play-charge-heading > div { min-width: 0; }
