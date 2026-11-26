@@ -284,6 +284,26 @@ body[data-theme="polar"] .play-effects {
 }
 .play-layout .play-side .play-empty { height: auto; max-height: none; }
 .play-layout .play-side .play-empty > button { white-space: normal; max-height: none; }
+.abilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-block-start: 20px;
+}
+.abilities > .ability {
+  flex: 1 0 0;
+  min-inline-size: min-content;
+}
+.hero-inventory .panel-title { flex-wrap: wrap; }
+.hero-inventory .panel-title > button {
+  max-inline-size: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 650px) {
+  .abilities { gap: 5px; }
+  .abilities > .ability { padding-inline: 2px; }
+}
 .profile-sections {
   display: flex;
   flex-wrap: wrap;
