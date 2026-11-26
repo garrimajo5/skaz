@@ -668,6 +668,8 @@ body[data-theme="polar"] .play-effects {
   body[data-page="play"] .play-spell-scopes { margin-block-end: 0;
   }
   body[data-page="play"] .play-resources { padding-inline-start: 28px; }
+  body[data-page="play"] .play-resources .resource-controls { row-gap: 2px; }
+  body[data-page="play"] .play-resources .resource-dots button:focus-visible { outline-offset: -2px; }
   /* Keep the current value beside the control label while the hero band scrolls away. */
   body[data-page="play"] .quick-vitals:not(.wounded, .zero-hp, :has(.temp-hp-chip)) {
     display: grid;
