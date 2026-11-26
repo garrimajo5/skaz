@@ -315,7 +315,7 @@ body[data-theme="polar"] .play-effects {
 @media (min-width: 1000px) and (min-height: 600px) and (orientation: landscape) {
   html:has(body[data-workspace-shell="shared"]) {
     --workspace-heading-height: 56px;
-    scroll-padding-block-start: calc(var(--workspace-heading-height) + 8px);
+    scroll-padding-block-start: calc(var(--workspace-header-height, var(--workspace-heading-height)) + 8px);
   }
   body {
     --workspace-nav-width: clamp(146px, 14.75vw, 225px);
@@ -332,7 +332,7 @@ body[data-theme="polar"] .play-effects {
   }
   .shell > header {
     grid-area: 1 / 2;
-    height: var(--workspace-heading-height, 56px);
+    min-height: var(--workspace-heading-height, 56px);
     background-color: var(--bg);
   }
   .shell > header .brand { display: none; }
@@ -609,10 +609,9 @@ body[data-theme="polar"] .play-effects {
     text-transform: uppercase;
   }
   body[data-page="play"] .play-resources {
-    top: calc(var(--workspace-heading-height) + 12px);
-    max-height: calc(100dvh - var(--workspace-heading-height) - 24px);
+    top: calc(var(--workspace-header-height, var(--workspace-heading-height)) + 12px);
+    max-height: calc(100dvh - var(--workspace-header-height, var(--workspace-heading-height)) - 24px);
   }
-  body[data-page="play"] .shell:has(.play-heading) .session-menu-content { top: 100%; }
   .sidebar nav button {
     padding-inline: 12px;
     font-size: 15px;
