@@ -442,7 +442,7 @@ body[data-theme="polar"] .play-effects {
   .play-resources .quick-resources { order: -1; }
   .play-resources .quick-concentration-row.concentration-pending { order: -3; }
   .play-resources .concentration-question { width: 100%; min-width: 0; }
-  .play-resources .concentration-question button { padding-inline: 6px; min-width: 0; overflow-wrap: anywhere; }
+  .play-resources .concentration-question button { padding-inline: 6px; }
   .play-resources .quick-extras { margin-top: 0; }
   .play-resources .resource-group { border: 0; background: transparent; padding: 0; }
   .play-resources .resource-group .tracker-heading {
