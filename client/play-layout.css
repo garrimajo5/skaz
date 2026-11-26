@@ -756,6 +756,7 @@ body[data-theme="polar"] .play-effects {
     clip-path: inset(50%);
   }
   .play-layout {
+    --play-card-min-block-size: 64px;
     --play-card-art-size: 37px;
     --play-card-art-gap: 14px;
   }
@@ -763,9 +764,9 @@ body[data-theme="polar"] .play-effects {
     inline-size: var(--play-card-art-size);
     block-size: var(--play-card-art-size);
   }
-  body[data-page="play"] .play-spell-action { min-height: 64px; }
+  body[data-page="play"] .play-spell-action { min-height: var(--play-card-min-block-size); }
   body[data-page="play"] .play-spell-action > .play-spell-row {
-    min-height: 62px;
+    min-height: calc(var(--play-card-min-block-size) - 2px);
     max-height: none;
     padding-inline: 8px;
     column-gap: var(--play-card-art-gap);
@@ -777,7 +778,7 @@ body[data-theme="polar"] .play-effects {
     background: transparent;
   }
   .play-layout .play-consumables .play-item {
-    min-height: 64px;
+    min-height: var(--play-card-min-block-size);
     margin-block-end: 5px;
     padding-inline-start: 8px;
     gap: 6px;
@@ -786,7 +787,7 @@ body[data-theme="polar"] .play-effects {
     background: var(--workspace-play-card-bg, var(--panel));
   }
   .play-layout .play-consumables .play-item > .play-row {
-    min-height: 62px;
+    min-height: calc(var(--play-card-min-block-size) - 2px);
     column-gap: var(--play-card-art-gap);
     padding-inline: 7px 8px;
     background: transparent;
@@ -794,7 +795,7 @@ body[data-theme="polar"] .play-effects {
   }
   .play-layout .play-consumables .play-item > .play-row:hover { border-color: var(--accent); }
   .play-layout :is(.play-spell-action .play-casting-controls, .play-consumables .play-item) > .play-action-command {
-    min-block-size: 62px;
+    min-block-size: calc(var(--play-card-min-block-size) - 2px);
     align-self: stretch;
     border-radius: 0 var(--radius-s) var(--radius-s) 0;
     background: var(--workspace-play-price-bg, var(--raised));
@@ -820,6 +821,11 @@ body[data-theme="polar"] .play-effects {
   .play-charge-marks { display: flex; gap: 5px; }
   .play-charge-marks > span { flex: 1; block-size: 5px; border-radius: 3px; background: var(--workspace-charge-empty, var(--line)); }
   .play-charge-marks > span.filled { background: var(--workspace-charge-filled, var(--accent)); }
+}
+/* Match the Figma card rhythm when the desktop viewport has room for it. */
+@media (min-width: 1440px) and (min-height: 960px) and (orientation: landscape) {
+  .play-layout { --play-card-min-block-size: 80px; }
+  .play-layout .play-spell-action { margin-block-end: 9px; }
 }
 @media (min-width: 1000px) and (min-height: 600px) and (max-height: 720px) and (orientation: landscape) {
   .play-resources .quick-vitals { order: -2; padding: 0 0 8px; border: 0; border-bottom: 1px solid var(--line); }
