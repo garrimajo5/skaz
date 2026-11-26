@@ -426,7 +426,7 @@ $('#quick-state').addEventListener('focusin', event => {
 });
 if(typeof ResizeObserver!=='undefined'){
  const measure=()=>{const bar=document.getElementById('quick-state'),nav=document.querySelector('.bottomnav');const navHeight=nav&&getComputedStyle(nav).display!=='none'?nav.getBoundingClientRect().height:0;document.documentElement.style.setProperty('--nav-height',navHeight+'px');document.documentElement.style.setProperty('--bottom-reserve',(bar&&getComputedStyle(bar).getPropertyValue('--pult-side').trim()!=='1'?bar.getBoundingClientRect().height:0)+navHeight+24+'px');};
- const observer=new ResizeObserver(measure);for(const el of [document.getElementById('quick-state'),document.querySelector('.bottomnav')])if(el)observer.observe(el);window.addEventListener('resize',measure);measure();
+ const observer=new ResizeObserver(measure);for(const el of [document.getElementById('quick-state'),document.querySelector('.bottomnav')])if(el)observer.observe(el,{box:'border-box'});window.addEventListener('resize',measure);measure();
 }
 
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!document.getElementById('dialog')?.open){const menu=document.getElementById('session-menu');if(menu?.open){menu.open=false;menu.querySelector('summary')?.focus();}}});
