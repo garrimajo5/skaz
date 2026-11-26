@@ -74,6 +74,9 @@ body[data-page="campaign"] .play-heading > div { flex: 1 1 12ch; }
   min-width: 0;
 }
 
+.campaign-encounter-preview { display: grid; gap: 4px; }
+.campaign-encounter-preview small { color: var(--muted); }
+.campaign-encounter-preview p { margin: 0; }
 .campaign-transfer > summary {
   min-block-size: var(--touch);
   padding-block: 10px;

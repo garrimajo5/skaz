@@ -329,14 +329,17 @@ export function listCampaignPeople(db, campaignId, query = '') {
   if (typeof query !== 'string' || query.length > 200) invalid('Поиск: до 200 символов');
   const normalize = value => value.toLocaleLowerCase('ru').replaceAll('ё','е');
   const needle = normalize(query.trim());
+  const places = db.prepare("SELECT id, json_extract(data_json, '$.title') AS title FROM campaign_places WHERE campaign_id=?").all(campaignId);
+  const placeTitles = new Map(places.map(({id, title}) => [id, title]));
   return db.prepare('SELECT id, created_session_id, data_json FROM campaign_people WHERE campaign_id=? ORDER BY rowid')
     .all(campaignId).map(unpack).filter(person => !needle ||
       [person.name, person.description, ...person.knowledge.map(entry => entry.text)]
         .some(value => normalize(value).includes(needle))).map(person => {
       const { id, createdSessionId, name, description, relation, encounters, latestEncounterId } = person;
-      return { id, createdSessionId, name, description, relation,
-        latestEncounter: encounters.find(item => item.id === latestEncounterId) ?? null };
-
+      const latestEncounter = encounters.find(item => item.id === latestEncounterId) ?? null;
+      const latestPlaceTitle = placeTitles.get(latestEncounter?.placeId);
+      return { id, createdSessionId, name, description, relation, latestEncounter,
+        ...(latestPlaceTitle ? { latestPlaceTitle } : {}) };
     });
 }
 

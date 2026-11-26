@@ -73,7 +73,7 @@
 
 | Запрос | Ответ или данные команды |
 | --- | --- |
-| `GET /api/campaign-people` | Ревизия, контекст, компактные карточки и последнее наблюдение |
+| `GET /api/campaign-people` | Ревизия, контекст, компактные карточки и последнее наблюдение. У карточки есть `latestPlaceTitle`, когда место последней встречи разрешается в текущей кампании |
 | `GET /api/campaign-people/:id` | Ревизия, контекст, данные лица, сведения, встречи, связи и `latestEncounterId` |
 | `GET /api/campaign-people/:id/history?beforePosition=N` | До 10 снимков, от позднего к раннему, `nextBeforePosition` для следующей страницы. Параметр необязательный, граница исключающая |
 | `POST /api/campaign-people` | `{mutationId,expectedRevision,campaignId,personId,operation,data}`. Действуют существующие Origin и `X-Skaz-Client` |

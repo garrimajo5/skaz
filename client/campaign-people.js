@@ -45,11 +45,21 @@ const SkazCampaign = (function(){
     const row=linkedRows(kind,refs).find(item=>item.id===id);
     return row?button(row.title,'reference',id,`data-link-kind="${kind}"`):'<span>Источник недоступен</span>';
   }
+  function lastEncounterPreview(person,refs){
+    const encounter=person.latestEncounter;
+    if(!encounter)return note('Последняя встреча неизвестна');
+    const place=person.latestPlaceTitle || (encounter.placeId||encounter.placeSnapshot
+      ?referenceText('place',encounter.placeId,encounter.placeSnapshot,refs):'');
+    const session=encounter.sessionId||encounter.sessionSnapshot
+      ?referenceText('session',encounter.sessionId,encounter.sessionSnapshot,refs):'';
+    const details=[place,encounter.text?.trim(),session].filter(Boolean);
+    return `<div class="campaign-encounter-preview"><small>Последняя встреча</small>
+      ${details.length?details.map(text=>note(text)).join(''):note('Место и сессия не указаны')}</div>`;
+  }
   function matchingPeople(people, refs){
     return people.map(person=>`<article class="panel campaign-panel">
       <h3>${esc(person.name)}</h3>${person.description?`<p class="session-text">${esc(person.description)}</p>`:''}
-      <p>${esc(person.latestEncounter?.text || 'Последняя встреча неизвестна')}</p>
-      ${person.latestEncounter?.sessionId?`<p>${esc(refs.sessions.find(row=>row.id===person.latestEncounter.sessionId)?.title || 'Сессия недоступна')}</p>`:''}
+      ${lastEncounterPreview(person,refs)}
       ${button('Открыть карточку','person-open',person.id,`class="campaign-entry" aria-label="Открыть карточку ${esc(person.name)}"`)}
     </article>`).join('');
   }
