@@ -9,7 +9,11 @@
   min-width: 0;
 }
 
-.campaign-title,
+body[data-page="campaign"] .play-heading > div { flex: 1 1 12ch; }
+
+.campaign-screen > :is(#campaign-notice, #campaign-pending):empty,
+#campaign-people-actions:empty { display: none; }
+
 .campaign-toolbar,
 .campaign-controls,
 .campaign-sections {
@@ -19,12 +23,10 @@
   gap: 8px;
 }
 
-.campaign-title,
 .campaign-toolbar {
   justify-content: space-between;
 }
 
-.campaign-screen h1,
 .campaign-screen h2,
 .campaign-screen h3 {
   margin: 0;
