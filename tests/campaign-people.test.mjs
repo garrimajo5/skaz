@@ -43,6 +43,29 @@ function memoryFixture(store) {
   return {old,current,personId,friendId,placeId,questId,latest};
 }
 
+test('people list projects the current title of a known last place without changing the encounter',t => {
+  const store=memoryStore({campaignPeople:true});
+  t.after(()=>store.close());
+  const {campaignId,sessionId}=store.read().context;
+  const personId=randomUUID(), placeId=randomUUID(), encounterId=randomUUID();
+  const savePlace=(operation,title)=>store.savePlace(mutation(store,{campaignId,placeId,operation,
+    place:{title,description:'Вымышленное место',x:44,y:32,visited:true}}));
+  store.saveCampaignPerson(command(store,personId,'create',{details:profile,knowledge:null}));
+  assert.equal(store.campaignPeople().people[0].latestEncounter,null);
+  assert.equal(Object.hasOwn(store.campaignPeople().people[0],'latestPlaceTitle'),false);
+  savePlace('create','Северные ворота');
+  store.saveCampaignPerson(command(store,personId,'add-encounter',{id:encounterId,text:'',sessionId,placeId,makeLatest:true}));
+  const before=store.campaignPeople().people[0];
+  assert.deepEqual(before.latestEncounter,{id:encounterId,text:'',sessionId,placeId});
+  assert.equal(before.latestPlaceTitle,'Северные ворота');
+  savePlace('update','Ворота крепости');
+  const revision=store.read().revision;
+  const after=store.campaignPeople().people[0];
+  assert.deepEqual(after.latestEncounter,before.latestEncounter);
+  assert.equal(after.latestPlaceTitle,'Ворота крепости');
+  assert.equal(store.read().revision,revision);
+});
+
 test('campaign memory transfers only linked archives, remaps typed links and retains repeatable history',t => {
   const store = memoryStore({campaignPeople:true});
   t.after(() => store.close());
