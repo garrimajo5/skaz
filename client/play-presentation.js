@@ -164,6 +164,11 @@ const SkazPlayPresentation = (() => {
     </div>`;
   }
 
+  /** @param {string} [id] */
+  function historyButton(id='play-history'){
+    return `<button id="${id}"><span data-ui-icon="undo" aria-hidden="true"></span> История и отмена</button>`;
+  }
+
   /**
    * @param {boolean} historyAvailable
    * @param {boolean} [quickAccess]
@@ -173,7 +178,7 @@ const SkazPlayPresentation = (() => {
           ${quickAccess ? '<p class="play-section-caption" aria-hidden="true">Остаток</p>' : ''}
           <h2 id="play-resources-title">Ресурсы</h2>
           <div id="play-quick-slot"></div>
-          ${historyAvailable ? '<button id="play-history"><span data-ui-icon="undo" aria-hidden="true"></span> История и отмена</button>' : ''}
+          ${historyAvailable ? historyButton() : ''}
         </aside>`;
   }
 
@@ -252,5 +257,5 @@ const SkazPlayPresentation = (() => {
       text:manual.level+' круг · без расхода ячейки.'+agreement+(manual.reason?' '+manual.reason:'')};
   }
 
-  return {castCost, commandCopy, healthAmount, resourceRecovery, identityCopy, sessionCaption, prepare, refreshActor, resources, screen, refreshBattleControls, note};
+  return {castCost, commandCopy, healthAmount, resourceRecovery, identityCopy, sessionCaption, prepare, refreshActor, resources, historyButton, screen, refreshBattleControls, note};
 })();

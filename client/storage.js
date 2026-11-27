@@ -342,8 +342,13 @@ const SkazStorage = (() => {
     else download({ app: 'skaz', schemaVersion: 1, state: draft.state }, 'skaz-unsaved-draft.json');
   }
   async function showResourceHistory(scope='session', previousView=null){
-    const stillShowingHistory=()=>!previousView||(document.getElementById('dialog').open&&
-      document.getElementById('dialog-content').firstElementChild===previousView);
+    const pageAtOpen=document.body?.dataset?.page;
+    const dialog=document.getElementById('dialog');
+    const content=document.getElementById('dialog-content');
+    const wasOpen=dialog.open, before=content.firstElementChild;
+    const stillShowingHistory=()=>document.body?.dataset?.page===pageAtOpen&&(previousView
+      ?dialog.open&&content.firstElementChild===previousView
+      :dialog.open===wasOpen&&content.firstElementChild===before);
     if(!stillShowingHistory())return;
     if(status==='denied'||permissions?.history===false||!permissions&&individual()||!loaded)return toast('История недоступна с текущими правами');
     const key=snapshotKey(),queued=structuredClone(resourceContextMatches()?resourceQueue?.data?.commands||[]:[]);let changes=[],unavailable=false;
@@ -1252,7 +1257,7 @@ const SkazStorage = (() => {
     if (id === 'edit-resources') editResources();
     if (id === 'session-settings') sessions();
     if (id === 'campaign-settings' || (id === 'workspace-campaign-settings' && can('select'))) campaigns();
-    if(id==='sync-history-chip'||id==='play-history')try{await showResourceHistory();}catch(error){toast(error.message);}
+    if(id==='sync-history-chip'||id==='play-history'||id==='play-health-history')try{await showResourceHistory();}catch(error){toast(error.message);}
     if (id === 'data-settings') settings();
     if(id==='resource-send')await flushResources();
     if(id==='resource-review')try{await reviewResourceQueue();}catch(error){toast(error.message,undefined,{error:true,persistent:true});}
