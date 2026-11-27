@@ -209,6 +209,13 @@ const SkazCatalog = (() => {
   function updateResources(root){
     if(!root)return false;
     if(!SkazStorage.canResource?.()){ownerKey='';return false;}
+    if(SkazStorage.can('catalog')){
+      for(const button of root.querySelectorAll('#catalog-bundled,#catalog-help')){
+        button.disabled=false;
+        button.removeAttribute('aria-disabled');
+        button.removeAttribute('title');
+      }
+    }
     if(ownerKey!==snapshot()){
       ++detailSerial;
       relatedCache.clear();
