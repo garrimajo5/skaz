@@ -27,7 +27,7 @@ body[data-page="campaign"]:not(:has(.concentration-question))
 
 .campaign-screen > :is(#campaign-notice, #campaign-pending):empty,
 #campaign-people-actions:empty { display: none; }
-#campaign-people-actions button[aria-disabled="true"] { opacity: 0.62; cursor: not-allowed; }
+.campaign-screen button[data-campaign-editor][aria-disabled="true"] { opacity: 0.62; cursor: not-allowed; }
 
 .campaign-toolbar,
 .campaign-controls,
