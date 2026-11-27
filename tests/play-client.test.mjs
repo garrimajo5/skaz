@@ -221,6 +221,28 @@ test('resource updates keep a completed partial error and restart only a pending
  }
 });
 
+test('resource updates retain an unchanged recent note after normalizing its icon',async()=>{
+ const h=harness({environment:{SkazIcons:{mount:node=>{node.iconReady=true;}}}});
+ const root=h.get('play-content'),selector='[data-play-recent]';
+ await loaded(h,[],[]);
+ root.querySelectorAll=()=>[];
+ const previous={tagName:'SECTION',text:'Расшифрованная заметка',isEqualNode(other){return other.iconReady&&other.text===this.text;},replaceWith(other){this.replacement=other;}};
+ root.querySelector=id=>id===selector?previous:null;
+ const fresh={tagName:'SECTION',text:'Расшифрованная заметка',iconReady:false};
+ h.document.createElement=()=>({content:{querySelectorAll:()=>[],querySelector:id=>id===selector?fresh:null}});
+ h.setResourceLists({book:[],items:[],status:'ready'});
+ h.context('next-resource','hero-a');
+ const main={querySelector:()=>({querySelector:()=>null})};
+ assert.equal(h.api.updateResources(main),true);
+ assert.equal(fresh.iconReady,true);
+ assert.equal(previous.replacement,undefined);
+ fresh.text='Другая заметка';
+ fresh.iconReady=false;
+ assert.equal(h.api.updateResources(main,true),true);
+ assert.equal(previous.replacement,fresh);
+ assert.equal(fresh.iconReady,true);
+});
+
 test('access denial or a mismatched revision hides both lists even when the other read succeeded',async()=>{
  for(const status of [401,403,404,409]){
   const h=harness(),root=h.get('play-content');
@@ -503,16 +525,17 @@ test('choosing a circle patches the current controls instead of refreshing the g
  await loaded(h,[item]);
  const priorMarkup=root.innerHTML;
  const previousCast={tagName:'BUTTON',isEqualNode:()=>false},updatedCast={tagName:'BUTTON'};
- const priorLevel={tagName:'BUTTON'},updatedLevel={dataset:{level:'3'}};
- const picker={value:'2',options:[{value:'2',defaultSelected:true},{value:'3',defaultSelected:false}]};
- const controls={querySelector:selector=>({
-  '[data-level="3"]':priorLevel,
+ const priorLevel={tagName:'BUTTON',dataset:{level:'3'}},updatedLevel={dataset:{level:'3'}};
+ const option=(value,defaultSelected,label)=>({value,defaultSelected,label,getAttribute(){return this.label;},setAttribute(name,text){this.label=text;}});
+ const picker={value:'2',options:[option('2',true,'2 круг · осталось 2'),option('3',false,'3 круг · осталось 1')]};
+ const nextPicker={value:'3',options:[option('2',false,'2 круг · осталось 1'),option('3',true,'3 круг · осталось 1')]};
+ const controls={querySelectorAll:()=>[priorLevel],querySelector:selector=>({
   '[data-play-cast-select]':picker,
   '[data-play-cast]':previousCast,
  })[selector]};
  const draft={content:{
   querySelectorAll:()=>[updatedLevel],
-  querySelector:()=>updatedCast,
+  querySelector:selector=>selector==='[data-play-cast-select]'?nextPicker:updatedCast,
  }};
  h.document.createElement=()=>draft;
  let focusOptions;
@@ -526,6 +549,7 @@ test('choosing a circle patches the current controls instead of refreshing the g
  assert.equal(patches[1][1],updatedCast);
  assert.equal(picker.value,'3');
  assert.deepEqual(picker.options.map(option=>option.defaultSelected),[false,true]);
+ assert.equal(picker.options[0].label,'2 круг · осталось 1');
  assert.equal(focusOptions.preventScroll,true);
  assert.equal(root.innerHTML,priorMarkup);
  assert.equal(h.casts.length,0);
