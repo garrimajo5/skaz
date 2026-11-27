@@ -609,7 +609,7 @@ test('quick access has one resource mount and keeps actor identity in its status
  assert.match(html,/<p class="play-section-caption" aria-hidden="true">Командная панель<\/p>\s*<h2>Быстрые действия<\/h2>/);
  assert.match(html,/<p class="play-section-caption" aria-hidden="true">Остаток<\/p>\s*<h2 id="play-resources-title">Ресурсы<\/h2>/);
  assert.match(html,/aria-label="Состояние активного персонажа"[\s\S]*<strong>Hero<\/strong>/);
- assert.match(html,/<strong>20<span> \/ 38<\/span>/);
+ assert.match(html,/<strong><span class="play-hp-current" style="--play-hp-number-width:2ch">20<\/span><span> \/ 38<\/span>/);
  assert.equal((html.match(/id="play-quick-slot"/g)||[]).length,1);
  assert.match(html,/id="play-history"/);
  h.setHp('18" onfocus="bad');
@@ -687,7 +687,7 @@ test('a retained workspace refresh updates session and hero without remounting a
  presentation.refreshActor(screen,updated);
  assert.equal(caption.textContent,'Сессия 02 · <Север>');
  assert.equal(captionWrites,1);
- assert.match(band.markup,/<strong>14<span> \/ 38<\/span>/);
+ assert.match(band.markup,/<strong><span class="play-hp-current" style="--play-hp-number-width:2ch">14<\/span><span> \/ 38<\/span>/);
  assert.equal(band.icons,true);
  assert.equal(replacements,1);
  assert.equal(band,mounted);
