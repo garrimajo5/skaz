@@ -1309,6 +1309,30 @@ test('session header uses confirmed sequence for unnamed sessions and preserves 
  assert.deepEqual({...h.api.currentSession()},{name:'Маяк',number:3});
 });
 
+test('Quick Access resource snapshot retains both loaded lists and clears them on denial',async()=>{
+ let finish;
+ const initial=payload(0);
+ const book=[{catalogId:'light',status:'prepared',entry:{id:'light',kind:'spell',name:{ru:'Свет'}}}];
+ const items=[{catalogId:'potion',quantity:2,entry:{id:'potion',kind:'item',name:{ru:'Зелье'}}}];
+ const fetch=async(url)=>{
+  if(url==='/api/workspace')return response({...initial,spellbook:book});
+  if(url==='/api/inventory')return response({revision:0,context:initial.context,entries:items});
+  if(url==='/api/resources/change')return new Promise(resolve=>{finish=resolve;});
+  throw Error(url);
+ };
+ const h=harness(memory(),memory(),fetch,undefined,undefined,true);
+ await h.api.boot();
+ await h.api.inventoryData();
+ h.api.resourceDelta({kind:'slot',level:1},-1,h.api.snapshotKey());
+ const projected=h.api.playResourceLists();
+ assert.equal(projected.status,'resource-pending');
+ assert.equal(projected.book[0].catalogId,'light');
+ assert.equal(projected.items[0].quantity,2);
+ finish({ok:false,status:403,json:async()=>({error:'Доступ отозван'})});
+ await tick();
+ assert.equal(h.api.playResourceLists(),null);
+});
+
 test('learning policy and legacy spell marks survive offline resource queue reload',async()=>{
  for(const spellLearning of ['known','prepared','spellbook',null]){
  const local=memory(),session=memory();let offline=false;

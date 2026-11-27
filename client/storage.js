@@ -109,7 +109,7 @@ const SkazStorage = (() => {
   function resourceDelta(resource,delta,key,targetMutationId){
     if(key!==snapshotKey()||!canResource())throw new Error('Игра или доступ изменились. Открой действие заново');
     if(!resourceQueue.length)resourceQueue.resetBaseline({schemaVersion:1,revision,context:activeContext,state:clean(state),characterSheet,characterStats,spellLearning,unlimitedResources,classSkills,classSaveBenefits,classCheckBenefits,spellSlotCounterIds:[...spellSlotCounterIds],alwaysPreparedSpellIds:[...alwaysPreparedIds],classGrantedSpellIds:[...classGrantedIds],session:sessionInfo,...(resourceQueue.data?.baseline?.revision===revision&&resourceContextMatches()&&resourceQueue.snapshot?.spellbook?{spellbook:resourceQueue.snapshot.spellbook}:{}),...(resourceQueue.data?.baseline?.revision===revision&&resourceContextMatches()&&resourceQueue.snapshot?.inventory?{inventory:resourceQueue.snapshot.inventory}:inventoryCache?.revision===revision&&JSON.stringify(inventoryCache.context)===JSON.stringify(activeContext)?{inventory:inventoryCache.entries}:{}),...(permissions?{permissions}:{})});
-    const command=resourceQueue.enqueue(resource,delta,crypto.randomUUID(),targetMutationId);resourceGeneration++;status='resource-pending';projectResources();render();
+    const command=resourceQueue.enqueue(resource,delta,crypto.randomUUID(),targetMutationId);resourceGeneration++;status='resource-pending';projectResources();render('resources');
     void flushResources();return command;
   }
   async function flushResources(){
@@ -124,7 +124,7 @@ const SkazStorage = (() => {
       }
       status='ready';
     }catch(error){status=[401,403,404].includes(error.status)?'denied':error.status===409?'resource-conflict':'resource-pending';resourceFailure=(error.message||'Нет связи с сервером.')+(!error.status&&resourceQueue?.length?' Очередь сохранена в браузере. Можно повторить отправку.':'');}
-    finally{resourceSending=false;render();}
+    finally{resourceSending=false;render('resources');}
   }
   async function reviewResourceQueue(){
     if(resourceSending||pending||!resourceQueue?.length)return;
@@ -383,7 +383,7 @@ const SkazStorage = (() => {
     $$('[data-queued-undo]').forEach(button=>button.onclick=async()=>{
       try{
         if(key!==snapshotKey()||!canResource()||resourceSending)throw new Error('Игра или очередь изменилась. Обнови историю');
-        resourceQueue.enqueueUndo(button.dataset.queuedUndo,crypto.randomUUID());resourceGeneration++;status='resource-pending';projectResources();render();
+        resourceQueue.enqueueUndo(button.dataset.queuedUndo,crypto.randomUUID());resourceGeneration++;status='resource-pending';projectResources();render('resources');
         void flushResources();await refreshHistory();
       }catch(error){toast(error.message);}
     });
@@ -812,8 +812,18 @@ const SkazStorage = (() => {
     const info=item.entry?.item||item.entry?.artifact;if(info?.charges||!['potion','scroll'].includes(info?.type))throw new Error('Это не расходник');
     return campaignCommand('inventory-remove',{characterId:activeContext.characterId,catalogId:item.catalogId,quantity:1});
   }
+  function resourceSpellbook(snapshot){
+    return snapshot.spellbook.map(({alwaysPrepared,...entry})=>alwaysPreparedIds.has(entry.catalogId)?{...entry,alwaysPrepared:true}:entry);
+  }
+  function playResourceLists(){
+    if(!canResource()||resourceQueue.data?.baseline?.revision!==revision)return null;
+    const snapshot=resourceQueue.snapshot;
+    if(!snapshot||JSON.stringify(snapshot.context)!==contextKey()||!Array.isArray(snapshot.spellbook)||!Array.isArray(snapshot.inventory))return null;
+    return {book:resourceSpellbook(snapshot),items:snapshot.inventory,status};
+  }
   async function spellbookData() {
-    if(canResource()&&resourceContextMatches()&&resourceQueue?.snapshot?.spellbook)return {revision,context:activeContext,spellLearning:resourceQueue.snapshot.spellLearning??null,entries:structuredClone(resourceQueue.snapshot.spellbook).map(({alwaysPrepared,...entry})=>alwaysPreparedIds.has(entry.catalogId)?{...entry,alwaysPrepared:true}:entry)};
+    const snapshot=canResource()?resourceQueue.snapshot:null;
+    if(snapshot?.spellbook)return {revision,context:activeContext,spellLearning:snapshot.spellLearning??null,entries:resourceSpellbook(snapshot)};
     if(demo || status!=='ready')throw new Error('Сначала сохрани черновик или подключись к серверу');
     const key=snapshotKey(),data=await request('/api/spellbook');
     if(key!==snapshotKey() || JSON.stringify(data.context)!==JSON.stringify(activeContext) || data.revision!==revision)throw Object.assign(new Error('Игра изменилась. Обнови страницу и открой книгу снова.'),{status:409});
@@ -1228,5 +1238,5 @@ const SkazStorage = (() => {
   function contextKey(){return JSON.stringify(activeContext);}
   document.addEventListener('change',event=>{if(event.target.id!=='show-examples')return;try{localStorage.setItem('skaz-show-examples',String(event.target.checked));render();}catch{toast('Не удалось сохранить настройку браузера');}});
   window.addEventListener('online',()=>{if(resourceQueue?.length)void flushResources();});
-  return { campaignPeopleAvailable, campaignApi, classCheckBenefits:()=>classCheckBenefits?structuredClone(classCheckBenefits):null,classSaveBenefits:()=>classSaveBenefits?structuredClone(classSaveBenefits):null,classSkills:()=>classSkills?structuredClone(classSkills):null,unlimitedResources:()=>structuredClone(unlimitedResources),isSpellSlotCounter:id=>spellSlotCounterIds.has(id),spellLearningMode:()=>spellLearning, editCharges, refreshAfterAdvancement:load, advancementScope, personalTransferScope, reloadAfterArtTransfer, personalArtReadScope, personalArtScope, castSpell,pendingResourceIndices,inventoryData,spendInventoryOne,pendingCount,canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, profileEditorsAvailable, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, currentSession, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
+  return { campaignPeopleAvailable, campaignApi, classCheckBenefits:()=>classCheckBenefits?structuredClone(classCheckBenefits):null,classSaveBenefits:()=>classSaveBenefits?structuredClone(classSaveBenefits):null,classSkills:()=>classSkills?structuredClone(classSkills):null,unlimitedResources:()=>structuredClone(unlimitedResources),isSpellSlotCounter:id=>spellSlotCounterIds.has(id),spellLearningMode:()=>spellLearning, editCharges, playResourceLists, refreshAfterAdvancement:load, advancementScope, personalTransferScope, reloadAfterArtTransfer, personalArtReadScope, personalArtScope, castSpell,pendingResourceIndices,inventoryData,spendInventoryOne,pendingCount,canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, profileEditorsAvailable, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, currentSession, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
 })();

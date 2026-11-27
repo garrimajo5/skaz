@@ -56,8 +56,8 @@ const SkazPlay = (()=>{
    historyAvailable:location.protocol!=='file:'&&SkazStorage.access?.()?.history!==false,
   };
  }
- function view(){
-  const next=SkazStorage.snapshotKey();if(next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];quests=[];questStatus='idle';++questSerial;++serial;}
+ function view(reload=false){
+  const next=SkazStorage.snapshotKey();if(reload||next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];quests=[];questStatus='idle';++questSerial;++serial;}
   if(status==='idle'){
    status='loading';bookState=inventoryState='pending';book=[];items=[];
    const token=serial;queueMicrotask(()=>{if(token===serial&&active())load();});
@@ -227,8 +227,8 @@ const SkazPlay = (()=>{
    :'<section class="panel play-empty"><button id="play-prepare-inventory" data-play-prepare="inventory">Добавить расходники <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></section>';
   const itemsFirst=!spells.length&&consumables.length>0;
   const recentContent=recent
-   ?`<section class="panel play-last"><h2>Последняя запись</h2><strong>${escape(recent.title)}</strong><p>${escape(recent.text)}</p><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Личная заметка</button></section>`
-   :'<section class="panel play-empty"><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Первая личная заметка</button></section>';
+   ?`<section class="panel play-last" data-play-recent><h2>Последняя запись</h2><strong>${escape(recent.title)}</strong><p>${escape(recent.text)}</p><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Личная заметка</button></section>`
+   :'<section class="panel play-empty" data-play-recent><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Первая личная заметка</button></section>';
   return `${notice}${itemsFirst?'':spellContent}<div class="play-side">${inventoryContent}${itemsFirst?spellContent:''}${questPanel()}${recentContent}</div>`;
  }
  function questPanel(){
@@ -250,6 +250,56 @@ const SkazPlay = (()=>{
   const numeric=value===null?'Не указаны':escape(value)+' <small>/ '+escape(maximum)+'</small>';
   const marks=value!==null&&maximum<=12?'<div class="play-charge-marks" aria-hidden="true">'+Array.from({length:maximum},(_,i)=>'<span'+(i<value?' class="filled"':'')+'></span>').join('')+'</div>':'';
   root.innerHTML='<div class="play-charge-heading"><div><strong class="tracker-name">'+escape(item.entry.name.ru)+'</strong><small>Заряды</small></div><span class="tracker-balance play-charge-balance">'+numeric+'</span></div>'+marks;
+ }
+
+ // Resource commands change balances, casting controls and the recent note.
+ // Keep the loaded rows and their hydrated artwork attached throughout the update.
+ function updateResources(main){
+  if(owner!==SkazStorage.contextKey()||status!=='ready'||bookState!=='ready'||inventoryState!=='ready')return false;
+  const root=document.getElementById('play-content'),screen=main.querySelector('.play-screen');
+  const lists=SkazStorage.playResourceLists();
+  if(!root||!screen||!lists)return false;
+
+  const nextKey=SkazStorage.snapshotKey();
+  if(key!==nextKey){
+   key=nextKey;
+   if(questStatus==='loading'){questStatus='idle';++questSerial;}
+  }
+  ({book,items}=lists);
+  const next=document.createElement('template');
+  next.innerHTML=content(actorLevel(SkazStorage.sheet?.()));
+  const fragment=next.content;
+  const readRows=parent=>[...parent.querySelectorAll('[data-play-read]')];
+  const currentRows=readRows(root),nextRows=readRows(fragment);
+  if(currentRows.length!==nextRows.length||currentRows.some((row,index)=>
+   row.dataset.playRead!==nextRows[index].dataset.playRead||row.dataset.id!==nextRows[index].dataset.id
+  ))return false;
+
+  for(const [index,row] of currentRows.entries()){
+   const updated=nextRows[index];
+   if(row.dataset.playRead==='spell'){
+    const concentrating=updated.classList.contains('is-concentrating');
+    if(row.classList.contains('is-concentrating')!==concentrating){
+     row.classList.toggle('is-concentrating',concentrating);
+     row.querySelector('.play-concentration-marker')?.remove();
+     if(concentrating)row.querySelector('.play-spell-level').before(updated.querySelector('.play-concentration-marker'));
+    }
+    replacePlayPart(row,updated,'.play-spell-copy');
+    replacePlayPart(row.parentElement,updated.parentElement,'.play-casting-controls');
+   }else{
+    replacePlayPart(row,updated,'.play-item-copy');
+    replacePlayPart(row.parentElement,updated.parentElement,'.play-action-command');
+   }
+  }
+  replacePlayPart(root,fragment,'[data-play-recent]');
+  SkazPlayPresentation.refreshActor(screen,actorView());
+  renderChargeTracker();
+  if(questStatus==='idle'&&lists.status==='ready')void loadQuests();
+  return true;
+ }
+ function replacePlayPart(current,updated,selector){
+  const prior=current.querySelector(selector),next=updated.querySelector(selector);
+  if(prior&&next&&!prior.isEqualNode(next))prior.replaceWith(next);
  }
 
  function refresh(){
@@ -458,5 +508,5 @@ const SkazPlay = (()=>{
   if(b.dataset.playCharges){const item=items.find(x=>x.catalogId===b.dataset.playCharges);if(item)SkazStorage.editCharges(item);return;}
   if(b.dataset.playSpend){const item=items.find(x=>x.catalogId===b.dataset.playSpend);if(!item)return;try{await SkazStorage.spendInventoryOne(item,key);toast('Списан один предмет. Эффект не применён автоматически.');}catch(error){toast(error.message);}}
  });
- return {actorIdentity,actorView,view,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus};
+ return {actorIdentity,actorView,view,updateResources,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus};
 })();
