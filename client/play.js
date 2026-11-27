@@ -354,14 +354,15 @@ const SkazPlay = (()=>{
 
  // Resource commands change balances, casting controls and the recent note.
  // Keep the loaded rows and their hydrated artwork attached throughout the update.
- function updateResources(main){
-  if(activeSummon()||owner!==SkazStorage.contextKey()||status!=='ready'||bookState!=='ready'||inventoryState!=='ready')return false;
+ function updateResources(main,settled=false){
+  if(activeSummon()||owner!==SkazStorage.contextKey()||status==='idle'||(bookState!=='ready'&&inventoryState!=='ready'))return false;
   const root=document.getElementById('play-content'),screen=main.querySelector('.play-screen');
-  const lists=SkazStorage.playResourceLists();
+  const lists=SkazStorage.playResourceLists({book:bookState==='ready',items:inventoryState==='ready'});
   if(!root||!screen||!lists)return false;
 
   key=SkazStorage.snapshotKey();
-  ({book,items}=lists);
+  if(bookState==='ready')book=lists.book;
+  if(inventoryState==='ready')items=lists.items;
   const next=document.createElement('template');
   next.innerHTML=content(actorLevel(SkazStorage.sheet?.()));
   const fragment=next.content;
@@ -390,6 +391,17 @@ const SkazPlay = (()=>{
   replacePlayPart(root,fragment,'[data-play-recent]');
   SkazPlayPresentation.refreshActor(screen,actorView());
   renderChargeTracker();
+  const pendingList=bookState==='pending'?'book':inventoryState==='pending'?'items':null;
+  // Wait for the write to settle before reading from its new snapshot.
+  if(settled&&pendingList&&readKey!==key){
+   if(lists.status==='ready')void load(null,true);
+   else{
+    if(pendingList==='book')bookState='error';
+    else inventoryState='error';
+    status='ready';
+    refresh(pendingList);
+   }
+  }
   return true;
  }
  function replacePlayPart(current,updated,selector){
@@ -467,17 +479,20 @@ const SkazPlay = (()=>{
   });
  }
 
- async function load(retryButton){
+ let readKey=null;
+ async function load(retryButton=null,keepReady=false){
   if(retryButton&&(status==='loading'||status==='retrying'))return;
   const token=++serial,captured=key;
-  const partial=status==='ready'&&(bookState==='error'||inventoryState==='error');
-  const focusAnchor=retryButton&&document.activeElement===retryButton?document.getElementById('play-content'):null;
+  readKey=captured;
+  const partial=keepReady||(status==='ready'&&(bookState==='error'||inventoryState==='error'));
+  const retrying=keepReady?status==='retrying':partial;
+  const contentRoot=document.getElementById('play-content');
+  const focusAnchor=(retryButton&&document.activeElement===retryButton||keepReady&&retrying&&document.activeElement===contentRoot)?contentRoot:null;
   const requests=[];
-  if(!partial||bookState==='error'){bookState='pending';book=[];requests.push(['book',()=>SkazStorage.spellbookData()]);}
-  if(!partial||inventoryState==='error'){inventoryState='pending';items=[];requests.push(['items',()=>SkazStorage.inventoryData()]);}
-  const retried=partial?requests[0][0]:null;
-  status=partial?'retrying':'loading';
-  refresh(retried);
+  if(!partial||bookState!=='ready'){bookState='pending';book=[];requests.push(['book',()=>SkazStorage.spellbookData()]);}
+  if(!partial||inventoryState!=='ready'){inventoryState='pending';items=[];requests.push(['items',()=>SkazStorage.inventoryData()]);}
+  status=retrying?'retrying':'loading';
+  if(!keepReady)refresh(partial?requests[0][0]:null);
   if(focusAnchor&&document.activeElement===document.body)focusAnchor.focus({preventScroll:true});
 
   await Promise.all(requests.map(async ([kind,read])=>{
