@@ -618,6 +618,20 @@ test('quick access has one resource mount and keeps actor identity in its status
  assert.doesNotMatch(safe,/" onfocus="bad"/);
 });
 
+test('Quick Access and preparation share an identical actor strip, with combat tools beside it',()=>{
+ const h=harness();
+ h.setSheet({className:'Wizard',subclass:'Conjuration',level:6});
+ const presentation=vm.runInNewContext(presentationSource+'\nSkazPlayPresentation',{});
+ const view={actor:h.api.actorView(),title:'Character',content:'<article>Profile</article>'};
+ const start='<div class="play-actor-strip">';
+ const play=h.api.view();
+ assert.ok(play.includes(start));
+ const strip=play.split(start)[1].split('<div class="play-actor-tools"')[0];
+ assert.ok(presentation.prepare(view).includes(start+strip+'</div>'));
+ assert.doesNotMatch(presentation.prepare(view),/id="play-summons"/);
+ assert.doesNotMatch(presentation.prepare({...view,mapOnly:true}),/play-actor-strip|play-quick-slot/);
+});
+
 test('hero band renders the saved subclass, escapes it and omits the separator for an empty subclass',()=>{
  const h=harness();
  const sheet={className:'Волшебник',level:3,subclass:'Школа <Прорицания>'};

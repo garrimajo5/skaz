@@ -182,11 +182,16 @@ const SkazPlayPresentation = (() => {
         </aside>`;
   }
 
+  /** @param {WorkspaceActor} actor @param {string} [tools] */
+  function actorStrip(actor, tools = '') {
+    return `<div class="play-actor-strip">${actorBand(actor)}${tools}</div>`;
+  }
+
   /** @param {PreparationScreen} view */
   function prepare(view) {
     return `<section class="play-screen workspace-prepare${view.mapOnly?' workspace-map':''}">
       ${heading(view.title, view.actor.session, view.actions, view.titleId)}
-      ${view.mapOnly?'':actorBand(view.actor)}
+      ${view.mapOnly?'':actorStrip(view.actor)}
       <div class="play-layout">
         <div class="workspace-content">${view.content}</div>
         ${view.mapOnly?'':resources(view.actor.historyAvailable)}
@@ -229,7 +234,7 @@ const SkazPlayPresentation = (() => {
     </div>`;
     return `<section class="play-screen"${summon?` data-play-summon-id="${escape(summon.id)}"`: ''} aria-label="Игровой экран">
       ${heading('Быстрый доступ',view.session,battleButton+'<button id="play-edit"><span data-ui-icon="profile" aria-hidden="true"></span> Лист <span class="play-edit-detail">персонажа</span></button><button id="play-search">Поиск правил</button>')}
-      <div class="play-actor-carousel">${actorBand(actor)}${switcher}</div>
+      ${actorStrip(actor,switcher)}
       <div class="play-layout">
         <div class="play-actions">
           <p class="play-section-caption" aria-hidden="true">Командная панель</p>

@@ -2,7 +2,7 @@
 
 Кадры `c7ba454` от 27.11.2026 сняты в Edge на одной вымышленной игре, тема Полярис. [Рабочий СКАЗ](https://2.56.179.225/) · [Макет «Быстрый доступ» 3:3](https://www.figma.com/design/hskYV8FnfqELPW99dVMHXw/Skaz?node-id=3-3).
 
-Текущий выпуск `4b972a6`. В «Быстром доступе» правка зарядов сохраняет строки и фокус. [Заряды](quick-charge-stability-252.md) · [Справочник](library-notice-clearance-252.md) · [История](history-under-vitals-252.md).
+Текущий выпуск `d93b284`. Списание расходника сохраняет соседние действия, заряд и миниатюры. [Расходники](quick-consumable-stability-252.md) · [Заряды](quick-charge-stability-252.md) · [Справочник](library-notice-clearance-252.md).
 
 | Что проверить | Куда нажать | Кадр |
 | --- | --- | --- |
