@@ -191,11 +191,24 @@ const SkazPlay = (()=>{
  const castingSnapshot=()=>({state,characterSheet:SkazStorage.sheet?.()});
  function availableLevels(spell){return SkazCasting.choices(castingSnapshot(),spell.level).levels;}
  function selectedLevel(item){const levels=item.entry.spell?availableLevels(item.entry.spell):[];return levels.includes(castLevels[item.catalogId])?castLevels[item.catalogId]:levels[0];}
- function changeCastLevel(id,level){
+ function changeCastLevel(id,level,control){
   const item=book.find(entry=>entry.catalogId===id);
   if(!item?.entry.spell||SkazStorage.sheet?.()||!availableLevels(item.entry.spell).includes(level))return false;
   castLevels[id]=level;
-  refresh();
+  const controls=control?.closest?.('.play-casting-controls');
+  if(!controls){refresh();return true;}
+  const draft=document.createElement('template');
+  draft.innerHTML=castControls(item);
+  for(const choice of draft.content.querySelectorAll('[data-play-cast-level]')){
+   const current=controls.querySelector('[data-level="'+choice.dataset.level+'"]');
+   if(current)SkazUI.patchButton(current,choice);
+  }
+  const picker=controls.querySelector('[data-play-cast-select]');
+  if(picker){
+   for(const option of picker.options)option.defaultSelected=option.value===String(level);
+   picker.value=String(level);
+  }
+  replacePlayPart(controls,draft.content,'[data-play-cast]');
   return true;
  }
  function castLevelControls(item,levels,circle){
@@ -644,10 +657,10 @@ const SkazPlay = (()=>{
  },true);
  document.addEventListener('change',event=>{
   const input=event.target,id=input.dataset?.playCastSelect;
-  if(id&&active()&&key===SkazStorage.snapshotKey())changeCastLevel(id,Number(input.value));
+  if(id&&active()&&key===SkazStorage.snapshotKey())changeCastLevel(id,Number(input.value),input);
  });
  document.addEventListener('click',async event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.playMode){closeModal();go(b.dataset.playMode==='play'?'play':'hero');return;}if(!active())return;if(battleClick(b))return;if(b.id==='play-edit'){go('hero');return;}if(b.id==='play-search'){search();return;}if(activeSummon())return;if(b.id==='play-checks'){SkazCharacterSheet.checks();return;}if(key!==SkazStorage.snapshotKey())return;if(spellScopes.some(([id])=>id===b.dataset.playSpellScope)){spellScope=b.dataset.playSpellScope;scrollPositions.spells=0;refresh();document.querySelector?.('[data-play-spell-scope="'+spellScope+'"]')?.focus();return;}if(b.id==='play-retry'){void load(b);return;}if(b.id==='play-show-consumables'){const target=document.getElementById('play-consumables-title');target?.focus();return;}if(['spells','inventory'].includes(b.dataset.playPrepare)){go(b.dataset.playPrepare);return;}
-  if(b.dataset.playCastLevel){const id=b.dataset.playCastLevel,level=Number(b.dataset.level);if(changeCastLevel(id,level))Array.from(document.querySelectorAll('[data-play-cast-level]')).find(x=>x.dataset.playCastLevel===id&&Number(x.dataset.level)===level)?.focus();return;}
+  if(b.dataset.playCastLevel){if(changeCastLevel(b.dataset.playCastLevel,Number(b.dataset.level),b))b.focus?.({preventScroll:true});return;}
   if(b.dataset.playCast){const item=book.find(x=>x.catalogId===b.dataset.playCast);if(item&&SkazStorage.canResource?.())openCast(item);return;}
   if(b.dataset.playRead){const item=(b.dataset.playRead==='spell'?book:items).find(x=>x.catalogId===b.dataset.id),captured=key;if(item)SkazCatalog.readSnapshot(item.entry,closeModal,()=>active()&&captured===SkazStorage.snapshotKey(),'К игре');}
   if(b.dataset.playCharges){const item=items.find(x=>x.catalogId===b.dataset.playCharges);if(item)SkazStorage.editCharges(item);return;}
