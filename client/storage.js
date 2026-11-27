@@ -257,8 +257,9 @@ const SkazStorage = (() => {
     if(pending?.operation?.startsWith('character-sheet')&&payload.revision<=pending.expectedRevision)throw new Error('Сервер не подтвердил новую версию ручного листа');
     if(pending?.formDraftKey&&payload.revision<=pending.expectedRevision)throw new Error('Сервер не подтвердил новую версию формы');
     if(pending?.formDraftKey&&['campaignId','characterId','sessionId'].some(k=>payload.context[k]!==activeContext?.[k]))throw new Error('Сервер подтвердил другую игру. Черновик сохранён.');
-    const inventoryOperation=pending?.operation,removedItemId=inventoryOperation==='inventory-remove'?pending.catalogId:undefined;
-    const refreshPlayInventory=['inventory-charges','inventory-remove'].includes(inventoryOperation)&&document.body?.dataset.page==='play'&&
+    const operation=pending?.operation,removedItemId=operation==='inventory-remove'?pending.catalogId:undefined;
+    const playInventory=['inventory-charges','inventory-remove'].includes(operation)&&document.body?.dataset.page==='play';
+    const refreshResources=(operation==='resource-undo'||playInventory)&&
       !payload.replayed&&payload.revision===revision+1&&Array.isArray(payload.inventory)&&
       ['campaignId','characterId','sessionId'].every(k=>payload.context[k]===activeContext?.[k]);
     const nextSheet=normalizedSheet(payload.characterSheet);
@@ -269,7 +270,7 @@ const SkazStorage = (() => {
     revision = payload.revision;
     state = { ...payload.state, theme: state.theme };
     pending = null; message = confirmedTime(payload); status = 'ready'; rememberDraft(); hydrateResources(payload);
-    if(refreshPlayInventory)render('resources',{resourceSettled:true,removedItemId});
+    if(refreshResources)render('resources',{resourceSettled:true,removedItemId});
     else render();
   }
   function confirmedTime(payload){return payload.updatedAt&&Number.isFinite(Date.parse(payload.updatedAt))?'Последнее подтверждение: '+new Date(payload.updatedAt).toLocaleString('ru-RU'):'';}

@@ -249,7 +249,7 @@ function editConditions(){
 }
 function quickPanel(){
  const charges=page==='play'?'<div id="play-quick-item-charges"></div>':'';
- const history=page==='play'&&SkazPlay.actorView().historyAvailable
+ const history=SkazPlay.actorView().historyAvailable
   ?SkazPlayPresentation.historyButton('play-health-history'):'';
  const question=concentrationQuestion();
  const concentration=`<div class="quick-concentration-row ${question?'concentration-pending':''}">${state.concentration?`<span class="quick-concentration" title="Концентрация: ${esc(state.concentration)}"><span data-ui-icon="focus"></span> ${esc(state.concentration)}</span><button id="quick-end-concentration" data-concentration="${esc(state.concentration)}" data-snapshot="${esc(SkazStorage.snapshotKey())}" aria-label="Завершить концентрацию: ${esc(state.concentration)}" ${SkazStorage.editable()?'':'disabled'}>Снять</button>`:'<span class="quick-concentration">Без концентрации</span>'}${question}</div>`;
