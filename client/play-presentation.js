@@ -216,13 +216,13 @@ const SkazPlayPresentation = (() => {
       armorClass:null,tempHp:undefined,conditions:[],concentration:null,gold:undefined}:view;
     const battleButton=`<button id="play-battle-toggle" aria-pressed="${round>0}">${battleLabel(round)}</button>`;
     const roundButton=`<button id="play-next-round" ${round?'':'hidden'} aria-label="${nextRoundLabel(round)}">${roundText(round)}</button>`;
-    const switcher=`<div class="play-actor-tools" aria-label="Участники">
-      ${summonCount?'<button id="play-actor-prev" aria-label="Предыдущий участник"><span data-ui-icon="arrow-left" aria-hidden="true"></span></button>':''}
+    const switcher=`<div class="play-actor-tools" role="group" aria-label="Участники">
+      ${summonCount?'<button id="play-actor-prev" aria-label="Предыдущий участник"><span class="play-actor-chevron" data-ui-icon="chevron-down" aria-hidden="true"></span></button>':''}
       <button id="play-summons">${summonCount?'Призывы · '+summonCount:'Призывы'}</button>
-      ${summonCount?'<button id="play-actor-next" aria-label="Следующий участник"><span data-ui-icon="arrow-right" aria-hidden="true"></span></button>':''}
+      ${summonCount?'<button id="play-actor-next" aria-label="Следующий участник"><span class="play-actor-chevron" data-ui-icon="chevron-down" aria-hidden="true"></span></button>':''}
       ${roundButton}
     </div>`;
-    return `<section class="play-screen" aria-label="Игровой экран">
+    return `<section class="play-screen"${summon?` data-play-summon-id="${escape(summon.id)}"`: ''} aria-label="Игровой экран">
       ${heading('Быстрый доступ',view.session,battleButton+'<button id="play-edit"><span data-ui-icon="profile" aria-hidden="true"></span> Лист <span class="play-edit-detail">персонажа</span></button><button id="play-search">Поиск правил</button>')}
       <div class="play-actor-carousel">${actorBand(actor)}${switcher}</div>
       <div class="play-layout">

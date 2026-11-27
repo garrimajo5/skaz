@@ -908,6 +908,24 @@ test('switching a summon stays in its session and keeps hero actions isolated',a
  assert.doesNotMatch(h.api.view(),/play-actor-next|Раунд 1/);
 });
 
+test('settling a hero resource keeps only the displayed summon for the current game',()=>{
+ const h=harness();
+ const key=id=>'skaz-play-battle-v1:'+JSON.stringify(['local',id]);
+ const battle=(id)=>JSON.stringify({round:1,selected:id,summons:[{id,name:'Guard',hp:1,maxHp:2}]});
+ h.memory.set(key('hero-a'),battle('guard'));
+ assert.match(h.api.view(),/data-play-summon-id="guard"/);
+ const displayed={dataset:{playSummonId:'guard'}};
+ const main={querySelector:selector=>selector==='.play-screen'?displayed:null};
+ h.context('after-slot','hero-a');
+ assert.equal(h.api.updateResources(main,true),true);
+ displayed.dataset.playSummonId='old';
+ assert.equal(h.api.updateResources(main,true),false);
+ displayed.dataset.playSummonId='guard';
+ h.memory.set(key('hero-b'),battle('guard'));
+ h.context('another-game','hero-b');
+ assert.equal(h.api.updateResources(main,true),false);
+});
+
 test('a stale summon dialog cannot select or remove a summon in the new session',async()=>{
  const h=harness({environment:{render(){}}});
  const key=id=>'skaz-play-battle-v1:'+JSON.stringify(['local',id]);
