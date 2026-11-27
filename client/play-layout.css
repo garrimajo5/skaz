@@ -648,6 +648,9 @@ body[data-theme="polar"] .play-effects {
     font-weight: 400;
   }
   body[data-workspace-shell="shared"] .play-heading {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 19;
     min-height: var(--workspace-heading-height);
     background: var(--workspace-heading-bg, var(--bg));
     padding-block: 13px 3px;
