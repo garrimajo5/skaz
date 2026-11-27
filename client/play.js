@@ -272,10 +272,10 @@ const SkazPlay = (()=>{
   document.getElementById('play-cast-form').onsubmit=event=>{event.preventDefault();if(submitted)return;try{if(!active()||captured!==SkazStorage.snapshotKey())throw Error('Игра изменилась. Открой сотворение заново');const cost=spell.level===0?null:manual?{kind:'counter',counterId,level:circle}:{kind:'slot',level:circle};SkazStorage.castSpell(item.catalogId,cost,captured);submitted=true;closeModal();}catch(error){toast(error.message);}};
  }
  function spellPanel(spells,hasConsumables,level){
-  if(!spells.length)return '<section class="panel play-empty"><button id="play-prepare-spells" data-play-prepare="spells">'+(SkazStorage.spellLearningMode?.()==='known'?'Добавить известные заклинания':'Подготовить заклинания')+' <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></section>';
+  if(!spells.length)return '<section class="panel play-empty" data-play-section="book"><button id="play-prepare-spells" data-play-prepare="spells">'+(SkazStorage.spellLearningMode?.()==='known'?'Добавить известные заклинания':'Подготовить заклинания')+' <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></section>';
   const visible=spells.filter(x=>inSpellScope(x.entry.spell,spellScope));
   const groups=[['action','Действие'],['bonus','Бонусное действие'],['reaction','Реакция'],['long','Длительное сотворение'],['other','Прочее']];
-  return '<section class="panel play-spells"><h3 class="visually-hidden">'+(SkazStorage.spellLearningMode?.()==='known'?'Заклинания и заговоры':'Подготовленные и заговоры')+'</h3><div class="play-spell-scopes" data-play-list="scopes" role="group" aria-label="Заклинания по ситуации">'+spellScopes.map(([id,label])=>'<button data-play-spell-scope="'+id+'" aria-pressed="'+(spellScope===id)+'">'+label+(id==='all'?' '+spells.length:'')+'</button>').join('')+(hasConsumables?'<button id="play-show-consumables">Расходники <span class="ui-inline-icon" data-ui-icon="arrow-down"></span></button>':'')+'</div><div class="play-list" tabindex="0" role="region" aria-label="Заклинания персонажа" data-play-list="spells">'+(visible.length?groups.map(([id,label])=>{const rows=visible.filter(x=>castingGroup(x.entry.spell)===id);if(!rows.length)return '';return '<h3 class="play-action-heading">'+label+'</h3>'+rows.map(x=>{const spell=x.entry.spell,on=spell?.concentration&&state.concentration===x.entry.name.ru,facts=typeof SkazSpellFacts!=='undefined'?SkazSpellFacts.summary(x.entry,level):null,summary=[spellSummary(spell),facts].filter(Boolean).join(' · ');return '<div class="play-spell-action" data-play-action-kind="'+id+'"><button class="play-row play-spell-row'+(on?' is-concentrating':'')+'" data-play-read="spell" data-id="'+escape(x.catalogId)+'"><span class="play-art">'+(typeof SkazArt!=='undefined'?SkazArt.markup(x.entry):'')+(on?'<span class="play-concentration-marker" data-ui-icon="focus" aria-hidden="true"></span>':'')+'<span class="play-spell-level" aria-label="'+(spell?.level===0?'Заговор':spell?.level===undefined?'Круг не указан':spell.level+' круг')+'">'+(spell?.level===0?'∅':spell?.level??'?')+'</span></span><span class="play-spell-copy"><small class="play-action-kind" aria-hidden="true">'+label+'</small><strong>'+escape(x.entry.name.ru)+'</strong><small title="'+escape(summary)+'">'+(on?'<span data-ui-icon="focus"></span> действует · ':'')+escape(summary)+'</small></span></button>'+castControls(x)+'</div>';}).join('');}).join(''):'<p class="small">В этой группе нет заклинаний.</p>')+'</div></section>';
+  return '<section class="panel play-spells" data-play-section="book"><h3 class="visually-hidden">'+(SkazStorage.spellLearningMode?.()==='known'?'Заклинания и заговоры':'Подготовленные и заговоры')+'</h3><div class="play-spell-scopes" data-play-list="scopes" role="group" aria-label="Заклинания по ситуации">'+spellScopes.map(([id,label])=>'<button data-play-spell-scope="'+id+'" aria-pressed="'+(spellScope===id)+'">'+label+(id==='all'?' '+spells.length:'')+'</button>').join('')+(hasConsumables?'<button id="play-show-consumables">Расходники <span class="ui-inline-icon" data-ui-icon="arrow-down"></span></button>':'')+'</div><div class="play-list" tabindex="0" role="region" aria-label="Заклинания персонажа" data-play-list="spells">'+(visible.length?groups.map(([id,label])=>{const rows=visible.filter(x=>castingGroup(x.entry.spell)===id);if(!rows.length)return '';return '<h3 class="play-action-heading">'+label+'</h3>'+rows.map(x=>{const spell=x.entry.spell,on=spell?.concentration&&state.concentration===x.entry.name.ru,facts=typeof SkazSpellFacts!=='undefined'?SkazSpellFacts.summary(x.entry,level):null,summary=[spellSummary(spell),facts].filter(Boolean).join(' · ');return '<div class="play-spell-action" data-play-action-kind="'+id+'"><button class="play-row play-spell-row'+(on?' is-concentrating':'')+'" data-play-read="spell" data-id="'+escape(x.catalogId)+'"><span class="play-art">'+(typeof SkazArt!=='undefined'?SkazArt.markup(x.entry):'')+(on?'<span class="play-concentration-marker" data-ui-icon="focus" aria-hidden="true"></span>':'')+'<span class="play-spell-level" aria-label="'+(spell?.level===0?'Заговор':spell?.level===undefined?'Круг не указан':spell.level+' круг')+'">'+(spell?.level===0?'∅':spell?.level??'?')+'</span></span><span class="play-spell-copy"><small class="play-action-kind" aria-hidden="true">'+label+'</small><strong>'+escape(x.entry.name.ru)+'</strong><small title="'+escape(summary)+'">'+(on?'<span data-ui-icon="focus"></span> действует · ':'')+escape(summary)+'</small></span></button>'+castControls(x)+'</div>';}).join('');}).join(''):'<p class="small">В этой группе нет заклинаний.</p>')+'</div></section>';
  }
 
  function consumableRow(item){
@@ -305,38 +305,51 @@ const SkazPlay = (()=>{
   const consumables=items.filter(x=>{const info=x.entry.item||x.entry.artifact;return info?.charges||['potion','scroll'].includes(info?.type);}).sort((a,b)=>a.entry.name.ru.localeCompare(b.entry.name.ru,'ru'));
   const latest=[...state.journal,...state.notes].sort((a,b)=>(b.at||0)-(a.at||0))[0];
   const recent=latest&&SkazPlayPresentation.note(latest,SkazCasting.readManualNote(latest));
-  const bookError=bookState==='error',inventoryError=inventoryState==='error';
-  const notice=status==='retrying'?'<div class="notice play-list-notice" role="status">Повторяем загрузку…</div>'
-   :bookError||inventoryError?'<div class="notice play-list-notice"><span>'+(bookError?'Книга заклинаний недоступна.':'Расходники недоступны.')+'</span>'+
-     (status==='ready'?'<button id="play-retry" aria-label="Повторить загрузку '+(bookError?'книги заклинаний':'расходников')+'">Повторить</button>':'')+'</div>'
-   :'';
-  const spellContent=bookState==='ready'?spellPanel(spells,consumables.length>0,level)
-   :bookState==='pending'&&status!=='retrying'?'<p role="status">Открываем книгу заклинаний…</p>':'';
-  const inventoryContent=inventoryState==='pending'&&status!=='retrying'?'<p role="status">Открываем расходники…</p>'
-   :inventoryState!=='ready'?'':consumables.length
-   ?`<section class="panel play-consumables"><h2 id="play-consumables-title" tabindex="-1">Расходники и заряды</h2>
+  const inventoryUnavailable=inventoryState==='error'||(status==='retrying'&&inventoryState==='pending');
+  const spellContent=bookState==='ready'?spellPanel(spells,consumables.length>0||inventoryUnavailable,level):listFeedback('book',bookState);
+  const inventoryContent=inventoryState!=='ready'?listFeedback('items',inventoryState):consumables.length
+   ?`<section class="panel play-consumables" data-play-section="items"><h2 id="play-consumables-title" tabindex="-1">Расходники и заряды</h2>
      <div class="play-list" tabindex="0" role="region" aria-label="Расходники и заряды" data-play-list="items">${consumables.map(consumableRow).join('')}</div>
      <p class="small">−1 списывает предмет. Эффект подтверждается отдельно.</p></section>`
-   :'<section class="panel play-empty"><button id="play-prepare-inventory" data-play-prepare="inventory">Добавить расходники <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></section>';
+   :'<section class="panel play-empty" data-play-section="items"><button id="play-prepare-inventory" data-play-prepare="inventory">Добавить расходники <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></section>';
   const itemsFirst=!spells.length&&consumables.length>0;
   const recentContent=recent
    ?`<section class="panel play-last" data-play-recent><h2>Последняя запись</h2><strong>${escape(recent.title)}</strong><p>${escape(recent.text)}</p><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Личная заметка</button></section>`
    :'<section class="panel play-empty" data-play-recent><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Первая личная заметка</button></section>';
-  return `${notice}${itemsFirst?'':spellContent}<div class="play-side">${inventoryContent}${itemsFirst?spellContent:''}${recentContent}</div>`;
+  return `${itemsFirst?'':spellContent}<div class="play-side">${inventoryContent}${itemsFirst?spellContent:''}${recentContent}</div>`;
  }
+ function listFeedback(kind,state){
+  const book=kind==='book';
+  const pending=state==='pending';
+  const retrying=status==='retrying';
+  const section=' data-play-section="'+kind+'"';
+  if(pending&&!retrying)return '<p'+section+' role="status">'+(book?'Открываем книгу заклинаний…':'Открываем расходники…')+'</p>';
+  const title=book?'Книга заклинаний недоступна.':'Расходники недоступны.';
+  const retry='Повторить загрузку '+(book?'книги заклинаний':'расходников');
+  const anchor=book?'':' id="play-consumables-title" tabindex="-1"';
+  return '<section class="notice play-list-notice"'+section+anchor+'><span role="status">'+
+   (retrying?'Повторяем загрузку…':title)+'</span><button id="play-retry" aria-label="'+retry+'"'+
+   (status==='ready'?'':' disabled')+'>Повторить</button></section>';
+ }
+ const renderedCharges=new WeakMap();
  function renderChargeTracker(){
   const root=document.getElementById('play-quick-item-charges');
   if(!root)return;
-  root.innerHTML='';
-  if(status==='error'||inventoryState!=='ready'||typeof SkazItemCharges==='undefined')return;
+  const markup=chargeTrackerMarkup();
+  if(renderedCharges.get(root)===markup)return;
+  root.innerHTML=markup;
+  renderedCharges.set(root,markup);
+ }
+ function chargeTrackerMarkup(){
+  if(status==='error'||inventoryState!=='ready'||typeof SkazItemCharges==='undefined')return '';
   const charged=items.filter(item=>SkazItemCharges.maximum(item.entry));
-  if(charged.length!==1||charged[0].quantity!==1)return;
+  if(charged.length!==1||charged[0].quantity!==1)return '';
   const item=charged[0],balance=SkazItemCharges.balance(item,0);
-  if(!balance)return;
+  if(!balance)return '';
   const {value,maximum}=balance;
   const numeric=value===null?'Не указаны':escape(value)+' <small>/ '+escape(maximum)+'</small>';
   const marks=value!==null&&maximum<=12?'<div class="play-charge-marks" aria-hidden="true">'+Array.from({length:maximum},(_,i)=>'<span'+(i<value?' class="filled"':'')+'></span>').join('')+'</div>':'';
-  root.innerHTML='<div class="play-charge-heading"><div><strong class="tracker-name">'+escape(item.entry.name.ru)+'</strong><small>Заряды</small></div><span class="tracker-balance play-charge-balance">'+numeric+'</span></div>'+marks;
+  return '<div class="play-charge-heading"><div><strong class="tracker-name">'+escape(item.entry.name.ru)+'</strong><small>Заряды</small></div><span class="tracker-balance play-charge-balance">'+numeric+'</span></div>'+marks;
  }
 
  // Resource commands change balances, casting controls and the recent note.
@@ -399,7 +412,43 @@ const SkazPlay = (()=>{
   prior.replaceWith(next);
  }
 
- function refresh(){
+ // A list response changes one section. Keep the already loaded peer and its artwork mounted.
+ function patchPartialLoad(root,markup,changed){
+  const side=root.querySelector('.play-side');
+  if(!side)return false;
+  const template=document.createElement('template');
+  template.innerHTML=markup;
+  const draft=template.content,draftSide=draft.querySelector('.play-side');
+  const section=kind=>'[data-play-section="'+kind+'"]';
+  const healthy=section(changed==='book'?'items':'book');
+  const kept=root.querySelector(healthy),nextHealthy=draft.querySelector(healthy);
+  const previous=root.querySelector(section(changed));
+  const recent=side.querySelector('[data-play-recent]');
+  if(!kept||!nextHealthy||!previous||!recent||!draftSide)return false;
+
+  if(changed==='items'){
+   const scopes=kept.querySelector('[data-play-list="scopes"]');
+   const link=scopes?.querySelector('#play-show-consumables');
+   const nextLink=nextHealthy.querySelector('#play-show-consumables');
+   if(link&&!nextLink)link.remove();
+   else if(!link&&nextLink)scopes?.append(nextLink);
+  }
+  previous.remove();
+  const top=draft.firstElementChild;
+  if(top!==draftSide){
+   const actual=top===nextHealthy?kept:top;
+   if(actual.nextElementSibling!==side)root.insertBefore(actual,side);
+  }
+  let anchor=recent;
+  for(const part of [...draftSide.children].slice(0,-1).reverse()){
+   const actual=part===nextHealthy?kept:part;
+   if(actual.nextElementSibling!==anchor)side.insertBefore(actual,anchor);
+   anchor=actual;
+  }
+  return true;
+ }
+
+ function refresh(changed=null){
   if(!active()||activeSummon()||key!==SkazStorage.snapshotKey())return;
   renderChargeTracker();
   const root=document.getElementById('play-content');
@@ -409,7 +458,8 @@ const SkazPlay = (()=>{
    scrollPositions.scopes=scopes.scrollLeft;
   }
   captureFocus();
-  root.innerHTML=content(actorLevel(SkazStorage.sheet?.()));
+  const markup=content(actorLevel(SkazStorage.sheet?.()));
+  if(!changed||!patchPartialLoad(root,markup,changed))root.innerHTML=markup;
   restoreFocus();
   document.querySelectorAll('[data-play-list]').forEach(list=>{
    const kind=list.dataset.playList;
@@ -425,8 +475,9 @@ const SkazPlay = (()=>{
   const requests=[];
   if(!partial||bookState==='error'){bookState='pending';book=[];requests.push(['book',()=>SkazStorage.spellbookData()]);}
   if(!partial||inventoryState==='error'){inventoryState='pending';items=[];requests.push(['items',()=>SkazStorage.inventoryData()]);}
+  const retried=partial?requests[0][0]:null;
   status=partial?'retrying':'loading';
-  refresh();
+  refresh(retried);
   if(focusAnchor&&document.activeElement===document.body)focusAnchor.focus({preventScroll:true});
 
   await Promise.all(requests.map(async ([kind,read])=>{
@@ -437,6 +488,7 @@ const SkazPlay = (()=>{
    }catch(error){invalidSnapshot=[401,403,404,409].includes(error?.status);}
    if(token!==serial||captured!==SkazStorage.snapshotKey()||status==='error')return;
    if(!active()){status='idle';return;}
+   const hasReadyPeer=kind==='book'?inventoryState==='ready':bookState==='ready';
    if(invalidSnapshot){
     book=[];items=[];bookState=inventoryState='error';
    }else if(kind==='book'){
@@ -447,7 +499,7 @@ const SkazPlay = (()=>{
    if(bookState!=='pending'&&inventoryState!=='pending'){
     status=bookState==='error'&&inventoryState==='error'?'error':'ready';
    }
-   refresh();
+   refresh(hasReadyPeer&&!invalidSnapshot?kind:null);
    if(status!=='loading'&&status!=='retrying'&&(bookState==='error'||inventoryState==='error')&&
       focusAnchor&&document.activeElement===focusAnchor){
     document.getElementById('play-retry')?.focus({preventScroll:true});
