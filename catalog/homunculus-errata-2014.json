@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "subject": "Homunculus Servant",
+  "sources": {
+    "eberron-errata.pdf": {
+      "title": "Eberron: Rising from the Last War",
+      "errataVersion": "2.0",
+      "requestedUrl": "https://media.wizards.com/2020/dnd/downloads/ERftLW-Errata.pdf",
+      "finalUrl": "https://media.wizards.com/2020/dnd/downloads/ERftLW-Errata.pdf",
+      "status": 200,
+      "bytes": 321861,
+      "sha256": "94f194059290862f626f883fac83866e665655c7b4987405e17d71a9d4b4026d",
+      "capturedAt": "2026-11-21T13:12:16.321733+00:00",
+      "pdfPages": 2,
+      "normalizedPageSha256": [
+        "965e21a69a7cc91dc973e8eed8ca67b0e770cbefa8cfc6369b8cfb481ef10593",
+        "32c15a193d3662b83961059bf92120c00b6165ded1ee9858d6d46fe03f59af60"
+      ],
+      "namedPages": [
+        1,
+        2
+      ],
+      "printedPage62Markers": [
+        1,
+        2
+      ],
+      "rights": "personal-use printing and photocopying in the publisher footer"
+    },
+    "tasha-errata.pdf": {
+      "title": "Tasha’s Cauldron of Everything",
+      "errataVersion": "1.0",
+      "requestedUrl": "https://media.wizards.com/2021/dnd/downloads/TCE-Errata.pdf",
+      "finalUrl": "https://media.wizards.com/2021/dnd/downloads/TCE-Errata.pdf",
+      "status": 200,
+      "bytes": 322011,
+      "sha256": "471b401d7c44c23c3f880fa2ca5d1e9b26abd87cc673a27ba614c9fea371dbd9",
+      "capturedAt": "2026-11-21T13:12:16.322733+00:00",
+      "pdfPages": 1,
+      "normalizedPageSha256": [
+        "4593107ce5159a316ab3a6a4be17e6194d3c35808172d3790a6727d0779b3583"
+      ],
+      "namedPages": [],
+      "printedPage62Markers": [],
+      "rights": "personal-use printing and photocopying in the publisher footer"
+    }
+  },
+  "findings": {
+    "eberron": {
+      "scope": "Eberron errata v2.0",
+      "printedPage": 62,
+      "pdfPages": [
+        1,
+        2
+      ]
+    },
+    "tasha": {
+      "scope": "Tasha errata v1.0 only",
+      "namedErrataFound": false
+    }
+  }
+}
