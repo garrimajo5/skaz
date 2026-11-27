@@ -8,15 +8,15 @@ function harness(preparedDefault=false){let firstView=true,key='hero:0';const ta
  let focusCount = 0;
  const region = {
   id: 'personal-spell-results', innerHTML: '',
-  setAttribute(){}, focus(){focusCount++;document.activeElement=region;}
+  setAttribute(){}, contains(node){return node===region;}, focus(){focusCount++;document.activeElement=region;}
  };
  const document = {
-  activeElement:null, addEventListener:(name,fn)=>handlers[name]=fn,
+  body:{}, activeElement:null, addEventListener:(name,fn)=>handlers[name]=fn,
   getElementById:id=>id==='personal-spell-search'?{elements:fields}:region
  };
  const fields=Object.fromEntries(['q','scope','level','ritual','concentration'].map(name=>[name,{value:''}]));let renderCount=0;
  const context=vm.createContext({queueMicrotask:fn=>tasks.push(fn),document,render:()=>{renderCount++;if(document.activeElement===region)document.activeElement=null;},SkazStorage:{snapshotKey:()=>key,contextKey:()=>key.split(':')[0],spellbookData:()=>new Promise((resolve,reject)=>requests.push({resolve,reject})),editSpell:(...args)=>edits.push(args)}});vm.runInContext(uiSource,context);vm.runInContext(source,context);
- return{tasks,requests,edits,region,fields,renders:()=>renderCount,focusCount:()=>focusCount,view:()=>{let html=vm.runInContext('SkazSpellbook.view()',context);if(firstView&&!preparedDefault){firstView=false;handlers.click({target:{closest:()=>({dataset:{bookScope:'all'}})}});html=vm.runInContext('SkazSpellbook.view()',context);}return html;},setKey:v=>key=v,draft:(q,scope='all',level='',flags={})=>handlers.change({target:{form:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}}}}),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}}),search:(q,scope='all',level='',flags={})=>handlers.submit({target:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}},preventDefault(){}})};
+ return{tasks,requests,edits,region,fields,renders:()=>renderCount,focusCount:()=>focusCount,focusBody:()=>{document.activeElement=document.body;},view:()=>{let html=vm.runInContext('SkazSpellbook.view()',context);if(firstView&&!preparedDefault){firstView=false;handlers.click({target:{closest:()=>({dataset:{bookScope:'all'}})}});html=vm.runInContext('SkazSpellbook.view()',context);}return html;},setKey:v=>key=v,draft:(q,scope='all',level='',flags={})=>handlers.change({target:{form:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}}}}),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}}),search:(q,scope='all',level='',flags={})=>handlers.submit({target:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}},preventDefault(){}})};
 }
 const settle=()=>new Promise(r=>setImmediate(r));
 const item=(i=0)=>({catalogId:'spell:'+i,status:i%2?'prepared':'known',entry:{id:'spell:'+i,kind:'spell',name:{ru:'Заклинание '+i,en:'Magic '+i},spell:{level:i%3,castingTime:'<action>',range:{type:'feet',feet:60},duration:'1 минута',concentration:false,ritual:true}}});
@@ -52,6 +52,22 @@ test('keyboard retry keeps the results focused through a learning mode change',a
  assert.equal(h.renders(),1);
  assert.equal(h.focusCount(),2);
  assert.match(h.region.innerHTML,/Заклинание 0/);
+});
+
+test('saving a book mark returns focus only in the same character context',async()=>{
+ const h=harness();
+ h.view();h.tasks.shift()();
+ h.requests[0].resolve({entries:[item(0)]});
+ await settle();
+ h.click('',{personalSpell:'spell:0'});
+ const afterSave=h.edits[0][2];
+ h.focusBody();
+ afterSave();
+ assert.equal(h.focusCount(),1);
+ h.setKey('other:0');
+ h.focusBody();
+ afterSave();
+ assert.equal(h.focusCount(),1);
 });
 
 test('unfinished search survives rerenders and same-character updates but resets when switching hero',async()=>{

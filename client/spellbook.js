@@ -31,12 +31,15 @@ const SkazSpellbook = (() => {
     }
     refresh();
   }
-  async function load(focusResults = false){
+  function focusResults() {
+    document.getElementById('personal-spell-results')?.focus({preventScroll:true});
+  }
+  async function load(focusOnStart = false){
     const token = ++serial;
     const requestedKey = SkazStorage.snapshotKey();
     status = 'loading';
     refresh();
-    if(focusResults) document.getElementById('personal-spell-results')?.focus({preventScroll:true});
+    if(focusOnStart) focusResults();
     try{
       const value = await SkazStorage.spellbookData();
       if(token !== serial || requestedKey !== SkazStorage.snapshotKey()) return;
@@ -52,7 +55,7 @@ const SkazSpellbook = (() => {
       if(changed){
         const resultsFocused = document.activeElement?.id === 'personal-spell-results';
         render();
-        if(resultsFocused) document.getElementById('personal-spell-results')?.focus({preventScroll:true});
+        if(resultsFocused) focusResults();
       }
     }catch(e){
       if(token !== serial || requestedKey !== SkazStorage.snapshotKey()) return;
@@ -70,7 +73,18 @@ const SkazSpellbook = (() => {
     if(b.id==='personal-spell-reset'){query='';scope=knownCaster()?'known':'prepared';level='';ritual='';concentration='';draft={q:'',scope,level:'',ritual:'',concentration:''};offset=0;refreshFilters();}
     if(b.id==='personal-spell-prev'){offset=Math.max(0,offset-limit);refresh();}
     if(b.id==='personal-spell-next'){if(offset+limit<filtered().length)offset+=limit;refresh();}
-    if(b.dataset.personalSpell){const item=data.find(x=>x.catalogId===b.dataset.personalSpell);if(item)SkazStorage.editSpell(item.entry,item.status,()=>render());}
+    if(b.dataset.personalSpell){
+      const item = data.find(x => x.catalogId === b.dataset.personalSpell);
+      if(!item) return;
+      const openedContext = SkazStorage.contextKey();
+      SkazStorage.editSpell(item.entry, item.status, () => {
+        const results = document.getElementById('personal-spell-results');
+        const active = document.activeElement;
+        const returnToBook = results && (active === document.body || results.contains(active));
+        render();
+        if(returnToBook && openedContext === SkazStorage.contextKey()) focusResults();
+      });
+    }
   });
   return {view};
 })();
