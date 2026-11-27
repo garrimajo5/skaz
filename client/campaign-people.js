@@ -39,13 +39,6 @@ const SkazCampaign = (function(){
     </select>`;
   let noticeShift=0, noticeFrame=0, viewportResized=false;
   const transientNotice='.show[data-kind="success"]:not(:has(> span[tabindex]))';
-  function noticePlacement(top,bottom,start,end,obstacles){
-    const gap=8;
-    const offsets=obstacles.flatMap(rect=>[rect.top-gap-bottom,rect.bottom+gap-top]);
-    return offsets.sort((a,b)=>Math.abs(a)-Math.abs(b)).find(offset=>
-      top+offset>=start+gap && bottom+offset<=end-gap &&
-      obstacles.every(rect=>bottom+offset<=rect.top-gap || top+offset>=rect.bottom+gap));
-  }
   function moveNotice(message,slot=document.body){
     if(!message||message.parentElement===slot)return;
     const focus=message.contains(document.activeElement)?document.activeElement:null;
@@ -129,9 +122,9 @@ const SkazCampaign = (function(){
       if(toolbarSlot&&isNarrowKeyboardViewport(viewport)&&bottom>viewportBottom){
         moveNotice(message,toolbarSlot);
       }else if(nearby.some(rect=>top<rect.bottom&&bottom>rect.top)){
-        const placement=noticePlacement(top,bottom,viewportTop,end,nearby);
+        const placement=SkazUI.noticePlacement(top,bottom,viewportTop,end,nearby);
         if(placement===undefined&&toolbarSlot)moveNotice(message,toolbarSlot);
-        else shift=placement??noticePlacement(top,bottom,viewportTop,end,[form])??0;
+        else shift=placement??SkazUI.noticePlacement(top,bottom,viewportTop,end,[form])??0;
       }
     }
     if(shift!==noticeShift){

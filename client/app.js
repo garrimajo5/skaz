@@ -448,6 +448,7 @@ function render(change,{resourceSettled=false}={}){
  restoreQuickResourceFocus(quick,resourceFocus);
  if(page==='play') SkazPlay.restoreFocus();
  if(page==='inventory'&&!retainedPreparation) void SkazStorage.inventory({preserveDialog:true});
+ scheduleNarrativeNotice();
 }
 function go(p, campaignSection=null){
  if(!['hero','spells','journal','quests','map','library','inventory','play','campaign'].includes(p) ||
@@ -560,6 +561,43 @@ function restoreHealthDialogFocus() {
  if (replacement && !replacement.disabled) replacement.focus({preventScroll: true});
 }
 function closeModal(){if(typeof SkazCampaign==='undefined'||SkazCampaign.allowClose())$('#dialog').close()}
+let narrativeNoticeFrame=0;
+function narrativeNoticeVisible(){
+ return (page==='journal'||page==='quests') &&
+  $('#toast')?.matches?.('.show[data-kind="success"]:not(:has(> span[tabindex]))');
+}
+function positionNarrativeNotice(){
+ const message=$('#toast');
+ message.style.removeProperty('--narrative-notice-shift');
+ message.classList.remove('narrative-notice-compact');
+ if(!narrativeNoticeVisible()||$('.concentration-question'))return;
+ const viewport=window.visualViewport,start=viewport?.offsetTop??0;
+ const end=start+(viewport?.height??window.innerHeight);
+ const header=$('.shell > header')?.getBoundingClientRect();
+ const bar=$('#quick-state');
+ const nav=$('.bottomnav')?.getBoundingClientRect();
+ const dock=bar&&getComputedStyle(bar).getPropertyValue('--pult-side').trim()!=='1'?bar.getBoundingClientRect():null;
+ const top=Math.max(start,header?.bottom??start);
+ const bottom=Math.min(end,dock?.height?dock.top:end,nav?.height?nav.top:end);
+ const controls=$$('#personal-quest-search, .events-filter, #create-personal-quest, #new-proposal, .workspace-narrative-actions button')
+  .map(control=>control.getBoundingClientRect()).filter(rect=>rect.width&&rect.bottom>top&&rect.top<bottom);
+ const left=viewport?.offsetLeft??0,right=left+(viewport?.width??window.innerWidth);
+ const offset=()=>SkazUI.noticeClearance(message.getBoundingClientRect(),{left,right,top,bottom},controls);
+ let shift=offset();
+ if(shift===undefined){
+  message.classList.add('narrative-notice-compact');
+  shift=offset();
+  if(shift===undefined)message.classList.remove('narrative-notice-compact');
+ }
+ if(shift?.some(Boolean))message.style.setProperty('--narrative-notice-shift',shift.map(value=>value+'px').join(' '));
+}
+function scheduleNarrativeNotice(){
+ if(narrativeNoticeFrame||!narrativeNoticeVisible())return;
+ narrativeNoticeFrame=requestAnimationFrame(()=>{
+  narrativeNoticeFrame=0;
+  positionNarrativeNotice();
+ });
+}
 let toastTimer,toastVersion=0,returnToastFocus;
 function toast(text,undo,{error=false,persistent=false}={}){
  const notification=$('#toast');
@@ -576,7 +614,8 @@ function toast(text,undo,{error=false,persistent=false}={}){
  const hide=()=>{
   returnToastFocus();
   returnToastFocus=null;
-  notification.classList.remove('show');
+  notification.classList.remove('show','narrative-notice-compact');
+  notification.style?.removeProperty('--narrative-notice-shift');
   if(page==='campaign')SkazCampaign.scheduleNotice();
  };
  let used=false;
@@ -584,6 +623,7 @@ function toast(text,undo,{error=false,persistent=false}={}){
  notification.innerHTML=`<span${persistent?' tabindex="0"':''}>${esc(text)}</span>${undo?'<button id="undo">Отменить</button>':''}`;
  notification.classList.add('show');
  if(page==='campaign')SkazCampaign.scheduleNotice();
+ else if(narrativeNoticeVisible())positionNarrativeNotice();
  if(undo){
   const action=$('#undo');
   action.onclick=()=>{
@@ -809,6 +849,7 @@ if(typeof ResizeObserver!=='undefined'){
   rootStyle.setProperty('--workspace-header-height', Math.max(toolbarHeight,titleHeight) + 'px');
   rootStyle.setProperty('--nav-height', navHeight + 'px');
   rootStyle.setProperty('--bottom-reserve', (bottomBarHeight + navHeight + 24) + 'px');
+  scheduleNarrativeNotice();
  };
  const observer = new ResizeObserver(measure);
  for(const element of [bar, nav, header]) if(element) observer.observe(element,{box:'border-box'});
@@ -822,6 +863,9 @@ if(typeof ResizeObserver!=='undefined'){
  };
  if(main && typeof MutationObserver!=='undefined')new MutationObserver(observeHeading).observe(main,{childList:true});
  window.addEventListener('resize',measure);
+ window.addEventListener('scroll',scheduleNarrativeNotice,{capture:true,passive:true});
+ window.visualViewport?.addEventListener('resize',scheduleNarrativeNotice);
+ window.visualViewport?.addEventListener('scroll',scheduleNarrativeNotice);
  observeHeading();
  measure();
 }
