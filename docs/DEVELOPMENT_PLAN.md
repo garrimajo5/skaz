@@ -22,7 +22,7 @@
 
 | Направление | Состояние и адресный вход |
 | --- | --- |
-| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). На VPS `e72e770`. Уведомления сохраняют геометрию и при закрытии возвращают фокус. [Сценарии](design/qa/steady-toast-focus-252.md). Linux 2253/2253. Следом проверить и выпустить сохранение поиска при переходе на «Карту» с ожидающей ячейкой. Физическая проверка [Xiaomi Pad 6](https://github.com/garrimajo5/skaz/issues/15). |
+| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). На VPS `f9566df`. Уведомления не сдвигают элементы, после «Отменить» фокус возвращается, поиск карты переживает подтверждение ячейки. [Повтор видео](design/qa/actor-toolbar-figma-252.md) · [Карта](design/qa/steady-map-slot-252.md). Linux 2254/2254. Следом сверить устойчивость на доступном Pixel_8, пройти физическую проверку [Xiaomi Pad 6](https://github.com/garrimajo5/skaz/issues/15) и приёмку по Figma. |
 | M0 / #77: источники и полнота | [Решения об источниках](catalog-source-decisions-2014.md), [D05-триаж](d05-current-publication-triage-2014.md). [D01: допуск к AL](extra-life-publication-witnesses-2014.md#допуск-в-adventurers-league) разделяет условия v14.0 и заявления издателя для Grung, Locathah и двух Tortle. Следом сверить полный текст версий и разрешения. |
 | #77 / D01 | [Категории D&D Beyond](extra-life-publication-witnesses-2014.md#классификация-в-текущем-dd-beyond). Подтверждены четыре карточки и их категории. Официальный статус правил Grung и точные публикации AL требуют отдельных первичных свидетельств. |
 | M0 / #77 / классовые единицы | [13-class пакет](class-unit-residual-review-2014.md):913observations/8roles,4source-version families/28ID;31discovery сохраняет3sidekicks отдельно от13main. [Primary TOC](class-multisource-toc-2014.md):8family+3sidekick links, не full rules/rights/denominator. Eloquencebody — scoped hold; следующий content: оставшиеся D06unit/variant/reference границы, не arbitrary high-level audit. |
@@ -45,7 +45,7 @@
 
 ## Фактический выпуск
 
-Действует `e72e770`, формат v15. Совместимый откат — `94f9626`. Проверки, флаги и порядок отката описаны в [deployment](deployment.md).
+Действует `f9566df`, формат v15. Совместимый откат — `e72e770`. Проверки, флаги и порядок отката описаны в [deployment](deployment.md).
 
 ## Как поддерживать этот файл
 
