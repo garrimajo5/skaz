@@ -237,6 +237,10 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
     if (typeof mutationId !== 'string' || !/^[a-zA-Z0-9-]{8,80}$/.test(mutationId)) throw new AppError(400, 'Нужен идентификатор изменения');
     if (!Number.isSafeInteger(expectedRevision) || expectedRevision < 0) throw new AppError(400, 'Нужна версия состояния');
     if (typeof label !== 'string' || !label.trim() || label.length > 200) throw new AppError(400, 'Нужно описание изменения');
+    const responseSnapshot=()=>{
+      const snapshot=read();
+      return operation==='inventory-charges' ? {...snapshot,inventory:readInventory(db,snapshot.context.characterId)} : snapshot;
+    };
     db.exec('BEGIN IMMEDIATE');
     try {
       const previous = db.prepare('SELECT * FROM changes WHERE mutation_id=?').get(mutationId);
@@ -244,7 +248,7 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
       if (previous) {
         if (previous.request_hash !== hash) throw new AppError(409, 'Идентификатор уже использован для другого изменения');
         const receipt = db.prepare("SELECT after_json FROM context_changes WHERE mutation_id=? AND operation!='state'").get(mutationId);
-        const response = { ...read(), replayed: true, ...(receipt ? { affectedContext: JSON.parse(receipt.after_json) } : {}) };
+        const response = { ...responseSnapshot(), replayed: true, ...(receipt ? { affectedContext: JSON.parse(receipt.after_json) } : {}) };
         db.exec('COMMIT');
         return response;
       }
@@ -261,7 +265,7 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
       db.prepare('INSERT INTO context_changes VALUES (?, ?, ?, ?)').run(mutationId, operation || 'state', JSON.stringify(current.context), JSON.stringify(affectedContext));
       authorizeMutation({ phase: 'after', mutationId, beforeContext: current.context, context: affectedContext });
       afterAuthorization?.(affectedContext);
-      const response = { ...read(), ...(operation ? { affectedContext } : {}) };
+      const response = { ...responseSnapshot(), ...(operation ? { affectedContext } : {}) };
       // Keep writes readable by the previous release during the initial rollout.
       const chargeWrite=operation?.startsWith('inventory-')||['resource','resource-undo'].includes(operation);
       if (profileWriteFormat === 14 &&

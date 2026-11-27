@@ -785,6 +785,35 @@ test('charge form keeps zero, accepts explicit unknown and rejects stale context
  await open();current=payload(3,'other');await h.api.boot();await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls.length,2);assert.match(h.messages.at(-1),/Игра изменилась/);assert.equal(h.messageOptions.at(-1).error,true);assert.equal(h.messageOptions.at(-1).persistent,true);
 });
 
+test('saving Quick Access charges leaves the editor closed and skips the Inventory view',async()=>{
+ const item={catalogId:'test:wand',quantity:1,chargeCounts:[3],entry:{name:{ru:'Wand',en:'Wand'},item:{charges:{max:7,recharge:'Dawn'}}}};
+ let current=payload(0);
+ const calls=[];
+ const h=harness(memory(),memory(),async(url,options)=>{
+  if(url==='/api/workspace')return response(current);
+  calls.push([url,options.method]);
+  if(url==='/api/inventory')return response({...current,entries:[item]});
+  assert.equal(JSON.parse(options.body).amount,2);
+  current=payload(current.revision+1);
+  return response(current);
+ });
+ await h.api.boot();
+ h.setPage('play');
+ const submit=async fromQuickAccess=>{
+  h.api.editCharges(item,{fromQuickAccess});
+  h.get('#charges-unit').value='0';
+  h.get('#charges-operation').value='set';
+  h.get('#charges-amount').value='2';
+  await h.get('#charges-form').onsubmit({preventDefault(){}});
+ };
+ await submit(true);
+ assert.deepEqual(calls,[['/api/inventory/charges','POST']]);
+ assert.equal(h.dialog(),'');
+ await submit(false);
+ assert.deepEqual(calls.slice(1),[['/api/inventory/charges','POST'],['/api/inventory',undefined]]);
+ assert.match(h.dialog(),/id="inventory-view"/);
+});
+
 test('private server responses label storage honestly without changing local defaults',async()=>{
  const h=harness(memory(),memory(),async()=>({...response(payload(0)),headers:{get:()=> 'private-server'}}));
  await h.api.boot();h.api.paint();assert.match(h.get('sync-status').innerHTML,/Сохранено на сервере/);assert.match(h.get('app-mode').textContent,/Закрытый сервер/);
