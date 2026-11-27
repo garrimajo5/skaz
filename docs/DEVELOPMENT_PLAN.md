@@ -22,7 +22,7 @@
 
 | Направление | Состояние и адресный вход |
 | --- | --- |
-| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). На VPS `249490c`. Инвентарь, открытые фильтры справочника и кнопки «Листа» сохраняют положение при списании. Реальные изменения данных и доступа обновляют экраны. [Проверки и кадры](design/qa/steady-preparation-252.md), Linux 2245/2245. Следом проверка на свободном Pixel_8, [Xiaomi Pad 6](https://github.com/garrimajo5/skaz/issues/15) и итоговая сверка владельцем. |
+| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). На VPS `6fadefc`. Широкая шапка закрепляется целиком, высота учитывается при прокрутке к фокусу. Инвентарь, фильтры справочника и «Лист» сохраняют положение при списании. [Кадры шапки](design/qa/wide-header-release-252.md) и [проверки экранов](design/qa/steady-preparation-252.md). Linux 2245/2245. Следом сверка владельцем, свободный Pixel_8 и [Xiaomi Pad 6](https://github.com/garrimajo5/skaz/issues/15). |
 | M0 / #77: источники и полнота | [Решения об источниках](catalog-source-decisions-2014.md), [D05-триаж](d05-current-publication-triage-2014.md). [D01: допуск к AL](extra-life-publication-witnesses-2014.md#допуск-в-adventurers-league) разделяет условия v14.0 и заявления издателя для Grung, Locathah и двух Tortle. Следом сверить полный текст версий и разрешения. |
 | #77 / D01 | [Категории D&D Beyond](extra-life-publication-witnesses-2014.md#классификация-в-текущем-dd-beyond). Подтверждены четыре карточки и их категории. Официальный статус правил Grung и точные публикации AL требуют отдельных первичных свидетельств. |
 | M0 / #77 / классовые единицы | [13-class пакет](class-unit-residual-review-2014.md):913observations/8roles,4source-version families/28ID;31discovery сохраняет3sidekicks отдельно от13main. [Primary TOC](class-multisource-toc-2014.md):8family+3sidekick links, не full rules/rights/denominator. Eloquencebody — scoped hold; следующий content: оставшиеся D06unit/variant/reference границы, не arbitrary high-level audit. |
@@ -45,7 +45,7 @@
 
 ## Фактический выпуск
 
-Действует `249490c`, формат v15. Совместимый откат — `3e9931b`. Проверки, флаги и порядок отката описаны в [deployment](deployment.md).
+Действует `6fadefc`, формат v15. Совместимый откат — `249490c`. Проверки, флаги и порядок отката описаны в [deployment](deployment.md).
 
 ## Как поддерживать этот файл
 
