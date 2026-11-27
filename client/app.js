@@ -193,8 +193,10 @@ function concentrationQuestion(){
 function answerConcentration(answer,id,snapshot){if(!['pass','fail'].includes(answer)||snapshot!==SkazStorage.snapshotKey()||state.concentrationChecks?.[0]?.id!==id)return toast('Проверка изменилась. Открой текущую игру');return resourceAction({kind:'health',operation:answer,checkId:id,temporaryBefore:state.tempHp||0,concentrationBefore:state.concentration},1,answer==='pass'?'Концентрация сохранена':'Концентрация провалена');}
 function quickHealthAmount() {
  if (page !== 'play') return '';
- const context = SkazStorage.contextKey(), field = $('#quick-hp-amount');
- return SkazPlayPresentation.healthAmount(field?.dataset.healthContext === context ? field.value : '', context);
+ return SkazPlayPresentation.healthAmount(SkazStorage.contextKey());
+}
+function restoreQuickHealthDraft(previous,field){
+ if(previous&&field&&previous!==field&&previous.dataset.healthContext===field.dataset.healthContext)field.value=previous.value;
 }
 function stepQuickHealthAmount(step) {
  const field = $('#quick-hp-amount');
@@ -244,7 +246,8 @@ function paintQuickPanel(quick,markup){
   const key=quickPartKey(draft),current=byKey.get(key);
   const expected=draft.outerHTML;
   const updated=current&&(key==='play-quick-item-charges'||quickPartMarkup.get(current)===expected||
-   key==='quick-resources'&&patchQuickTracker(current,draft))?current:draft;
+   key==='quick-resources'&&patchQuickTracker(current,draft)||
+   key==='quick-concentration-row'&&patchQuickConcentration(current,draft))?current:draft;
   if(updated!==position)quick.insertBefore(updated,position);
   if(current&&updated!==current)current.remove();
   byKey.delete(key);
@@ -252,6 +255,22 @@ function paintQuickPanel(quick,markup){
   position=updated.nextElementSibling;
  }
  for(const part of byKey.values())part.remove();
+}
+function patchQuickConcentration(current,draft){
+ const end=current.querySelector('#quick-end-concentration'),nextEnd=draft.querySelector('#quick-end-concentration');
+ if(!end||!nextEnd||end.dataset.concentration!==nextEnd.dataset.concentration||current.className!==draft.className)return false;
+ const answers=[...current.querySelectorAll('[data-concentration-answer]')];
+ const nextAnswers=[...draft.querySelectorAll('[data-concentration-answer]')];
+ if(answers.length!==nextAnswers.length||answers.some(({dataset},index)=>{
+  const next=nextAnswers[index].dataset;
+  return dataset.concentrationAnswer!==next.concentrationAnswer||dataset.checkId!==next.checkId;
+ }))return false;
+ const copy=current.querySelector('.concentration-copy'),nextCopy=draft.querySelector('.concentration-copy');
+ if(Boolean(copy)!==Boolean(nextCopy))return false;
+ if(copy&&!copy.isEqualNode(nextCopy))copy.replaceChildren(...nextCopy.childNodes);
+ SkazUI.patchButton(end,nextEnd);
+ answers.forEach((button,index)=>SkazUI.patchButton(button,nextAnswers[index]));
+ return true;
 }
 function patchQuickTracker(current,draft){
  const groups=node=>[...node.querySelectorAll('.resource-group')];
@@ -296,6 +315,7 @@ function render(change,{resourceSettled=false}={}){
  const main=$('#main'), quick=$('#quick-state'), home=$('#quick-state-home');
  const workspaceSummary=$('.workspace-summary');
  if(!main||!quick||!home)return;
+ const healthField=$('#quick-hp-amount');
  const sectionFocus=document.activeElement?.closest?.('.profile-sections a');
  if(page==='play') SkazPlay.captureFocus();
  const updateResources=change==='resources'&&SkazStorage.readyToDisplay?.()!==false;
@@ -353,6 +373,7 @@ function render(change,{resourceSettled=false}={}){
   quick.innerHTML=quickMarkup;
   for(const part of quick.children||[])quickPartMarkup.set(part,part.outerHTML);
  }
+ restoreQuickHealthDraft(healthField,$('#quick-hp-amount'));
  if(page==='campaign'){
   const entry=campaignEntry;
   campaignEntry=null;

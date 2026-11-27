@@ -147,14 +147,13 @@ const SkazPlayPresentation = (() => {
   }
 
   /**
-   * @param {string} value
    * @param {string} context
    */
-  function healthAmount(value, context) {
+  function healthAmount(context) {
     return `<div class="quick-health-amount">
       <label for="quick-hp-amount">Изменить хиты</label>
       <button type="button" data-health-step="-1" aria-label="Уменьшить количество хитов">−</button>
-      <input id="quick-hp-amount" type="number" inputmode="numeric" min="1" max="999" step="1" value="${escape(value)}" data-health-context="${escape(context)}" autocomplete="off">
+      <input id="quick-hp-amount" type="number" inputmode="numeric" min="1" max="999" step="1" value="" data-health-context="${escape(context)}" autocomplete="off">
       <button type="button" data-health-step="1" aria-label="Увеличить количество хитов">+</button>
     </div>`;
   }
