@@ -29,7 +29,7 @@
  * @property {string} [titleId] Focus target when a page is mounted in place.
  * @property {string} [actions] Trusted markup from the current page renderer.
  * @property {string} content Trusted markup from the current page renderer.
- * @property {boolean} [mapOnly] Maps have no character strip or combat panel.
+ * @property {boolean} [mapOnly] Maps have a full-width layout without the combat panel.
  */
 
 const SkazPlayPresentation = (() => {
@@ -220,7 +220,7 @@ const SkazPlayPresentation = (() => {
   function prepare(view) {
     return `<section class="play-screen workspace-prepare${view.mapOnly?' workspace-map':''}">
       ${heading(view.title, view.actor.session, view.actions, view.titleId)}
-      ${view.mapOnly?'':actorStrip(view.actor)}
+      ${actorStrip(view.actor)}
       <div class="play-layout">
         <div class="workspace-content">${view.content}</div>
         ${view.mapOnly?'':resources(view.actor.historyAvailable)}
