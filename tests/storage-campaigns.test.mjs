@@ -1134,9 +1134,9 @@ test('durable resource controls accept ten offline operations and reload without
  const fetch=async(url,options)=>{if(offline)throw new Error('offline');if(url==='/api/resources/change'){const c=JSON.parse(options.body);if(!ids.has(c.mutationId)){assert.equal(c.expectedRevision,rev);if(c.resource.kind==='hp'){assert.equal(c.before,serverState.hp);serverState.hp=Math.max(0,Math.min(serverState.maxHp,serverState.hp+c.delta));}else{assert.equal(c.before,serverState.slots[c.resource.level]);serverState.slots[c.resource.level]+=c.delta;}ids.add(c.mutationId);rev++;}}return response({...payload(rev),state:structuredClone(serverState)});};
  let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.canResource(),true);offline=true;
  for(let i=0;i<10;i++)h.api.resourceDelta(i%2?{kind:'slot',level:1}:{kind:'hp'},i%2?(i%4===1?-1:1):-1,h.api.snapshotKey());
- await tick();assert.equal(h.api.pendingCount(),10);h.api.paint();assert.equal(h.get('quick-pending').hidden,false);assert.equal(h.get('quick-pending-count').textContent,'10');assert.equal(h.state().hp,23);assert.equal(h.state().slots[1],2);assert.equal(h.api.editable(),false);assert.equal(h.api.canResource(),true);assert.equal(rev,0);
+ await tick();assert.equal(h.api.pendingCount(),10);h.api.paint();assert.match(h.get('sync-status').innerHTML,/Без сети · ждут 10/);assert.equal(h.state().hp,23);assert.equal(h.state().slots[1],2);assert.equal(h.api.editable(),false);assert.equal(h.api.canResource(),true);assert.equal(rev,0);
  h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.state().hp,23);assert.equal(h.api.canResource(),true);
- offline=false;await h.api.flushResources();assert.equal(h.api.pendingCount(),0);h.api.paint();assert.equal(h.get('quick-pending').hidden,true);assert.equal(rev,10);assert.equal(ids.size,10);assert.equal(h.state().hp,23);assert.equal(h.api.editable(),true);h.api.paint();assert.match(h.get('sync-status').innerHTML,/Последнее подтверждение/);
+ offline=false;await h.api.flushResources();assert.equal(h.api.pendingCount(),0);h.api.paint();assert.match(h.get('sync-status').innerHTML,/Сохранено/);assert.equal(rev,10);assert.equal(ids.size,10);assert.equal(h.state().hp,23);assert.equal(h.api.editable(),true);h.api.paint();assert.match(h.get('sync-status').innerHTML,/Последнее подтверждение/);
 });
 
 test('server denial retains queued resources but disables further changes and never restores cached authority',async()=>{
@@ -1322,6 +1322,8 @@ test('Quick Access resource snapshot retains both loaded lists and clears them o
  };
  const h=harness(memory(),memory(),fetch,undefined,undefined,true);
  await h.api.boot();
+ assert.equal(h.api.queuedSpellbook().entries[0].catalogId,'light');
+ assert.equal(h.api.playResourceLists(),null);
  await h.api.inventoryData();
  h.api.resourceDelta({kind:'slot',level:1},-1,h.api.snapshotKey());
  const projected=h.api.playResourceLists();
@@ -1331,6 +1333,7 @@ test('Quick Access resource snapshot retains both loaded lists and clears them o
  finish({ok:false,status:403,json:async()=>({error:'Доступ отозван'})});
  await tick();
  assert.equal(h.api.playResourceLists(),null);
+ assert.equal(h.api.queuedSpellbook(),null);
 });
 
 test('learning policy and legacy spell marks survive offline resource queue reload',async()=>{

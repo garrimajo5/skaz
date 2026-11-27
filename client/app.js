@@ -63,13 +63,35 @@ function hero(){
  return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(sheet,stats),title:'Персонаж',actions,content:profileSections('hero')+content});
 }
 function pending(){return events.filter(e=>!state.accepted.includes(e.id)&&!state.dismissed.includes(e.id))}
+let mountedSpellActor;
+const spellAddPending='Дождись сохранения ячеек и зарядов.';
+function spellAddAvailable(){return (SkazStorage.can?.('character')??true)||SkazStorage.canResource?.();}
 function spellsPage(){
  if(location.protocol==='file:')return profileSections('spells')+demoSpellsPage();
  const content=SkazSpellbook.view()+`<details class="demo-section"><summary>Демонстрационные заклинания и ячейки барда 5 уровня</summary>${demoSpellsPage({showHeading:false})}</details>`;
- const actions=(SkazStorage.can?.('character')??true)
-  ?'<button id="book-add-spell" class="primary">Добавить заклинание</button>'
+ const pending=SkazStorage.can?.('character')===false;
+ const actions=spellAddAvailable()
+  ?'<button id="book-add-spell" class="primary" '+(pending?'aria-disabled="true" title="'+spellAddPending+'"':'')+'>Добавить заклинание</button>'
   :'<button data-page="library">Открыть справочник</button>';
- return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Персонаж',actions,content:profileSections('spells')+content});
+ mountedSpellActor=SkazPlay.actorView();
+ return SkazPlayPresentation.prepare({actor:mountedSpellActor,title:'Персонаж',actions,content:profileSections('spells')+content});
+}
+function updateSpellsPage(main){
+ const screen=main.querySelector('.workspace-prepare');
+ const add=screen?.querySelector('#book-add-spell');
+ if(!mountedSpellActor||!add||!spellAddAvailable()||!screen.querySelector('.personal-book'))return false;
+ const actor=SkazPlay.actorView();
+ if(mountedSpellActor.historyAvailable!==actor.historyAvailable||!SkazSpellbook.updateResources())return false;
+ if(JSON.stringify(mountedSpellActor)!==JSON.stringify(actor))SkazPlayPresentation.refreshActor(screen,actor);
+ mountedSpellActor=actor;
+ if(SkazStorage.can('character')){
+  add.removeAttribute('aria-disabled');
+  add.removeAttribute('title');
+ }else{
+  add.setAttribute('aria-disabled','true');
+  add.title=spellAddPending;
+ }
+ return true;
 }
 function demoSpellsPage({showHeading=true}={}){
  const stats='Харизма +4 · Атака заклинанием +7 · Сложность спасброска 15';
@@ -170,7 +192,7 @@ function quickPanel(){
  const charges=page==='play'?'<div id="play-quick-item-charges"></div>':'';
  const question=concentrationQuestion();
  const concentration=`<div class="quick-concentration-row ${question?'concentration-pending':''}">${state.concentration?`<span class="quick-concentration" title="Концентрация: ${esc(state.concentration)}"><span data-ui-icon="focus"></span> ${esc(state.concentration)}</span><button id="quick-end-concentration" data-concentration="${esc(state.concentration)}" data-snapshot="${esc(SkazStorage.snapshotKey())}" aria-label="Завершить концентрацию: ${esc(state.concentration)}" ${SkazStorage.editable()?'':'disabled'}>Снять</button>`:'<span class="quick-concentration">Без концентрации</span>'}${question}</div>`;
- return `${question?concentration:''}${healthVitals()}<div class="quick-resources" tabindex="0" aria-label="Ресурсы: нажми заполненную — потратить, пустую — вернуть">${resourceControls()}</div>${charges}${question?'':concentration}${conditionChips()}<div class="quick-extras"><button id="quick-conditions" aria-label="Изменить состояния персонажа" ${SkazStorage.editable()?'':'disabled'}>Состояния</button><button id="rest" class="secondary"><span data-ui-icon="rest"></span> Отдых</button><button id="quick-note" aria-label="Быстрая личная заметка" ${SkazStorage.editable()?'':'disabled'}><span data-ui-icon="note"></span> Заметка</button><button id="quick-pending" ${SkazStorage.pendingCount?.()?'':'hidden'} aria-label="Не подтверждено сервером: ${SkazStorage.pendingCount?.()||0}. Открыть состояние сохранения"><span class="ui-inline-icon" data-ui-icon="pending"></span> <span id="quick-pending-count">${SkazStorage.pendingCount?.()||0}</span></button></div>`;}
+ return `${question?concentration:''}${healthVitals()}<div class="quick-resources" tabindex="0" aria-label="Ресурсы: нажми заполненную — потратить, пустую — вернуть">${resourceControls()}</div>${charges}${question?'':concentration}${conditionChips()}<div class="quick-extras"><button id="quick-conditions" aria-label="Изменить состояния персонажа" ${SkazStorage.editable()?'':'disabled'}>Состояния</button><button id="rest" class="secondary"><span data-ui-icon="rest"></span> Отдых</button><button id="quick-note" aria-label="Быстрая личная заметка" ${SkazStorage.editable()?'':'disabled'}><span data-ui-icon="note"></span> Заметка</button></div>`;}
 function revealBottomNavButton(nav, button) {
  if(!button || !nav.clientWidth || nav.scrollWidth <= nav.clientWidth || !button.getClientRects().length) return;
  const left = nav.getBoundingClientRect().left + nav.clientLeft;
@@ -220,9 +242,6 @@ function patchQuickTracker(current,draft){
    const next=nextActions[i];
    SkazUI.patchButton(button,next);
   }
-  const pending=group.querySelector('.tracker-pending-count'),nextPending=incoming.querySelector('.tracker-pending-count');
-  if(!nextPending)pending?.remove();
-  else if(!pending)group.querySelector('.resource-dots').append(nextPending);
  }
  return true;
 }
@@ -251,9 +270,10 @@ function render(change){
  if(page==='play') SkazPlay.captureFocus();
  const updateResources=change==='resources'&&SkazStorage.readyToDisplay?.()!==false;
  const updatePlayResources=updateResources&&page==='play';
+ const updateSpellResources=updateResources&&page==='spells'&&location.protocol!=='file:';
  const resourceFocus=updateResources?quickResourceFocus():null;
  const resourceScroll=updateResources?{top:quick.scrollTop,left:quick.scrollLeft}:null;
- if(!updatePlayResources&&quick.parentElement!==home) home.append(quick);
+ if(!updatePlayResources&&!updateSpellResources&&quick.parentElement!==home) home.append(quick);
  quick.hidden=page==='map'||page==='play'&&SkazPlay.summonActive();
  document.body.dataset.page=page;
  const workspacePage=['play','hero','inventory','library','campaign'].includes(page)||
@@ -297,7 +317,7 @@ function render(change){
  $('#workspace-campaign-settings').hidden=location.protocol==='file:'||SkazStorage.can?.('select')!==true;
  $('#campaign-name').textContent=state.profile.campaign;
  const quickMarkup=quick.hidden?'':quickPanel();
- if(updatePlayResources&&quick.firstElementChild)paintQuickPanel(quick,quickMarkup);
+ if((updatePlayResources||updateSpellResources)&&quick.firstElementChild)paintQuickPanel(quick,quickMarkup);
  else {
   quick.innerHTML=quickMarkup;
   for(const part of quick.children||[])quickPartMarkup.set(part,part.outerHTML);
@@ -312,7 +332,9 @@ function render(change){
    if(quick.parentElement!==home) home.append(quick);
    main.innerHTML=SkazPlay.view(updatePlayResources);
   }
- }else main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage}[page]||hero)();
+ }else if(!updateSpellResources||!updateSpellsPage(main)){
+  main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage}[page]||hero)();
+ }
  const resourceSlot=$('#play-quick-slot');
  if(resourceSlot&&quick.parentElement!==resourceSlot)resourceSlot.append(quick);
  if(resourceScroll){
@@ -628,7 +650,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b
  }
  if(b.dataset.campaignPeopleShortcut!==undefined){go('campaign','people');return;}
  if(b.dataset.page){go(b.dataset.page);return}if(b.dataset.themeChoice){state.theme=b.dataset.themeChoice;save();render();return}if(b.dataset.spell){openSpell(b.dataset.spell);return}if(b.dataset.accept){acceptEvent(b.dataset.accept);return}if(b.dataset.dismiss){change('Событие пропущено',()=>state.dismissed.push(b.dataset.dismiss));return}if(b.dataset.editEvent){const id=b.dataset.editEvent;if(id==='quest'){modal('<div class="overline">РЕДАКТИРОВАНИЕ ЗАЦЕПКИ</div><h2>Уточнить услышанное</h2><label for="event-text">Текст зацепки</label><textarea id="event-text">Картограф не вернулся с маяка</textarea><div class="dialog-actions"><button class="primary" id="save-event">Сохранить в журнал</button></div>');$('#save-event').onclick=()=>{const text=$('#event-text').value.trim();if(!text)return;if(!canChange())return;closeModal();change('Уточнённая зацепка сохранена',()=>{state.accepted.push(id);state.eventEdits.quest=text;log(text,events.find(e=>e.id==='quest').source,'Зацепка')})}}else{modal(`<h2>Уточнить ${id==='gold'?'награду':'урон'}</h2><label for="event-value">Количество</label><input id="event-value" type="number" min="0" max="9999" value="${id==='gold'?25:7}"><div class="dialog-actions"><button class="primary" id="save-event">Подтвердить</button></div>`);$('#save-event').onclick=()=>{let n=Number($('#event-value').value);if(!Number.isInteger(n)||n<0||n>9999){toast('Укажи целое число от 0 до 9999');return}if(!canChange())return;closeModal();acceptEvent(id,n)}}return}if(b.dataset.place){place=b.dataset.place;go('map');return}if(b.dataset.mapPlace){place=b.dataset.mapPlace;render();return}if(b.classList.contains('dialog-close')){closeModal();return}if(b.dataset.roll){const r=1+Math.floor(Math.random()*20);modal(`<div class="overline">БРОСОК АТАКИ · РАПИРА</div><h2>${r+5} <span style="font-size:16px;color:var(--muted)">= ${r} + 5</span></h2><p>Демо-бросок к20. ${r===20?'Натуральная 20!':r===1?'Натуральная 1.':'Сравни результат с КД цели.'} Урон и попадание подтверждает мастер.</p>`);return}
-if(b.dataset?.editConditions!==undefined){editConditions();return;}switch(b.id){case'quick-conditions':editConditions();break;case'death-saves':deathDialog();break;case'play-note':case'quick-note':quickNote();break;case'quick-end-concentration':endConcentration(b.dataset.concentration,b.dataset.snapshot);break;case'quick-pending':{const menu=document.getElementById('session-menu');if(menu){menu.open=true;menu.querySelector?.('summary')?.focus();}break;}case'edit-profile':editProfile();break;case'damage':hpDialog();break;case'heal':hpDialog(true);break;case'add-note':addNote();break;case'map-note':addNote(true);break;case'pause':paused=!paused;render();break;case'restore-events':change('Пропущенные события возвращены',()=>{state.dismissed=[]});break;case'inspire':if(SkazStorage.sheet?.()){toast('Счётчики своего класса изменяются вручную');break;}if(state.inspiration>0)change('Вдохновение передано союзнику',()=>{state.inspiration--;log('Бардовское вдохновение','Союзник получает к8; осталось '+state.inspiration+'/4','Способность')});break;case'rest':restDialog();break;case'export-journal':{const text=['СКАЗ · '+SkazStorage.sessionTitle(),SkazStorage.sessionDate(),state.profile.campaign,'',...state.journal.map(e=>`${e.time} · ${e.title}\n${e.text}`),'Личные заметки персонажа (между сессиями)',...state.notes.map(e=>`${e.time} · ${e.title}\n${e.text}`)].join('\n\n');const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='skaz-journal.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Журнал подготовлен для скачивания');break}case'about-library':case'about':SkazStorage.settings();break;}});
+if(b.dataset?.editConditions!==undefined){editConditions();return;}switch(b.id){case'quick-conditions':editConditions();break;case'death-saves':deathDialog();break;case'play-note':case'quick-note':quickNote();break;case'quick-end-concentration':endConcentration(b.dataset.concentration,b.dataset.snapshot);break;case'edit-profile':editProfile();break;case'damage':hpDialog();break;case'heal':hpDialog(true);break;case'add-note':addNote();break;case'map-note':addNote(true);break;case'pause':paused=!paused;render();break;case'restore-events':change('Пропущенные события возвращены',()=>{state.dismissed=[]});break;case'inspire':if(SkazStorage.sheet?.()){toast('Счётчики своего класса изменяются вручную');break;}if(state.inspiration>0)change('Вдохновение передано союзнику',()=>{state.inspiration--;log('Бардовское вдохновение','Союзник получает к8; осталось '+state.inspiration+'/4','Способность')});break;case'rest':restDialog();break;case'export-journal':{const text=['СКАЗ · '+SkazStorage.sessionTitle(),SkazStorage.sessionDate(),state.profile.campaign,'',...state.journal.map(e=>`${e.time} · ${e.title}\n${e.text}`),'Личные заметки персонажа (между сессиями)',...state.notes.map(e=>`${e.time} · ${e.title}\n${e.text}`)].join('\n\n');const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='skaz-journal.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Журнал подготовлен для скачивания');break}case'about-library':case'about':SkazStorage.settings();break;}});
 document.addEventListener('input',e=>{if(e.target.id==='spell-search'){spellQuery=e.target.value;$('#spell-results').innerHTML=spellCards()}});
 document.addEventListener('change',e=>{if(e.target.id==='spell-scope'){spellFilter=e.target.value;$('#spell-results').innerHTML=spellCards()}if(e.target.id==='spell-level'){spellLevel=e.target.value;$('#spell-results').innerHTML=spellCards()}if(e.target.dataset.check){const id=e.target.dataset.check,checked=e.target.checked;change('Обновлён этап задания',()=>{state.checks[id]=checked})}});
 $('#dialog').addEventListener('click',e=>{if(e.target===$('#dialog')){const r=$('#dialog').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeModal()}});

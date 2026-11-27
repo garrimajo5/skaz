@@ -36,19 +36,20 @@ const SkazPlay = (()=>{
   const current=battleState();
   return current.summons.find(s=>s.id===current.selected)||null;
  }
- function selectSummon(id){
+ function selectSummon(id,focusId='play-summons'){
   const current=battleState();
   if(id!==null&&!current.summons.some(s=>s.id===id))return;
   current.selected=id;
   saveBattle();
   closeModal();
   render();
-  document.getElementById('play-summons')?.focus({preventScroll:true});
+  document.getElementById(focusId)?.focus({preventScroll:true});
  }
- function cycleSummon(direction){
+ function cycleSummon(focusId){
+  const direction=focusId==='play-actor-next'?1:-1;
   const current=battleState();
   const members=[null,...current.summons.map(s=>s.id)];
-  selectSummon(members[(members.indexOf(current.selected)+direction+members.length)%members.length]);
+  selectSummon(members[(members.indexOf(current.selected)+direction+members.length)%members.length],focusId);
  }
  function manageSummons(){
   const current=battleState(),captured=battleKey;
@@ -91,26 +92,17 @@ const SkazPlay = (()=>{
   };
  }
  function battleClick(button){
-  if(button.id==='play-battle-toggle'){
+  if(button.id==='play-battle-toggle'||button.id==='play-next-round'){
    const current=battleState();
-   current.round=current.round?0:1;
+   if(button.id==='play-battle-toggle')current.round=current.round?0:1;
+   else if(current.round>0&&current.round<9999)current.round++;
+   else return true;
    saveBattle();
-   render();
-   document.getElementById('play-battle-toggle')?.focus({preventScroll:true});
-   return true;
-  }
-  if(button.id==='play-next-round'){
-   const current=battleState();
-   if(current.round>0&&current.round<9999){
-    current.round++;
-    saveBattle();
-    render();
-    document.getElementById('play-next-round')?.focus({preventScroll:true});
-   }
+   SkazPlayPresentation.refreshBattleControls(current.round);
    return true;
   }
   if(button.id==='play-summons'||button.id==='play-edit-summon'){manageSummons();return true;}
-  if(button.id==='play-actor-prev'||button.id==='play-actor-next'){cycleSummon(button.id.endsWith('next')?1:-1);return true;}
+  if(button.id==='play-actor-prev'||button.id==='play-actor-next'){cycleSummon(button.id);return true;}
   return false;
  }
 

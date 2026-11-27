@@ -1064,15 +1064,24 @@ body[data-theme="polar"] .play-effects {
   padding-inline: var(--play-gutter);
   background: var(--workspace-hero-bg, var(--panel));
 }
-.play-actor-tools button { min-inline-size: var(--touch, 44px); min-block-size: var(--touch, 44px); }
-#play-battle-toggle { flex: none; background: var(--workspace-play-damage-bg, var(--panel)); }
-#play-next-round { margin-inline-start: var(--play-gutter); min-block-size: var(--touch, 44px); }
+.play-actor-tools button {
+  min-inline-size: var(--touch, 44px);
+  min-block-size: var(--touch, 44px);
+  padding-inline: 8px;
+}
+#play-battle-toggle {
+  flex: none;
+  min-inline-size: 10.5em;
+  min-block-size: var(--touch, 44px);
+  background: var(--workspace-play-damage-bg, var(--panel));
+}
+#play-next-round { margin-inline-start: auto; font-size: var(--ui-small); }
 .play-summon-list { display: flex; flex-wrap: wrap; gap: 6px; margin-block: 10px; }
 .play-summon-list button { min-block-size: var(--touch, 44px); }
+#book-add-spell[aria-disabled="true"] { background: var(--raised); color: var(--muted); cursor: not-allowed; }
 .workspace-prepare .workspace-content :is(.catalog-tile, .book-row) {
   background: var(--workspace-play-card-bg, var(--panel));
 }
 @media (max-width: 700px) {
   body[data-page="play"] .play-heading { flex-wrap: wrap; }
-  #play-battle-toggle { min-block-size: var(--touch, 44px); }
 }
