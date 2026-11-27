@@ -530,12 +530,22 @@ function restoreHealthDialogFocus() {
  if (replacement && !replacement.disabled) replacement.focus({preventScroll: true});
 }
 function closeModal(){if(typeof SkazCampaign==='undefined'||SkazCampaign.allowClose())$('#dialog').close()}
-let toastTimer,toastVersion=0;
+let toastTimer,toastVersion=0,returnToastFocus;
 function toast(text,undo,{error=false,persistent=false}={}){
  const notification=$('#toast');
  clearTimeout(toastTimer);
+ returnToastFocus?.();
  const version=++toastVersion;
+ const trigger=document.activeElement,openedPage=page,openedContext=SkazStorage.contextKey();
+ returnToastFocus=()=>{
+  if(trigger?.isConnected&&trigger!==document.body&&openedPage===page&&openedContext===SkazStorage.contextKey()&&
+   !notification.contains(trigger)&&notification.contains(document.activeElement)){
+   trigger.focus({preventScroll:true});
+  }
+ };
  const hide=()=>{
+  returnToastFocus();
+  returnToastFocus=null;
   notification.classList.remove('show');
   if(page==='campaign')SkazCampaign.scheduleNotice();
  };
@@ -550,8 +560,8 @@ function toast(text,undo,{error=false,persistent=false}={}){
    if(used||version!==toastVersion)return;
    used=true;
    clearTimeout(toastTimer);
-   action.disabled=true;
    hide();
+   action.disabled=true;
    return undo();
   };
  }

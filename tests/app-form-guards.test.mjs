@@ -30,6 +30,32 @@ test('persistent toast content can be reached by keyboard without adding a stop 
  assert.match(h.get('#toast').innerHTML,/<span tabindex="0">Проверить &lt;данные&gt;<\/span>/);
 });
 
+test('closing or replacing a focused undo restores its current trigger without scrolling',()=>{
+ const h=harness();
+ const output=h.run(`(()=>{
+  const moves=[];
+  const trigger={isConnected:true,focus:options=>{moves.push(options.preventScroll);document.activeElement=trigger;}};
+  const notice=$('#toast'),undo=$('#undo'),other={};
+  notice.contains=node=>node===undo;
+  let expire,context='same';
+  setTimeout=fn=>{expire=fn;};
+  SkazStorage.contextKey=()=>context;
+  const open=()=>{
+   document.activeElement=trigger;
+   toast('Saved',()=>{});
+   document.activeElement=undo;
+  };
+  open();expire();
+  open();undo.onclick();
+  open();toast('New outcome');
+  open();document.activeElement=other;expire();
+  open();context='other hero';expire();
+  open();trigger.isConnected=false;expire();
+  return JSON.stringify(moves);
+ })()`);
+ assert.deepEqual(JSON.parse(output),[true,true,true]);
+});
+
 test('initial links take precedence over remembered Quick Access, which remains the default without a link',()=>{
  assert.equal(harness({hash:'#journal',rememberedMode:'play'}).run('page'),'journal');
  assert.equal(harness({hash:'',rememberedMode:'play'}).run('page'),'play');
