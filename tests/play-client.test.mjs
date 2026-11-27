@@ -363,6 +363,32 @@ test('filter redraw preserves horizontal focus position before a queued scroll e
  assert.match(root.innerHTML,/data-play-spell-scope="all" aria-pressed="true"/);
 });
 
+test('a scope change patches visible spell rows and keeps the current filter controls',async()=>{
+ const h=harness(),root=h.get('play-content');
+ const immediate=spell('Cast now',0),slow=spell('Cast later',0);
+ immediate.entry.spell.castingTime='1 действие';
+ slow.entry.spell.castingTime='1 минута';
+ await loaded(h,[immediate,slow]);
+ const before=root.innerHTML,nextRows=[{id:'new-spell-row'}];
+ const list={scrollTop:19,replaceChildren(...children){this.children=children;}};
+ const choice=id=>({id:'',dataset:{playSpellScope:id},setAttribute(name,value){this[name]=value;}});
+ const combat=choice('combat'),exploration=choice('exploration');
+ const section={querySelector:()=>list,querySelectorAll:()=>[combat,exploration]};
+ const draft={content:{querySelector:()=>({childNodes:nextRows})}};
+ h.document.createElement=()=>draft;
+ exploration.closest=()=>section;
+ exploration.focus=options=>{exploration.focusOptions=options;};
+ await h.click('',exploration.dataset,exploration);
+ assert.equal(root.innerHTML,before);
+ assert.match(draft.innerHTML,/Cast later/);
+ assert.doesNotMatch(draft.innerHTML,/Cast now/);
+ assert.deepEqual(list.children,nextRows);
+ assert.equal(list.scrollTop,0);
+ assert.equal(combat['aria-pressed'],'false');
+ assert.equal(exploration['aria-pressed'],'true');
+ assert.equal(exploration.focusOptions.preventScroll,true);
+});
+
 test('every bundled SRD spell has an explicit casting group; long casting never enters combat',async()=>{
  const {readdir}=await import('node:fs/promises'),api=harness().api,entries=new Map();
  for(const name of await readdir(new URL('../catalog/',import.meta.url))){if(!name.endsWith('.json')||name.endsWith('.coverage.json'))continue;const data=JSON.parse(await readFile(new URL('../catalog/'+name,import.meta.url),'utf8'));for(const e of Array.isArray(data.entries)?data.entries:[])if(e.spell&&e.id.startsWith('srd51:'))entries.set(e.id,e);}
