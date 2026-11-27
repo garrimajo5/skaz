@@ -150,7 +150,16 @@ test('charge HTTP writes use existing local guards and v7 is downloadable',async
  const base=`http://127.0.0.1:${app.address().port}`,body=JSON.stringify(charge(s)),headers={'Content-Type':'application/json','X-Skaz-Client':'local-v1'};
  assert.equal((await fetch(base+'/api/inventory/charges',{method:'POST',body,headers:{'Content-Type':'application/json'}})).status,403);
  assert.equal((await fetch(base+'/api/inventory/charges',{method:'POST',body,headers:{...headers,Origin:'https://other.example'}})).status,403);
- assert.equal((await fetch(base+'/api/inventory/charges',{method:'POST',body,headers})).status,200);
+ const post=()=>fetch(base+'/api/inventory/charges',{method:'POST',body,headers});
+ const saved=await post();
+ assert.equal(saved.status,200);
+ const snapshot=await saved.json();
+ assert.deepEqual(snapshot.inventory[0].chargeCounts,[5,null]);
+ assert.equal(snapshot.revision,s.read().revision);
+ const replay=await (await post()).json();
+ assert.equal(replay.replayed,true);
+ assert.equal(replay.revision,snapshot.revision);
+ assert.deepEqual(replay.inventory,snapshot.inventory);
  const script=await fetch(base+'/item-charges.js');assert.equal(script.status,200);assert.match(await script.text(),/SkazItemCharges/);
  const exported=await fetch(base+'/api/export/active-v7');assert.equal(exported.status,200);assert.match(exported.headers.get('content-disposition'),/v7/);assert.deepEqual((await exported.json()).inventory[0].chargeCounts,[5,null]);
 });

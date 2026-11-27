@@ -705,7 +705,7 @@ const SkazPlay = (()=>{
   if(b.dataset.playCastLevel){if(changeCastLevel(b.dataset.playCastLevel,Number(b.dataset.level),b))b.focus?.({preventScroll:true});return;}
   if(b.dataset.playCast){const item=book.find(x=>x.catalogId===b.dataset.playCast);if(item&&SkazStorage.canResource?.())openCast(item);return;}
   if(b.dataset.playRead){const item=(b.dataset.playRead==='spell'?book:items).find(x=>x.catalogId===b.dataset.id),captured=key;if(item)SkazCatalog.readSnapshot(item.entry,closeModal,()=>active()&&captured===SkazStorage.snapshotKey(),'К игре');}
-  if(b.dataset.playCharges){const item=items.find(x=>x.catalogId===b.dataset.playCharges);if(item)SkazStorage.editCharges(item);return;}
+  if(b.dataset.playCharges){const item=items.find(x=>x.catalogId===b.dataset.playCharges);if(item)SkazStorage.editCharges(item,{fromQuickAccess:true});return;}
   if(b.dataset.playSpend){const item=items.find(x=>x.catalogId===b.dataset.playSpend);if(!item)return;try{await SkazStorage.spendInventoryOne(item,key);toast('Списан один предмет. Эффект не применён автоматически.');}catch(error){toast(error.message);}}
  });
  return {actorIdentity,actorView,view,summonActive:()=>Boolean(activeSummon()),updateResources,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus,findSpell:choose=>search('',choose)};

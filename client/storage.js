@@ -257,6 +257,9 @@ const SkazStorage = (() => {
     if(pending?.operation?.startsWith('character-sheet')&&payload.revision<=pending.expectedRevision)throw new Error('Сервер не подтвердил новую версию ручного листа');
     if(pending?.formDraftKey&&payload.revision<=pending.expectedRevision)throw new Error('Сервер не подтвердил новую версию формы');
     if(pending?.formDraftKey&&['campaignId','characterId','sessionId'].some(k=>payload.context[k]!==activeContext?.[k]))throw new Error('Сервер подтвердил другую игру. Черновик сохранён.');
+    const refreshCharges=pending?.operation==='inventory-charges'&&document.body?.dataset.page==='play'&&
+      !payload.replayed&&payload.revision===revision+1&&Array.isArray(payload.inventory)&&
+      ['campaignId','characterId','sessionId'].every(k=>payload.context[k]===activeContext?.[k]);
     const nextSheet=normalizedSheet(payload.characterSheet);
     const nextStats=normalizedStats(payload.characterStats);
     adoptPermissions(payload);characterStats=nextStats;characterSheet=nextSheet;loaded=true;
@@ -264,7 +267,9 @@ const SkazStorage = (() => {
     adoptContext(payload.context);
     revision = payload.revision;
     state = { ...payload.state, theme: state.theme };
-    pending = null; message = confirmedTime(payload); status = 'ready'; rememberDraft(); hydrateResources(payload); render();
+    pending = null; message = confirmedTime(payload); status = 'ready'; rememberDraft(); hydrateResources(payload);
+    if(refreshCharges)render('resources',{resourceSettled:true});
+    else render();
   }
   function confirmedTime(payload){return payload.updatedAt&&Number.isFinite(Date.parse(payload.updatedAt))?'Последнее подтверждение: '+new Date(payload.updatedAt).toLocaleString('ru-RU'):'';}
   async function load() {
@@ -750,7 +755,7 @@ const SkazStorage = (() => {
     if(info?.charges)$('#inventory-charges').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});editCharges(item);};
     if(entry.id&&typeof SkazCatalog!=='undefined')$('#inventory-reference').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});SkazCatalog.openReference(entry.id,()=>readInventoryItem(item),()=>key===snapshotKey());};
   }
-  function editCharges(item) {
+  function editCharges(item, {fromQuickAccess=false} = {}) {
     if(demo||(!canResource()&&status!=='ready')||!activeContext)return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key=snapshotKey(),characterId=activeContext.characterId,info=item.entry.item||item.entry.artifact,maximum=SkazItemCharges.maximum(item.entry);
     const counts=item.chargeCounts||Array(item.quantity).fill(null);
@@ -811,10 +816,12 @@ const SkazStorage = (() => {
         if(previous===next&&(agreementNote===undefined||agreementNote===(oldAgreement?.note??null)))throw Error('Остаток и согласование не изменились');
         if(resourceQueue&&['spend','recover'].includes(chargeAction)){
           resourceDelta({kind:'charges',catalogId:item.catalogId,unit},chargeAction==='spend'?-amount:amount,key);
-          closeModal();await inventory();return;
+          closeModal();
+          if(!fromQuickAccess)await inventory();
+          return;
         }
         await campaignCommand('inventory-charges',{characterId,catalogId:item.catalogId,unit,chargeAction,amount,...(agreementNote===undefined?{}:{agreement:agreementNote})});
-        await inventory();
+        if(!fromQuickAccess)await inventory();
       }catch(error){toast(error.message,undefined,{error:true,persistent:true});}
     };
   }
