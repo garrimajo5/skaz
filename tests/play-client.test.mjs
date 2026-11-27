@@ -644,20 +644,39 @@ test('Quick Access keeps the real session number, title and legacy fallback',()=
 
 test('a retained workspace refresh updates session and hero without remounting actions',()=>{
  const h=harness();
- const presentation=vm.runInNewContext(presentationSource+'\nSkazPlayPresentation');
  const actor=h.api.actorView();
  const action='<button data-campaign-action="return-game">В игру</button>';
+ let replacements=0,captionWrites=0,session=actor.session;
+ const caption={get textContent(){return session;},set textContent(next){session=next;captionWrites++;}};
+ const header={querySelector:selector=>selector==='.play-session'?caption:null};
+ const element=markup=>({
+  markup,icons:false,
+  isEqualNode(next){return this.markup===next.markup&&this.icons===next.icons;},
+  replaceWith(next){band=next;replacements++;}
+ });
+ let band=element('');
+ const fakeDocument={createElement(tag){
+  assert.equal(tag,'template');
+  return {content:{firstElementChild:null},set innerHTML(markup){this.content.firstElementChild=element(markup);}};
+ }};
+ const screen={querySelector:selector=>selector==='.play-heading > div'?header:selector==='.play-hero-band'?band:null};
+ const presentation=vm.runInNewContext(presentationSource+'\nSkazPlayPresentation',{
+  document:fakeDocument,SkazIcons:{mount(next){next.icons=true;}}
+ });
+ const updated={...actor,session:'Сессия 02 · <Север>',hp:14,concentration:'Сопротивление'};
+ presentation.refreshActor(screen,updated);
+ const mounted=band;
+ presentation.refreshActor(screen,updated);
+ assert.equal(caption.textContent,'Сессия 02 · <Север>');
+ assert.equal(captionWrites,1);
+ assert.match(band.markup,/<strong>14<span> \/ 38<\/span>/);
+ assert.equal(band.icons,true);
+ assert.equal(replacements,1);
+ assert.equal(band,mounted);
+ assert.equal(Object.hasOwn(screen,'innerHTML'),false);
  const html=presentation.prepare({actor,title:'Кампания',titleId:'campaign-title',actions:action,content:'<section id="campaign-content"></section>'});
  assert.match(html,/<h1 id="campaign-title" tabindex="-1">Кампания<\/h1>/);
  assert.ok(html.includes(action));
- const caption={textContent:actor.session};
- const header={querySelector:selector=>selector==='.play-session'?caption:null};
- const band={outerHTML:''};
- const screen={querySelector:selector=>selector==='.play-heading > div'?header:selector==='.play-hero-band'?band:null};
- presentation.refreshActor(screen,{...actor,session:'Сессия 02 · <Север>',hp:14});
- assert.equal(caption.textContent,'Сессия 02 · <Север>');
- assert.match(band.outerHTML,/<strong>14<span> \/ 38<\/span>/);
- assert.equal(Object.hasOwn(screen,'innerHTML'),false);
 });
 
 test('cast price follows the selected command, with distinct free and manual paths',async()=>{
