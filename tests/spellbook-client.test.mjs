@@ -4,10 +4,19 @@ import vm from 'node:vm';
 import {readFile} from 'node:fs/promises';
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/spellbook.js',import.meta.url),'utf8');
-function harness(preparedDefault=false){let firstView=true,key='hero:0';const tasks=[],requests=[],edits=[],handlers={},region={innerHTML:'',setAttribute(){}};
+function harness(preparedDefault=false){let firstView=true,key='hero:0';const tasks=[],requests=[],edits=[],handlers={};
+ let focusCount = 0;
+ const region = {
+  id: 'personal-spell-results', innerHTML: '',
+  setAttribute(){}, focus(){focusCount++;document.activeElement=region;}
+ };
+ const document = {
+  activeElement:null, addEventListener:(name,fn)=>handlers[name]=fn,
+  getElementById:id=>id==='personal-spell-search'?{elements:fields}:region
+ };
  const fields=Object.fromEntries(['q','scope','level','ritual','concentration'].map(name=>[name,{value:''}]));let renderCount=0;
- const context=vm.createContext({queueMicrotask:fn=>tasks.push(fn),document:{addEventListener:(n,f)=>handlers[n]=f,getElementById:id=>id==='personal-spell-search'?{elements:fields}:region},render:()=>{renderCount++;},SkazStorage:{snapshotKey:()=>key,contextKey:()=>key.split(':')[0],spellbookData:()=>new Promise((resolve,reject)=>requests.push({resolve,reject})),editSpell:(...args)=>edits.push(args)}});vm.runInContext(uiSource,context);vm.runInContext(source,context);
- return{tasks,requests,edits,region,fields,renders:()=>renderCount,view:()=>{let html=vm.runInContext('SkazSpellbook.view()',context);if(firstView&&!preparedDefault){firstView=false;handlers.click({target:{closest:()=>({dataset:{bookScope:'all'}})}});html=vm.runInContext('SkazSpellbook.view()',context);}return html;},setKey:v=>key=v,draft:(q,scope='all',level='',flags={})=>handlers.change({target:{form:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}}}}),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}}),search:(q,scope='all',level='',flags={})=>handlers.submit({target:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}},preventDefault(){}})};
+ const context=vm.createContext({queueMicrotask:fn=>tasks.push(fn),document,render:()=>{renderCount++;if(document.activeElement===region)document.activeElement=null;},SkazStorage:{snapshotKey:()=>key,contextKey:()=>key.split(':')[0],spellbookData:()=>new Promise((resolve,reject)=>requests.push({resolve,reject})),editSpell:(...args)=>edits.push(args)}});vm.runInContext(uiSource,context);vm.runInContext(source,context);
+ return{tasks,requests,edits,region,fields,renders:()=>renderCount,focusCount:()=>focusCount,view:()=>{let html=vm.runInContext('SkazSpellbook.view()',context);if(firstView&&!preparedDefault){firstView=false;handlers.click({target:{closest:()=>({dataset:{bookScope:'all'}})}});html=vm.runInContext('SkazSpellbook.view()',context);}return html;},setKey:v=>key=v,draft:(q,scope='all',level='',flags={})=>handlers.change({target:{form:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}}}}),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}}),search:(q,scope='all',level='',flags={})=>handlers.submit({target:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}},preventDefault(){}})};
 }
 const settle=()=>new Promise(r=>setImmediate(r));
 const item=(i=0)=>({catalogId:'spell:'+i,status:i%2?'prepared':'known',entry:{id:'spell:'+i,kind:'spell',name:{ru:'Заклинание '+i,en:'Magic '+i},spell:{level:i%3,castingTime:'<action>',range:{type:'feet',feet:60},duration:'1 минута',concentration:false,ritual:true}}});
@@ -27,6 +36,22 @@ test('book keeps page after revision, clamps after removal, and separates missin
 test('book retry distinguishes empty list from no matches',async()=>{
  const h=harness();h.view();h.tasks.shift()();h.requests[0].reject(new Error('<offline>'));await settle();assert.match(h.region.innerHTML,/&lt;offline&gt;/);h.click('personal-spell-retry');h.requests[1].resolve({entries:[]});await settle();assert.match(h.region.innerHTML,/книга пока пуста/);
  h.setKey('hero:1');h.view();h.tasks.shift()();h.requests[2].resolve({entries:[item()]});await settle();h.search('missing');assert.match(h.region.innerHTML,/Заклинания не найдены/);
+});
+
+test('keyboard retry keeps the results focused through a learning mode change',async()=>{
+ const h=harness();
+ assert.match(h.view(),/id="personal-spell-results" role="region"[^>]*tabindex="-1"/);
+ h.tasks.shift()();
+ h.requests[0].reject(new Error('Unavailable'));
+ await settle();
+ assert.equal(h.focusCount(),0);
+ h.click('personal-spell-retry');
+ assert.equal(h.focusCount(),1);
+ h.requests[1].resolve({spellLearning:'known',entries:[item(0)]});
+ await settle();
+ assert.equal(h.renders(),1);
+ assert.equal(h.focusCount(),2);
+ assert.match(h.region.innerHTML,/Заклинание 0/);
 });
 
 test('unfinished search survives rerenders and same-character updates but resets when switching hero',async()=>{
