@@ -76,6 +76,29 @@ test('resource rendering keeps the loaded Quick Access screen when its update su
  assert.match(screen.innerHTML,/id=\"play-content\"/);
 });
 
+test('resource focus keeps the same mark when spending changes its direction',()=>{
+ const h=harness();
+ const result=h.run(`(()=>{
+  const calls=[];
+  const mark=(id,delta,label,disabled=false)=>({dataset:{counterId:id,counterDelta:delta},disabled,focus:options=>calls.push([label,options.preventScroll])});
+  const prior=[mark('chosen','-1','first'),mark('chosen','-1','second')];
+  prior[1].parentElement={querySelectorAll:()=>prior};
+  prior[1].closest=()=>prior[1];
+  document.activeElement=prior[1];
+  const position=quickResourceFocus();
+  const later=[mark('another','1','other'),mark('chosen','-1','first'),mark('chosen','1','second')];
+  const quick={querySelectorAll:()=>later,querySelector:()=>null};
+  document.activeElement=document.body;
+  restoreQuickResourceFocus(quick,position);
+  later[2].disabled=true;
+  restoreQuickResourceFocus(quick,position);
+  document.activeElement=later[0];
+  restoreQuickResourceFocus(quick,position);
+  return JSON.stringify(calls);
+ })()`);
+ assert.deepEqual(JSON.parse(result),[['second',true],['first',true]]);
+});
+
 test('workspace sidebar tracks the same active hero and session and hides during initial load',()=>{
  const h=harness();
  h.run("SkazStorage.readyToDisplay=()=>false;render();");
