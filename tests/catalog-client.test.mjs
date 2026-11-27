@@ -721,3 +721,24 @@ test('retained catalog restores its import controls only if the current role all
   assert.deepEqual(button.removed,['aria-disabled','title']);
  }
 });
+
+
+test('bestiary coverage writes only the count list when another coverage response arrives',async()=>{
+ const h=harness();
+ const counts=prepared=>({...coverage,scopes:{srd51CreatureTypes:{fey:{expected:6,installed:4,prepared}}}});
+ h.submit('',{kind:'monster'});
+ respond(h.requests[0],{entries:[],total:0});
+ respond(h.requests[1],counts(5));await settle();
+ const original=h.typeRegion.innerHTML;
+ let writes=0;
+ const list={_rows:original.split('<ul data-creature-coverage-rows>')[1].split('</ul>')[0],get innerHTML(){return this._rows;},set innerHTML(value){writes++;this._rows=value;}};
+ h.typeRegion.querySelector=selector=>selector==='[data-creature-coverage-rows]'?list:null;
+ for(const number of [6,6]){
+  h.submit('',{kind:'monster'});
+  respond(h.requests.at(-2),{entries:[],total:0});
+  respond(h.requests.at(-1),counts(number));await settle();
+  assert.equal(h.typeRegion.innerHTML,original);
+  assert.match(list.innerHTML,/подготовлено 6 из 6/);
+ }
+ assert.equal(writes,1);
+});
