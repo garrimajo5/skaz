@@ -77,7 +77,7 @@ header .sync-status{padding:0;margin:0;border:0;background:none;display:block;fl
 .session-menu-content{position:absolute;right:12px;top:100%;width:min(420px,calc(100vw - 24px));max-height:calc(100dvh - var(--bottom-reserve,190px) - var(--workspace-header-height,56px) - 16px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-m);box-shadow:0 12px 32px #0005;padding:16px;z-index:25}
 .session-menu-content>span{display:block;font-size:14px;white-space:normal}.session-menu-content small{display:block;font-size:12px;margin:8px 0;color:var(--muted)}.session-menu-content>div{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.session-menu-content button{min-height:44px;flex:1 1 140px;font-size:14px}
 .sync-status[data-status="error"] summary,.sync-status[data-status="denied"] summary{border-color:var(--red);color:var(--red)}.sync-status[data-status="resource-pending"] summary,.sync-status[data-status="resource-conflict"] summary,.sync-status[data-status="stale"] summary,.sync-status[data-status="pending"] summary{border-color:var(--warn);color:var(--warn)}
-.quick-extras{display:flex;align-items:center;gap:8px;min-width:0}.quick-concentration{display:block;max-width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.quick-extras button{flex-shrink:0}#quick-pending{color:var(--warn);border-color:var(--warn)}#quick-pending[hidden]{display:none}
+.quick-extras{display:flex;align-items:center;gap:8px;min-width:0}.quick-concentration{display:block;max-width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.quick-extras button{flex-shrink:0}
 @media(min-width:951px){.quick-resources{flex:1 1 180px;max-width:none}.quick-resources .resource-controls{margin:0;gap:8px}.quick-state{gap:8px;padding-inline:12px}.quick-resources .resource-group{padding-inline:4px}}
 @media(max-width:950px){header{padding-inline:12px;gap:10px}header .sync-status{flex-basis:190px}.quick-extras{margin-left:auto}.quick-resources{order:2}.quick-state{gap:8px}.quick-concentration{max-width:100px}}
 @media(max-width:550px){header .brand{display:none}header .sync-status{flex-basis:170px}.campaign strong{font-size:12px}.quick-concentration{max-width:85px}}
@@ -183,7 +183,8 @@ button{min-width:var(--touch)}.dialog-close{min-width:var(--touch);min-height:va
 .play-last>*{flex-shrink:0}.play-last{min-height:164px!important}.play-last p{max-height:40px}
 /* A short history chip is separate from the service menu. */
 header .sync-status{display:flex;flex-direction:row;align-items:center;gap:6px;flex-basis:auto}
-#sync-history-chip{display:flex;align-items:center;gap:6px;min-height:44px;white-space:nowrap;overflow:visible;text-overflow:clip;font-size:12px;padding:4px 8px}
+#sync-history-chip{display:flex;align-items:center;gap:6px;inline-size:10rem;min-height:44px;white-space:nowrap;font-size:12px;padding:4px 8px}
+#sync-history-chip [data-ui-icon]{flex:none}#sync-history-chip [role="status"]{min-width:0;overflow:hidden;text-overflow:ellipsis}
 #sync-history-chip[data-kind="saved"]{color:var(--green)}#sync-history-chip[data-kind="pending"]{color:var(--warn)}#sync-history-chip[data-kind="conflict"]{color:var(--red)}
 #session-menu>summary{min-width:44px;justify-content:center}.history-pending{border-left:3px solid var(--warn)}
 @media(max-width:950px){header .sync-status{flex-basis:auto}}@media(max-width:550px){header .sync-status{flex:0 0 auto}}

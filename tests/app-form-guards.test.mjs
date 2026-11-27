@@ -401,8 +401,8 @@ test('ending concentration has one-shot undo and rejects stale control from anot
  h.block();await h.run("endConcentration('Гипнотический узор',SkazStorage.snapshotKey())");assert.equal(h.state().concentration,before.concentration);assert.equal(h.writes.length,2);
 });
 
-test('bottom bar escapes concentration and exposes queue count without claiming it is saved',()=>{
- const h=harness();h.run("state.concentration='<img src=x>';SkazStorage.pendingCount=()=>3;render()");const html=h.get('#quick-state').innerHTML;assert.doesNotMatch(html,/<img/);assert.match(html,/&lt;img/);assert.match(html,/Не подтверждено сервером: 3/);assert.match(html,/quick-note/);
+test('bottom bar escapes concentration and leaves queue notifications to the fixed header',()=>{
+ const h=harness();h.run("state.concentration='<img src=x>';SkazStorage.pendingCount=()=>3;render()");const html=h.get('#quick-state').innerHTML;assert.doesNotMatch(html,/<img/);assert.match(html,/&lt;img/);assert.doesNotMatch(html,/quick-pending/);assert.match(html,/quick-note/);
 });
 
 test('resource toast undo references its original mutation rather than an unrelated increment',async()=>{
