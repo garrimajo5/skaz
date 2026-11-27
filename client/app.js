@@ -563,9 +563,15 @@ function restoreHealthDialogFocus() {
  if (replacement && !replacement.disabled) replacement.focus({preventScroll: true});
 }
 function closeModal(){if(typeof SkazCampaign==='undefined'||SkazCampaign.allowClose())$('#dialog').close()}
+const workspaceNoticeControls={
+ quests:'#personal-quest-search, #create-personal-quest',
+ journal:'.events-filter, #new-proposal, .workspace-narrative-actions button',
+ spells:'.book-filters > summary, #book-add-spell, #personal-spell-search :is(input, select, button)',
+ library:'#catalog-search :is(input:not([type="hidden"]), select, button, summary)',
+};
 let workspaceNoticeFrame=0;
 function workspaceNoticeVisible(){
- return (page==='journal'||page==='quests'||page==='spells') &&
+ return Object.hasOwn(workspaceNoticeControls,page) &&
   $('#toast')?.matches?.('.show[data-kind="success"]:not(:has(> span[tabindex]))');
 }
 function positionWorkspaceNotice(){
@@ -581,10 +587,7 @@ function positionWorkspaceNotice(){
  const dock=bar&&getComputedStyle(bar).getPropertyValue('--pult-side').trim()!=='1'?bar.getBoundingClientRect():null;
  const top=Math.max(start,header?.bottom??start);
  const bottom=Math.min(end,dock?.height?dock.top:end,nav?.height?nav.top:end);
- const selectors=page==='spells'
-  ? '.book-filters > summary, #book-add-spell, #personal-spell-search :is(input, select, button)'
-  : '#personal-quest-search, .events-filter, #create-personal-quest, #new-proposal, .workspace-narrative-actions button';
- const controls=$$(selectors)
+ const controls=$$(workspaceNoticeControls[page])
   .map(control=>control.getBoundingClientRect()).filter(rect=>rect.width&&rect.bottom>top&&rect.top<bottom);
  const left=viewport?.offsetLeft??0,right=left+(viewport?.width??window.innerWidth);
  const offset=()=>SkazUI.noticeClearance(message.getBoundingClientRect(),{left,right,top,bottom},controls);
@@ -803,7 +806,7 @@ $('#skip-to-content').addEventListener('click',()=>{
  content.scrollIntoView({block:'start'});
 });
 document.addEventListener('toggle',event=>{
- if(event.target.matches?.('.book-filters'))scheduleWorkspaceNotice();
+ if(event.target.matches?.('.book-filters, .catalog-filters, .catalog-about'))scheduleWorkspaceNotice();
 },true);
 window.addEventListener('hashchange',()=>go(location.hash.slice(1)));
 const initialPage=location.hash.slice(1);
