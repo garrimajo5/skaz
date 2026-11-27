@@ -363,7 +363,12 @@ body[data-theme="polar"] .play-effects {
 .quick-health-amount { display: none; }
 .play-resources { border-inline-start: 1px solid var(--workspace-play-rule, var(--line)); padding-inline-start: 15px; }
 .play-resources #play-history { min-height: var(--touch); width: 100%; margin-top: 12px; }
-.play-resources #play-history .ui-icon { width: 16px; height: 16px; }
+.play-resources :is(#play-history, #play-health-history) .ui-icon { width: 16px; height: 16px; }
+#play-health-history { display: none; }
+@media (min-width: 1000px) and (min-height: 721px) and (orientation: landscape) {
+  body[data-page="play"] .play-resources > #play-history { display: none; }
+  body[data-page="play"] .play-resources #play-health-history { display: flex; width: 100%; min-height: var(--touch); }
+}
 
 @media (min-width: 1000px) and (min-height: 600px) and (orientation: landscape) {
   html:has(body[data-workspace-shell="shared"]) {

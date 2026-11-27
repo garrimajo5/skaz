@@ -249,9 +249,11 @@ function editConditions(){
 }
 function quickPanel(){
  const charges=page==='play'?'<div id="play-quick-item-charges"></div>':'';
+ const history=page==='play'&&SkazPlay.actorView().historyAvailable
+  ?SkazPlayPresentation.historyButton('play-health-history'):'';
  const question=concentrationQuestion();
  const concentration=`<div class="quick-concentration-row ${question?'concentration-pending':''}">${state.concentration?`<span class="quick-concentration" title="Концентрация: ${esc(state.concentration)}"><span data-ui-icon="focus"></span> ${esc(state.concentration)}</span><button id="quick-end-concentration" data-concentration="${esc(state.concentration)}" data-snapshot="${esc(SkazStorage.snapshotKey())}" aria-label="Завершить концентрацию: ${esc(state.concentration)}" ${SkazStorage.editable()?'':'disabled'}>Снять</button>`:'<span class="quick-concentration">Без концентрации</span>'}${question}</div>`;
- return `${question?concentration:''}${healthVitals()}<div class="quick-resources" tabindex="0" aria-label="Ресурсы: нажми заполненную — потратить, пустую — вернуть">${resourceControls()}</div>${charges}${question?'':concentration}${conditionChips()}<div class="quick-extras"><button id="quick-conditions" aria-label="Изменить состояния персонажа" ${SkazStorage.editable()?'':'disabled'}>Состояния</button><button id="rest" class="secondary"><span data-ui-icon="rest"></span> Отдых</button><button id="quick-note" aria-label="Быстрая личная заметка" ${SkazStorage.editable()?'':'disabled'}><span data-ui-icon="note"></span> Заметка</button></div>`;}
+ return `${question?concentration:''}${healthVitals()}${history}<div class="quick-resources" tabindex="0" aria-label="Ресурсы: нажми заполненную — потратить, пустую — вернуть">${resourceControls()}</div>${charges}${question?'':concentration}${conditionChips()}<div class="quick-extras"><button id="quick-conditions" aria-label="Изменить состояния персонажа" ${SkazStorage.editable()?'':'disabled'}>Состояния</button><button id="rest" class="secondary"><span data-ui-icon="rest"></span> Отдых</button><button id="quick-note" aria-label="Быстрая личная заметка" ${SkazStorage.editable()?'':'disabled'}><span data-ui-icon="note"></span> Заметка</button></div>`;}
 function revealBottomNavButton(nav, button) {
  if(!button || !nav.clientWidth || nav.scrollWidth <= nav.clientWidth || !button.getClientRects().length) return;
  const left = nav.getBoundingClientRect().left + nav.clientLeft;

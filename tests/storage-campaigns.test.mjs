@@ -1617,3 +1617,28 @@ test('a resource update retains same inventory markup, binds the confirmed revis
  assert.doesNotMatch(root.innerHTML,/Зелье/);
  assert.match(root.innerHTML,/Инвентарь доступен после подключения/);
 });
+
+
+test('late history preserves a newer screen or dialog and still opens on a fresh request',async()=>{
+ for(const change of ['page','dialog']){
+  let resolveHistory,delay=true;
+  const row={mutationId:'history-target',label:'Confirmed resource update',createdAt:'2026-11-28T00:00:00Z',changes:[],canUndo:false};
+  const h=harness(memory(),memory(),async url=>{
+   if(url==='/api/workspace')return response(payload(0));
+   if(!delay)return response({changes:[row]});
+   return new Promise(resolve=>{resolveHistory=()=>resolve(response({changes:[row]}));});
+  });
+  h.document.body={dataset:{page:'play'}};
+  await h.api.boot();
+  const open=h.click('play-health-history');
+  assert.equal(typeof resolveHistory,'function');
+  if(change==='page')h.document.body.dataset.page='inventory';
+  else{h.get('dialog').open=true;h.get('dialog-content').firstElementChild={};}
+  resolveHistory();await open;
+  assert.equal(h.dialog(),'');
+  assert.deepEqual(h.messages,[]);
+  delay=false;
+  await h.click('play-health-history');
+  assert.match(h.dialog(),/Confirmed resource update/);
+ }
+});
