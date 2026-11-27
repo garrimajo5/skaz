@@ -340,9 +340,12 @@ test('wide hit amount is scoped to the current game and prefills the existing he
  inline.dataset.healthContext='same';
  inline.value='5';
  h.run("page='play'");
- assert.match(h.run('quickHealthAmount()'),/value="5"/);
+ assert.match(h.run('quickHealthAmount()'),/value="" data-health-context="same"/);
+ assert.equal(h.run(`restoreQuickHealthDraft($('#quick-hp-amount'),$('#quick-hp-amount'));$('#quick-hp-amount').value`),'5');
+ assert.equal(h.run(`var replacement={value:'',dataset:{healthContext:'same'}};restoreQuickHealthDraft($('#quick-hp-amount'),replacement);replacement.value`),'5');
  h.run("SkazStorage.contextKey=()=> 'another hero'");
- assert.match(h.run('quickHealthAmount()'),/value=""/);
+ assert.match(h.run('quickHealthAmount()'),/value="" data-health-context="another hero"/);
+ assert.equal(h.run(`var otherField={value:'',dataset:{healthContext:'another hero'}};restoreQuickHealthDraft($('#quick-hp-amount'),otherField);otherField.value`),'');
  h.run("page='hero'");
  assert.equal(h.run('quickHealthAmount()'),'');
  h.run("hpDialog(false,false,'5')");
@@ -494,6 +497,28 @@ test('concentration question remains visible independently of toast, is escaped 
  h.run("state.concentrationChecks=[{id:'damage-question',spell:'<Bless>',damage:8,dc:10}]");
  h.run(`var answered=0;SkazStorage.resourceDelta=()=>{answered++;throw Error('unexpected')};answerConcentration('fail','damage-question','stale')`);assert.equal(h.run('answered'),0);
  h.run('state.concentration=null');assert.equal(h.run('concentrationQuestion()'),'');
+});
+test('a continuing concentration check receives the latest snapshot and a different check needs new controls',()=>{
+ const h=harness();
+ h.run(`const createConcentrationRow=(check,snapshot)=>{
+  const button={dataset:{concentration:'Bless',snapshot}};
+  const answers=['pass','fail'].map(concentrationAnswer=>({dataset:{concentrationAnswer,checkId:check,snapshot}}));
+  return {className:'quick-concentration-row concentration-pending',button,answers,
+   querySelector:selector=>selector==='#quick-end-concentration'?button:null,
+   querySelectorAll:()=>answers};
+ };
+ const SkazUI={patchButton:(button,next)=>{button.dataset.snapshot=next.dataset.snapshot;}};
+ const continuing=createConcentrationRow('first','before');
+ const currentAnswer=continuing.answers[0];
+ const sameCheck=patchQuickConcentration(continuing,createConcentrationRow('first','after'));
+ const newCheck=patchQuickConcentration(continuing,createConcentrationRow('second','next'));
+ `);
+ assert.equal(h.run('sameCheck'),true);
+ assert.equal(h.run('continuing.answers[0]===currentAnswer'),true);
+ assert.equal(h.run('continuing.button.dataset.snapshot'),'after');
+ assert.equal(h.run('currentAnswer.dataset.snapshot'),'after');
+ assert.equal(h.run('newCheck'),false);
+ assert.equal(h.run('continuing.answers[1].dataset.snapshot'),'after');
 });
 test('manual concentration end clears pending questions and its one undo restores them',async()=>{
  const h=harness();h.run(`state.concentration='Bless';state.concentrationChecks=[{id:'damage-question',spell:'Bless',damage:8,dc:10}];endConcentration('Bless',SkazStorage.snapshotKey());`);await new Promise(r=>setImmediate(r));
