@@ -262,7 +262,7 @@ const SkazPlayPresentation = (() => {
       ${roundButton}
     </div>`;
     return `<section class="play-screen"${summon?` data-play-summon-id="${escape(summon.id)}"`: ''} aria-label="Игровой экран">
-      ${heading('Быстрый доступ',view.session,battleButton+'<button id="play-edit"><span data-ui-icon="profile" aria-hidden="true"></span> Лист <span class="play-edit-detail">персонажа</span></button><button id="play-search">Поиск правил</button>')}
+      ${heading('Быстрый доступ',view.session,battleButton)}
       ${actorStrip(actor,switcher)}
       <div class="play-layout">
         <div class="play-actions">

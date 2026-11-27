@@ -374,8 +374,6 @@ function render(change,{resourceSettled=false,removedItemId}={}){
  workspaceSummary.hidden=!ready;
  if(!ready){
   if(page==='campaign')SkazCampaign.unmount();
-  $('#campaign-name').textContent='';
-  $('#session-name-label').textContent='Открываем игру…';
   quick.innerHTML='';
   main.innerHTML='<div class="panel" role="status"><h1>Открываем твою игру</h1><p>Загружаем сохранённый лист и проверяем доступ.</p></div>';
   return;
@@ -383,7 +381,6 @@ function render(change,{resourceSettled=false,removedItemId}={}){
  const sessionTitle=SkazStorage.sessionTitle(),sessionDate=SkazStorage.sessionDate();
  const workspaceSession=workspacePage?SkazStorage.currentSession?.():undefined;
  const sessionName=SkazPlayPresentation.sessionCaption(workspaceSession,sessionTitle);
- $('#session-name-label').textContent=[state.profile.name,sessionName,sessionDate].filter(Boolean).join(' · ');
  const actor=SkazPlay.actorIdentity();
  const identity=SkazPlayPresentation.identityCopy(actor);
  const sessionCardTitle=$('#workspace-session-name');
@@ -396,8 +393,6 @@ function render(change,{resourceSettled=false,removedItemId}={}){
  $('#workspace-player-initial').textContent=identity.initial;
  $('#workspace-player-name').textContent=actor.heroName;
  $('#workspace-player-class').textContent=identity.character;
- $('#workspace-campaign-settings').hidden=location.protocol==='file:'||SkazStorage.can?.('select')!==true;
- $('#campaign-name').textContent=state.profile.campaign;
  const quickMarkup=quick.hidden?'':quickPanel();
  if(retainQuickPanel&&quick.firstElementChild)paintQuickPanel(quick,quickMarkup);
  else {
@@ -535,7 +530,12 @@ function restDialog() {
 
 let healthDialogTrigger = null;
 function modal(html){
- const menu=document.getElementById('session-menu');if(menu)menu.open=false;
+ const menu=document.getElementById('session-menu');
+ if(menu?.open){
+  const focusInMenu=document.activeElement?.closest?.('#session-menu')===menu;
+  menu.open=false;
+  if(focusInMenu)menu.querySelector('summary')?.focus({preventScroll:true});
+ }
  const dialog=$('#dialog'),content=$('#dialog-content');
  if (!dialog.open) {
   const trigger = document.activeElement?.closest("#quick-state button[data-health]");
@@ -580,7 +580,8 @@ function positionWorkspaceNotice(){
  if(!workspaceNoticeVisible()||$('.concentration-question'))return;
  const viewport=window.visualViewport,start=viewport?.offsetTop??0;
  const end=start+(viewport?.height??window.innerHeight);
- const header=$('.shell > header')?.getBoundingClientRect();
+ const heading=$('#main .play-heading');
+ const header=heading&&getComputedStyle(heading).position==='sticky'?heading.getBoundingClientRect():null;
  const bar=$('#quick-state');
  const nav=$('.bottomnav')?.getBoundingClientRect();
  const dock=bar&&getComputedStyle(bar).getPropertyValue('--pult-side').trim()!=='1'?bar.getBoundingClientRect():null;
@@ -838,7 +839,6 @@ $('#quick-state').addEventListener('focusin', event => {
 if(typeof ResizeObserver!=='undefined'){
  const bar = $('#quick-state');
  const nav = $('.bottomnav');
- const header = $('.shell > header');
  const main = $('#main');
  const rootStyle = document.documentElement.style;
  let heading = null;
@@ -854,15 +854,14 @@ if(typeof ResizeObserver!=='undefined'){
   }
   const navHeight = nav && getComputedStyle(nav).display !== 'none' ? nav.getBoundingClientRect().height : 0;
   const bottomBarHeight = bar && getComputedStyle(bar).getPropertyValue('--pult-side').trim() !== '1' ? bar.getBoundingClientRect().height : 0;
-  const toolbarHeight = header?.getBoundingClientRect().height || 56;
   const titleHeight = heading && getComputedStyle(heading).position === 'sticky' ? heading.getBoundingClientRect().height : 0;
-  rootStyle.setProperty('--workspace-header-height', Math.max(toolbarHeight,titleHeight) + 'px');
+  rootStyle.setProperty('--workspace-header-height', titleHeight + 'px');
   rootStyle.setProperty('--nav-height', navHeight + 'px');
   rootStyle.setProperty('--bottom-reserve', (bottomBarHeight + navHeight + 24) + 'px');
   scheduleWorkspaceNotice();
  };
  const observer = new ResizeObserver(measure);
- for(const element of [bar, nav, header]) if(element) observer.observe(element,{box:'border-box'});
+ for(const element of [bar, nav]) if(element) observer.observe(element,{box:'border-box'});
  const observeHeading = () => {
   const next = main?.querySelector('.play-heading') || null;
   if(next===heading)return;

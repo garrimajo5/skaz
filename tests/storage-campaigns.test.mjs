@@ -15,8 +15,8 @@ const sheetSource=await readFile(new URL('../client/character-sheet.js',import.m
 const memory = () => { const values = new Map(); return { get length() { return values.size; }, key: index => [...values.keys()][index], getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
 function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, withQueue=false) {
   const handlers = {}, elements = new Map(), messages = [], messageOptions = [], archiveCalls = [], references = [], downloads = []; let dialog='';
-  const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, classList:{toggle(){}}, focus() {} }); return elements.get(id); };
-  const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch, navigator, SkazAccount,
+  const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, classList:{toggle(){}}, focus() {}, contains() { return false; }, setAttribute(name,value){this[name]=value;} }); return elements.get(id); };
+  const context = vm.createContext({ SkazIcons:{markup:kind=>kind}, location: { protocol: 'http:' }, localStorage, sessionStorage, fetch, navigator, SkazAccount,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { querySelector:get, createElement:()=>({click(){downloads.push(this.download);}}), getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')&&!get('inventory-page').innerHTML.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
@@ -45,7 +45,7 @@ test('history renders numeric differences, sends addressed undo and keeps last c
   if(options.method){calls.push({url,body:JSON.parse(options.body)});revision++;row.canUndo=false;}
   return response({...payload(revision),updatedAt:'2026-11-08T00:00:00Z'});
  });
- await h.api.boot();h.api.paint();assert.match(h.get('sync-status').innerHTML,/Последнее подтверждение/);
+ await h.api.boot();h.api.paint();assert.match(h.get('session-menu-content').innerHTML,/Последнее подтверждение/);
  h.api.settings();await h.get('#change-history').onclick();assert.match(h.dialog(),/28 → 25/);
  h.get('resource-undo-button').dataset.resourceUndo='0';await h.get('resource-undo-button').onclick();
  assert.equal(calls[0].url,'/api/resources/undo');assert.equal(calls[0].body.targetMutationId,'resource-target');assert.equal(calls[0].body.characterId,'first-hero');assert.equal(calls.length,1);
@@ -143,7 +143,7 @@ test('returning to an old tab warns without replacing state or an open form, the
  const original=h.state();h.get('dialog').open=true;h.get('#note-text').value='Несохранённый рассказ мастера';
  current={...payload(1,'other'),state:{...seed,hp:12}};
  h.visible('visible');await tick();assert.equal(h.api.editable(),false);assert.deepEqual(h.state(),original);assert.equal(h.get('#note-text').value,'Несохранённый рассказ мастера');
- h.api.paint();assert.match(h.get('sync-status').innerHTML,/В другом окне есть изменения/);
+ h.api.paint();assert.match(h.get('session-menu-content').innerHTML,/В другом окне есть изменения/);
  await assert.rejects(h.api.commit(seed,'Must not write'));assert.equal(calls,2);
  await h.click('sync-refresh');assert.equal(calls,2);assert.match(h.messages.at(-1),/Скопируй/);
  h.get('dialog').open=false;await h.click('sync-refresh');assert.equal(calls,3);assert.equal(h.api.editable(),true);assert.equal(h.state().hp,12);assert.match(h.api.contextKey(),/other/);
@@ -165,8 +165,8 @@ test('hidden or pending tabs do not check; a failed check preserves usability an
  let mode='ok',calls=0;
  const h=harness(memory(),memory(),async()=>{calls++;if(mode==='fail')throw new Error('offline');return response(payload(0));});await h.api.boot();
  h.visible('hidden');await tick();assert.equal(calls,1);
- mode='fail';await h.click('sync-check');assert.equal(h.api.editable(),true);h.api.paint();assert.match(h.get('sync-status').innerHTML,/Не удалось проверить/);
- mode='ok';await h.click('sync-check');h.api.paint();assert.doesNotMatch(h.get('sync-status').innerHTML,/Не удалось проверить/);
+ mode='fail';await h.click('sync-check');assert.equal(h.api.editable(),true);h.api.paint();assert.match(h.get('session-menu-content').innerHTML,/Не удалось проверить/);
+ mode='ok';await h.click('sync-check');h.api.paint();assert.doesNotMatch(h.get('session-menu-content').innerHTML,/Не удалось проверить/);
  mode='fail';await assert.rejects(h.api.commit(seed,'offline write'));const count=calls;
  h.visible('visible');await h.click('sync-check');await tick();assert.equal(calls,count);assert.equal(h.api.editable(),false);
 });
@@ -182,7 +182,7 @@ test('the campaign picker does not open after its loading dialog was dismissed',
  const pending=Promise.withResolvers();
  const h=harness(memory(),memory(),url=>url==='/api/campaigns'?pending.promise:response(payload(0)));
  await h.api.boot();
- await h.click('workspace-campaign-settings');
+ await h.click('campaign-settings');
  assert.match(h.dialog(),/Загружаем список/);
  h.get('dialog').open=false;
  pending.resolve(response({campaigns:[]}));
@@ -816,7 +816,7 @@ test('saving Quick Access charges leaves the editor closed and skips the Invento
 
 test('private server responses label storage honestly without changing local defaults',async()=>{
  const h=harness(memory(),memory(),async()=>({...response(payload(0)),headers:{get:()=> 'private-server'}}));
- await h.api.boot();h.api.paint();assert.match(h.get('sync-status').innerHTML,/Сохранено на сервере/);assert.match(h.get('app-mode').textContent,/Закрытый сервер/);
+ await h.api.boot();h.api.paint();assert.match(h.get('session-menu-content').innerHTML,/Сохранено на сервере/);assert.match(h.get('app-mode').textContent,/Закрытый сервер/);
  h.api.settings();assert.match(h.dialog(),/Прогресс хранится на сервере/);assert.match(h.dialog(),/Вход общий/);
 });
 
@@ -1163,9 +1163,9 @@ test('durable resource controls accept ten offline operations and reload without
  const fetch=async(url,options)=>{if(offline)throw new Error('offline');if(url==='/api/resources/change'){const c=JSON.parse(options.body);if(!ids.has(c.mutationId)){assert.equal(c.expectedRevision,rev);if(c.resource.kind==='hp'){assert.equal(c.before,serverState.hp);serverState.hp=Math.max(0,Math.min(serverState.maxHp,serverState.hp+c.delta));}else{assert.equal(c.before,serverState.slots[c.resource.level]);serverState.slots[c.resource.level]+=c.delta;}ids.add(c.mutationId);rev++;}}return response({...payload(rev),state:structuredClone(serverState)});};
  let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.canResource(),true);offline=true;
  for(let i=0;i<10;i++)h.api.resourceDelta(i%2?{kind:'slot',level:1}:{kind:'hp'},i%2?(i%4===1?-1:1):-1,h.api.snapshotKey());
- await tick();assert.equal(h.api.pendingCount(),10);h.api.paint();assert.match(h.get('sync-status').innerHTML,/Без сети · ждут 10/);assert.equal(h.state().hp,23);assert.equal(h.state().slots[1],2);assert.equal(h.api.editable(),false);assert.equal(h.api.canResource(),true);assert.equal(rev,0);
+ await tick();assert.equal(h.api.pendingCount(),10);h.api.paint();assert.match(h.get('sync-status-caption').textContent,/Без сети · ждут 10/);assert.equal(h.state().hp,23);assert.equal(h.state().slots[1],2);assert.equal(h.api.editable(),false);assert.equal(h.api.canResource(),true);assert.equal(rev,0);
  h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.state().hp,23);assert.equal(h.api.canResource(),true);
- offline=false;await h.api.flushResources();assert.equal(h.api.pendingCount(),0);h.api.paint();assert.match(h.get('sync-status').innerHTML,/Сохранено/);assert.equal(rev,10);assert.equal(ids.size,10);assert.equal(h.state().hp,23);assert.equal(h.api.editable(),true);h.api.paint();assert.match(h.get('sync-status').innerHTML,/Последнее подтверждение/);
+ offline=false;await h.api.flushResources();assert.equal(h.api.pendingCount(),0);h.api.paint();assert.match(h.get('sync-status-caption').textContent,/Сохранено/);assert.equal(rev,10);assert.equal(ids.size,10);assert.equal(h.state().hp,23);assert.equal(h.api.editable(),true);h.api.paint();assert.match(h.get('session-menu-content').innerHTML,/Последнее подтверждение/);
 });
 
 test('server denial retains queued resources but disables further changes and never restores cached authority',async()=>{
@@ -1308,7 +1308,7 @@ test('history chip shows durable offline operations without claiming server conf
  const local=memory(),session=memory();let offline=false;
  const h=harness(local,session,async()=>{if(offline)throw Error('offline');return response(payload(0));},undefined,undefined,true);
  await h.api.boot();offline=true;h.api.resourceDelta({kind:'hp'},-3,h.api.snapshotKey());await tick();h.api.paint();
- assert.match(h.get('sync-status').innerHTML,/Без сети · ждут 1/);
+ assert.match(h.get('sync-status-caption').textContent,/Без сети · ждут 1/);
  await h.click('sync-history-chip');assert.match(h.dialog(),/28 → 25/);assert.match(h.dialog(),/Ждёт подтверждения сервера/);assert.doesNotMatch(h.dialog(),/data-resource-undo/);
  assert.equal(h.api.pendingCount(),1);assert.equal(h.state().hp,25);
 });
@@ -1575,7 +1575,7 @@ test('unreadable committed resource response keeps a friendly queue message and 
  };
  let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();
  h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h.api.paint();
- assert.match(h.get('sync-status').innerHTML,/Не удалось прочитать ответ сервера/);assert.match(h.get('sync-status').innerHTML,/Очередь сохранена/);assert.doesNotMatch(h.get('sync-status').innerHTML,/Unexpected token|SyntaxError|internal body/);
+ assert.match(h.get('session-menu-content').innerHTML,/Не удалось прочитать ответ сервера/);assert.match(h.get('session-menu-content').innerHTML,/Очередь сохранена/);assert.doesNotMatch(h.get('session-menu-content').innerHTML,/Unexpected token|SyntaxError|internal body/);
  assert.equal(h.api.pendingCount(),1);assert.equal(h.state().hp,27);
  offline=true;h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.pendingCount(),1);assert.equal(h.state().hp,27);
  offline=false;broken=false;await h.api.flushResources();assert.equal(h.api.pendingCount(),0);assert.equal(h.state().hp,27);assert.equal(ids.size,1);assert.equal(commands.length,2);assert.equal(commands[0],commands[1]);
@@ -1585,15 +1585,15 @@ test('malformed error bodies preserve denial and conflict statuses without resto
   let bad=false;const h=harness(memory(),memory(),async()=>bad?{ok:false,status,json:async()=>{if(nullBody)return null;throw new SyntaxError('private proxy body');}}:response(payload(0)),undefined,undefined,true);
   await h.api.boot();bad=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h.api.paint();
   assert.equal(h.api.pendingCount(),1);assert.equal(h.api.canResource(),false,'HTTP '+status);assert.equal(h.api.editable(),false);assert.equal(h.state().hp,27);
-  assert.doesNotMatch(h.get('sync-status').innerHTML,/private proxy body|Cannot read|SyntaxError/);
-  assert.match(h.get('sync-status').innerHTML,status===401?/Войди/:status===409?/изменились/:/доступ|прав/);
+  assert.doesNotMatch(h.get('session-menu-content').innerHTML,/private proxy body|Cannot read|SyntaxError/);
+  assert.match(h.get('session-menu-content').innerHTML,status===401?/Войди/:status===409?/изменились/:/доступ|прав/);
  }
 });
 test('network and empty successful responses are readable while explicit server conflicts keep their message',async()=>{
  for(const kind of ['network','empty','conflict']){
   let bad=false;const fetch=async()=>{if(!bad)return response(payload(0));if(kind==='network')throw new TypeError('Failed to fetch internal');if(kind==='empty')return {ok:true,status:200,json:async()=>null};return {ok:false,status:409,json:async()=>({error:'Synthetic conflict detail'})};};
   const h=harness(memory(),memory(),fetch,undefined,undefined,true);await h.api.boot();bad=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h.api.paint();
-  const html=h.get('sync-status').innerHTML;assert.equal(h.api.pendingCount(),1);assert.doesNotMatch(html,/Failed to fetch|Cannot read/);
+  const html=h.get('session-menu-content').innerHTML;assert.equal(h.api.pendingCount(),1);assert.doesNotMatch(html,/Failed to fetch|Cannot read/);
   assert.match(html,kind==='network'?/Не удалось связаться/:kind==='empty'?/Не удалось прочитать/:/Synthetic conflict detail/);
  }
 });
