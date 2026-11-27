@@ -51,10 +51,17 @@ test('Quick Access shows a single charged item without rounding, aggregating cop
   [[item('one'),item('other')],/^$/,0,0],
  ]){
   const h=harness(),summary=h.get('play-quick-item-charges');
+  let writes=0,html='';
+  Object.defineProperty(summary,'innerHTML',{
+   get:()=>html,set(value){html=value;writes++;}
+  });
   await loaded(h,[],entries);
   assert.match(summary.innerHTML,copy);
   assert.doesNotMatch(summary.innerHTML,/<one>/);
   assert.equal((summary.innerHTML.match(/<\/span>/g)||[]).length,marks===0?(summary.innerHTML?1:0):marks+1);
+  const confirmedWrites=writes;
+  h.api.view();
+  assert.equal(writes,confirmedWrites);
   assert.equal((summary.innerHTML.match(/class="filled"/g)||[]).length,filled);
   h.context('new hero');h.api.view();await tick();
   assert.equal(summary.innerHTML,'');
@@ -148,10 +155,13 @@ test('the working book or inventory remains available and retries only the faile
   const hiddenPreparation=missing==='book'?/data-play-prepare="spells"/:/data-play-prepare="inventory"/;
   assert.match(root.innerHTML,kept);
   assert.match(root.innerHTML,badHeading);
+  assert.ok(root.innerHTML.search(kept)<root.innerHTML.search(badHeading));
   assert.doesNotMatch(root.innerHTML,hiddenPreparation);
   await h.click('play-retry');await tick();
   assert.match(root.innerHTML,kept);
   assert.match(root.innerHTML,/Повторяем загрузку/);
+  assert.ok(root.innerHTML.search(kept)<root.innerHTML.indexOf('Повторяем загрузку'));
+  assert.match(root.innerHTML,/<button id="play-retry"[^>]* disabled>/);
   assert.equal(h.requests.length,3);
   assert.equal(h.requests.at(-1).kind,missing);
   h.requests.at(-1).resolve(supply[missing]);await tick();
