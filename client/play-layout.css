@@ -343,7 +343,6 @@ body[data-theme="polar"] .play-effects {
     overflow-wrap: anywhere;
   }
 
-  body[data-page="spells"] .play-hero-band { padding-block: 8px; }
   body[data-page="spells"] .play-layout { padding-block-start: 6px; }
   body[data-page="spells"] .profile-sections { margin-block-end: 6px; }
   body[data-page="spells"] .book-toolbar { gap: 4px 8px; margin-block-end: 0; }
@@ -705,49 +704,48 @@ body[data-theme="polar"] .play-effects {
     color: var(--muted);
   }
   #workspace-campaign-settings:hover { color: var(--accent); border-color: var(--line); }
-  body[data-page="play"] .play-hero-band { min-block-size: 92px; }
-  body[data-page="play"] .play-hero-subclass { display: inline; }
-  body[data-page="play"] .play-hero-name .play-active-hero-label { display: block; }
-  body[data-page="play"] .play-hero-band > div > small:first-child,
-  body[data-page="play"] .play-active-hero-label {
+  .play-hero-subclass { display: inline; }
+  .play-hero-name .play-active-hero-label { display: block; }
+  .play-hero-band > div > small:first-child,
+  .play-active-hero-label {
     font-size: 11px;
     letter-spacing: .08em;
     text-transform: uppercase;
   }
-  body[data-page="play"] .play-effects > div > span {
+  .play-effects > div > span {
     border-radius: 999px;
     background: var(--workspace-effect-idle, var(--raised));
   }
-  body[data-page="play"] .play-effects > div > .play-condition-effect {
+  .play-effects > div > .play-condition-effect {
     background: var(--workspace-effect-condition, color-mix(in srgb, var(--warn) 14%, var(--panel)));
   }
-  body[data-page="play"] .play-effects > div > .play-concentration-effect {
+  .play-effects > div > .play-concentration-effect {
     background: var(--workspace-focus-bg, color-mix(in srgb, var(--accent) 14%, var(--panel)));
   }
-  body[data-page="play"][data-theme="polar"] .play-effects {
+  body[data-theme="polar"] .play-effects {
     --workspace-effect-idle: #173742;
     --workspace-effect-condition: #302c22;
     --workspace-focus-bg: #322d4b;
   }
-  body[data-page="play"] .play-hero-band:has(.play-gold) {
+  .play-hero-band:has(.play-gold) {
     grid-template-columns: minmax(0, 1fr) 13.5% minmax(24px, max-content) minmax(0, 1.17fr) 19%;
     column-gap: 16px;
   }
-  body[data-page="play"] .play-hero-band .play-hero-initial { height: 44px; flex-basis: 44px; }
-  body[data-page="play"] .play-hp-summary {
+  .play-hero-band .play-hero-initial { height: 44px; flex-basis: 44px; }
+  .play-hp-summary {
     min-width: 0;
     padding-inline-end: 6px;
     border-inline-end: 1px solid var(--line);
   }
-  body[data-page="play"][data-theme="polar"] { --workspace-vital-text: #f2eadb; }
-  body[data-page="play"] .play-hero-band :is(.play-hp-summary, .play-armor-summary) > strong {
+  body[data-theme="polar"] { --workspace-vital-text: #f2eadb; }
+  .play-hero-band :is(.play-hp-summary, .play-armor-summary) > strong {
     color: var(--workspace-vital-text, var(--text));
     font: 400 25px/1.25 'PT Serif', Georgia, serif;
     font-variant-numeric: tabular-nums;
   }
-  body[data-page="play"] .play-armor-summary > strong { font-size: 23px; }
-  body[data-page="play"] .play-hp-summary strong span { font: 400 13px Inter, sans-serif; }
-  body[data-page="play"] .play-hp-summary progress { width: min(100%, 150px); }
+  .play-armor-summary > strong { font-size: 23px; }
+  .play-hp-summary strong span { font: 400 13px Inter, sans-serif; }
+  .play-hp-summary progress { width: min(100%, 150px); }
   body[data-page="play"] .play-layout {
     grid-template-columns: minmax(0, 1fr) 300px;
     gap: 32px;
@@ -1008,7 +1006,7 @@ body[data-theme="polar"] .play-effects {
 @media (max-width: 430px) and (max-height: 750px) and (orientation: portrait) {
   body:is([data-page="play"], [data-page="campaign"]) .play-heading { padding-block: 4px; }
   body[data-page="play"] .play-heading #play-edit { white-space: nowrap; }
-  body:is([data-page="play"], [data-page="campaign"]) .play-hero-band { padding-block: 8px; }
+  .play-hero-band { padding-block: 8px; }
   body:is([data-page="play"], [data-page="campaign"]) .play-layout { padding-top: 4px; }
   body[data-page="play"] .play-action-heading { margin-top: 8px; }
   body[data-page="play"] :is(.play-edit-detail, .play-actions > h2) {
@@ -1040,10 +1038,10 @@ body[data-theme="polar"] .play-effects {
 }
 
 @media (max-width: 350px) and (max-height: 680px) and (orientation: portrait) {
-  body[data-page="play"] .play-hero-band:has(.play-gold) .play-effects {
+  .play-hero-band:has(.play-gold) .play-effects {
     grid-column: 1 / -1;
   }
-  body[data-page="play"] .play-gold {
+  .play-gold {
     grid-column: 1 / -1;
     justify-self: stretch;
     display: flex;
@@ -1065,13 +1063,13 @@ body[data-theme="polar"] .play-effects {
 #main:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
 .workspace-map .play-layout { display: block; }
-.play-actor-carousel { position: relative; }
+.play-actor-strip { position: relative; }
 .play-actor-tools {
   display: flex;
   align-items: center;
   gap: 4px;
   padding-inline: var(--play-gutter);
-  background: var(--workspace-hero-bg, var(--panel));
+  background: var(--workspace-heading-bg, var(--bg));
 }
 .play-actor-tools button {
   min-inline-size: var(--touch, 44px);
@@ -1083,7 +1081,7 @@ body[data-theme="polar"] .play-effects {
 #play-actor-next .play-actor-chevron { rotate: -90deg; }
 
 @media (min-width: 1320px) and (min-height: 720px) and (orientation: landscape) {
-  .play-actor-carousel {
+  .play-actor-strip {
     --play-actor-base-height: 92px;
     --play-actor-columns: var(--play-gutter) minmax(0, 1fr) 112px 100px var(--play-gutter);
     display: grid;
@@ -1092,7 +1090,7 @@ body[data-theme="polar"] .play-effects {
     background: var(--workspace-hero-bg, var(--panel));
     border-block: 1px solid var(--line);
   }
-  body[data-page="play"] .play-actor-carousel > .play-hero-band {
+  .play-actor-strip > .play-hero-band {
     grid-area: 1 / 2;
     align-self: stretch;
     min-block-size: 0;
