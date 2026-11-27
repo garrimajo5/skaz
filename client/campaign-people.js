@@ -58,9 +58,11 @@ const SkazCampaign = (function(){
     const action=el('campaign-people-actions')?.getBoundingClientRect();
     if(!toolbar||!action?.width)return null;
     const bounds=toolbar.getBoundingClientRect();
-    // The heading and feedback share a column. The neighboring action keeps its touch target.
-    if(bounds.top<start||bounds.bottom>end||action.left-bounds.left<152)return null;
-    return el('campaign-toolbar-feedback');
+    const availableWidth=action.left-bounds.left;
+    if(bounds.top<start||bounds.bottom>end||availableWidth<152)return null;
+    const slot=el('campaign-toolbar-feedback');
+    if(slot)slot.style.inlineSize=(availableWidth-8)+'px';
+    return slot;
   }
   function visibleContentBottom(viewportBottom){
     const pult=el('quick-state');
