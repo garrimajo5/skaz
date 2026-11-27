@@ -152,16 +152,12 @@ body[data-page="campaign"]:not(:has(.concentration-question))
 }
 
 :is(#campaign-search-feedback, #campaign-toolbar-feedback):empty { display: none; }
-#campaign-people-toolbar:has(> #campaign-toolbar-feedback > #toast.show[data-kind="success"]):not(:has(> #campaign-toolbar-feedback > #toast > span[tabindex])) {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-}
-#campaign-people-toolbar > :is(h2, #campaign-toolbar-feedback) {
-  grid-area: 1 / 1;
-  min-inline-size: 0;
-}
-#campaign-people-toolbar > #campaign-people-actions { grid-area: 1 / 2; }
+#campaign-people-toolbar { position: relative; }
 #campaign-toolbar-feedback {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 0;
+  transform: translateY(-50%);
   z-index: 1;
   --campaign-feedback-padding: 0 6px;
 }
