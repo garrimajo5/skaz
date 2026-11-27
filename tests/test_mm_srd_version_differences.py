@@ -9,9 +9,13 @@ class SourceVersionTests(unittest.TestCase):
   self.catalogs={p:json.loads((ROOT/p).read_text(encoding='utf-8-sig')) for p in self.data['inputSha256']}
   # Independent minimal source excerpts test parsing; CLI separately verifies the pinned PDFs.
   self.pages={'srd':{401:'Priest Medium humanoid Speed 25 ft. Skills Religion +4 Challenge 2 (450 XP)',325:'Lich Medium undead Skills Arcana +18 Challenge 21 (33,000 XP)'},'mm':{2:'Lich (p. 202). Skills: Arcana +19 [was +18]. Magmin (p. 212). Touch: target. Priest (p. 348). Speed: 30 ft. [was 25 ft.]. Skills: Religion +5 [was +4]. Purple Worm (p. 255). Bite: +14.'}}
+  self.srd_rescue = 'A creature within 5 feet can rescue a target by taking an action to make a DC 14 Strength and succeeding.'
+  self.pages['srd'][307] = ('Water Elemental Large elemental, neutral Actions Whelm (Recharge 4–6). '
+    'The target must make a DC 15 Strength saving throw. Escape DC 14. ' + self.srd_rescue + ' Elf, Drow Medium humanoid')
+  self.pages['mm'][2] += ' Water Elemental (p. 125). Whelm: added the word “check” af-\nter “DC 14 Strength” in the final sentence.'
  def run_audit(self):return m.audit(self.data,self.pages,self.catalogs)
  def test_real_entries_match_declared_source_and_inputs_unchanged(self):
-  before=copy.deepcopy((self.data,self.pages,self.catalogs));self.assertEqual(self.run_audit(),(2,3));self.assertEqual(before,(self.data,self.pages,self.catalogs))
+  before=copy.deepcopy((self.data,self.pages,self.catalogs));self.assertEqual(self.run_audit(),(3,4));self.assertEqual(before,(self.data,self.pages,self.catalogs))
  def test_wrong_primary_value_rejected(self):
   self.pages['srd'][401]=self.pages['srd'][401].replace('25 ft.','30 ft.')
   with self.assertRaises(ValueError):self.run_audit()
@@ -36,5 +40,20 @@ class SourceVersionTests(unittest.TestCase):
   with self.assertRaises(ValueError):self.run_audit()
  def test_wrong_location_rejected(self):
   self.data['records'][0]['srdPage']=400
+  with self.assertRaises(ValueError):self.run_audit()
+ def test_whelm_distinguishes_the_initial_save_from_rescue_check(self):
+  card = next(e for e in self.catalogs['catalog/srd51-elementals.json']['entries'] if e['id'].endswith(':water-elemental'))
+  card['text'] = card['text'].replace('проверкой Силы Сл 14', 'спасброском Силы Сл 14')
+  with self.assertRaises(ValueError):self.run_audit()
+ def test_whelm_does_not_find_rescue_in_the_neighbor_statblock(self):
+  self.pages['srd'][307] = self.pages['srd'][307].replace(self.srd_rescue, '') + ' ' + self.srd_rescue
+  with self.assertRaises(ValueError):self.run_audit()
+ def test_whelm_requires_the_existing_source_attribution(self):
+  card = next(e for e in self.catalogs['catalog/srd51-elementals.json']['entries'] if e['id'].endswith(':water-elemental'))
+  card['source']['url'] = self.data['sources']['mm']['url'] + '#page=2'
+  with self.assertRaises(ValueError):self.run_audit()
+ def test_whelm_does_not_claim_an_omission_when_srd_has_check(self):
+  self.pages['srd'][307] = self.pages['srd'][307].replace('14 Strength and succeeding', '14 Strength check and succeeding')
+  self.data['whelmEvidence']['srdFields']['rescueRoll'] = 'check'
   with self.assertRaises(ValueError):self.run_audit()
 if __name__=='__main__':unittest.main()

@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "checkedOn": "2026-11-19",
+  "schemaVersion": 2,
+  "checkedOn": "2026-11-27",
   "rulesEdition": "5e-2014",
   "status": "primary-source-version-differences",
   "automaticPatch": false,
@@ -21,7 +21,8 @@
   },
   "inputSha256": {
     "catalog/srd51-npc-roles.json": "b0dbad02646568867f4d2426d3fc4eb7ef72ce180efa6fbc893d5e4ad8e0a26d",
-    "catalog/srd51-undead-rulers.json": "cd1afd5a93f41bc88be74bbd4800cfc1e5354e2e13f4edcba7728f9ac043db84"
+    "catalog/srd51-undead-rulers.json": "cd1afd5a93f41bc88be74bbd4800cfc1e5354e2e13f4edcba7728f9ac043db84",
+    "catalog/srd51-elementals.json": "eab0debb789d73507dca0723cc5a987e3507e0ffba682096bf1a8299630a1d8e"
   },
   "records": [
     {
@@ -68,5 +69,29 @@
       "fullStatBlockCompared": false
     }
   ],
-  "nextStep": "Choose and label source versions explicitly before any application change; retain existing SRD IDs and attribution. These three differences do not establish full stat-block equivalence."
+  "nextStep": "Keep source versions and the limited scope explicit. Confirm the attribution of any correction before changing application data; preserve the existing SRD IDs. These differences do not establish full stat-block equivalence.",
+  "whelmEvidence": {
+    "catalogPath": "catalog/srd51-elementals.json",
+    "existingId": "srd51:2014:monster:water-elemental",
+    "srdPage": 307,
+    "mmErrataPdfPage": 2,
+    "mmBookPage": 125,
+    "srdFields": {
+      "initialSaveDc": 15,
+      "rescueDc": 14,
+      "rescueRoll": null
+    },
+    "mmErrataFields": {
+      "rescueDc": 14,
+      "rescueRoll": "check"
+    },
+    "existingFields": {
+      "initialSaveDc": 15,
+      "rescueDc": 14,
+      "rescueRoll": "check"
+    },
+    "comparison": "rescue-check-omitted-in-srd-written-in-errata-and-existing-card",
+    "automaticPatch": false,
+    "fullStatBlockCompared": false
+  }
 }
