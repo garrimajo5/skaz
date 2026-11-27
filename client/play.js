@@ -149,7 +149,7 @@ const SkazPlay = (()=>{
    concentration:state.concentration,
    conditions:typeof SkazConditions==='undefined'?[]:SkazConditions.names(state.conditions),
    gold:state.gold,
-   historyAvailable:location.protocol!=='file:'&&SkazStorage.access?.()?.history!==false,
+   historyAvailable:SkazStorage.historyAvailable(),
   };
  }
  function view(reload=false){
