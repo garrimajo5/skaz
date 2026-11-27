@@ -174,13 +174,15 @@ function revealBottomNavButton(nav, button) {
  if(target.left < left) nav.scrollLeft += target.left - left;
  else if(target.right > right) nav.scrollLeft += target.right - right;
 }
-function render(){
+function render(change){
  const main=$('#main'), quick=$('#quick-state'), home=$('#quick-state-home');
  const workspaceSummary=$('.workspace-summary');
  if(!main||!quick||!home)return;
  const sectionFocus=document.activeElement?.closest?.('.profile-sections a');
  if(page==='play') SkazPlay.captureFocus();
- if(quick.parentElement!==home) home.append(quick);
+ const updatePlayResources=change==='resources'&&page==='play'&&SkazStorage.readyToDisplay?.()!==false;
+ if(!updatePlayResources&&quick.parentElement!==home) home.append(quick);
+ quick.hidden=page==='map';
  document.body.dataset.page=page;
  const workspacePage=['play','hero','inventory','library','campaign'].includes(page)||
   (location.protocol!=='file:'&&['spells','journal','quests'].includes(page));
@@ -222,14 +224,22 @@ function render(){
  $('#workspace-player-class').textContent=identity.character;
  $('#workspace-campaign-settings').hidden=location.protocol==='file:'||SkazStorage.can?.('select')!==true;
  $('#campaign-name').textContent=state.profile.campaign;
- quick.innerHTML=quickPanel();
+ const resourceScroll=updatePlayResources?quick.scrollTop:0;
+ quick.innerHTML=quick.hidden?'':quickPanel();
  if(page==='campaign'){
   const entry=campaignEntry;
   campaignEntry=null;
   const focused=document.activeElement;
   SkazCampaign.mount(main,entry&&{section:entry.section,focus:focused===entry.trigger||focused===document.body});
- }else main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage,play:()=>SkazPlay.view()}[page]||hero)();
- $('#play-quick-slot')?.append(quick);
+ }else if(page==='play'){
+  if(!updatePlayResources||!SkazPlay.updateResources(main)){
+   if(quick.parentElement!==home) home.append(quick);
+   main.innerHTML=SkazPlay.view(updatePlayResources);
+  }
+ }else main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage}[page]||hero)();
+ const resourceSlot=$('#play-quick-slot');
+ if(resourceSlot&&quick.parentElement!==resourceSlot)resourceSlot.append(quick);
+ if(updatePlayResources)quick.scrollTop=resourceScroll;
  $$('[data-page]').forEach(button=>{
   const nav=button.closest('nav');
   const selected=button.dataset.page===(nav&&page==='spells'?'hero':page);

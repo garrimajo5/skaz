@@ -672,6 +672,8 @@ body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
 .skaz-art .skaz-art-fallback [data-ui-icon]{width:75%;height:75%;max-width:none}
 .skaz-art .skaz-art-fallback .ui-icon{width:100%;height:100%;max-width:none}
 .play-spell-row .play-art .play-spell-level{font-size:12px;width:16px;max-width:16px;height:16px;line-height:16px}
+#quick-state[hidden]{display:none}
+body[data-page="map"] .shell main{margin-left:0}
 .quick-state .quick-concentration{font-size:14px}
 .sync-compact [data-ui-icon],.sync-compact .ui-icon{width:16px;height:16px}
 

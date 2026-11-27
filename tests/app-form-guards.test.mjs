@@ -54,6 +54,28 @@ test('revealing a compact navigation button scrolls only the hidden part',()=>{
  assert.deepEqual(JSON.parse(result),[123,123,104,104]);
 });
 
+test('map omits combat controls and Quick Access brings them back',()=>{
+ const h=harness();
+ h.run("globalThis.SkazMap={view:()=>'<button id=\"new-place\">Новое место</button>'};page='map';render();");
+ assert.equal(h.get('#quick-state').hidden,true);
+ assert.equal(h.get('#quick-state').innerHTML,'');
+ assert.match(h.get('#main').innerHTML,/new-place/);
+ h.run("page='play';render();");
+ assert.equal(h.get('#quick-state').hidden,false);
+ assert.match(h.get('#quick-state').innerHTML,/data-health=\"damage\"/);
+});
+
+test('resource rendering keeps the loaded Quick Access screen when its update succeeds',()=>{
+ const h=harness({hash:'#play'});
+ h.run("render();SkazPlay.updateResources=()=>true;");
+ const screen=h.get('#main');
+ screen.innerHTML='mounted screen';
+ h.run("render('resources');");
+ assert.equal(screen.innerHTML,'mounted screen');
+ h.run("SkazPlay.updateResources=()=>false;render('resources');");
+ assert.match(screen.innerHTML,/id=\"play-content\"/);
+});
+
 test('workspace sidebar tracks the same active hero and session and hides during initial load',()=>{
  const h=harness();
  h.run("SkazStorage.readyToDisplay=()=>false;render();");
