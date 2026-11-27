@@ -12,7 +12,7 @@ const SkazSpellbook = (() => {
     const current=SkazStorage.snapshotKey();
     if(current!==key){const next=SkazStorage.contextKey();if(next!==contextKey){learningMode=null;offset=0;query='';scope='prepared';level='';ritual='';concentration='';draft={q:'',scope:'prepared',level:'',ritual:'',concentration:''};}contextKey=next;key=current;data=[];status='idle';++serial;}
     if(status==='idle'){status='loading';queueMicrotask(load);}
-    return `<section class="personal-book" aria-label="Личные заклинания"><div class="book-toolbar"><div class="book-scopes" aria-label="Отметки заклинаний">${scopes().map(([value,label])=>`<button data-book-scope="${value}" aria-pressed="${scope===value}">${label}</button>`).join('')}</div><details class="book-filters"><summary>Поиск и фильтры</summary><p class="quest-help">${knownCaster()?'Известные заклинания добавляются вручную.':'Обычные отметки «Изучено» и «Подготовлено» задаются вручную; постоянную подготовку задаёт умение класса.'} Класс, доступные уровни, ячейки и эффекты проверяет игрок.</p><form id="personal-spell-search" class="personal-spell-search"><label>Название RU / EN<input name="q" type="search" maxlength="200" value="${escape(draft.q)}" placeholder="Например, Свет"></label><label>Отметка<select name="scope">${scopes().map(([value,label])=>`<option value="${value}" ${draft.scope===value?'selected':''}>${label}</option>`).join('')}</select></label><label>Уровень<select name="level"><option value="">Все уровни</option>${Array.from({length:10},(_,i)=>`<option value="${i}" ${draft.level===String(i)?'selected':''}>${i===0?'Заговор':i+' уровень'}</option>`).join('')}<option value="unknown" ${draft.level==='unknown'?'selected':''}>Не указан</option></select></label>${flagControl('ritual','Ритуал')}${flagControl('concentration','Концентрация')}<div class="personal-spell-actions"><button type="submit">Найти</button><button type="button" id="personal-spell-reset">Сбросить</button></div></form></details><a class="book-cast-link" href="#play">Перейти к сотворению</a></div><div id="spell-catalog-setup"></div><div id="personal-spell-results" aria-live="polite" aria-busy="${status==='loading'}">${results()}</div></section>`;
+    return `<section class="personal-book" aria-label="Личные заклинания"><div class="book-toolbar"><div class="book-scopes" aria-label="Отметки заклинаний">${scopes().map(([value,label])=>`<button data-book-scope="${value}" aria-pressed="${scope===value}">${label}</button>`).join('')}</div><details class="book-filters"><summary>Поиск и фильтры</summary><p class="quest-help">${knownCaster()?'Известные заклинания добавляются вручную.':'Обычные отметки «Изучено» и «Подготовлено» задаются вручную; постоянную подготовку задаёт умение класса.'} Класс, доступные уровни, ячейки и эффекты проверяет игрок.</p><form id="personal-spell-search" class="personal-spell-search"><label>Название RU / EN<input name="q" type="search" maxlength="200" value="${escape(draft.q)}" placeholder="Например, Свет"></label><label>Отметка<select name="scope">${scopes().map(([value,label])=>`<option value="${value}" ${draft.scope===value?'selected':''}>${label}</option>`).join('')}</select></label><label>Уровень<select name="level"><option value="">Все уровни</option>${Array.from({length:10},(_,i)=>`<option value="${i}" ${draft.level===String(i)?'selected':''}>${i===0?'Заговор':i+' уровень'}</option>`).join('')}<option value="unknown" ${draft.level==='unknown'?'selected':''}>Не указан</option></select></label>${flagControl('ritual','Ритуал')}${flagControl('concentration','Концентрация')}<div class="personal-spell-actions"><button type="submit">Найти</button><button type="button" id="personal-spell-reset">Сбросить</button></div></form></details><a class="book-cast-link" href="#play">Перейти к сотворению</a></div><div id="spell-catalog-setup"></div><div id="personal-spell-results" role="region" aria-label="Результаты книги заклинаний" tabindex="-1" aria-live="polite" aria-busy="${status==='loading'}">${results()}</div></section>`;
   }
   function filtered(){const q=query.toLocaleLowerCase('ru');return data.filter(item=>(scope==='all'||(knownCaster()?'known':item.status)===scope)&&(!level||(level==='unknown'?item.entry.spell?.level===undefined:item.entry.spell?.level===Number(level)))&&(!ritual||item.entry.spell?.ritual===(ritual==='true'))&&(!concentration||item.entry.spell?.concentration===(concentration==='true'))&&(item.entry.name.ru+' '+item.entry.name.en).toLocaleLowerCase('ru').includes(q)).sort((a,b)=>(a.entry.spell?.level??99)-(b.entry.spell?.level??99)||a.entry.name.ru.localeCompare(b.entry.name.ru,'ru'));}
   function results(){
@@ -31,12 +31,41 @@ const SkazSpellbook = (() => {
     }
     refresh();
   }
-  async function load(){const token=++serial,requestedKey=SkazStorage.snapshotKey();status='loading';refresh();try{const value=await SkazStorage.spellbookData();if(token!==serial||requestedKey!==SkazStorage.snapshotKey())return;data=value.entries;const nextMode=['known','prepared','spellbook'].includes(value.spellLearning)?value.spellLearning:null;const changed=nextMode!==learningMode;learningMode=nextMode;if(knownCaster()&&scope==='prepared'){scope='known';draft.scope='known';}status='ready';if(changed)render();}catch(e){if(token!==serial||requestedKey!==SkazStorage.snapshotKey())return;status='error';error=e.message||'Проверь соединение';}refresh();}
+  async function load(focusResults = false){
+    const token = ++serial;
+    const requestedKey = SkazStorage.snapshotKey();
+    status = 'loading';
+    refresh();
+    if(focusResults) document.getElementById('personal-spell-results')?.focus({preventScroll:true});
+    try{
+      const value = await SkazStorage.spellbookData();
+      if(token !== serial || requestedKey !== SkazStorage.snapshotKey()) return;
+      data = value.entries;
+      const nextMode = ['known', 'prepared', 'spellbook'].includes(value.spellLearning) ? value.spellLearning : null;
+      const changed = nextMode !== learningMode;
+      learningMode = nextMode;
+      if(knownCaster() && scope === 'prepared'){
+        scope = 'known';
+        draft.scope = 'known';
+      }
+      status = 'ready';
+      if(changed){
+        const resultsFocused = document.activeElement?.id === 'personal-spell-results';
+        render();
+        if(resultsFocused) document.getElementById('personal-spell-results')?.focus({preventScroll:true});
+      }
+    }catch(e){
+      if(token !== serial || requestedKey !== SkazStorage.snapshotKey()) return;
+      status = 'error';
+      error = e.message || 'Проверь соединение';
+    }
+    refresh();
+  }
   function rememberSearch(event){const form=event.target.form;if(form?.id!=='personal-spell-search'||key!==SkazStorage.snapshotKey())return;draft={q:form.elements.q.value,scope:form.elements.scope.value,level:form.elements.level.value,ritual:form.elements.ritual?.value||'',concentration:form.elements.concentration?.value||''};}
   document.addEventListener('input',rememberSearch);
   document.addEventListener('change',rememberSearch);
   document.addEventListener('submit',event=>{if(event.target.id!=='personal-spell-search')return;event.preventDefault();if(key!==SkazStorage.snapshotKey())return;query=event.target.elements.q.value.trim();scope=event.target.elements.scope.value;level=event.target.elements.level.value;ritual=event.target.elements.ritual?.value||'';concentration=event.target.elements.concentration?.value||'';draft={q:query,scope,level,ritual,concentration};offset=0;refresh();});
-  document.addEventListener('click',event=>{const b=event.target.closest('button');if(!b)return;if(b.id==='personal-spell-retry')return load();if(key!==SkazStorage.snapshotKey())return;
+  document.addEventListener('click',event=>{const b=event.target.closest('button');if(!b)return;if(b.id==='personal-spell-retry')return load(true);if(key!==SkazStorage.snapshotKey())return;
     if(['prepared','known','all'].includes(b.dataset.bookScope)){scope=b.dataset.bookScope;draft.scope=scope;offset=0;refreshFilters();return;}
     if(b.id==='personal-spell-reset'){query='';scope=knownCaster()?'known':'prepared';level='';ritual='';concentration='';draft={q:'',scope,level:'',ritual:'',concentration:''};offset=0;refreshFilters();}
     if(b.id==='personal-spell-prev'){offset=Math.max(0,offset-limit);refresh();}
