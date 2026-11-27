@@ -24,11 +24,26 @@ const SkazMap = (() => {
     const region = document.getElementById('map-results');
     if (region) { region.innerHTML = results(); SkazStorage.decorate?.(region); region.setAttribute('aria-busy',String(status === 'loading')); }
   }
-  async function load() {
-    const requestId = ++serial, requestedKey = SkazStorage.snapshotKey(); status = 'loading'; refresh();
+  function updateResources(screen, settled) {
+    if (!screen?.querySelector('#campaign-map') || contextKey !== SkazStorage.contextKey()) return false;
+    if (!settled) return true;
+    if (SkazStorage.can('shared')) for (const button of screen.querySelectorAll('#new-place, [data-map-edit]')) {
+      button.disabled = false; button.removeAttribute('aria-disabled'); button.removeAttribute('title');
+    }
+    const current = SkazStorage.snapshotKey();
+    if (current !== key || status !== 'ready') {
+      key = current;
+      void load(status === 'ready');
+    }
+    return true;
+  }
+  async function load(keepResults = false) {
+    const requestId = ++serial, requestedKey = SkazStorage.snapshotKey();
+    if (!keepResults) { status = 'loading'; refresh(); }
     try {
       const result = await SkazStorage.placesData();
       if (requestId !== serial || requestedKey !== SkazStorage.snapshotKey()) return;
+      if (keepResults && JSON.stringify(data) === JSON.stringify(result.places)) return;
       data = result.places; status = 'ready'; offset = Math.min(offset, Math.floor(Math.max(0,filtered().length-1)/limit)*limit);
     } catch (e) { if (requestId !== serial || requestedKey !== SkazStorage.snapshotKey()) return; status = 'error'; error = e.message || 'Проверь соединение'; }
     refresh();
@@ -47,5 +62,5 @@ const SkazMap = (() => {
     if (target.dataset.mapSelect) { selected = target.dataset.mapSelect; refresh(); const title = document.getElementById('selected-place-title'); title?.focus({ preventScroll: true }); document.querySelector('.map-place-details')?.scrollIntoView({ block: 'nearest', behavior: 'instant' }); }
     if (target.dataset.mapEdit) { const place = data.find(p => p.id === target.dataset.mapEdit); if (place) SkazStorage.editPlace(place); }
   });
-  return { view };
+  return { view, updateResources };
 })();
