@@ -208,7 +208,9 @@ const SkazStorage = (() => {
     return {text:status==='demo'?'Демо':status==='loading'?'Подключение…':'Сохранено',kind:status==='ready'?'saved':'pending',icon:status==='ready'?'saved':'pending'};
   }
   function personalArtReadScope(){if(demo||document.body.dataset.personalArt!=='enabled'||!individual()||!loaded||!['ready','stale'].includes(status)||!permissions||!activeContext)return null;return {identity:SkazAccount.userId,characterId:activeContext.characterId,viewId:tabId,name:state.profile.name};}
-  function advancementScope(){if(demo||document.body?.dataset?.classAdvancement!=='enabled'||!can('character')||!activeContext)return null;return {identity:individual()?SkazAccount.userId:null,viewId:tabId,characterId:activeContext.characterId,sessionId:activeContext.sessionId};}
+  const advancementEnabled=()=>!demo&&document.body?.dataset?.classAdvancement==='enabled'&&Boolean(activeContext);
+  function advancementAvailable(){return advancementEnabled()&&(can('character')||canResource());}
+  function advancementScope(){if(!advancementEnabled()||!can('character'))return null;return {identity:individual()?SkazAccount.userId:null,viewId:tabId,characterId:activeContext.characterId,sessionId:activeContext.sessionId};}
   function personalTransferScope(){const s=personalArtReadScope();return s&&can('export')?{...s,allowImport:can('import')&&can('newCampaign')}:null;}
   async function reloadAfterArtTransfer(){closeModal();await load();}
   function personalArtScope(){if(demo||document.body.dataset.personalArt!=='enabled'||!individual()||!can('character')||!activeContext)return null;return {identity:SkazAccount.userId,characterId:activeContext.characterId,viewId:tabId,name:state.profile.name};}
@@ -594,8 +596,38 @@ const SkazStorage = (() => {
       if(stillLoading())modal('<h2>Не удалось загрузить кампании</h2><p>Проверь соединение и открой список снова.</p>');
     }
   }
-  function queuedInventory(){const snapshot=resourceQueue?.snapshot;if(resourceQueue?.length&&resourceContextMatches()&&snapshot.inventory)return {revision,context:activeContext,entries:snapshot.inventory,undo:null};return null;}
-  let inventorySerial=0;
+  function queuedInventory(){
+    if(!canResource()||!resourceQueue.length||resourceQueue.data?.baseline?.revision!==revision)return null;
+    const snapshot=resourceQueue.snapshot;
+    return Array.isArray(snapshot.inventory)?{revision,context:activeContext,entries:snapshot.inventory,undo:null}:null;
+  }
+  let inventorySerial=0,mountedInventory=null;
+  function updateInventoryResources(root){
+    if(!root||root!==mountedInventory?.root||!canResource())return false;
+    void inventory({preserveDialog:true,retain:true});
+    return true;
+  }
+  const inventoryUndoMarkup=undo=>'<button id="inventory-undo">Отменить: '+esc(undo.label)+'</button>';
+  function updateInventoryTools(root,undo){
+    const current=root.querySelector('#inventory-undo');
+    if(current&&!undo){
+      // Its previous action is invalid after a resource write. Keep its space until the next page render.
+      current.style.visibility='hidden';
+      current.disabled=true;
+      current.onclick=null;
+    }else if(current){
+      current.style.removeProperty('visibility');
+      current.textContent='Отменить: '+undo.label;
+    }else if(undo){
+      root.querySelector('.inventory-tools').insertAdjacentHTML('beforeend',inventoryUndoMarkup(undo));
+    }
+    for(const button of root.querySelectorAll('[data-inventory-charges],[data-inventory-remove],#inventory-undo')){
+      if(button===current&&!undo)continue;
+      button.disabled=false;
+      button.removeAttribute('aria-disabled');
+      button.removeAttribute('title');
+    }
+  }
   let inventoryFilter={owner:null,q:"",attunement:"",offset:0};
   function inventoryRowMetadata(item){
     const info=item.entry.item||item.entry.artifact;
@@ -603,15 +635,23 @@ const SkazStorage = (() => {
     if(info?.charges)parts.push('Заряды: '+Array.from({length:Math.min(item.quantity,3)},(_,i)=>(item.chargeCounts?.[i]==null?'укажи остаток':item.chargeCounts[i]+'/'+info.charges.max)).join(' · ')+(item.quantity>3?' · ещё '+(item.quantity-3):''));
     return esc(parts.join(' · '));
   }
-  async function inventory({preserveDialog=false}={}) {
+  async function inventory({preserveDialog=false,retain=false}={}) {
     const inPage=typeof page!=='undefined' && page==='inventory';
-    const paintInventory=html=>{if(inPage){const root=document.getElementById('inventory-page');if(root)root.innerHTML=html;}else modal(html);};
+    const root=inPage?document.getElementById('inventory-page'):null;
+    const previous=retain&&root===mountedInventory?.root?mountedInventory:null;
+    const paintInventory=html=>{
+      if(inPage){
+        if(root!==document.getElementById('inventory-page')||!root)return;
+        mountedInventory=null;
+        root.innerHTML=html;
+      }else modal(html);
+    };
     if(inPage&&!preserveDialog)closeModal();
     if (demo || (status !== 'ready'&&!queuedInventory()) || !activeContext) {const message='Инвентарь доступен после подключения и сохранения черновика';if(inPage)paintInventory('<p role="status">'+message+'</p>');else toast(message);return;}
     const key = JSON.stringify(activeContext), version = revision;
     const token=++inventorySerial;
-    const visible=()=>token===inventorySerial && (inPage ? typeof page!=='undefined' && page==='inventory' && document.getElementById('inventory-page') && (preserveDialog || !document.getElementById('dialog')?.open) : document.getElementById('dialog')?.open!==false) && document.getElementById('inventory-view') && key===JSON.stringify(activeContext) && version===revision;
-    paintInventory(`<h2 id="inventory-view">${inPage?'Предметы':'Инвентарь'}</h2><p role="status">Загружаем предметы…</p>`);
+    const visible=()=>token===inventorySerial && (inPage ? typeof page!=='undefined' && page==='inventory' && root && root===document.getElementById('inventory-page') && (preserveDialog || !document.getElementById('dialog')?.open) : document.getElementById('dialog')?.open!==false) && document.getElementById('inventory-view') && key===JSON.stringify(activeContext) && version===revision;
+    if(!previous)paintInventory(`<h2 id="inventory-view">${inPage?'Предметы':'Инвентарь'}</h2><p role="status">Загружаем предметы…</p>`);
     try {
       const data = queuedInventory() || await request('/api/inventory').catch(error=>{if(canResource()&&inventoryCache?.revision===revision&&JSON.stringify(inventoryCache.context)===JSON.stringify(activeContext))return {...inventoryCache,undo:null};throw error;});
       if (!visible()) return;
@@ -621,6 +661,7 @@ const SkazStorage = (() => {
         return;
       }
       inventoryCache=structuredClone(data);
+      let reuse=previous&&JSON.stringify(previous.entries)===JSON.stringify(data.entries);
       const owner=JSON.stringify([activeContext.campaignId,activeContext.characterId]);
       if(inventoryFilter.owner!==owner)inventoryFilter={owner,q:'',attunement:'',offset:0};
       const quickRank=item=>{const info=item.entry.item||item.entry.artifact;return info?.charges || ['potion','scroll'].includes(info?.type)?0:1;};
@@ -638,12 +679,18 @@ const SkazStorage = (() => {
         const start=inventoryFilter.offset,shown=matching.slice(start,start+pageSize);
         const showSearch=data.entries.length>pageSize||Boolean(inventoryFilter.q||inventoryFilter.attunement);
         const pages=suffix=>`<nav class="inventory-pages" ${matching.length<=pageSize?'hidden':''} aria-label="Страницы инвентаря${suffix?' внизу':''}"><button id="inventory-prev${suffix}" ${start===0?'disabled':''}><span class="ui-inline-icon" data-ui-icon="arrow-left"></span> Назад</button><span>${matching.length?start+1:0}–${Math.min(start+pageSize,matching.length)} из ${matching.length}</span><button id="inventory-next${suffix}" ${start+pageSize>=matching.length?'disabled':''}>Далее <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></nav>`;
-        paintInventory(`${inPage?'':`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div>`}<h2 id="inventory-view" tabindex="-1" ${inPage?'':'autofocus'}>${inPage?'Предметы':'Инвентарь'}</h2><p>${inPage?'':state.gold+' зм · '}Видов предметов: ${data.entries.length}</p><div id="inventory-catalog-setup"></div><div class="inventory-tools"><button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>${data.undo?`<button id="inventory-undo">Отменить: ${esc(data.undo.label)}</button>`:''}</div><form id="inventory-search" class="inventory-search" ${showSearch?'':'hidden'}><label for="inventory-query">Название RU / EN<input id="inventory-query" type="search" maxlength="200" value="${esc(inventoryFilter.q)}" placeholder="Например, кольцо или ring"></label><label for="inventory-attunement">Требование настройки<select id="inventory-attunement"><option value="">Все предметы</option><option value="required" ${inventoryFilter.attunement==='required'?'selected':''}>Требует настройки</option><option value="none" ${inventoryFilter.attunement==='none'?'selected':''}>Без настройки</option></select></label><div class="dialog-actions"><button type="submit">Найти в инвентаре</button><button type="button" id="inventory-reset">Сбросить</button></div></form><p class="small" ${showSearch?'':'hidden'}>Фильтр показывает требование предмета, а не выполненную настройку персонажа.</p>${pages('')}<div class="inventory-grid">${shown.map(({item,index},position)=>{
+        if(reuse){
+          reuse=false;
+          updateInventoryTools(root,data.undo);
+        }else{
+          paintInventory(`${inPage?'':`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div>`}<h2 id="inventory-view" tabindex="-1" ${inPage?'':'autofocus'}>${inPage?'Предметы':'Инвентарь'}</h2><p>${inPage?'':state.gold+' зм · '}Видов предметов: ${data.entries.length}</p><div id="inventory-catalog-setup"></div><div class="inventory-tools"><button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>${data.undo?inventoryUndoMarkup(data.undo):''}</div><form id="inventory-search" class="inventory-search" ${showSearch?'':'hidden'}><label for="inventory-query">Название RU / EN<input id="inventory-query" type="search" maxlength="200" value="${esc(inventoryFilter.q)}" placeholder="Например, кольцо или ring"></label><label for="inventory-attunement">Требование настройки<select id="inventory-attunement"><option value="">Все предметы</option><option value="required" ${inventoryFilter.attunement==='required'?'selected':''}>Требует настройки</option><option value="none" ${inventoryFilter.attunement==='none'?'selected':''}>Без настройки</option></select></label><div class="dialog-actions"><button type="submit">Найти в инвентаре</button><button type="button" id="inventory-reset">Сбросить</button></div></form><p class="small" ${showSearch?'':'hidden'}>Фильтр показывает требование предмета, а не выполненную настройку персонажа.</p>${pages('')}<div class="inventory-grid">${shown.map(({item,index},position)=>{
           const name=esc(item.entry.name.ru),charges=(item.entry.item||item.entry.artifact)?.charges;
           const chargeAction=charges?(Array.from({length:item.quantity},(_,i)=>item.chargeCounts?.[i]).some(n=>n==null)?'Указать заряды':'Заряды'):'';
           return `${position===0 || quickRank(shown[position-1].item)!==quickRank(item)?`<h3 class="inventory-group">${quickRank(item)===0?'Под рукой · расходники и заряды':'Остальные предметы'}</h3>`:''}${SkazUI.entryRow({entry:item.entry,name:item.entry.name,badge:`× ${item.quantity}`,metadata:inventoryRowMetadata(item),description:item.entry.text,extra:`${charges?`<p class="small">Заряды: ${Array.from({length:Math.min(item.quantity,3)},(_,i)=>`№ ${i+1}: ${item.chargeCounts?.[i]==null?'укажи остаток':item.chargeCounts[i]+'/'+charges.max}`).join(' · ')}${item.quantity>3?' · ещё '+(item.quantity-3):''}.</p>`:''}`,actions:`${chargeAction?`<button data-inventory-charges="${index}" aria-label="${chargeAction}: ${name}">${chargeAction}</button>`:''}<button data-inventory-read="${index}" aria-label="Читать: ${name}">Читать</button><button data-inventory-remove="${index}" aria-label="Списать: ${name}">Списать</button>`})}`;
         }).join('') || `<p role="status">${data.entries.length?'По этим условиям ничего не найдено. Сбрось фильтры или измени название.':'Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.'}</p>`}</div>${matching.length>pageSize?pages('-bottom'):''}<p>Здесь только сохранённые предметы. Списание меняет только количество. Настройка, лечение и бонусы не применяются автоматически. Отменить можно последнюю операцию, пока не было других изменений игры.</p>`);
-        if(typeof SkazCatalog!=='undefined')void SkazCatalog.offerSetup?.('inventory-catalog-setup');
+          if(typeof SkazCatalog!=='undefined')void SkazCatalog.offerSetup?.('inventory-catalog-setup');
+        }
+        if(root){mountedInventory={root,entries:data.entries};decorate(root);}
         const current=()=>{
           if(!visible() || (inPage&&document.getElementById('dialog')?.open)){toast('Игра изменилась. Открой инвентарь заново.');return false;}
           return true;
@@ -1235,5 +1282,5 @@ const SkazStorage = (() => {
   function contextKey(){return JSON.stringify(activeContext);}
   document.addEventListener('change',event=>{if(event.target.id!=='show-examples')return;try{localStorage.setItem('skaz-show-examples',String(event.target.checked));render();}catch{toast('Не удалось сохранить настройку браузера');}});
   window.addEventListener('online',()=>{if(resourceQueue?.length)void flushResources();});
-  return { campaignPeopleAvailable, campaignApi, classCheckBenefits:()=>classCheckBenefits?structuredClone(classCheckBenefits):null,classSaveBenefits:()=>classSaveBenefits?structuredClone(classSaveBenefits):null,classSkills:()=>classSkills?structuredClone(classSkills):null,unlimitedResources:()=>structuredClone(unlimitedResources),isSpellSlotCounter:id=>spellSlotCounterIds.has(id),spellLearningMode:()=>spellLearning, editCharges, playResourceLists, refreshAfterAdvancement:load, advancementScope, personalTransferScope, reloadAfterArtTransfer, personalArtReadScope, personalArtScope, castSpell,pendingResourceIndices,inventoryData,spendInventoryOne,pendingCount,canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, profileEditorsAvailable, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, queuedSpellbook, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, currentSession, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
+  return { campaignPeopleAvailable, campaignApi, classCheckBenefits:()=>classCheckBenefits?structuredClone(classCheckBenefits):null,classSaveBenefits:()=>classSaveBenefits?structuredClone(classSaveBenefits):null,classSkills:()=>classSkills?structuredClone(classSkills):null,unlimitedResources:()=>structuredClone(unlimitedResources),isSpellSlotCounter:id=>spellSlotCounterIds.has(id),spellLearningMode:()=>spellLearning, editCharges, playResourceLists, refreshAfterAdvancement:load, advancementAvailable, advancementScope, personalTransferScope, reloadAfterArtTransfer, personalArtReadScope, personalArtScope, castSpell,pendingResourceIndices,inventoryData,spendInventoryOne,pendingCount,canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, profileEditorsAvailable, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, updateInventoryResources, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, queuedSpellbook, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, currentSession, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
 })();

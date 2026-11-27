@@ -52,18 +52,40 @@ function profileSections(active){
    <a href="#spells"${active==='spells'?' aria-current="page"':''}>Магия</a>
  </nav>`;
 }
-function hero(){
+function hero(){return renderPreparation(heroView());}
+function heroView(){
  const sheet=SkazStorage.sheet?.(),stats=SkazStorage.stats();
+ const canAdvance=Boolean(SkazStorage.advancementScope?.());
+ const advanceLabel=(canAdvance||SkazStorage.advancementAvailable?.())?(sheet?.level>=20?'Умения класса':'Повысить уровень'):null;
  const signed=n=>(n>=0?"+":"−")+Math.abs(n);
  const lineage=sheet?[sheet.ancestry,sheet.subclass].filter(Boolean).join(' · '):'Полуэльф · Коллегия знаний';
- const actions=`<div class="character-edit">${SkazStorage.advancementScope?.()?'<button id="advance-class">'+(sheet?.level>=20?'Умения класса':'Повысить уровень')+'</button>':''}<button id="edit-sheet" class="secondary">Свой класс</button><button class="secondary" id="edit-profile">Изменить</button><button class="secondary" id="edit-stats">Характеристики</button><button class="secondary" id="edit-resources">Ресурсы</button></div>`;
+ const actions=`<div class="character-edit">${advanceLabel?'<button id="advance-class"'+(canAdvance?'':' disabled')+'>'+advanceLabel+'</button>':''}<button id="edit-sheet" class="secondary">Свой класс</button><button class="secondary" id="edit-profile">Изменить</button><button class="secondary" id="edit-stats">Характеристики</button><button class="secondary" id="edit-resources">Ресурсы</button></div>`;
  const recoveryNotice=SkazStorage.profileEditorsAvailable?.()===false?'<p class="notice" role="status">Режим восстановления: редакторы характеристик и класса временно отключены. Сохранённый профиль, игра и экспорт доступны.</p>':'';
  const warnings=SkazProfileRules.render(SkazProfileRules.warnings({stats,sheet}),false,{stats,sheet});
  const content=`${recoveryNotice}${warnings}<div class="hero-grid"><section>${lineage||state.profile.tagline ? `<div class="panel character"><div class="overline">${esc(lineage)}</div>${state.profile.tagline ? `<p>${esc(state.profile.tagline)}</p>` : ''}</div>` : ''}<div class="statrow"><div class="stat"><label>КЛАСС ДОСПЕХА</label><strong>${stats.armorClass}</strong></div><div class="stat"><label>ИНИЦИАТИВА</label><strong>${signed(stats.initiative)}</strong></div><div class="stat"><label>СКОРОСТЬ</label><strong>${stats.speed} <small style="font-size:11px">фт</small></strong></div></div></section></div><p class="small">${SkazStorage.manualStats?.()?"Ручные характеристики · КД, инициатива и скорость заданы итоговыми значениями":(sheet?"Статистики шаблона: настрой их под свой класс":"Характеристики шаблона барда 5 уровня")}</p><div class="spell-stats">${SkazCharacterSheet.spellTiles(stats,sheet)}</div><div class="abilities">${[['СИЛ','str'],['ЛОВ','dex'],['ТЕЛ','con'],['ИНТ','int'],['МДР','wis'],['ХАР','cha']].map(([title,id])=>`<div class="ability"><label>${title}</label><strong>${signed(Math.floor((stats.abilities[id]-10)/2))}</strong><small>${stats.abilities[id]}</small></div>`).join('')}</div><section class="panel hero-inventory"><div class="panel-title"><div><h2>Инвентарь</h2><p>${state.gold} зм · сохранённые предметы персонажа</p></div><button data-page="inventory">Открыть инвентарь <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></div><p class="small">Расходники и предметы с зарядами — в начале списка.</p></section><div class="two-col" style="margin-top:20px">${sheet?SkazCharacterSheet.view():`<section class="panel demo-example"><div class="panel-title"><h2>Под рукой</h2><span class="tag">Демо действий</span></div><div class="action-row"><div><strong>Рапира</strong><small>Действие · 1к8 + 2 колющего</small></div><button data-roll="rapier" ${SkazStorage.manualStats?.()?'disabled title="Демо-бросок не учитывает ручные характеристики"':''}>+5 <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></div><div class="action-row"><div><strong>Злая насмешка</strong><small>Заговор · Мудрость Сл 15 · 2к4</small></div><button data-spell="mockery">Читать</button></div><div class="action-row"><div><strong>Инвентарь</strong><small>Сохранённые предметы</small></div><button id="open-inventory">Открыть</button></div></section>`}<section class="panel session-card demo-example"><div class="panel-title"><h2>Нить приключения</h2><span class="tag accent">Демо сюжета</span></div><div class="overline" style="margin-top:24px">СВЕТ НА МЫСЕ</div><p class="quote">«Если маяк погас, значит, кто-то хотел, чтобы корабль не дошёл».</p><p>Мира, хозяйка трактира · Тихая гавань</p><button class="text-button" data-page="quests">Открыть задание <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button><button class="text-button" data-page="journal">${location.protocol==='file:'?(pending().length?pending().length+' события ждут подтверждения':'Все события разобраны'):'События текущей сессии'} <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></section></div>`;
- return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(sheet,stats),title:'Персонаж',actions,content:profileSections('hero')+content});
+ return {actor:SkazPlay.actorView(sheet,stats),title:'Персонаж',actions,content:profileSections('hero')+content,canAdvance,advanceLabel};
+}
+function updateHeroResources(screen){
+ if(!SkazStorage.canResource?.())return false;
+ const advance=screen.querySelector('#advance-class');
+ const view=heroView();
+ if(view.advanceLabel!==(advance?.textContent??null)||view.content!==mountedPreparation.content)return false;
+ if(advance)advance.disabled=!view.canAdvance;
+ if(SkazStorage.can('character')){
+  for(const button of screen.querySelectorAll('#edit-sheet,#edit-profile,#edit-stats,#edit-resources,#edit-sheet-resources')){
+   button.disabled=false;
+   button.removeAttribute('aria-disabled');
+   button.removeAttribute('title');
+  }
+ }
+ return true;
 }
 function pending(){return events.filter(e=>!state.accepted.includes(e.id)&&!state.dismissed.includes(e.id))}
-let mountedSpellActor;
+let mountedPreparation;
+function renderPreparation({title,content,actions,actor=SkazPlay.actorView()}){
+ mountedPreparation={page,context:SkazStorage.contextKey(),actor,content};
+ return SkazPlayPresentation.prepare({actor,title,content,actions});
+}
 const spellAddPending='Дождись сохранения ячеек и зарядов.';
 function spellAddAvailable(){return (SkazStorage.can?.('character')??true)||SkazStorage.canResource?.();}
 function spellsPage(){
@@ -73,17 +95,11 @@ function spellsPage(){
  const actions=spellAddAvailable()
   ?'<button id="book-add-spell" class="primary" '+(pending?'aria-disabled="true" title="'+spellAddPending+'"':'')+'>Добавить заклинание</button>'
   :'<button data-page="library">Открыть справочник</button>';
- mountedSpellActor=SkazPlay.actorView();
- return SkazPlayPresentation.prepare({actor:mountedSpellActor,title:'Персонаж',actions,content:profileSections('spells')+content});
+ return renderPreparation({title:'Персонаж',actions,content:profileSections('spells')+content});
 }
-function updateSpellsPage(main){
- const screen=main.querySelector('.workspace-prepare');
- const add=screen?.querySelector('#book-add-spell');
- if(!mountedSpellActor||!add||!spellAddAvailable()||!screen.querySelector('.personal-book'))return false;
- const actor=SkazPlay.actorView();
- if(mountedSpellActor.historyAvailable!==actor.historyAvailable||!SkazSpellbook.updateResources())return false;
- if(JSON.stringify(mountedSpellActor)!==JSON.stringify(actor))SkazPlayPresentation.refreshActor(screen,actor);
- mountedSpellActor=actor;
+function updateSpellbookResources(screen){
+ const add=screen.querySelector('#book-add-spell');
+ if(!add||!spellAddAvailable()||!screen.querySelector('.personal-book')||!SkazSpellbook.updateResources())return false;
  if(SkazStorage.can('character')){
   add.removeAttribute('aria-disabled');
   add.removeAttribute('title');
@@ -133,15 +149,29 @@ function mapPage(){
 }
 function demoMapPage(){return heading('ПОБЕРЕЖЬЕ ТУМАНОВ','Мир, который вы открыли','Карта знаний партии. Выбери место, чтобы увидеть зацепки.')+`<div class="map-layout"><div class="map"><svg viewBox="0 0 700 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="var(--line)" stroke-width=".5"/></pattern><pattern id="trees" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M15 5l-8 15h16z" fill="none" stroke="var(--wash)" opacity=".3"/></pattern></defs><rect width="700" height="600" fill="var(--panel)"/><rect width="700" height="600" fill="url(#grid)"/><path d="M-20 0H535Q480 60 520 115T470 220Q570 260 440 360T390 600H0Z" fill="var(--raised)" stroke="var(--wash)" stroke-width="2"/><path d="M540 0Q480 80 535 125T490 220Q590 260 460 375T415 600" fill="none" stroke="var(--line)" stroke-width="2"/><path d="M50 90Q180 40 300 130L320 310 100 370Z" fill="url(#trees)"/><path d="M270 400Q310 340 355 315T455 150" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 8"/><g fill="none" stroke="var(--wash)" opacity=".4"><path d="M40 490l35-60 35 60-12-10-23-37-24 39zM95 495l40-80 40 80M140 515l38-65 38 65"/><path d="M590 410h45m-30-15h45m-70 30h40M560 300h45m-10-15h35"/></g><text x="550" y="355" fill="var(--muted)" opacity=".5" font-family="Georgia" font-size="18" transform="rotate(-65 550 355)">МОРЕ ТУМАНОВ</text><g transform="translate(620 85)" fill="none" stroke="var(--accent)" opacity=".7"><path d="M0-25V25M-25 0H25M0-25l-5 10h10Z"/><circle r="18"/></g></svg><div class="map-caption">Северное побережье</div>${Object.entries(places).map(([id,p])=>`<button class="map-point ${place===id?'selected':''}" data-map-place="${id}" style="left:${p.x}%;top:${p.y}%">${id==='town'?'<span data-ui-icon="focus"></span>':'<span data-ui-icon="map"></span>'} ${p.title}</button>`).join('')}<div class="map-legend"><span data-ui-icon="focus"></span> Вы здесь &nbsp; <span data-ui-icon="map"></span> Известное место · Схематическая демо-карта</div></div><aside class="panel" id="place-details">${placeDetails()}</aside></div>`}
 function placeDetails(){let p=places[place];return `<div class="overline">${p.type}</div><h2>${p.title}</h2><span class="tag accent">${p.status}</span><p class="map-note" style="margin-top:23px">${p.text}</p>${place==='lighthouse'?'<button class="text-button" data-page="quests">Связано: Свет на мысе <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button>':''}<div class="map-notes">${state.mapNotes.filter(n=>n.place===place).map(n=>`<div class="notice">${esc(n.text)}</div>`).join('')}</div><button class="secondary" id="map-note" style="width:100%;margin-top:20px"><span class="ui-inline-icon" data-ui-icon="add"></span> Заметка о месте</button>`}
+const preparationResourceUpdates={
+ hero:updateHeroResources,
+ spells:updateSpellbookResources,
+ inventory:screen=>SkazStorage.updateInventoryResources(screen.querySelector('#inventory-page')),
+ library:screen=>SkazCatalog.updateResources(screen.querySelector('.catalog')),
+};
+function updatePreparationResources(main){
+ const screen=main.querySelector('.workspace-prepare');
+ if(!screen||mountedPreparation?.page!==page||mountedPreparation.context!==SkazStorage.contextKey())return false;
+ const actor=SkazPlay.actorView();
+ if(mountedPreparation.actor.historyAvailable!==actor.historyAvailable||!preparationResourceUpdates[page](screen))return false;
+ if(JSON.stringify(mountedPreparation.actor)!==JSON.stringify(actor))SkazPlayPresentation.refreshActor(screen,actor);
+ mountedPreparation.actor=actor;
+ return true;
+}
 function library(){
- return SkazPlayPresentation.prepare({
-  actor:SkazPlay.actorView(),
+ return renderPreparation({
   title:'Справочник',
   content:SkazCatalog.view({showTitle:false}),
  });
 }
 function inventoryPage(){
- return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Инвентарь',content:'<section id="inventory-page" tabindex="-1" aria-label="Сохранённые предметы"><p role="status">Загружаем предметы…</p></section>'});
+ return renderPreparation({title:'Инвентарь',content:'<section id="inventory-page" tabindex="-1" aria-label="Сохранённые предметы"><p role="status">Загружаем предметы…</p></section>'});
 }
 function concentrationQuestion(){
   const checks=state.concentrationChecks;
@@ -270,10 +300,11 @@ function render(change){
  if(page==='play') SkazPlay.captureFocus();
  const updateResources=change==='resources'&&SkazStorage.readyToDisplay?.()!==false;
  const updatePlayResources=updateResources&&page==='play';
- const updateSpellResources=updateResources&&page==='spells'&&location.protocol!=='file:';
+ const updatePreparedResources=updateResources&&location.protocol!=='file:'&&Object.hasOwn(preparationResourceUpdates,page);
+ let retainedPreparation=false;
  const resourceFocus=updateResources?quickResourceFocus():null;
  const resourceScroll=updateResources?{top:quick.scrollTop,left:quick.scrollLeft}:null;
- if(!updatePlayResources&&!updateSpellResources&&quick.parentElement!==home) home.append(quick);
+ if(!updatePlayResources&&!updatePreparedResources&&quick.parentElement!==home) home.append(quick);
  quick.hidden=page==='map'||page==='play'&&SkazPlay.summonActive();
  document.body.dataset.page=page;
  const workspacePage=['play','hero','inventory','library','campaign'].includes(page)||
@@ -317,7 +348,7 @@ function render(change){
  $('#workspace-campaign-settings').hidden=location.protocol==='file:'||SkazStorage.can?.('select')!==true;
  $('#campaign-name').textContent=state.profile.campaign;
  const quickMarkup=quick.hidden?'':quickPanel();
- if((updatePlayResources||updateSpellResources)&&quick.firstElementChild)paintQuickPanel(quick,quickMarkup);
+ if((updatePlayResources||updatePreparedResources)&&quick.firstElementChild)paintQuickPanel(quick,quickMarkup);
  else {
   quick.innerHTML=quickMarkup;
   for(const part of quick.children||[])quickPartMarkup.set(part,part.outerHTML);
@@ -332,8 +363,12 @@ function render(change){
    if(quick.parentElement!==home) home.append(quick);
    main.innerHTML=SkazPlay.view(updatePlayResources);
   }
- }else if(!updateSpellResources||!updateSpellsPage(main)){
-  main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage}[page]||hero)();
+ }else{
+  retainedPreparation=updatePreparedResources&&updatePreparationResources(main);
+  if(!retainedPreparation){
+   if(quick.parentElement!==home) home.append(quick);
+   main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage}[page]||hero)();
+  }
  }
  const resourceSlot=$('#play-quick-slot');
  if(resourceSlot&&quick.parentElement!==resourceSlot)resourceSlot.append(quick);
@@ -361,7 +396,7 @@ function render(change){
  }
  restoreQuickResourceFocus(quick,resourceFocus);
  if(page==='play') SkazPlay.restoreFocus();
- if(page==='inventory') void SkazStorage.inventory({preserveDialog:true});
+ if(page==='inventory'&&!retainedPreparation) void SkazStorage.inventory({preserveDialog:true});
 }
 function go(p, campaignSection=null){
  if(!['hero','spells','journal','quests','map','library','inventory','play','campaign'].includes(p) ||

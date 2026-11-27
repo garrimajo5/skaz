@@ -1564,3 +1564,52 @@ test('network and empty successful responses are readable while explicit server 
   assert.match(html,kind==='network'?/Не удалось связаться/:kind==='empty'?/Не удалось прочитать/:/Synthetic conflict detail/);
  }
 });
+
+test('a resource update retains same inventory markup, binds the confirmed revision and clears denied access',async()=>{
+ let current=payload(0),finish;
+ let entries=[{catalogId:'potion',quantity:2,entry:{kind:'item',name:{ru:'Зелье',en:'Potion'},item:{type:'potion'}}}];
+ const fetch=async(url)=>{
+  if(url==='/api/workspace')return response(current);
+  if(url==='/api/inventory')return response({...current,entries:structuredClone(entries),undo:null});
+  if(url==='/api/resources/change')return new Promise(resolve=>{finish=resolve;});
+  throw Error(url);
+ };
+ const h=harness(memory(),memory(),fetch,undefined,undefined,true);
+ await h.api.boot();
+ h.setPage('inventory');
+ const root=h.get('inventory-page');
+ root.querySelector=()=>null;
+ root.querySelectorAll=()=>[];
+ await h.api.inventory({preserveDialog:true});
+ root.innerHTML+='<!-- art already mounted -->';
+ const mounted=root.innerHTML;
+ const oldSearch=h.get('#inventory-search').onsubmit;
+ h.api.resourceDelta({kind:'slot',level:1},-1,h.api.snapshotKey());
+ assert.equal(h.api.updateInventoryResources(root),true);
+ assert.equal(root.innerHTML,mounted);
+
+ const state=structuredClone(current.state);
+ state.slots[1]--;
+ current={...payload(1),state};
+ finish(response(current));
+ await tick();
+ assert.equal(h.api.updateInventoryResources(root),true);
+ await tick();
+ assert.equal(root.innerHTML,mounted);
+ assert.notEqual(h.get('#inventory-search').onsubmit,oldSearch);
+
+ entries=[{...entries[0],quantity:1}];
+ assert.equal(h.api.updateInventoryResources(root),true);
+ await tick();
+ assert.match(root.innerHTML,/× 1/);
+ assert.doesNotMatch(root.innerHTML,/art already mounted/);
+ assert.equal(h.api.updateInventoryResources({}),false);
+
+ h.api.resourceDelta({kind:'slot',level:1},-1,h.api.snapshotKey());
+ finish({ok:false,status:403,json:async()=>({error:'Доступ отозван'})});
+ await tick();
+ assert.equal(h.api.updateInventoryResources(root),false);
+ await h.api.inventory({preserveDialog:true});
+ assert.doesNotMatch(root.innerHTML,/Зелье/);
+ assert.match(root.innerHTML,/Инвентарь доступен после подключения/);
+});
