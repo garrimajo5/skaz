@@ -1324,6 +1324,9 @@ test('Quick Access resource snapshot retains both loaded lists and clears them o
  await h.api.boot();
  assert.equal(h.api.queuedSpellbook().entries[0].catalogId,'light');
  assert.equal(h.api.playResourceLists(),null);
+ assert.equal(h.api.playResourceLists({items:false}).book[0].catalogId,'light');
+ assert.equal(h.api.playResourceLists({items:false}).items,null);
+ assert.equal(h.api.playResourceLists({book:false}),null);
  await h.api.inventoryData();
  h.api.resourceDelta({kind:'slot',level:1},-1,h.api.snapshotKey());
  const projected=h.api.playResourceLists();
@@ -1333,6 +1336,7 @@ test('Quick Access resource snapshot retains both loaded lists and clears them o
  finish({ok:false,status:403,json:async()=>({error:'Доступ отозван'})});
  await tick();
  assert.equal(h.api.playResourceLists(),null);
+ assert.equal(h.api.playResourceLists({items:false}),null);
  assert.equal(h.api.queuedSpellbook(),null);
 });
 

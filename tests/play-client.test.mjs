@@ -11,7 +11,7 @@ const source=await readFile(new URL('../client/play.js',import.meta.url),'utf8')
 function harness({spellLearning=null,questRequest=null,dialog=null,environment={}}={}){const elements=new Map(dialog?[['dialog',dialog]]:[]),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','scopes'].map(kind=>({dataset:{playList:kind},scrollTop:0,scrollLeft:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true,querySelector:()=>null,focus(){},setAttribute(name,value){this[name]=value;}});return elements.get(id);};
  const context=vm.createContext({...environment,structuredClone,CSS:{escape:String},crypto:{randomUUID:()=> 'test-manual-cast'},page:'play',location:{protocol:'http:'},state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,maxHp:38,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
  document:{body:{closest:()=>null},getElementById:get,querySelectorAll:selector=>selector==='[data-play-list]'?lists:[],addEventListener:(event,fn)=>handlers[event]=fn},modal:value=>{html=value;get('dialog').open=true;},closeModal:()=>get('dialog').open=false,toast(){},go:value=>context.page=value,
- SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise((resolve,reject)=>requests.push({kind:'book',resolve,reject})),questsData:questRequest,inventoryData:()=>new Promise((resolve,reject)=>requests.push({kind:'items',resolve,reject})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:url=>new Promise(resolve=>requests.push({kind:'search',url,resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(itemChargesSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,document:context.document,setSession:(active,title)=>{context.SkazStorage.currentSession=()=>active;context.SkazStorage.sessionTitle=()=>title;},setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,position)=>{const list=lists[index];list[list.dataset.playList==='scopes'?'scrollLeft':'scrollTop']=position;handlers.scroll({target:list});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,selectCast:(id,value)=>handlers.change({target:{dataset:{playCastSelect:id},value}}),click:(id,dataset={},button={id,dataset})=>handlers.click({target:{closest:()=>button}})};
+ SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise((resolve,reject)=>requests.push({kind:'book',resolve,reject})),questsData:questRequest,inventoryData:()=>new Promise((resolve,reject)=>requests.push({kind:'items',resolve,reject})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:url=>new Promise(resolve=>requests.push({kind:'search',url,resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(itemChargesSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,document:context.document,setResourceLists:lists=>{context.SkazStorage.playResourceLists=()=>lists;},setSession:(active,title)=>{context.SkazStorage.currentSession=()=>active;context.SkazStorage.sessionTitle=()=>title;},setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,position)=>{const list=lists[index];list[list.dataset.playList==='scopes'?'scrollLeft':'scrollTop']=position;handlers.scroll({target:list});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,selectCast:(id,value)=>handlers.change({target:{dataset:{playCastSelect:id},value}}),click:(id,dataset={},button={id,dataset})=>handlers.click({target:{closest:()=>button}})};
 }
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 test('play art keeps spell circle, stable action IDs and item quantity independent of image loading',async()=>{
@@ -168,6 +168,56 @@ test('the working book or inventory remains available and retries only the faile
   assert.match(root.innerHTML,/data-play-spend="potion"/);
   assert.match(root.innerHTML,/Available spell/);
   assert.doesNotMatch(root.innerHTML,/play-retry|Повторяем загрузку/);
+ }
+});
+
+test('resource updates keep a completed partial error and restart only a pending peer read',async()=>{
+ for(const missing of ['book','items']){
+  const h=harness(),root=h.get('play-content');
+  const potion={catalogId:'potion',quantity:2,entry:{name:{ru:'Potion'},item:{type:'potion'}}};
+  const lists={book:[spell('Prepared spell')],items:[potion],status:'ready'};
+  const partial=missing==='book'?/Расходники и заряды/:/Prepared spell/;
+  const main={querySelector:()=>({querySelector:()=>null})};
+  root.querySelectorAll=()=>[];
+  h.document.createElement=()=>({content:{querySelectorAll:()=>[],querySelector:()=>null}});
+  h.setResourceLists(lists);
+  h.api.view();
+  await tick();
+  for(const read of h.requests){
+   if(read.kind===missing)read.reject(Object.assign(Error('unavailable'),{status:503}));
+   else read.resolve({entries:lists[read.kind]});
+  }
+  await tick();
+  const rendered=root.innerHTML;
+  assert.match(rendered,partial);
+  assert.match(rendered,/id="play-retry"/);
+
+  h.context('optimistic-resource','hero-a');
+  assert.equal(h.api.updateResources(main),true);
+  assert.equal(root.innerHTML,rendered);
+  assert.equal(h.requests.length,2);
+
+  await h.click('play-retry');
+  const obsolete=h.requests.at(-1);
+  assert.equal(obsolete.kind,missing);
+  const waiting=root.innerHTML;
+  h.context('changing-resource','hero-a');
+  assert.equal(h.api.updateResources(main),true);
+  assert.equal(h.requests.length,3);
+  h.context('confirmed-resource','hero-a');
+  assert.equal(h.api.updateResources(main,true),true);
+  assert.equal(root.innerHTML,waiting);
+  assert.equal(h.requests.length,4);
+  const current=h.requests.at(-1);
+  assert.equal(current.kind,missing);
+  obsolete.reject(Object.assign(Error('previous revision'),{status:409}));
+  await tick();
+  assert.equal(root.innerHTML,waiting);
+  current.reject(Object.assign(Error('access revoked for this snapshot'),{status:403}));
+  await tick();
+  assert.match(root.innerHTML,/Игровые списки недоступны/);
+  assert.doesNotMatch(root.innerHTML,/data-play-read/);
+  assert.equal(h.api.updateResources(main),false);
  }
 });
 

@@ -124,7 +124,7 @@ const SkazStorage = (() => {
       }
       status='ready';
     }catch(error){status=[401,403,404].includes(error.status)?'denied':error.status===409?'resource-conflict':'resource-pending';resourceFailure=(error.message||'Нет связи с сервером.')+(!error.status&&resourceQueue?.length?' Очередь сохранена в браузере. Можно повторить отправку.':'');}
-    finally{resourceSending=false;render('resources');}
+    finally{resourceSending=false;render('resources',{resourceSettled:true});}
   }
   async function reviewResourceQueue(){
     if(resourceSending||pending||!resourceQueue?.length)return;
@@ -855,11 +855,13 @@ const SkazStorage = (() => {
   function resourceSpellbook(snapshot){
     return snapshot.spellbook.map(({alwaysPrepared,...entry})=>alwaysPreparedIds.has(entry.catalogId)?{...entry,alwaysPrepared:true}:entry);
   }
-  function playResourceLists(){
-    if(!canResource()||resourceQueue.data?.baseline?.revision!==revision)return null;
+  /** @param {{book?: boolean, items?: boolean}} [required] */
+  function playResourceLists({book=true,items=true}={}){
+    if((!book&&!items)||!canResource()||resourceQueue.data?.baseline?.revision!==revision)return null;
     const snapshot=resourceQueue.snapshot;
-    if(!snapshot||JSON.stringify(snapshot.context)!==contextKey()||!Array.isArray(snapshot.spellbook)||!Array.isArray(snapshot.inventory))return null;
-    return {book:resourceSpellbook(snapshot),items:snapshot.inventory,status};
+    if(!snapshot||JSON.stringify(snapshot.context)!==contextKey())return null;
+    if((book&&!Array.isArray(snapshot.spellbook))||(items&&!Array.isArray(snapshot.inventory)))return null;
+    return {book:book?resourceSpellbook(snapshot):null,items:items?snapshot.inventory:null,status};
   }
   function queuedSpellbook(){
     const snapshot=canResource()&&resourceQueue.data?.baseline?.revision===revision?resourceQueue.snapshot:null;
