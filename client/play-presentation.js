@@ -131,8 +131,38 @@ const SkazPlayPresentation = (() => {
     const next = template.content.firstElementChild;
     if (!next) return;
     SkazIcons.mount(next);
-    if (!band.isEqualNode(next)) band.replaceWith(next);
+    if (band.isEqualNode(next)) return;
+    const parts = Array.from(band.children), drafts = Array.from(next.children);
+    if (!parts.length || parts.length !== drafts.length ||
+        parts.some((part, index) => part.className !== drafts[index].className)) {
+      band.replaceWith(next);
+      return;
+    }
+    parts.forEach((part, index) => {
+      const draft = drafts[index];
+      if (part.isEqualNode(draft)) return;
+      if (part.classList.contains('play-hp-summary') && patchHealth(part, draft)) return;
+      part.replaceWith(draft);
+    });
   }
+
+  /** @param {Element} current @param {Element} draft */
+  function patchHealth(current, draft) {
+    const [label, amount, bar, temporary] = current.children;
+    const [nextLabel, nextAmount, nextBar, nextTemporary] = draft.children;
+    if (!label?.isEqualNode(nextLabel) || amount?.tagName !== 'STRONG' || nextAmount?.tagName !== 'STRONG' ||
+        bar?.tagName !== 'PROGRESS' || nextBar?.tagName !== 'PROGRESS') return false;
+    if (!amount.isEqualNode(nextAmount)) amount.replaceChildren(...Array.from(nextAmount.childNodes));
+    for (const attribute of ['value', 'max']) {
+      const desired = nextBar.getAttribute(attribute);
+      if (desired !== null && bar.getAttribute(attribute) !== desired) bar.setAttribute(attribute, desired);
+    }
+    if (!nextTemporary) temporary?.remove();
+    else if (!temporary) current.append(nextTemporary);
+    else if (temporary.textContent !== nextTemporary.textContent) temporary.textContent = nextTemporary.textContent;
+    return true;
+  }
+
   /** @param {WorkspaceActor} view */
   function actorBand(view) {
     const {character, initial} = identityCopy(view);
