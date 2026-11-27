@@ -22,7 +22,7 @@
 
 | Направление | Состояние и адресный вход |
 | --- | --- |
-| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). На VPS `ddbed93`. Выбор круга сохраняет карточки, иконки и фокус. [Кадры](design/qa/cast-circle-focus-252.md) · [Сверка владельцем](design/qa/figma-owner-review-252.md). Linux 2247/2247. Следом сохранение фильтров при смене списка, доступный Pixel_8 и [Xiaomi Pad 6](https://github.com/garrimajo5/skaz/issues/15). |
+| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). На VPS `91050e1`. В «Быстром доступе» сохраняются готовые карточки при сохранении ячейки, выборе круга и смене группы. [Кадры фильтра](design/qa/action-scope-252.md) · [Сверка владельцем](design/qa/figma-owner-review-252.md). Linux 2248/2248. Следом сохранение панели неизменной заметки при записи ячейки, доступный Pixel_8 и [Xiaomi Pad 6](https://github.com/garrimajo5/skaz/issues/15). |
 | M0 / #77: источники и полнота | [Решения об источниках](catalog-source-decisions-2014.md), [D05-триаж](d05-current-publication-triage-2014.md). [D01: допуск к AL](extra-life-publication-witnesses-2014.md#допуск-в-adventurers-league) разделяет условия v14.0 и заявления издателя для Grung, Locathah и двух Tortle. Следом сверить полный текст версий и разрешения. |
 | #77 / D01 | [Категории D&D Beyond](extra-life-publication-witnesses-2014.md#классификация-в-текущем-dd-beyond). Подтверждены четыре карточки и их категории. Официальный статус правил Grung и точные публикации AL требуют отдельных первичных свидетельств. |
 | M0 / #77 / классовые единицы | [13-class пакет](class-unit-residual-review-2014.md):913observations/8roles,4source-version families/28ID;31discovery сохраняет3sidekicks отдельно от13main. [Primary TOC](class-multisource-toc-2014.md):8family+3sidekick links, не full rules/rights/denominator. Eloquencebody — scoped hold; следующий content: оставшиеся D06unit/variant/reference границы, не arbitrary high-level audit. |
@@ -45,7 +45,7 @@
 
 ## Фактический выпуск
 
-Действует `ddbed93`, формат v15. Совместимый откат — `260c22c`. Проверки, флаги и порядок отката описаны в [deployment](deployment.md).
+Действует `91050e1`, формат v15. Совместимый откат — `ddbed93`. Проверки, флаги и порядок отката описаны в [deployment](deployment.md).
 
 ## Как поддерживать этот файл
 
