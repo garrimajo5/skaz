@@ -69,6 +69,19 @@ const SkazSpellbook = (() => {
   document.addEventListener('change',rememberSearch);
   document.addEventListener('submit',event=>{if(event.target.id!=='personal-spell-search')return;event.preventDefault();if(key!==SkazStorage.snapshotKey())return;query=event.target.elements.q.value.trim();scope=event.target.elements.scope.value;level=event.target.elements.level.value;ritual=event.target.elements.ritual?.value||'';concentration=event.target.elements.concentration?.value||'';draft={q:query,scope,level,ritual,concentration};offset=0;refresh();});
   document.addEventListener('click',event=>{const b=event.target.closest('button');if(!b)return;if(b.id==='personal-spell-retry')return load(true);if(key!==SkazStorage.snapshotKey())return;
+    if(b.id==='book-add-spell'){
+      const owner=SkazStorage.contextKey();
+      if(!(SkazStorage.can?.('character')??true))return;
+      SkazPlay.findSpell(entry=>{
+        const item=data.find(value=>value.catalogId===entry.id);
+        SkazStorage.editSpell(entry,item?.status??null,()=>{
+          if(SkazStorage.contextKey()===owner&&document.activeElement===document.body){
+            document.getElementById('book-add-spell')?.focus({preventScroll:true});
+          }
+        });
+      });
+      return;
+    }
     if(['prepared','known','all'].includes(b.dataset.bookScope)){scope=b.dataset.bookScope;draft.scope=scope;offset=0;refreshFilters();return;}
     if(b.id==='personal-spell-reset'){query='';scope=knownCaster()?'known':'prepared';level='';ritual='';concentration='';draft={q:'',scope,level:'',ritual:'',concentration:''};offset=0;refreshFilters();}
     if(b.id==='personal-spell-prev'){offset=Math.max(0,offset-limit);refresh();}

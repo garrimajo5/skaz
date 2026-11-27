@@ -10,7 +10,7 @@
  * @property {number} hp
  * @property {number} maxHp
  * @property {number | undefined} tempHp
- * @property {number} armorClass
+ * @property {number|null} armorClass
  * @property {string | null | undefined} concentration
  * @property {string[]} conditions
  * @property {number | undefined} gold
@@ -18,7 +18,8 @@
  */
 
 /**
- * @typedef {WorkspaceActor & {initiative:number, speed:number, checks:string, magicStats:string, content:string}} QuickAccessScreen
+ * @typedef {{round:number,summonCount:number,summon:{id:string,name:string,hp:number,maxHp:number}|null}} PlayBattleView
+ * @typedef {WorkspaceActor & {initiative:number, speed:number, checks:string, magicStats:string, content:string, battle?:PlayBattleView}} QuickAccessScreen
  */
 
 /**
@@ -28,6 +29,7 @@
  * @property {string} [titleId] Focus target when a page is mounted in place.
  * @property {string} [actions] Trusted markup from the current page renderer.
  * @property {string} content Trusted markup from the current page renderer.
+ * @property {boolean} [mapOnly] Maps have no character strip or combat panel.
  */
 
 const SkazPlayPresentation = (() => {
@@ -136,7 +138,7 @@ const SkazPlayPresentation = (() => {
           <div><small class="play-active-hero-label" aria-hidden="true">Активный персонаж</small><strong>${escape(view.heroName)}</strong><small>${escape(character)}${view.subclass?`<span class="play-hero-subclass"> · ${escape(view.subclass)}</span>`:''}</small></div>
         </div>
         <div class="play-hp-summary"><small>Хиты</small><strong>${escape(view.hp)}<span> / ${escape(view.maxHp)}</span></strong><progress value="${escape(view.hp)}" max="${escape(view.maxHp)}" aria-hidden="true"></progress>${view.tempHp ? `<small>+${escape(view.tempHp)} временных</small>` : ''}</div>
-        <div class="play-armor-summary"><small>КД</small><strong>${escape(view.armorClass)}</strong></div>
+        <div class="play-armor-summary"><small>КД</small><strong>${escape(view.armorClass??'—')}</strong></div>
         <div class="play-effects"><small>Состояния и эффекты</small>
           <div>${effects.join('') || '<span>Без отмеченных эффектов</span>'}</div>
         </div>
@@ -172,12 +174,12 @@ const SkazPlayPresentation = (() => {
 
   /** @param {PreparationScreen} view */
   function prepare(view) {
-    return `<section class="play-screen workspace-prepare">
+    return `<section class="play-screen workspace-prepare${view.mapOnly?' workspace-map':''}">
       ${heading(view.title, view.actor.session, view.actions, view.titleId)}
-      ${actorBand(view.actor)}
+      ${view.mapOnly?'':actorBand(view.actor)}
       <div class="play-layout">
         <div class="workspace-content">${view.content}</div>
-        ${resources(view.actor.historyAvailable)}
+        ${view.mapOnly?'':resources(view.actor.historyAvailable)}
       </div>
     </section>`;
   }
@@ -185,20 +187,30 @@ const SkazPlayPresentation = (() => {
   /** @param {QuickAccessScreen} view */
   function screen(view) {
     const initiative = `${view.initiative >= 0 ? '+' : ''}${view.initiative}`;
+    const {round=0,summonCount=0,summon=null}=view.battle||{};
+    const actor=summon?{...view,heroName:summon.name,className:'Призыв',subclass:'',level:null,hp:summon.hp,maxHp:summon.maxHp,
+      armorClass:null,tempHp:undefined,conditions:[],concentration:null,gold:undefined}:view;
+    const battleButton=`<button id="play-battle-toggle" aria-pressed="${round>0}">${round?'Завершить бой':'Начать бой'}</button>`;
+    const roundButton=round?`<button id="play-next-round" aria-label="Следующий раунд. Текущий раунд ${round}">Раунд ${round} →</button>`:'';
+    const switcher=`<div class="play-actor-tools" aria-label="Участники">
+      ${summonCount?'<button id="play-actor-prev" aria-label="Предыдущий участник"><span data-ui-icon="arrow-left" aria-hidden="true"></span></button>':''}
+      <button id="play-summons">${summonCount?'Призывы · '+summonCount:'Призывы'}</button>
+      ${summonCount?'<button id="play-actor-next" aria-label="Следующий участник"><span data-ui-icon="arrow-right" aria-hidden="true"></span></button>':''}
+    </div>`;
     return `<section class="play-screen" aria-label="Игровой экран">
-      ${heading('Быстрый доступ', view.session, `<button id="play-edit"><span data-ui-icon="profile" aria-hidden="true"></span> Лист <span class="play-edit-detail">персонажа</span></button><button id="play-search">Поиск правил</button>`)}
-      ${actorBand(view)}
+      ${heading('Быстрый доступ',view.session,battleButton+'<button id="play-edit"><span data-ui-icon="profile" aria-hidden="true"></span> Лист <span class="play-edit-detail">персонажа</span></button><button id="play-search">Поиск правил</button>')}
+      <div class="play-actor-carousel">${actorBand(actor)}${switcher}${roundButton}</div>
       <div class="play-layout">
         <div class="play-actions">
           <p class="play-section-caption" aria-hidden="true">Командная панель</p>
-          <h2>Быстрые действия</h2>
-          <div id="play-content" tabindex="-1" aria-live="polite">${view.content}</div>
-          <details class="play-character-checks">
+          <h2>${summon?'Призванное существо':'Быстрые действия'}</h2>
+          <div id="play-content" tabindex="-1" aria-live="polite">${summon?'<p>Хиты призыва ведутся вручную. Действия и ресурсы героя доступны после возврата к нему.</p><button class="primary" id="play-edit-summon">Изменить хиты призыва</button>':view.content}</div>
+          <details class="play-character-checks" ${summon?'hidden':''}>
             <summary>Характеристики и проверки</summary>
             <div class="play-stats"><span>Инициатива ${escape(initiative)}</span><span>Скорость ${escape(view.speed)} фт</span><div class="play-spell-stats">${view.magicStats}</div>${view.checks}</div>
           </details>
         </div>
-        ${resources(view.historyAvailable, true)}
+        ${summon?'<aside class="play-resources"><h2>Хиты призыва</h2><p>'+escape(summon.hp)+' / '+escape(summon.maxHp)+'</p></aside>':resources(view.historyAvailable, true)}
       </div>
     </section>`;
   }

@@ -161,7 +161,7 @@ test('the Magic deep link renders the character workspace and saved spellbook',(
  assert.match(html,/&lt;Мирен&gt;/);
  assert.match(html,/Ворота прилива/);
  assert.equal((html.match(/id="play-quick-slot"/g)||[]).length,1);
- assert.match(html,/class="play-heading">[\s\S]*?<\/h1>\s*<\/div>\s*<button data-page="library"[^>]*>Добавить из справочника/);
+ assert.match(html,/class="play-heading">[\s\S]*?<\/h1>\s*<\/div>\s*<button id="book-add-spell"[^>]*>Добавить заклинание/);
  assert.match(html,/id="personal-spell-results"/);
  assert.match(html,/Демонстрационные заклинания/);
  assert.equal(h.writes.length,0);
