@@ -448,7 +448,7 @@ function render(change,{resourceSettled=false}={}){
  restoreQuickResourceFocus(quick,resourceFocus);
  if(page==='play') SkazPlay.restoreFocus();
  if(page==='inventory'&&!retainedPreparation) void SkazStorage.inventory({preserveDialog:true});
- scheduleNarrativeNotice();
+ scheduleWorkspaceNotice();
 }
 function go(p, campaignSection=null){
  if(!['hero','spells','journal','quests','map','library','inventory','play','campaign'].includes(p) ||
@@ -561,16 +561,16 @@ function restoreHealthDialogFocus() {
  if (replacement && !replacement.disabled) replacement.focus({preventScroll: true});
 }
 function closeModal(){if(typeof SkazCampaign==='undefined'||SkazCampaign.allowClose())$('#dialog').close()}
-let narrativeNoticeFrame=0;
-function narrativeNoticeVisible(){
- return (page==='journal'||page==='quests') &&
+let workspaceNoticeFrame=0;
+function workspaceNoticeVisible(){
+ return (page==='journal'||page==='quests'||page==='spells') &&
   $('#toast')?.matches?.('.show[data-kind="success"]:not(:has(> span[tabindex]))');
 }
-function positionNarrativeNotice(){
+function positionWorkspaceNotice(){
  const message=$('#toast');
- message.style.removeProperty('--narrative-notice-shift');
- message.classList.remove('narrative-notice-compact');
- if(!narrativeNoticeVisible()||$('.concentration-question'))return;
+ message.style.removeProperty('--workspace-notice-shift');
+ message.classList.remove('workspace-notice-compact');
+ if(!workspaceNoticeVisible()||$('.concentration-question'))return;
  const viewport=window.visualViewport,start=viewport?.offsetTop??0;
  const end=start+(viewport?.height??window.innerHeight);
  const header=$('.shell > header')?.getBoundingClientRect();
@@ -579,23 +579,26 @@ function positionNarrativeNotice(){
  const dock=bar&&getComputedStyle(bar).getPropertyValue('--pult-side').trim()!=='1'?bar.getBoundingClientRect():null;
  const top=Math.max(start,header?.bottom??start);
  const bottom=Math.min(end,dock?.height?dock.top:end,nav?.height?nav.top:end);
- const controls=$$('#personal-quest-search, .events-filter, #create-personal-quest, #new-proposal, .workspace-narrative-actions button')
+ const selectors=page==='spells'
+  ? '.book-filters > summary, #book-add-spell, #personal-spell-search :is(input, select, button)'
+  : '#personal-quest-search, .events-filter, #create-personal-quest, #new-proposal, .workspace-narrative-actions button';
+ const controls=$$(selectors)
   .map(control=>control.getBoundingClientRect()).filter(rect=>rect.width&&rect.bottom>top&&rect.top<bottom);
  const left=viewport?.offsetLeft??0,right=left+(viewport?.width??window.innerWidth);
  const offset=()=>SkazUI.noticeClearance(message.getBoundingClientRect(),{left,right,top,bottom},controls);
  let shift=offset();
  if(shift===undefined){
-  message.classList.add('narrative-notice-compact');
+  message.classList.add('workspace-notice-compact');
   shift=offset();
-  if(shift===undefined)message.classList.remove('narrative-notice-compact');
+  if(shift===undefined)message.classList.remove('workspace-notice-compact');
  }
- if(shift?.some(Boolean))message.style.setProperty('--narrative-notice-shift',shift.map(value=>value+'px').join(' '));
+ if(shift?.some(Boolean))message.style.setProperty('--workspace-notice-shift',shift.map(value=>value+'px').join(' '));
 }
-function scheduleNarrativeNotice(){
- if(narrativeNoticeFrame||!narrativeNoticeVisible())return;
- narrativeNoticeFrame=requestAnimationFrame(()=>{
-  narrativeNoticeFrame=0;
-  positionNarrativeNotice();
+function scheduleWorkspaceNotice(){
+ if(workspaceNoticeFrame||!workspaceNoticeVisible())return;
+ workspaceNoticeFrame=requestAnimationFrame(()=>{
+  workspaceNoticeFrame=0;
+  positionWorkspaceNotice();
  });
 }
 let toastTimer,toastVersion=0,returnToastFocus;
@@ -614,8 +617,8 @@ function toast(text,undo,{error=false,persistent=false}={}){
  const hide=()=>{
   returnToastFocus();
   returnToastFocus=null;
-  notification.classList.remove('show','narrative-notice-compact');
-  notification.style?.removeProperty('--narrative-notice-shift');
+  notification.classList.remove('show','workspace-notice-compact');
+  notification.style?.removeProperty('--workspace-notice-shift');
   if(page==='campaign')SkazCampaign.scheduleNotice();
  };
  let used=false;
@@ -623,7 +626,7 @@ function toast(text,undo,{error=false,persistent=false}={}){
  notification.innerHTML=`<span${persistent?' tabindex="0"':''}>${esc(text)}</span>${undo?'<button id="undo">Отменить</button>':''}`;
  notification.classList.add('show');
  if(page==='campaign')SkazCampaign.scheduleNotice();
- else if(narrativeNoticeVisible())positionNarrativeNotice();
+ else if(workspaceNoticeVisible())positionWorkspaceNotice();
  if(undo){
   const action=$('#undo');
   action.onclick=()=>{
@@ -797,6 +800,9 @@ $('#skip-to-content').addEventListener('click',()=>{
  content.focus({preventScroll:true});
  content.scrollIntoView({block:'start'});
 });
+document.addEventListener('toggle',event=>{
+ if(event.target.matches?.('.book-filters'))scheduleWorkspaceNotice();
+},true);
 window.addEventListener('hashchange',()=>go(location.hash.slice(1)));
 const initialPage=location.hash.slice(1);
 go(initialPage || (SkazPlay.mode()==='play' ? 'play' : 'hero'));
@@ -849,7 +855,7 @@ if(typeof ResizeObserver!=='undefined'){
   rootStyle.setProperty('--workspace-header-height', Math.max(toolbarHeight,titleHeight) + 'px');
   rootStyle.setProperty('--nav-height', navHeight + 'px');
   rootStyle.setProperty('--bottom-reserve', (bottomBarHeight + navHeight + 24) + 'px');
-  scheduleNarrativeNotice();
+  scheduleWorkspaceNotice();
  };
  const observer = new ResizeObserver(measure);
  for(const element of [bar, nav, header]) if(element) observer.observe(element,{box:'border-box'});
@@ -863,9 +869,9 @@ if(typeof ResizeObserver!=='undefined'){
  };
  if(main && typeof MutationObserver!=='undefined')new MutationObserver(observeHeading).observe(main,{childList:true});
  window.addEventListener('resize',measure);
- window.addEventListener('scroll',scheduleNarrativeNotice,{capture:true,passive:true});
- window.visualViewport?.addEventListener('resize',scheduleNarrativeNotice);
- window.visualViewport?.addEventListener('scroll',scheduleNarrativeNotice);
+ window.addEventListener('scroll',scheduleWorkspaceNotice,{capture:true,passive:true});
+ window.visualViewport?.addEventListener('resize',scheduleWorkspaceNotice);
+ window.visualViewport?.addEventListener('scroll',scheduleWorkspaceNotice);
  observeHeading();
  measure();
 }
