@@ -22,7 +22,7 @@
 
 | Направление | Состояние и адресный вход |
 | --- | --- |
-| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). На VPS `d93b284`. [Списание расходников](design/qa/quick-consumable-stability-252.md) сохраняет соседние действия и миниатюры. Linux 2264/2264. По уточнению владельца ближайший шаг — единая полоса героя на вкладках и приёмка на устройстве по [#15](https://github.com/garrimajo5/skaz/issues/15). |
+| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). На VPS `ae0388b`. [Общая полоса героя](design/qa/shared-actor-strip-252.md) проверена на вкладках, устойчивость расхода и фокуса подтверждена по видео. Linux 2265/2265. Следом проверить этот выпуск в обеих ориентациях на доступном устройстве по [#15](https://github.com/garrimajo5/skaz/issues/15) и провести итоговую сверку с владельцем. |
 | M0 / #77: источники и полнота | [Решения об источниках](catalog-source-decisions-2014.md), [D05-триаж](d05-current-publication-triage-2014.md). [D01: допуск к AL](extra-life-publication-witnesses-2014.md#допуск-в-adventurers-league) разделяет условия v14.0 и заявления издателя для Grung, Locathah и двух Tortle. Следом сверить полный текст версий и разрешения. |
 | #77 / D01 | [Категории D&D Beyond](extra-life-publication-witnesses-2014.md#классификация-в-текущем-dd-beyond). Подтверждены четыре карточки и их категории. Официальный статус правил Grung и точные публикации AL требуют отдельных первичных свидетельств. |
 | M0 / #77 / классовые единицы | [13-class пакет](class-unit-residual-review-2014.md):913observations/8roles,4source-version families/28ID;31discovery сохраняет3sidekicks отдельно от13main. [Primary TOC](class-multisource-toc-2014.md):8family+3sidekick links, не full rules/rights/denominator. Eloquencebody — scoped hold; следующий content: оставшиеся D06unit/variant/reference границы, не arbitrary high-level audit. |
@@ -45,7 +45,7 @@
 
 ## Фактический выпуск
 
-Действует `d93b284`, формат v15. Совместимый откат — `4b972a6`. Проверки, флаги и порядок отката описаны в [deployment](deployment.md).
+Действует `ae0388b`, формат v15. Совместимый откат — `d93b284`. Проверки, флаги и порядок отката описаны в [deployment](deployment.md).
 
 ## Как поддерживать этот файл
 
