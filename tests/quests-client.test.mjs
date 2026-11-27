@@ -4,11 +4,12 @@ import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
 const source = await readFile(new URL('../client/quests.js', import.meta.url), 'utf8');
 function harness() {
-  let key = 'first', editable = true; const handlers = {}, tasks = [], requests = [], edits = [], toggles = [], messages = [];
+  let key = 'first', editable = true, inFlight = false; const handlers = {}, tasks = [], requests = [], edits = [], toggles = [], messages = [];
   const region = { innerHTML: '', setAttribute() {}, focus() {} };
-  const context = vm.createContext({ queueMicrotask: fn => tasks.push(fn), toast: msg => messages.push(msg), document: { addEventListener: (name,fn) => handlers[name] = fn, getElementById: () => region, querySelector: () => region }, SkazStorage: { snapshotKey: () => key, contextKey: () => key.split(':')[0], editable: () => editable, questsData: () => new Promise((resolve,reject) => requests.push({ resolve,reject })), editQuest: p => edits.push(p), setQuestStep: (...args) => { toggles.push(args); editable = false; return Promise.reject(new Error('offline')); } } });
+  const context = vm.createContext({ queueMicrotask: fn => tasks.push(fn), toast: msg => messages.push(msg), document: { addEventListener: (name,fn) => handlers[name] = fn, getElementById: () => region, querySelector: () => region }, SkazStorage: { resourceWriteInFlight: () => inFlight, snapshotKey: () => key, contextKey: () => key.split(':')[0], editable: () => editable, questsData: () => new Promise((resolve,reject) => requests.push({ resolve,reject })), editQuest: p => edits.push(p), setQuestStep: (...args) => { toggles.push(args); editable = false; return Promise.reject(new Error('offline')); } } });
   vm.runInContext(source, context);
-  return { region, tasks, requests, edits, toggles, messages, view: () => vm.runInContext('SkazQuests.view()',context), setKey: value => key = value,
+  return { region, tasks, requests, edits, toggles, messages, view: () => vm.runInContext('SkazQuests.view()',context), setKey: value => key = value, inFlight: value => inFlight = value,
+    update: settled => vm.runInContext('SkazQuests.updateResources({querySelector:()=>true,querySelectorAll:()=>[]},'+settled+')',context),
     click: (id, dataset = {}) => handlers.click({ target: { closest: () => ({ id, dataset }) } }),
     search: (q, status = 'all') => handlers.submit({ target: { id: 'personal-quest-search', elements: { q: { value: q }, status: { value: status } } }, preventDefault() {} }),
     change: input => handlers.change({ target: input }) };
@@ -61,4 +62,22 @@ test('long quest notes expose an escaped full description without requiring edit
  const h=harness(),long='Known lead '.repeat(50)+'<script>attack()</script> hidden-tail';h.view();h.tasks.shift()();h.requests[0].resolve({quests:[{...quest(),description:long}]});await settle();
  assert.match(h.region.innerHTML,/<details class="quest-description-full"><summary>Полное описание/);assert.match(h.region.innerHTML,/&lt;script&gt;/);assert.doesNotMatch(h.region.innerHTML,/<script>/);assert.match(h.region.innerHTML,/hidden-tail/);
  h.search('hidden-tail');assert.match(h.region.innerHTML,/1–1 из 1/);assert.equal(h.edits.length,0);assert.equal(h.toggles.length,0);
+});
+
+test('quest list waits while entering during a resource write and updates only changed results',async()=>{
+  const h=harness();h.inFlight(true);
+  assert.match(h.view(),/aria-busy="true"/);
+  assert.equal(h.tasks.length,0);
+  h.inFlight(false);h.setKey('first:1');assert.equal(h.update(true),true);
+  h.requests[0].resolve({quests:[quest()]});await settle();
+  let writes=0,html=h.region.innerHTML;
+  Object.defineProperty(h.region,'innerHTML',{get:()=>html,set:value=>{html=value;writes++;}});
+  h.setKey('first:2');assert.equal(h.update(false),true);assert.equal(h.requests.length,1);
+  h.setKey('first:3');assert.equal(h.update(true),true);
+  h.requests[1].resolve({quests:[quest()]});await settle();
+  assert.equal(writes,0);
+  h.setKey('first:4');assert.equal(h.update(true),true);
+  h.requests[2].resolve({quests:[{...quest(),title:'A revised search'}]});await settle();
+  assert.equal(writes,1);assert.match(html,/A revised search/);
+  h.setKey('second:1');assert.equal(h.update(true),false);
 });

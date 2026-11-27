@@ -7,7 +7,7 @@ const SkazQuests = (() => {
   function view() {
     const current = SkazStorage.snapshotKey();
     if (key !== current) { const nextContext = SkazStorage.contextKey(); if (contextKey !== nextContext) { offset = 0; focusStep = null; } contextKey = nextContext; key = current; ++serial; status = 'idle'; data = []; }
-    if (status === 'idle') { status = 'loading'; queueMicrotask(load); }
+    if (status === 'idle') { status = 'loading'; if (!SkazStorage.resourceWriteInFlight?.()) queueMicrotask(load); }
     return `<section aria-label="Задания кампании"><div class="map-toolbar"><div><h2>Задания кампании</h2><p>Зацепки, обещания и личные цели.</p></div><button id="create-personal-quest" class="primary">Новое задание</button></div><form id="personal-quest-search" class="map-search"><label>Найти задание<input name="q" type="search" maxlength="200" value="${escape(query)}" placeholder="Название, заметка или этап"></label><label>Статус<select name="status"><option value="all">Все задания</option>${Object.entries(labels).map(([value,label]) => `<option value="${value}" ${value === filter ? 'selected' : ''}>${label}</option>`).join('')}</select></label><button type="submit">Найти</button></form><div id="personal-quest-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div><p class="quest-help">${(SkazStorage.can?.('shared')??true)?'Отмечай этапы прямо здесь. Статус задания и награды меняются отдельно.':'Общие задания и отметки этапов меняет мастер или владелец.'}</p></section>`;
   }
   function filtered() {
@@ -34,11 +34,24 @@ const SkazQuests = (() => {
     const region = document.getElementById('personal-quest-results');
     if (region) { region.innerHTML = results(); SkazStorage.decorate?.(region); region.setAttribute('aria-busy',String(status === 'loading')); }
   }
-  async function load() {
-    const requestId = ++serial, requestedKey = SkazStorage.snapshotKey(); status = 'loading'; refresh();
+  function updateResources(screen, settled) {
+    if (!screen?.querySelector('#personal-quest-search') || contextKey !== SkazStorage.contextKey()) return false;
+    key = SkazStorage.snapshotKey();
+    const editable = SkazStorage.can?.('shared') ?? SkazStorage.editable();
+    for (const control of screen.querySelectorAll('#create-personal-quest, [data-personal-edit], [data-personal-step]')) {
+      control.disabled = !editable;
+      if (editable) { control.removeAttribute('aria-disabled'); control.removeAttribute('title'); }
+    }
+    if (settled) void load(status === 'ready');
+    return true;
+  }
+  async function load(keepResults = false) {
+    const requestId = ++serial, requestedKey = SkazStorage.snapshotKey();
+    if (!keepResults) { status = 'loading'; refresh(); }
     try {
       const result = await SkazStorage.questsData();
       if (requestId !== serial || requestedKey !== SkazStorage.snapshotKey()) return;
+      if (keepResults && JSON.stringify(data) === JSON.stringify(result.quests)) return;
       data = result.quests; status = 'ready'; offset = Math.min(offset, Math.floor(Math.max(0,filtered().length-1)/limit)*limit);
     } catch (e) { if (requestId !== serial || requestedKey !== SkazStorage.snapshotKey()) return; status = 'error'; error = e.message || 'Проверь соединение'; }
     refresh();
@@ -67,5 +80,5 @@ const SkazQuests = (() => {
     try { await SkazStorage.setQuestStep(quest, step.id, done, key); }
     catch (e) { toast(e.message || 'Не удалось сохранить этап'); refresh(); }
   });
-  return { view };
+  return { view, updateResources };
 })();
