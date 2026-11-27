@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import {readFile} from 'node:fs/promises';
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/spellbook.js',import.meta.url),'utf8');
-function harness(preparedDefault=false){let firstView=true,key='hero:0';const tasks=[],requests=[],edits=[],handlers={};
+function harness(preparedDefault=false){let firstView=true,key='hero:0',queuedBook=null;const tasks=[],requests=[],edits=[],handlers={};
  let focusCount = 0;
  const region = {
   id: 'personal-spell-results', innerHTML: '',
@@ -15,8 +15,8 @@ function harness(preparedDefault=false){let firstView=true,key='hero:0';const ta
   getElementById:id=>id==='personal-spell-search'?{elements:fields}:region
  };
  const fields=Object.fromEntries(['q','scope','level','ritual','concentration'].map(name=>[name,{value:''}]));let renderCount=0;
- const context=vm.createContext({queueMicrotask:fn=>tasks.push(fn),document,render:()=>{renderCount++;if(document.activeElement===region)document.activeElement=null;},SkazStorage:{snapshotKey:()=>key,contextKey:()=>key.split(':')[0],spellbookData:()=>new Promise((resolve,reject)=>requests.push({resolve,reject})),editSpell:(...args)=>edits.push(args)}});vm.runInContext(uiSource,context);vm.runInContext(source,context);
- return{tasks,requests,edits,region,fields,renders:()=>renderCount,focusCount:()=>focusCount,focusBody:()=>{document.activeElement=document.body;},view:()=>{let html=vm.runInContext('SkazSpellbook.view()',context);if(firstView&&!preparedDefault){firstView=false;handlers.click({target:{closest:()=>({dataset:{bookScope:'all'}})}});html=vm.runInContext('SkazSpellbook.view()',context);}return html;},setKey:v=>key=v,draft:(q,scope='all',level='',flags={})=>handlers.change({target:{form:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}}}}),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}}),search:(q,scope='all',level='',flags={})=>handlers.submit({target:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}},preventDefault(){}})};
+ const context=vm.createContext({queueMicrotask:fn=>tasks.push(fn),document,render:()=>{renderCount++;if(document.activeElement===region)document.activeElement=null;},SkazStorage:{queuedSpellbook:()=>queuedBook,snapshotKey:()=>key,contextKey:()=>key.split(':')[0],spellbookData:()=>new Promise((resolve,reject)=>requests.push({resolve,reject})),editSpell:(...args)=>edits.push(args)}});vm.runInContext(uiSource,context);vm.runInContext(source,context);
+ return{tasks,requests,edits,region,fields,renders:()=>renderCount,focusCount:()=>focusCount,focusBody:()=>{document.activeElement=document.body;},view:()=>{let html=vm.runInContext('SkazSpellbook.view()',context);if(firstView&&!preparedDefault){firstView=false;handlers.click({target:{closest:()=>({dataset:{bookScope:'all'}})}});html=vm.runInContext('SkazSpellbook.view()',context);}return html;},setKey:v=>key=v,setQueuedBook:value=>queuedBook=value,updateResources:()=>vm.runInContext('SkazSpellbook.updateResources()',context),draft:(q,scope='all',level='',flags={})=>handlers.change({target:{form:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}}}}),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}}),search:(q,scope='all',level='',flags={})=>handlers.submit({target:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}},preventDefault(){}})};
 }
 const settle=()=>new Promise(r=>setImmediate(r));
 const item=(i=0)=>({catalogId:'spell:'+i,status:i%2?'prepared':'known',entry:{id:'spell:'+i,kind:'spell',name:{ru:'Заклинание '+i,en:'Magic '+i},spell:{level:i%3,castingTime:'<action>',range:{type:'feet',feet:60},duration:'1 минута',concentration:false,ritual:true}}});
@@ -126,4 +126,28 @@ test('known caster book merges legacy prepared and known without rewriting edit 
 
 test('always-prepared spell badge remains visible in the prepared book',async()=>{
  const h=harness(true);h.view();h.tasks.shift()();h.requests[0].resolve({spellLearning:'prepared',entries:[{...item(1),alwaysPrepared:true},item(3)]});await settle();assert.match(h.region.innerHTML,/Постоянно подготовлено/);assert.match(h.region.innerHTML,/Заклинание 1/);assert.match(h.region.innerHTML,/Заклинание 3/);assert.match(h.view(),/постоянную подготовку задаёт умение класса/);
+});
+
+test('a matching resource snapshot keeps the open book current without rendering the list again',async()=>{
+ const h=harness(),entries=[item(1),item(2)];
+ h.view();h.tasks.shift()();h.requests[0].resolve({entries});await settle();
+ const displayed=h.region.innerHTML;
+ const projected={spellLearning:null,entries:structuredClone(entries)};
+ h.setKey('hero:1');h.setQueuedBook(projected);
+ assert.equal(h.updateResources(),true);
+ assert.equal(h.region.innerHTML,displayed);
+ assert.equal(h.tasks.length,0);
+ h.click('',{personalSpell:'spell:1'});
+ assert.equal(h.edits[0][0].id,'spell:1');
+
+ h.setKey('hero:2');h.setQueuedBook({...projected,entries:[{...entries[0],status:'known'},entries[1]]});
+ assert.equal(h.updateResources(),false);
+ h.click('',{personalSpell:'spell:1'});
+ assert.equal(h.edits.length,1);
+ h.setQueuedBook({...projected,spellLearning:'known'});
+ assert.equal(h.updateResources(),false);
+ h.setQueuedBook(null);
+ assert.equal(h.updateResources(),false);
+ h.setKey('another-hero:1');h.setQueuedBook(projected);
+ assert.equal(h.updateResources(),false);
 });

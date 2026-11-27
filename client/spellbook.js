@@ -14,6 +14,13 @@ const SkazSpellbook = (() => {
     if(status==='idle'){status='loading';queueMicrotask(load);}
     return `<section class="personal-book" aria-label="Личные заклинания"><div class="book-toolbar"><div class="book-scopes" aria-label="Отметки заклинаний">${scopes().map(([value,label])=>`<button data-book-scope="${value}" aria-pressed="${scope===value}">${label}</button>`).join('')}</div><details class="book-filters"><summary>Поиск и фильтры</summary><p class="quest-help">${knownCaster()?'Известные заклинания добавляются вручную.':'Обычные отметки «Изучено» и «Подготовлено» задаются вручную; постоянную подготовку задаёт умение класса.'} Класс, доступные уровни, ячейки и эффекты проверяет игрок.</p><form id="personal-spell-search" class="personal-spell-search"><label>Название RU / EN<input name="q" type="search" maxlength="200" value="${escape(draft.q)}" placeholder="Например, Свет"></label><label>Отметка<select name="scope">${scopes().map(([value,label])=>`<option value="${value}" ${draft.scope===value?'selected':''}>${label}</option>`).join('')}</select></label><label>Уровень<select name="level"><option value="">Все уровни</option>${Array.from({length:10},(_,i)=>`<option value="${i}" ${draft.level===String(i)?'selected':''}>${i===0?'Заговор':i+' уровень'}</option>`).join('')}<option value="unknown" ${draft.level==='unknown'?'selected':''}>Не указан</option></select></label>${flagControl('ritual','Ритуал')}${flagControl('concentration','Концентрация')}<div class="personal-spell-actions"><button type="submit">Найти</button><button type="button" id="personal-spell-reset">Сбросить</button></div></form></details><a class="book-cast-link" href="#play">Перейти к сотворению</a></div><div id="spell-catalog-setup"></div><div id="personal-spell-results" role="region" aria-label="Результаты книги заклинаний" tabindex="-1" aria-live="polite" aria-busy="${status==='loading'}">${results()}</div></section>`;
   }
+  function updateResources(){
+    if(status!=='ready'||contextKey!==SkazStorage.contextKey())return false;
+    const next=SkazStorage.queuedSpellbook();
+    if(!next||next.spellLearning!==learningMode||JSON.stringify(next.entries)!==JSON.stringify(data))return false;
+    key=SkazStorage.snapshotKey();
+    return true;
+  }
   function filtered(){const q=query.toLocaleLowerCase('ru');return data.filter(item=>(scope==='all'||(knownCaster()?'known':item.status)===scope)&&(!level||(level==='unknown'?item.entry.spell?.level===undefined:item.entry.spell?.level===Number(level)))&&(!ritual||item.entry.spell?.ritual===(ritual==='true'))&&(!concentration||item.entry.spell?.concentration===(concentration==='true'))&&(item.entry.name.ru+' '+item.entry.name.en).toLocaleLowerCase('ru').includes(q)).sort((a,b)=>(a.entry.spell?.level??99)-(b.entry.spell?.level??99)||a.entry.name.ru.localeCompare(b.entry.name.ru,'ru'));}
   function results(){
     if(status==='loading')return '<p class="empty">Открываем книгу заклинаний…</p>';
@@ -99,5 +106,5 @@ const SkazSpellbook = (() => {
       });
     }
   });
-  return {view};
+  return {view,updateResources};
 })();

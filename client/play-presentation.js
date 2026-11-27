@@ -184,22 +184,42 @@ const SkazPlayPresentation = (() => {
     </section>`;
   }
 
+  /** @param {number} round */
+  const battleLabel = round => round ? 'Завершить бой' : 'Начать бой';
+  /** @param {number} round */
+  const roundText = round => 'Раунд '+round+' →';
+  /** @param {number} round */
+  const nextRoundLabel = round => 'Следующий раунд. Текущий раунд '+round;
+
+  /** @param {number} round */
+  function refreshBattleControls(round) {
+    const toggle=document.getElementById('play-battle-toggle');
+    const next=document.getElementById('play-next-round');
+    if(!toggle||!next)return;
+    toggle.textContent=battleLabel(round);
+    toggle.setAttribute('aria-pressed',String(round>0));
+    next.hidden=round===0;
+    next.textContent=roundText(round);
+    next.setAttribute('aria-label',nextRoundLabel(round));
+  }
+
   /** @param {QuickAccessScreen} view */
   function screen(view) {
     const initiative = `${view.initiative >= 0 ? '+' : ''}${view.initiative}`;
     const {round=0,summonCount=0,summon=null}=view.battle||{};
     const actor=summon?{...view,heroName:summon.name,className:'Призыв',subclass:'',level:null,hp:summon.hp,maxHp:summon.maxHp,
       armorClass:null,tempHp:undefined,conditions:[],concentration:null,gold:undefined}:view;
-    const battleButton=`<button id="play-battle-toggle" aria-pressed="${round>0}">${round?'Завершить бой':'Начать бой'}</button>`;
-    const roundButton=round?`<button id="play-next-round" aria-label="Следующий раунд. Текущий раунд ${round}">Раунд ${round} →</button>`:'';
+    const battleButton=`<button id="play-battle-toggle" aria-pressed="${round>0}">${battleLabel(round)}</button>`;
+    const roundButton=`<button id="play-next-round" ${round?'':'hidden'} aria-label="${nextRoundLabel(round)}">${roundText(round)}</button>`;
     const switcher=`<div class="play-actor-tools" aria-label="Участники">
       ${summonCount?'<button id="play-actor-prev" aria-label="Предыдущий участник"><span data-ui-icon="arrow-left" aria-hidden="true"></span></button>':''}
       <button id="play-summons">${summonCount?'Призывы · '+summonCount:'Призывы'}</button>
       ${summonCount?'<button id="play-actor-next" aria-label="Следующий участник"><span data-ui-icon="arrow-right" aria-hidden="true"></span></button>':''}
+      ${roundButton}
     </div>`;
     return `<section class="play-screen" aria-label="Игровой экран">
       ${heading('Быстрый доступ',view.session,battleButton+'<button id="play-edit"><span data-ui-icon="profile" aria-hidden="true"></span> Лист <span class="play-edit-detail">персонажа</span></button><button id="play-search">Поиск правил</button>')}
-      <div class="play-actor-carousel">${actorBand(actor)}${switcher}${roundButton}</div>
+      <div class="play-actor-carousel">${actorBand(actor)}${switcher}</div>
       <div class="play-layout">
         <div class="play-actions">
           <p class="play-section-caption" aria-hidden="true">Командная панель</p>
@@ -227,5 +247,5 @@ const SkazPlayPresentation = (() => {
       text:manual.level+' круг · без расхода ячейки.'+agreement+(manual.reason?' '+manual.reason:'')};
   }
 
-  return {castCost, commandCopy, healthAmount, resourceRecovery, identityCopy, sessionCaption, prepare, refreshActor, resources, screen, note};
+  return {castCost, commandCopy, healthAmount, resourceRecovery, identityCopy, sessionCaption, prepare, refreshActor, resources, screen, refreshBattleControls, note};
 })();

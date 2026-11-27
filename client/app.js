@@ -63,13 +63,35 @@ function hero(){
  return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(sheet,stats),title:'Персонаж',actions,content:profileSections('hero')+content});
 }
 function pending(){return events.filter(e=>!state.accepted.includes(e.id)&&!state.dismissed.includes(e.id))}
+let mountedSpellActor;
+const spellAddPending='Дождись сохранения ячеек и зарядов.';
+function spellAddAvailable(){return (SkazStorage.can?.('character')??true)||SkazStorage.canResource?.();}
 function spellsPage(){
  if(location.protocol==='file:')return profileSections('spells')+demoSpellsPage();
  const content=SkazSpellbook.view()+`<details class="demo-section"><summary>Демонстрационные заклинания и ячейки барда 5 уровня</summary>${demoSpellsPage({showHeading:false})}</details>`;
- const actions=(SkazStorage.can?.('character')??true)
-  ?'<button id="book-add-spell" class="primary">Добавить заклинание</button>'
+ const pending=SkazStorage.can?.('character')===false;
+ const actions=spellAddAvailable()
+  ?'<button id="book-add-spell" class="primary" '+(pending?'aria-disabled="true" title="'+spellAddPending+'"':'')+'>Добавить заклинание</button>'
   :'<button data-page="library">Открыть справочник</button>';
- return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Персонаж',actions,content:profileSections('spells')+content});
+ mountedSpellActor=SkazPlay.actorView();
+ return SkazPlayPresentation.prepare({actor:mountedSpellActor,title:'Персонаж',actions,content:profileSections('spells')+content});
+}
+function updateSpellsPage(main){
+ const screen=main.querySelector('.workspace-prepare');
+ const add=screen?.querySelector('#book-add-spell');
+ if(!mountedSpellActor||!add||!spellAddAvailable()||!screen.querySelector('.personal-book'))return false;
+ const actor=SkazPlay.actorView();
+ if(mountedSpellActor.historyAvailable!==actor.historyAvailable||!SkazSpellbook.updateResources())return false;
+ if(JSON.stringify(mountedSpellActor)!==JSON.stringify(actor))SkazPlayPresentation.refreshActor(screen,actor);
+ mountedSpellActor=actor;
+ if(SkazStorage.can('character')){
+  add.removeAttribute('aria-disabled');
+  add.removeAttribute('title');
+ }else{
+  add.setAttribute('aria-disabled','true');
+  add.title=spellAddPending;
+ }
+ return true;
 }
 function demoSpellsPage({showHeading=true}={}){
  const stats='Харизма +4 · Атака заклинанием +7 · Сложность спасброска 15';
@@ -220,9 +242,6 @@ function patchQuickTracker(current,draft){
    const next=nextActions[i];
    SkazUI.patchButton(button,next);
   }
-  const pending=group.querySelector('.tracker-pending-count'),nextPending=incoming.querySelector('.tracker-pending-count');
-  if(!nextPending)pending?.remove();
-  else if(!pending)group.querySelector('.resource-dots').append(nextPending);
  }
  return true;
 }
@@ -251,9 +270,10 @@ function render(change){
  if(page==='play') SkazPlay.captureFocus();
  const updateResources=change==='resources'&&SkazStorage.readyToDisplay?.()!==false;
  const updatePlayResources=updateResources&&page==='play';
+ const updateSpellResources=updateResources&&page==='spells'&&location.protocol!=='file:';
  const resourceFocus=updateResources?quickResourceFocus():null;
  const resourceScroll=updateResources?{top:quick.scrollTop,left:quick.scrollLeft}:null;
- if(!updatePlayResources&&quick.parentElement!==home) home.append(quick);
+ if(!updatePlayResources&&!updateSpellResources&&quick.parentElement!==home) home.append(quick);
  quick.hidden=page==='map'||page==='play'&&SkazPlay.summonActive();
  document.body.dataset.page=page;
  const workspacePage=['play','hero','inventory','library','campaign'].includes(page)||
@@ -297,7 +317,7 @@ function render(change){
  $('#workspace-campaign-settings').hidden=location.protocol==='file:'||SkazStorage.can?.('select')!==true;
  $('#campaign-name').textContent=state.profile.campaign;
  const quickMarkup=quick.hidden?'':quickPanel();
- if(updatePlayResources&&quick.firstElementChild)paintQuickPanel(quick,quickMarkup);
+ if((updatePlayResources||updateSpellResources)&&quick.firstElementChild)paintQuickPanel(quick,quickMarkup);
  else {
   quick.innerHTML=quickMarkup;
   for(const part of quick.children||[])quickPartMarkup.set(part,part.outerHTML);
@@ -312,7 +332,9 @@ function render(change){
    if(quick.parentElement!==home) home.append(quick);
    main.innerHTML=SkazPlay.view(updatePlayResources);
   }
- }else main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage}[page]||hero)();
+ }else if(!updateSpellResources||!updateSpellsPage(main)){
+  main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage}[page]||hero)();
+ }
  const resourceSlot=$('#play-quick-slot');
  if(resourceSlot&&quick.parentElement!==resourceSlot)resourceSlot.append(quick);
  if(resourceScroll){

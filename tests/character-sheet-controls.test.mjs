@@ -4,8 +4,8 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFile} from 'node:fs/promises';
 const source=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
-function controls(current,max,allowed=true){
- const context=vm.createContext({structuredClone,esc:value=>String(value).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;'),SkazStorage:{sheet:()=>({counters:[{id:'counter-test',name:'<Лёд>',current,max}]}),snapshotKey:()=> 'hero:revision',canResource:()=>allowed}});
+function controls(current,max,allowed=true,pending=[]){
+ const context=vm.createContext({structuredClone,esc:value=>String(value).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;'),SkazStorage:{sheet:()=>({counters:[{id:'counter-test',name:'<Лёд>',current,max}]}),snapshotKey:()=> 'hero:revision',canResource:()=>allowed,pendingResourceIndices:()=>pending}});
  vm.runInContext(profileRulesSource,context);vm.runInContext(source,context);return vm.runInContext('SkazCharacterSheet.controls()',context);
 }
 test('small counters expose one command per dot without absolute positions or duplicate IDs',()=>{
@@ -36,7 +36,7 @@ test('tracker shapes differ without colour and filled marks spend and empty mark
  const fields={name:'2 круг',label:'Ячейка 2 круга',current:2,max:3,attributes:d=>'data-delta="'+d+'"',pending:[1]};
  const slots=api.tracker({...fields,shape:'circle'}),classResource=api.tracker({...fields,shape:'diamond'});
  assert.match(slots,/tracker-mark circle/);assert.match(classResource,/tracker-mark diamond/);
- assert.match(slots,/<span class="tracker-name">2 круг<\/span> <span class="tracker-balance">2 <small class="tracker-maximum">\/ 3<\/small><\/span>/);
+ assert.match(slots,/<span class="tracker-name">2 круг<\/span> <span class="tracker-balance"><span class="tracker-current" style="--tracker-digits:1">2<\/span> <small class="tracker-maximum">\/ 3<\/small><\/span>/);
  assert.equal((slots.match(/data-delta="-1"/g)||[]).length,2);assert.equal((slots.match(/data-delta="1"/g)||[]).length,1);
  assert.match(slots,/Ячейка 2 круга, доступна/);assert.match(slots,/Ячейка 2 круга, потрачена/);assert.equal((slots.match(/Ждёт подтверждения сервера/g)||[]).length,1);
 });
@@ -103,8 +103,16 @@ test('Champion shows a conditional physical check without changing saves, mental
 
 test('manual excess renders numeric controls even above a zero or small maximum',()=>{
  for(const [current,max] of [[8,7],[1,0]]){
-  const html=controls(current,max);assert.ok(html.includes(current+' <small class="tracker-maximum">/ '+max+'</small>'));
+  const html=controls(current,max);assert.ok(html.includes(current+'</span> <small class="tracker-maximum">/ '+max+'</small>'));
   assert.ok(html.includes('data-counter-delta="-1"'));assert.ok(html.includes('data-counter-delta="1"'));
   assert.equal((html.match(/<button /g)||[]).length,2);
  }
+});
+
+test('large counters reserve the same number width and draw pending inside the control',()=>{
+ const before=controls(10,16),after=controls(9,16,true,[0]);
+ assert.match(before,/--tracker-digits:2">10<\/span>/);
+ assert.match(after,/--tracker-digits:2">9<\/span>/);
+ assert.doesNotMatch(before,/tracker-pending/);
+ assert.match(after,/data-counter-delta="-1"[^>]*>−<i class="tracker-pending"[^>]*>•<\/i><\/button>/);
 });

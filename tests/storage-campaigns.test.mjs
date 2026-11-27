@@ -1322,6 +1322,8 @@ test('Quick Access resource snapshot retains both loaded lists and clears them o
  };
  const h=harness(memory(),memory(),fetch,undefined,undefined,true);
  await h.api.boot();
+ assert.equal(h.api.queuedSpellbook().entries[0].catalogId,'light');
+ assert.equal(h.api.playResourceLists(),null);
  await h.api.inventoryData();
  h.api.resourceDelta({kind:'slot',level:1},-1,h.api.snapshotKey());
  const projected=h.api.playResourceLists();
@@ -1331,6 +1333,7 @@ test('Quick Access resource snapshot retains both loaded lists and clears them o
  finish({ok:false,status:403,json:async()=>({error:'Доступ отозван'})});
  await tick();
  assert.equal(h.api.playResourceLists(),null);
+ assert.equal(h.api.queuedSpellbook(),null);
 });
 
 test('learning policy and legacy spell marks survive offline resource queue reload',async()=>{
