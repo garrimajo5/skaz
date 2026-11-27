@@ -7,11 +7,11 @@ const factsSource=await readFile(new URL('../client/spell-facts.js',import.meta.
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/catalog.js', import.meta.url), 'utf8');
 function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning=null, catalogAccess=null) {
-  let snapshotKey='hero:0',userId='user-a';let readerHeight=0,readerPosition='sticky',toolbarHeight=0;
+  let snapshotKey='hero:0',userId='user-a',resourceAllowed=true;let readerHeight=0,readerPosition='sticky',toolbarHeight=0;
   const readerNav={getBoundingClientRect:()=>({height:readerHeight})},readerToolbar={getBoundingClientRect:()=>({height:toolbarHeight})};
   const handlers = {}, requests = [], tasks = [], additions = [];
   const movement=[], marks=[], spellControls=Object.fromEntries(['catalog-known','catalog-prepared','catalog-book-status'].map(id=>[id,{}]));
-  const region = { style:{}, parentElement:{open:false}, innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
+  const region = { style:{}, parentElement:{open:false}, innerHTML: '', setAttribute(name,value){this[name]=value;}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
   const focusTargets=new Map();
   let dialog = '', isOpen=false;const messages=[],typeRegion={innerHTML:'',querySelector:()=>null};
   const closeHandlers=[];
@@ -21,12 +21,12 @@ function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
     document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => focusTargets.get(id)||spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen,addEventListener:(_,fn)=>closeHandlers.push(fn)}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: selector => selector==='#dialog .catalog-reader-nav'?readerNav:selector==='#dialog .catalog-reference-navigation'?(toolbarHeight?readerToolbar:null):selector.startsWith('[data-catalog-entry=')?{focus:()=>movement.push(['focus-card',selector])}:null, querySelectorAll:()=>[] },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
-    toast:message=>messages.push(message),render:()=>{}, modal: html => {isOpen=true;dialog=html;}, SkazStorage: { spellLearningMode:()=>spellLearning,access:()=>catalogAccess===null?null:{catalog:catalogAccess},can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
+    toast:message=>messages.push(message),render:()=>{}, modal: html => {isOpen=true;dialog=html;}, SkazStorage: { canResource:()=>resourceAllowed, spellLearningMode:()=>spellLearning,access:()=>catalogAccess===null?null:{catalog:catalogAccess},can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   const view = options => vm.runInContext('SkazCatalog', context).view(options);
-  return { factsCalls,readerToolbarSize:value=>{toolbarHeight=value;}, readSnapshot:(...args)=>vm.runInContext('SkazCatalog',context).readSnapshot(...args),readerSize:(height,position='sticky')=>{readerHeight=height;readerPosition=position;},focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { factsCalls,readerToolbarSize:value=>{toolbarHeight=value;}, readSnapshot:(...args)=>vm.runInContext('SkazCatalog',context).readSnapshot(...args),readerSize:(height,position='sticky')=>{readerHeight=height;readerPosition=position;},focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,updateResources:()=>vm.runInContext('SkazCatalog.updateResources({})',context),setResourceAllowed:value=>resourceAllowed=value,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>{isOpen=false;closeHandlers.splice(0).forEach(fn=>fn());}, otherModal:()=>{isOpen=true;dialog='<h2>Other</h2>'},
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -668,4 +668,38 @@ test('the game reader goes to the actual top and keeps the heading focused',()=>
  assert.equal(h.region.scrollTop,0);
  assert.deepEqual(h.movement.map(([action])=>action),['focus']);
  assert.equal(h.movement[0][1].preventScroll,true);
+});
+
+test('catalog resource refresh keeps equal result markup and replaces changed results after revalidation',async()=>{
+ const h=harness('http:',true);
+ let markup='',writes=0;
+ Object.defineProperty(h.region,'innerHTML',{get:()=>markup,set:value=>{writes++;markup=value;}});
+ h.submit('fixture',{kind:'mechanic'});
+ respond(h.requests[0],{entries:[entry],total:1});
+ respond(h.requests[1],coverage);
+ await settle();
+ const displayed=markup, count=writes;
+ h.setOwner('hero:1');
+ assert.equal(h.updateResources(),true);
+ assert.equal(h.region['aria-busy'],'true');
+ assert.equal(markup,displayed);
+ h.detail();
+ assert.equal(h.dialog(),'');
+ respond(h.requests[2],{entries:[entry],total:1});
+ respond(h.requests[3],coverage);
+ await settle();
+ assert.equal(writes,count);
+ assert.equal(h.region['aria-busy'],'false');
+
+ h.setOwner('hero:2');
+ assert.equal(h.updateResources(),true);
+ respond(h.requests[4],{entries:[{...entry,name:{ru:'Обновлённая запись',en:'Updated'}}],total:1});
+ respond(h.requests[5],coverage);
+ await settle();
+ assert.equal(writes,count+1);
+ assert.match(markup,/Обновлённая запись/);
+
+ h.setResourceAllowed(false);
+ assert.equal(h.updateResources(),false);
+ assert.match(h.view(),/Загружаем каталог/);
 });

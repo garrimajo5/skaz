@@ -526,3 +526,13 @@ test('temporary HP has a decorative shield and accessible amount without changin
  h.run('state.tempHp=0');const empty=h.run('healthVitals()');assert.doesNotMatch(empty,/temp-hp-chip|data-ui-icon="shield"|временные хиты/);assert.match(empty,/Хиты: 12 из 30/);
  h.run("state.hp=0;state.tempHp=7;state.deathSaves={successes:0,failures:0,status:'dying'}");const down=h.run('healthVitals()');assert.match(down,/Без сознания/);assert.match(down,/\+7 временных/);assert.match(down,/Хиты: 0 из 30; временные хиты: 7/);
 });
+
+test('profile entered during a resource save shows the advance control disabled until a write scope is available',()=>{
+ const h=harness();
+ h.run("SkazStorage.advancementScope=()=>null;SkazStorage.advancementAvailable=()=>true;render();");
+ assert.match(h.get('#main').innerHTML,/<button id="advance-class" disabled>Повысить уровень<\/button>/);
+ h.run("SkazStorage.advancementScope=()=>({characterId:'hero'});render();");
+ assert.match(h.get('#main').innerHTML,/<button id="advance-class">Повысить уровень<\/button>/);
+ h.run("SkazStorage.advancementScope=()=>null;SkazStorage.advancementAvailable=()=>false;render();");
+ assert.doesNotMatch(h.get('#main').innerHTML,/id="advance-class"/);
+});

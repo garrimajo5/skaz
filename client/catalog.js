@@ -4,6 +4,8 @@ const SkazCatalog = (() => {
   const limit = 20;
   // References belong to the exact response object, never to a reusable catalog ID.
   const materialReferences=new WeakMap();
+  const resultMarkup=new WeakMap();
+  let holdingResults=false;
   function acceptMaterials(value){
     for(const entry of value.entries||[value.entry].filter(Boolean)){
       const reference=value.materialReferences?.find(row=>row.catalogId===entry.id);
@@ -48,10 +50,11 @@ const SkazCatalog = (() => {
     if(mode==='known')return 'Известно';
     return owned.status==='prepared'?'Подготовлено':mode==='spellbook'?'В книге':'Изучено';
   }
-  async function loadCardBook(requestId,key){
+  async function loadCardBook(requestId,key,{refreshAfter=true}={}){
     try{const book=await readCardBook();if(requestId!==serial||key!==snapshot())return;
       cardBook=new Map(book.entries.map(item=>[item.catalogId,item]));cardBookState='ready';
     }catch{if(requestId!==serial||key!==snapshot())return;cardBook=null;cardBookState='error';}
+    if(!refreshAfter)return;
     const update=()=>{
       if(requestId!==serial||key!==snapshot())return;
       const focused=document.activeElement?.dataset?.catalogEntry;
@@ -203,10 +206,24 @@ const SkazCatalog = (() => {
     if(entry.mechanic)parts.push(mechanicCategories[entry.mechanic.category]||entry.mechanic.category);
     return parts.length?`<ul class="catalog-card-summary" aria-label="Краткие характеристики">${parts.filter(Boolean).map(value=>`<li>${escape(value)}</li>`).join('')}</ul>`:'';
   }
-  async function load({focusResults=false}={}) {
+  function updateResources(root){
+    if(!root)return false;
+    if(!SkazStorage.canResource?.()){ownerKey='';return false;}
+    if(ownerKey!==snapshot()){
+      ++detailSerial;
+      relatedCache.clear();
+      void load({retainResults:true});
+    }
+    return true;
+  }
+  async function load({focusResults=false,retainResults=false}={}) {
     const requestId = ++serial, requestedOwner=snapshot();ownerKey=requestedOwner;homeMode=isHome();homeDirty=false;
+    const retain=retainResults&&(status==='ready'||holdingResults);
+    holdingResults=retain;
     cardBook=null;cardBookState='idle';
-    status = 'loading'; refresh();
+    status='loading';
+    if(retain)document.getElementById('catalog-results')?.setAttribute('aria-busy','true');
+    else refresh();
     const params = new URLSearchParams({ q: query, limit: String(limit), offset: String(offset), includeMaterials:'1' });
     if (kind) params.set('kind', kind);
     if(searchScope==='text')params.set('scope','text');
@@ -218,7 +235,7 @@ const SkazCatalog = (() => {
         if(requestId!==serial||requestedOwner!==snapshot())return;
         cardBook=new Map(book.entries.map(item=>[item.catalogId,item]));cardBookState='ready';
         homeGroups=[{title:'Недавно открытые',entries:recent.filter(Boolean),empty:'Здесь появятся открытые карточки.'},{title:book.entries.length>20?'Мои заклинания · первые 20':'Мои заклинания',entries:book.entries.map(item=>item.entry).sort((a,b)=>(a.spell?.level??99)-(b.spell?.level??99)||a.name.ru.localeCompare(b.name.ru,'ru')).slice(0,20),empty:'Книга пока пуста. Найди заклинание и добавь его из карточки.'}];
-        result={entries:homeGroups.flatMap(group=>group.entries),total:homeGroups.reduce((sum,group)=>sum+group.entries.length,0)};coverage=covered;status='ready';refresh();return;
+        result={entries:homeGroups.flatMap(group=>group.entries),total:homeGroups.reduce((sum,group)=>sum+group.entries.length,0)};coverage=covered;status='ready';holdingResults=false;refresh();return;
       }
       const values = await Promise.all(['/api/catalog?' + params, '/api/catalog/coverage'].map(async url => {
         const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
@@ -227,9 +244,15 @@ const SkazCatalog = (() => {
       }));
       if (requestId !== serial||requestedOwner!==snapshot()) return;
       [result, coverage] = values;acceptMaterials(result);
-      status = 'ready';
-      if(result.entries.some(entry=>entry.kind==='spell')&&typeof SkazStorage.spellbookData==='function'){cardBookState='loading';void loadCardBook(requestId,requestedOwner);}
+      if(result.entries.some(entry=>entry.kind==='spell')&&typeof SkazStorage.spellbookData==='function'){
+        cardBookState='loading';
+        const book=loadCardBook(requestId,requestedOwner,{refreshAfter:!retain});
+        if(retain)await book;
+      }
+      if(requestId!==serial||requestedOwner!==snapshot())return;
+      status='ready';
     } catch { if (requestId !== serial||requestedOwner!==snapshot()) return; status = 'error'; }
+    holdingResults=false;
     refresh();
     if(focusResults && typeof page!=='undefined' && page==='library' && !document.getElementById('dialog')?.open){
       const heading=document.getElementById('catalog-result-heading');
@@ -239,8 +262,9 @@ const SkazCatalog = (() => {
   function refreshResults() {
     const region=document.getElementById('catalog-results');
     if(!region)return;
-    region.innerHTML=results();
-    region.setAttribute('aria-busy', String(status==='loading'));
+    const html=results();
+    if(resultMarkup.get(region)!==html){region.innerHTML=html;resultMarkup.set(region,html);}
+    region.setAttribute('aria-busy',String(status==='loading'));
   }
   function refresh() {
     if (typeof page !== 'undefined' && page === 'library') {
@@ -437,7 +461,7 @@ const SkazCatalog = (() => {
   document.addEventListener('change',rememberSearch);
   document.addEventListener('click', event => {
     const button = event.target.closest('button'); if (!button) return;
-    if(['cards','list'].includes(button.dataset.catalogLayout)){cardLayout=button.dataset.catalogLayout;const region=document.getElementById('catalog-results');if(region)region.innerHTML=results();document.querySelectorAll('[data-catalog-layout]').forEach(control=>control.setAttribute('aria-pressed',String(control.dataset.catalogLayout===cardLayout)));return;}
+    if(['cards','list'].includes(button.dataset.catalogLayout)){cardLayout=button.dataset.catalogLayout;refreshResults();document.querySelectorAll('[data-catalog-layout]').forEach(control=>control.setAttribute('aria-pressed',String(control.dataset.catalogLayout===cardLayout)));return;}
     if(Object.hasOwn(button.dataset,'catalogKind')){clearTimeout(searchTimer);const next=button.dataset.catalogKind;if(next&&!Object.hasOwn(names,next))return;kind=next;query=(searchDraft?.q??query).trim();searchScope=searchDraft?.scope??searchScope;detailFilter='';extraFilters={};searchDraft=null;offset=0;render();load();return;}
     if (button.hasAttribute('data-catalog-entry')) details(Number(button.dataset.catalogEntry));
     if(button.dataset.catalogRelated)openRelated(button.dataset.catalogRelated);
@@ -489,5 +513,5 @@ const SkazCatalog = (() => {
     if (button.id === 'catalog-help') SkazCatalogImport.open();
   });
   function readSnapshot(entry,onBack,valid,label){if(!entry||typeof onBack!=='function'||typeof valid!=='function'||!valid())return;trail=[];returnToInventory=false;referenceReturn={onBack,valid,label};showDetails(entry);}
-  return { view, reload: load, openReference,readSnapshot,offerSetup };
+  return { view, updateResources, reload: load, openReference,readSnapshot,offerSetup };
 })();
