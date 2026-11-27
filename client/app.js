@@ -174,13 +174,33 @@ function revealBottomNavButton(nav, button) {
  if(target.left < left) nav.scrollLeft += target.left - left;
  else if(target.right > right) nav.scrollLeft += target.right - right;
 }
+function quickResourceFocus(){
+ const button=document.activeElement?.closest?.('#quick-state .resource-dots button');
+ if(!button)return null;
+ const field=button.dataset.counterId?'counterId':'resource';
+ const id=button.dataset[field];
+ if(!id)return null;
+ const index=[...button.parentElement.querySelectorAll('button')].indexOf(button);
+ return {field,id,index};
+}
+function restoreQuickResourceFocus(quick,position){
+ if(!position||document.activeElement!==document.body)return;
+ const {field,id,index}=position;
+ const buttons=[...quick.querySelectorAll('.resource-dots button')].filter(button=>button.dataset[field]===id);
+ const replacement=buttons[index];
+ const target=replacement&&!replacement.disabled?replacement:buttons.find(button=>!button.disabled);
+ (target||quick.querySelector('.quick-resources'))?.focus({preventScroll:true});
+}
 function render(change){
  const main=$('#main'), quick=$('#quick-state'), home=$('#quick-state-home');
  const workspaceSummary=$('.workspace-summary');
  if(!main||!quick||!home)return;
  const sectionFocus=document.activeElement?.closest?.('.profile-sections a');
  if(page==='play') SkazPlay.captureFocus();
- const updatePlayResources=change==='resources'&&page==='play'&&SkazStorage.readyToDisplay?.()!==false;
+ const updateResources=change==='resources'&&SkazStorage.readyToDisplay?.()!==false;
+ const updatePlayResources=updateResources&&page==='play';
+ const resourceFocus=updateResources?quickResourceFocus():null;
+ const resourceScroll=updateResources?{top:quick.scrollTop,left:quick.scrollLeft}:null;
  if(!updatePlayResources&&quick.parentElement!==home) home.append(quick);
  quick.hidden=page==='map';
  document.body.dataset.page=page;
@@ -224,7 +244,6 @@ function render(change){
  $('#workspace-player-class').textContent=identity.character;
  $('#workspace-campaign-settings').hidden=location.protocol==='file:'||SkazStorage.can?.('select')!==true;
  $('#campaign-name').textContent=state.profile.campaign;
- const resourceScroll=updatePlayResources?quick.scrollTop:0;
  quick.innerHTML=quick.hidden?'':quickPanel();
  if(page==='campaign'){
   const entry=campaignEntry;
@@ -239,7 +258,10 @@ function render(change){
  }else main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage}[page]||hero)();
  const resourceSlot=$('#play-quick-slot');
  if(resourceSlot&&quick.parentElement!==resourceSlot)resourceSlot.append(quick);
- if(updatePlayResources)quick.scrollTop=resourceScroll;
+ if(resourceScroll){
+  quick.scrollTop=resourceScroll.top;
+  quick.scrollLeft=resourceScroll.left;
+ }
  $$('[data-page]').forEach(button=>{
   const nav=button.closest('nav');
   const selected=button.dataset.page===(nav&&page==='spells'?'hero':page);
@@ -258,6 +280,7 @@ function render(change){
  if(sectionFocus){
   $$('.profile-sections a').find(link=>link.hash===sectionFocus.hash)?.focus({preventScroll:true});
  }
+ restoreQuickResourceFocus(quick,resourceFocus);
  if(page==='play') SkazPlay.restoreFocus();
  if(page==='inventory') void SkazStorage.inventory({preserveDialog:true});
 }
