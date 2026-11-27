@@ -386,6 +386,9 @@ function render(change,{resourceSettled=false}={}){
   }
  }else{
   retainedPreparation=updatePreparedResources&&updatePreparationResources(main);
+  if(updateResources&&page==='map'&&location.protocol!=='file:'){
+   retainedPreparation=SkazMap.updateResources(main.querySelector('.workspace-map'),resourceSettled);
+  }
   if(!retainedPreparation){
    if(quick.parentElement!==home) home.append(quick);
    main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage}[page]||hero)();
