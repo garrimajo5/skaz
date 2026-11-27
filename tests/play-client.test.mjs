@@ -633,7 +633,10 @@ test('Quick Access and preparation share actor and resource panels, with combat 
  assert.ok(resourcePanel(play));
  assert.equal(resourcePanel(prepared),resourcePanel(play));
  assert.doesNotMatch(presentation.prepare(view),/id="play-summons"/);
- assert.doesNotMatch(presentation.prepare({...view,mapOnly:true}),/play-actor-strip|play-quick-slot/);
+ const map=presentation.prepare({...view,mapOnly:true});
+ assert.ok(map.includes(start+strip+'</div>'));
+ assert.match(map,/workspace-map/);
+ assert.doesNotMatch(map,/play-resources|play-quick-slot/);
 });
 
 test('hero band renders the saved subclass, escapes it and omits the separator for an empty subclass',()=>{
