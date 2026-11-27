@@ -728,7 +728,9 @@ if(typeof ResizeObserver!=='undefined'){
  const bar = $('#quick-state');
  const nav = $('.bottomnav');
  const header = $('.shell > header');
+ const main = $('#main');
  const rootStyle = document.documentElement.style;
+ let heading = null;
  let navWidth = 0;
  let navScrollWidth = 0;
  const measure = () => {
@@ -741,13 +743,25 @@ if(typeof ResizeObserver!=='undefined'){
   }
   const navHeight = nav && getComputedStyle(nav).display !== 'none' ? nav.getBoundingClientRect().height : 0;
   const bottomBarHeight = bar && getComputedStyle(bar).getPropertyValue('--pult-side').trim() !== '1' ? bar.getBoundingClientRect().height : 0;
-  rootStyle.setProperty('--workspace-header-height', (header?.getBoundingClientRect().height || 56) + 'px');
+  const toolbarHeight = header?.getBoundingClientRect().height || 56;
+  const titleHeight = heading && getComputedStyle(heading).position === 'sticky' ? heading.getBoundingClientRect().height : 0;
+  rootStyle.setProperty('--workspace-header-height', Math.max(toolbarHeight,titleHeight) + 'px');
   rootStyle.setProperty('--nav-height', navHeight + 'px');
   rootStyle.setProperty('--bottom-reserve', (bottomBarHeight + navHeight + 24) + 'px');
  };
  const observer = new ResizeObserver(measure);
  for(const element of [bar, nav, header]) if(element) observer.observe(element,{box:'border-box'});
+ const observeHeading = () => {
+  const next = main?.querySelector('.play-heading') || null;
+  if(next===heading)return;
+  if(heading)observer.unobserve(heading);
+  heading=next;
+  if(heading)observer.observe(heading,{box:'border-box'});
+  measure();
+ };
+ if(main && typeof MutationObserver!=='undefined')new MutationObserver(observeHeading).observe(main,{childList:true});
  window.addEventListener('resize',measure);
+ observeHeading();
  measure();
 }
 
