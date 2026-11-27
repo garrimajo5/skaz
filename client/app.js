@@ -340,7 +340,7 @@ function restoreQuickResourceFocus(quick,position){
  const target=replacement&&!replacement.disabled?replacement:buttons.find(button=>!button.disabled);
  (target||quick.querySelector('.quick-resources'))?.focus({preventScroll:true});
 }
-function render(change,{resourceSettled=false}={}){
+function render(change,{resourceSettled=false,removedItemId}={}){
  const main=$('#main'), quick=$('#quick-state'), home=$('#quick-state-home');
  const workspaceSummary=$('.workspace-summary');
  if(!main||!quick||!home)return;
@@ -409,7 +409,7 @@ function render(change,{resourceSettled=false}={}){
   const focused=document.activeElement;
   SkazCampaign.mount(main,entry&&{section:entry.section,focus:focused===entry.trigger||focused===document.body});
  }else if(page==='play'){
-  if(!updatePlayResources||!SkazPlay.updateResources(main,resourceSettled)){
+  if(!updatePlayResources||!SkazPlay.updateResources(main,resourceSettled,removedItemId)){
    if(quick.parentElement!==home) home.append(quick);
    main.innerHTML=SkazPlay.view(updatePlayResources);
   }
