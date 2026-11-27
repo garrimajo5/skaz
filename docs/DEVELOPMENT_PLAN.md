@@ -22,7 +22,7 @@
 
 | Направление | Состояние и адресный вход |
 | --- | --- |
-| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). На VPS f1c574f. «Магия» внутри «Персонажа», действия отдыха видны сразу в низком альбоме. Linux 2233/2233, независимый игровой прогон, Pixel_8 и защищённый выпуск подтверждены. [Доказательства](design/qa/figma-wide-cards-m2-252.md#выпуск-f1c574f--27112026). [Кадры Figma для владельца](design/qa/figma-owner-review-252.md). Мобильный кандидат [#516](https://github.com/garrimajo5/skaz/pull/516) слит. Открыты его выпуск, итоговая сверка владельцем и [Xiaomi Pad 6](https://github.com/garrimajo5/skaz/issues/15). |
+| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). На VPS c77c354. «Карта» без боевой панели, строки и иконки «Быстрого доступа» сохраняются при расходовании, «Магия» внутри «Персонажа». Edge на пяти размерах и Linux 2236/2236. [Проверки #519](https://github.com/garrimajo5/skaz/pull/519#issuecomment-7219604341) · [кадры Figma для владельца](design/qa/figma-owner-review-252.md). Следующий шаг — проверить #519 на свободном Pixel_8, когда ADB ответит, затем сверка владельцем и [Xiaomi Pad 6](https://github.com/garrimajo5/skaz/issues/15). |
 | M0 / #77: источники и полнота | [Решения об источниках](catalog-source-decisions-2014.md), [D05-триаж](d05-current-publication-triage-2014.md). [D01: допуск к AL](extra-life-publication-witnesses-2014.md#допуск-в-adventurers-league) разделяет условия v14.0 и заявления издателя для Grung, Locathah и двух Tortle. Следом сверить полный текст версий и разрешения. |
 | #77 / D01 | [Категории D&D Beyond](extra-life-publication-witnesses-2014.md#классификация-в-текущем-dd-beyond). Подтверждены четыре карточки и их категории. Официальный статус правил Grung и точные публикации AL требуют отдельных первичных свидетельств. |
 | M0 / #77 / классовые единицы | [13-class пакет](class-unit-residual-review-2014.md):913observations/8roles,4source-version families/28ID;31discovery сохраняет3sidekicks отдельно от13main. [Primary TOC](class-multisource-toc-2014.md):8family+3sidekick links, не full rules/rights/denominator. Eloquencebody — scoped hold; следующий content: оставшиеся D06unit/variant/reference границы, не arbitrary high-level audit. |
@@ -45,7 +45,7 @@
 
 ## Фактический выпуск
 
-Действует `f1c574f`, формат v15. Совместимый откат — `280fe60`. Проверки, флаги и порядок отката описаны в [deployment](deployment.md).
+Действует `c77c354`, формат v15. Совместимый откат — `ca521c7`. Проверки, флаги и порядок отката описаны в [deployment](deployment.md).
 
 ## Как поддерживать этот файл
 
