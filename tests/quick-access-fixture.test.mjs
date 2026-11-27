@@ -73,14 +73,22 @@ test('Quick Access fixture loses one successful cast response and replay and und
   assert.equal(saved.replayed, true);
   assert.equal(saved.state.slots[1], 2);
 
-  const undo = await read('/api/resources/undo', {
+  const undoRequest = {
     expectedRevision: saved.revision,
     mutationId: randomUUID(),
     characterId: workspace.context.characterId,
     targetMutationId: request.mutationId,
-  });
+  };
+  const undo = await read('/api/resources/undo', undoRequest);
   assert.equal(undo.status, 200);
   const restored = await undo.json();
   assert.equal(restored.state.slots[1], 3);
   assert.equal(restored.state.inspiration, workspace.state.inspiration);
+  const inventory = await (await read('/api/inventory')).json();
+  assert.equal(restored.revision, inventory.revision);
+  assert.deepEqual(restored.inventory, inventory.entries);
+  const replayedUndo = await (await read('/api/resources/undo', undoRequest)).json();
+  assert.equal(replayedUndo.replayed, true);
+  assert.equal(replayedUndo.revision, restored.revision);
+  assert.deepEqual(replayedUndo.inventory, restored.inventory);
 });

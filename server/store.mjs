@@ -239,7 +239,7 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
     if (typeof label !== 'string' || !label.trim() || label.length > 200) throw new AppError(400, 'Нужно описание изменения');
     const responseSnapshot=()=>{
       const snapshot=read();
-      return ['inventory-charges','inventory-remove'].includes(operation)
+      return ['inventory-charges','inventory-remove','resource-undo'].includes(operation)
         ? {...snapshot,inventory:readInventory(db,snapshot.context.characterId)} : snapshot;
     };
     db.exec('BEGIN IMMEDIATE');
