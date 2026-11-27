@@ -98,7 +98,8 @@ body[data-theme="polar"] .play-effects {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: start;
   gap: 18px;
-  padding: 16px var(--play-gutter) 0;
+  --play-content-start: 16px;
+  padding: var(--play-content-start) var(--play-gutter) 0;
 }
 .play-section-caption, .tracker-recovery { display: none; }
 .tracker-copy { display: contents; }
@@ -515,7 +516,6 @@ body[data-theme="polar"] .play-effects {
     padding-bottom: 8px;
   }
   .play-layout { grid-template-columns: minmax(0, 1fr) clamp(235px, 24vw, 320px); }
-  body[data-page="library"] .play-layout { grid-template-columns: minmax(0, 1fr) 235px; }
   .play-resources .quick-state {
     position: static;
     width: auto;
@@ -668,7 +668,7 @@ body[data-theme="polar"] .play-effects {
     letter-spacing: .1em;
     text-transform: uppercase;
   }
-  body[data-page="play"] .play-resources {
+  .play-resources {
     top: calc(var(--workspace-header-height, var(--workspace-heading-height)) + 12px);
     max-height: calc(100dvh - var(--workspace-header-height, var(--workspace-heading-height)) - 24px);
   }
@@ -746,13 +746,17 @@ body[data-theme="polar"] .play-effects {
   .play-armor-summary > strong { font-size: 23px; }
   .play-hp-summary strong span { font: 400 13px Inter, sans-serif; }
   .play-hp-summary progress { width: min(100%, 150px); }
-  body[data-page="play"] .play-layout {
+  .play-layout {
     grid-template-columns: minmax(0, 1fr) 300px;
-    gap: 32px;
     --play-section-caption-height: 24px;
-    padding-block-start: calc(clamp(62px, 8dvh, 84px) - var(--play-section-caption-height));
+    --play-workspace-lead: calc(clamp(62px, 8dvh, 84px) - var(--play-section-caption-height));
   }
-  body[data-page="play"] .play-section-caption {
+  body[data-page="play"] .play-layout {
+    gap: 32px;
+    padding-block-start: var(--play-workspace-lead);
+  }
+  .workspace-prepare .play-resources { margin-block-start: calc(var(--play-workspace-lead) - var(--play-content-start)); }
+  .play-section-caption {
     display: block;
     min-block-size: var(--play-section-caption-height);
     margin: 0;
@@ -767,9 +771,9 @@ body[data-theme="polar"] .play-effects {
   body[data-page="play"] .play-actions > h2 { margin-block-end: 4px; }
   body[data-page="play"] .play-spell-scopes { margin-block-end: 0;
   }
-  body[data-page="play"] .play-resources { padding-inline-start: 28px; }
-  body[data-page="play"] .play-resources .resource-controls { row-gap: 2px; }
-  body[data-page="play"] .play-resources .resource-dots button:focus-visible { outline-offset: -2px; }
+  .play-resources { padding-inline-start: 28px; }
+  .play-resources .resource-controls { row-gap: 2px; }
+  .play-resources .resource-dots button:focus-visible { outline-offset: -2px; }
   /* Keep the current value beside the control label while the hero band scrolls away. */
   body[data-page="play"] .quick-vitals:not(.wounded, .zero-hp, :has(.temp-hp-chip)) {
     display: grid;
@@ -822,13 +826,13 @@ body[data-theme="polar"] .play-effects {
     grid-row: 3;
     margin-inline-start: 4px;
   }
-  body[data-page="play"] .play-resources .tracker-heading:has(.tracker-copy) { align-items: center; }
-  body[data-page="play"] .play-resources .tracker-copy {
+  .play-resources .tracker-heading:has(.tracker-copy) { align-items: center; }
+  .play-resources .tracker-copy {
     display: grid;
     min-inline-size: 0;
   }
-  body[data-page="play"] .play-resources .tracker-copy .tracker-name { line-height: 1.22; }
-  body[data-page="play"] .play-resources .tracker-recovery {
+  .play-resources .tracker-copy .tracker-name { line-height: 1.22; }
+  .play-resources .tracker-recovery {
     display: block;
     color: var(--muted);
     font-size: 11px;

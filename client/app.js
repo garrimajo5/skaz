@@ -350,10 +350,11 @@ function render(change,{resourceSettled=false,removedItemId}={}){
  const updateResources=change==='resources'&&SkazStorage.readyToDisplay?.()!==false;
  const updatePlayResources=updateResources&&page==='play';
  const updatePreparedResources=updateResources&&location.protocol!=='file:'&&Object.hasOwn(preparationResourceUpdates,page);
+ const retainQuickPanel=updatePlayResources||updatePreparedResources||updateResources&&page==='campaign';
  let retainedPreparation=false;
  const resourceFocus=updateResources?quickResourceFocus():null;
  const resourceScroll=updateResources?{top:quick.scrollTop,left:quick.scrollLeft}:null;
- if(!updatePlayResources&&!updatePreparedResources&&quick.parentElement!==home) home.append(quick);
+ if(!retainQuickPanel&&quick.parentElement!==home) home.append(quick);
  quick.hidden=page==='map'||page==='play'&&SkazPlay.summonActive();
  document.body.dataset.page=page;
  const workspacePage=['play','hero','inventory','library','campaign'].includes(page)||
@@ -397,7 +398,7 @@ function render(change,{resourceSettled=false,removedItemId}={}){
  $('#workspace-campaign-settings').hidden=location.protocol==='file:'||SkazStorage.can?.('select')!==true;
  $('#campaign-name').textContent=state.profile.campaign;
  const quickMarkup=quick.hidden?'':quickPanel();
- if((updatePlayResources||updatePreparedResources)&&quick.firstElementChild)paintQuickPanel(quick,quickMarkup);
+ if(retainQuickPanel&&quick.firstElementChild)paintQuickPanel(quick,quickMarkup);
  else {
   quick.innerHTML=quickMarkup;
   for(const part of quick.children||[])quickPartMarkup.set(part,part.outerHTML);

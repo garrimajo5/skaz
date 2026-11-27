@@ -171,11 +171,10 @@ const SkazPlayPresentation = (() => {
 
   /**
    * @param {boolean} historyAvailable
-   * @param {boolean} [quickAccess]
    */
-  function resources(historyAvailable, quickAccess = false) {
+  function resources(historyAvailable) {
     return `<aside class="play-resources" aria-labelledby="play-resources-title">
-          ${quickAccess ? '<p class="play-section-caption" aria-hidden="true">Остаток</p>' : ''}
+          <p class="play-section-caption" aria-hidden="true">Остаток</p>
           <h2 id="play-resources-title">Ресурсы</h2>
           <div id="play-quick-slot"></div>
           ${historyAvailable ? historyButton() : ''}
@@ -245,7 +244,7 @@ const SkazPlayPresentation = (() => {
             <div class="play-stats"><span>Инициатива ${escape(initiative)}</span><span>Скорость ${escape(view.speed)} фт</span><div class="play-spell-stats">${view.magicStats}</div>${view.checks}</div>
           </details>
         </div>
-        ${summon?'<aside class="play-resources"><h2>Хиты призыва</h2><p>'+escape(summon.hp)+' / '+escape(summon.maxHp)+'</p></aside>':resources(view.historyAvailable, true)}
+        ${summon?'<aside class="play-resources"><h2>Хиты призыва</h2><p>'+escape(summon.hp)+' / '+escape(summon.maxHp)+'</p></aside>':resources(view.historyAvailable)}
       </div>
     </section>`;
   }
