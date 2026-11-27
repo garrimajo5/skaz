@@ -4,10 +4,10 @@ import vm from 'node:vm';
 import {readFile} from 'node:fs/promises';
 const source=await readFile(new URL('../client/events.js',import.meta.url),'utf8');
 function harness(){
- let key='first';const handlers={},tasks=[],requests=[],reviews=[];const region={innerHTML:'',setAttribute(){}};
- const context=vm.createContext({queueMicrotask:fn=>tasks.push(fn),document:{addEventListener:(name,fn)=>handlers[name]=fn,getElementById:()=>region},SkazStorage:{snapshotKey:()=>key,contextKey:()=>key.split(':')[0],proposalsData:()=>new Promise((resolve,reject)=>requests.push({resolve,reject})),newProposal:()=>reviews.push('new'),reviewProposal:item=>reviews.push(item)}});
+ let key='first',inFlight=false;const handlers={},tasks=[],requests=[],reviews=[];const region={innerHTML:'',setAttribute(){}};
+ const context=vm.createContext({queueMicrotask:fn=>tasks.push(fn),document:{addEventListener:(name,fn)=>handlers[name]=fn,getElementById:()=>region},SkazStorage:{resourceWriteInFlight:()=>inFlight,snapshotKey:()=>key,contextKey:()=>key.split(':')[0],proposalsData:()=>new Promise((resolve,reject)=>requests.push({resolve,reject})),newProposal:()=>reviews.push('new'),reviewProposal:item=>reviews.push(item)}});
  vm.runInContext(source,context);
- return{region,tasks,requests,reviews,setKey:value=>key=value,view:()=>vm.runInContext('SkazEvents.view()',context),count:()=>vm.runInContext('SkazEvents.pendingCount()',context),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}}),filter:value=>handlers.change({target:{id:'proposal-filter',value}})};
+ return{region,tasks,requests,reviews,setKey:value=>key=value,view:()=>vm.runInContext('SkazEvents.view()',context),inFlight:value=>inFlight=value,update:settled=>vm.runInContext('SkazEvents.updateResources({querySelector:()=>true,querySelectorAll:()=>[]},'+settled+')',context),count:()=>vm.runInContext('SkazEvents.pendingCount()',context),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}}),filter:value=>handlers.change({target:{id:'proposal-filter',value}})};
 }
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
 const item=(status='pending')=>({id:'proposal-'+status,status,source:{text:'<script>source</script>',speaker:'Master',offsetMs:60000},suggestion:{kind:'journal',title:'<img src=x>',text:'Original'},appliedEntry:status==='accepted'?{title:'Corrected',text:'Corrected text'}:null});
@@ -43,4 +43,24 @@ test('unknown or failed event count never masquerades as an empty queue',async()
  h.requests[0].reject(new Error('offline'));await settle();assert.equal(h.count(),null);
  h.click('proposals-retry');h.requests[1].resolve({proposals:[item()]});await settle();assert.equal(h.count(),1);
  h.setKey('first:1');assert.equal(h.count(),null);
+});
+
+test('event list waits for the resource reply and keeps stable cards until new data or a read failure',async()=>{
+ const h=harness();h.inFlight(true);
+ assert.match(h.view(),/aria-busy="true"/);
+ assert.equal(h.tasks.length,0);
+ h.inFlight(false);h.setKey('first:1');assert.equal(h.update(true),true);
+ h.requests[0].resolve({proposals:[item()]});await settle();
+ assert.equal(h.count(),1);
+ let writes=0,html=h.region.innerHTML;
+ Object.defineProperty(h.region,'innerHTML',{get:()=>html,set:value=>{html=value;writes++;}});
+ h.setKey('first:2');assert.equal(h.update(false),true);
+ assert.equal(h.count(),1);assert.equal(h.requests.length,1);
+ h.setKey('first:3');assert.equal(h.update(true),true);
+ h.requests[1].resolve({proposals:[item()]});await settle();
+ assert.equal(writes,0);
+ h.setKey('first:4');assert.equal(h.update(true),true);
+ h.requests[2].reject(Error('Read permission lost'));await settle();
+ assert.equal(h.count(),null);assert.match(html,/Read permission lost/);assert.doesNotMatch(html,/Original/);
+ h.setKey('second:1');assert.equal(h.update(true),false);
 });

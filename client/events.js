@@ -7,7 +7,7 @@ const SkazEvents = (() => {
   function view() {
     const current = SkazStorage.snapshotKey();
     if (key !== current) { const nextContext = SkazStorage.contextKey(); if (context !== nextContext) { context = nextContext; offset = 0; filter = 'pending'; } key = current; ++serial; status = 'idle'; data = []; }
-    if (status === 'idle') { status = 'loading'; queueMicrotask(load); }
+    if (status === 'idle') { status = 'loading'; if (!SkazStorage.resourceWriteInFlight?.()) queueMicrotask(load); }
     return `<section class="session-events" aria-label="Предложения событий"><div class="map-toolbar"><div><h2>События на проверку</h2><p>Из ручного фрагмента разговора — в подтверждённую запись.</p></div><button id="new-proposal" class="primary">Событие из текста</button></div><p class="notice">Пока это ручной ввод и проверка. Запись звука и автоматическое распознавание ещё не подключены.</p><label class="events-filter">Показать<select id="proposal-filter">${Object.entries(labels).map(([value,label])=>`<option value="${value}" ${filter===value?'selected':''}>${label}</option>`).join('')}</select></label><div id="proposal-results" aria-live="polite" aria-busy="${status==='loading'}">${results()}</div></section>`;
   }
   function results() {
@@ -20,11 +20,34 @@ const SkazEvents = (() => {
   function refresh() {
     if(key!==SkazStorage.snapshotKey())return;
     const region=document.getElementById('proposal-results');if(region){region.innerHTML=results();SkazStorage.decorate?.(region);region.setAttribute('aria-busy',String(status==='loading'));}
-    const badge=document.getElementById('pending-count');if(badge)badge.textContent=String(pendingCount() ?? '—');
+    const badge=document.getElementById('pending-count');
+    if(badge){
+      const count=pendingCount();
+      badge.hidden=!count;
+      badge.textContent=count===null?'':String(count);
+    }
   }
-  async function load() {
-    const n=++serial, requestedKey=SkazStorage.snapshotKey();status='loading';refresh();
-    try {const result=await SkazStorage.proposalsData();if(n!==serial||requestedKey!==SkazStorage.snapshotKey())return;data=result.proposals;status='ready';}
+  function updateResources(screen, settled) {
+    if (!screen?.querySelector('.session-events') || context !== SkazStorage.contextKey()) return false;
+    key = SkazStorage.snapshotKey();
+    for (const control of screen.querySelectorAll('[data-review-proposal]')) {
+      const item = data.find(proposal => proposal.id === control.dataset.reviewProposal);
+      if (!item) continue;
+      control.disabled = !(SkazStorage.can?.(item.suggestion.kind === 'journal' ? 'shared' : 'character') ?? true);
+      if (!control.disabled) control.removeAttribute('title');
+    }
+    if (settled) void load(status === 'ready');
+    return true;
+  }
+  async function load(keepResults = false) {
+    const n=++serial, requestedKey=SkazStorage.snapshotKey();
+    if (!keepResults) { status='loading';refresh(); }
+    try {
+      const result=await SkazStorage.proposalsData();
+      if(n!==serial||requestedKey!==SkazStorage.snapshotKey())return;
+      if(keepResults&&JSON.stringify(data)===JSON.stringify(result.proposals))return;
+      data=result.proposals;status='ready';
+    }
     catch(e){if(n!==serial||requestedKey!==SkazStorage.snapshotKey())return;error=e.message||'Проверь соединение';status='error';}
     refresh();
   }
@@ -38,5 +61,5 @@ const SkazEvents = (() => {
     if(button.id==='proposals-next'){if(offset+limit<data.filter(p=>p.status===filter).length)offset+=limit;refresh();}
     if(button.dataset.reviewProposal){const item=data.find(p=>p.id===button.dataset.reviewProposal);if(item)SkazStorage.reviewProposal(item);}
   });
-  return { view, pendingCount };
+  return { view, pendingCount, updateResources };
 })();

@@ -113,14 +113,37 @@ function demoSpellsPage({showHeading=true}={}){
  const stats='Харизма +4 · Атака заклинанием +7 · Сложность спасброска 15';
  return (showHeading?heading('КНИГА ЗАКЛИНАНИЙ','Слова обретают силу',stats):`<p class="small">${stats}</p>`)+`<div class="notice"><button id="open-spellbook" class="primary">Мои заклинания из каталога</button><p><b>Ниже — 8 демонстрационных заклинаний.</b> Сохранённые записи каталога доступны отдельной кнопкой.</p> Описания здесь сокращены для проверки UX.</div><div class="filters"><input id="spell-search" aria-label="Найти заклинание" placeholder="Название на русском или английском…" value="${esc(spellQuery)}"><select id="spell-scope" aria-label="Доступность"><option value="all" ${spellFilter==='all'?'selected':''}>Весь каталог</option><option value="known" ${spellFilter==='known'?'selected':''}>Мои заклинания</option></select><select id="spell-level" aria-label="Круг заклинания"><option value="all">Все круги</option>${[0,1,2,3].map(l=>`<option value="${l}" ${String(l)===spellLevel?'selected':''}>${l===0?'Заговоры':l+' круг'}</option>`).join('')}</select></div><div id="spell-results" class="spell-grid">${spellCards()}</div>`}
 function spellCards(){const list=spells.filter(s=>(spellFilter!=='known'||s.known)&&(spellLevel==='all'||s.level===Number(spellLevel))&&(s.name+' '+s.en).toLowerCase().includes(spellQuery.toLowerCase()));return list.length?list.map(s=>`<button class="spell" data-spell="${s.id}"><div class="spell-top"><span class="spell-level">${s.level===0?'<span data-ui-icon="magic"></span>':String(s.level).padStart(2,'0')}</span><span class="tag ${s.known?'accent':''}">${s.known?'Известно':'В каталоге'}</span></div><h3>${s.name}</h3><p>${s.desc}</p><div class="spell-meta"><span>${s.time}</span><span>${s.range}</span>${s.conc?'<span><span data-ui-icon="focus"></span> Концентрация</span>':''}</div></button>`).join(''):'<div class="empty full">Ничего не найдено. Попробуй другое название или убери фильтры.</div>'}
-function timelinePanel(title,empty,entries){
+const journalTimelines={
+ journal:{title:"Записи сессии",empty:"Подтверждённых записей пока нет."},
+ notes:{title:"Личные заметки",empty:"Личных заметок пока нет."},
+};
+function timelineRows(kind){
+ const entries=state[kind];
+ const {empty}=journalTimelines[kind];
  const rows=[...entries].sort((a,b)=>b.at-a.at).map(raw=>SkazPlayPresentation.note(raw,typeof SkazCasting==='undefined'?null:SkazCasting.readManualNote(raw))).map(entry=>`
   <article class="timeline-entry">
    <time>${esc(entry.time)} · ${esc(entry.kind||'Заметка')}</time>
    <h3>${esc(entry.title)}</h3>
    <p class="session-text">${esc(entry.text||'')}</p>
   </article>`).join('');
- return `<section class="panel"><h2>${title}</h2><div class="timeline">${rows||`<p>${empty}</p>`}</div></section>`;
+ return rows||`<p>${empty}</p>`;
+}
+function updateJournalResources(screen,settled){
+ const next={};
+ for(const kind of Object.keys(journalTimelines)){
+  const region=screen.querySelector(`[data-journal-timeline="${kind}"]`);
+  if(!region)return false;
+  next[kind]={region,rows:timelineRows(kind)};
+ }
+ if(!SkazEvents.updateResources(screen,settled))return false;
+ for(const [kind,{region,rows}] of Object.entries(next)){
+  if(rows!==mountedPreparation.timelineRows[kind])region.innerHTML=rows;
+  mountedPreparation.timelineRows[kind]=rows;
+ }
+ if(SkazStorage.can?.('character'))for(const button of screen.querySelectorAll('#add-note, #new-proposal')){
+  button.disabled=false;button.removeAttribute('aria-disabled');button.removeAttribute('title');
+ }
+ return true;
 }
 function journal(){
  if(location.protocol==='file:')return demoJournal();
@@ -128,18 +151,20 @@ function journal(){
   <button class="secondary" id="add-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Личная заметка</button>
   <button class="secondary" id="export-journal">Скачать журнал</button>
  </div>`;
+ const timelineRowsByKind=Object.fromEntries(Object.keys(journalTimelines).map(kind=>[kind,timelineRows(kind)]));
  const content=`<div class="workspace-narrative">
   ${SkazEvents.view()}
-  ${timelinePanel('Записи сессии','Подтверждённых записей пока нет.',state.journal)}
-  ${timelinePanel('Личные заметки','Личных заметок пока нет.',state.notes)}
+  ${Object.entries(journalTimelines).map(([kind,{title}])=>`<section class="panel"><h2>${title}</h2><div class="timeline" data-journal-timeline="${kind}">${timelineRowsByKind[kind]}</div></section>`).join('')}
  </div>`;
- return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Журнал',actions,content});
+ const markup=renderPreparation({title:'Журнал',actions,content});
+ mountedPreparation.timelineRows=timelineRowsByKind;
+ return markup;
 }
 function demoJournal(){return heading(esc(SkazStorage.sessionTitle()),'Помнить главное','Сюжет, находки и решения — в одном месте.',`<button class="secondary" id="add-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Заметка</button>`)+`<div class="notice"><b>Демо распознавания.</b> Показан заранее подготовленный разговор. Микрофон не включается, аудио не записывается.</div><div class="journal-grid"><section><div class="panel recording"><span class="live-dot"></span><div><strong>Общий микрофон</strong><div class="small" style="color:var(--muted)">${paused?'Демо приостановлено':'Пример обработки разговора'}</div></div><div class="wave">${[12,22,15,28,17,24,9].map(h=>`<i style="height:${paused?4:h}px"></i>`).join('')}</div><button id="pause" aria-label="${paused?'Продолжить':'Приостановить'} демо"><span data-ui-icon="${paused?'resume':'pause'}"></span></button></div><div class="panel-title"><h2>Разобрать события</h2><span class="tag">Новых: ${pending().length}</span></div>${pending().map(e=>`<article class="event"><span class="overline">${e.type}</span><h3>${e.title}</h3><p>${e.desc}</p><div class="source">${e.time} · ${e.source}</div><div class="toolbar"><button class="primary" data-accept="${e.id}">${e.action}</button><button data-edit-event="${e.id}" aria-label="Исправить событие ${e.title}">Изменить</button><button class="text-button" data-dismiss="${e.id}">Пропустить</button></div></article>`).join('')||'<div class="panel empty">Нет предложенных событий.<br>Сохранённые записи доступны в журнале и архиве сессий.</div>'}${state.dismissed.length?'<button class="text-button" id="restore-events">Вернуть демо-события</button>':''}</section><section class="panel"><div class="panel-title"><h2>Журнал и личные заметки</h2><span class="tag">Личное</span></div><p class="small">Личные заметки сохраняются между сессиями. В архив входит только журнал сессии.</p><div class="timeline">${[...state.journal,...state.notes].sort((a,b)=>b.at-a.at).map(e=>`<div class="timeline-entry"><time>${esc(e.time)} · ${esc(e.kind||'Заметка')}</time><h3>${esc(e.title)}</h3><p>${esc(e.text||'')}</p></div>`).join('')}</div><button class="secondary" id="export-journal" style="width:100%">Скачать журнал</button></section></div>`}
 function quests(){
  if(location.protocol==='file:')return demoQuests();
  const content=`${SkazQuests.view()}<details class="demo-map-details"><summary>Посмотреть демонстрационный сюжет</summary>${demoQuests({showHeading:false})}</details>`;
- return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Задания',content});
+ return renderPreparation({title:'Задания',content});
 }
 function demoQuests({showHeading=true}={}){return (showHeading?heading('ЗАЦЕПКИ И ОБЕЩАНИЯ','Ни одна нить не потеряется','Здесь только то, что известно твоему персонажу.'):'')+`<div class="notice"><b>Демонстрационный сюжет.</b> Эти примеры не входят в сохранённые задания кампании.</div><div class="quest-list"><article class="panel quest"><div class="quest-icon"><span data-ui-icon="flag"></span></div><div><div class="overline">ОСНОВНАЯ НИТЬ · ${state.checks.q2?'ЗАВЕРШЕНО':'В ПРОЦЕССЕ'}</div><h2>Свет на мысе</h2><p>Выяснить, почему погас старый маяк и куда исчез картограф. Мира обещала помочь с лодкой, если вы вернётесь с новостями.</p>${[['q0','Расспросить Миру в трактире'],['q1','Добраться до старого маяка'],['q2','Найти картографа и узнать правду']].map(([id,t])=>`<label class="quest-check"><input type="checkbox" data-check="${id}" ${state.checks[id]??id==='q0'?'checked':''}>${t}</label>`).join('')}${state.accepted.includes('quest')?'<div class="notice" style="margin:15px 0 0"><b>Новая зацепка:</b> '+esc(state.eventEdits.quest||'Картограф ушёл к маяку. Источник: Мира, сессия 12.')+'</div>':''}</div><button class="secondary" data-place="lighthouse">На карте <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></article><article class="panel quest"><div class="quest-icon"><span data-ui-icon="mail"></span></div><div><div class="overline">ЛИЧНОЕ · ${state.accepted.includes('gold')?'НАГРАДА ПОЛУЧЕНА':'ЗАБРАТЬ НАГРАДУ'}</div><h2>Письмо без подписи</h2><p>Письмо доставлено Мире. Она обещала Элиану 25 золотых. Отправитель попросил не называть его имени.</p><span class="tag accent">${state.accepted.includes('gold')?(state.eventEdits.gold??25)+' зм добавлено':'Награда: 25 зм'}</span></div><button data-page="journal">В журнал <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></article></div>`}
 function mapPage(){
@@ -154,12 +179,14 @@ const preparationResourceUpdates={
  spells:updateSpellbookResources,
  inventory:screen=>SkazStorage.updateInventoryResources(screen.querySelector('#inventory-page')),
  library:screen=>SkazCatalog.updateResources(screen.querySelector('.catalog')),
+ quests:(screen,settled)=>SkazQuests.updateResources(screen,settled),
+ journal:updateJournalResources,
 };
-function updatePreparationResources(main){
+function updatePreparationResources(main,settled){
  const screen=main.querySelector('.workspace-prepare');
  if(!screen||mountedPreparation?.page!==page||mountedPreparation.context!==SkazStorage.contextKey())return false;
  const actor=SkazPlay.actorView();
- if(mountedPreparation.actor.historyAvailable!==actor.historyAvailable||!preparationResourceUpdates[page](screen))return false;
+ if(mountedPreparation.actor.historyAvailable!==actor.historyAvailable||!preparationResourceUpdates[page](screen,settled))return false;
  if(JSON.stringify(mountedPreparation.actor)!==JSON.stringify(actor))SkazPlayPresentation.refreshActor(screen,actor);
  mountedPreparation.actor=actor;
  return true;
@@ -385,7 +412,7 @@ function render(change,{resourceSettled=false}={}){
    main.innerHTML=SkazPlay.view(updatePlayResources);
   }
  }else{
-  retainedPreparation=updatePreparedResources&&updatePreparationResources(main);
+  retainedPreparation=updatePreparedResources&&updatePreparationResources(main,resourceSettled);
   if(updateResources&&page==='map'&&location.protocol!=='file:'){
    retainedPreparation=SkazMap.updateResources(main.querySelector('.workspace-map'),resourceSettled);
   }
