@@ -360,8 +360,11 @@ const SkazPlay = (()=>{
  // Resource commands change balances, casting controls and the recent note.
  // Keep the loaded rows and their hydrated artwork attached throughout the update.
  function updateResources(main,settled=false){
-  if(activeSummon()||owner!==SkazStorage.contextKey()||status==='idle'||(bookState!=='ready'&&inventoryState!=='ready'))return false;
-  const root=document.getElementById('play-content'),screen=main.querySelector('.play-screen');
+  if(owner!==SkazStorage.contextKey())return false;
+  const screen=main.querySelector('.play-screen'),summon=activeSummon();
+  if(summon)return screen?.dataset.playSummonId===summon.id;
+  if(status==='idle'||(bookState!=='ready'&&inventoryState!=='ready'))return false;
+  const root=document.getElementById('play-content');
   const lists=SkazStorage.playResourceLists({book:bookState==='ready',items:inventoryState==='ready'});
   if(!root||!screen||!lists)return false;
 
