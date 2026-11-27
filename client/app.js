@@ -97,9 +97,9 @@ function spellsPage(){
   :'<button data-page="library">Открыть справочник</button>';
  return renderPreparation({title:'Персонаж',actions,content:profileSections('spells')+content});
 }
-function updateSpellbookResources(screen){
+function updateSpellbookResources(screen,settled){
  const add=screen.querySelector('#book-add-spell');
- if(!add||!spellAddAvailable()||!screen.querySelector('.personal-book')||!SkazSpellbook.updateResources())return false;
+ if(!add||!spellAddAvailable()||!screen.querySelector('.personal-book')||!SkazSpellbook.updateResources(settled))return false;
  if(SkazStorage.can('character')){
   add.removeAttribute('aria-disabled');
   add.removeAttribute('title');

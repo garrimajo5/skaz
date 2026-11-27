@@ -7,7 +7,7 @@ const source = await readFile(new URL('../client/map.js', import.meta.url), 'utf
 const tick = () => new Promise(resolve => setImmediate(resolve));
 
 test('map keeps its form during a resource save and refreshes results only for its current context', async () => {
-  let context = 'one', snapshot = 'confirmed', writable = true, writes = 0;
+  let context = 'one', snapshot = 'confirmed', writable = true, writes = 0, writeInFlight = true;
   const pendingGets = [];
   const region = { set innerHTML(html) { this.markup = html; writes++; }, setAttribute() {} };
   const add = { disabled: true, removeAttribute() {} };
@@ -18,6 +18,7 @@ test('map keeps its form during a resource save and refreshes results only for i
     },
     queueMicrotask,
     SkazStorage: {
+      resourceWriteInFlight: () => writeInFlight,
       contextKey: () => context,
       snapshotKey: () => snapshot,
       can: action => action === 'shared' && writable,
@@ -28,13 +29,17 @@ test('map keeps its form during a resource save and refreshes results only for i
   const map = vm.runInContext('SkazMap', runtime);
   const response = { places: [{id:'fixture-map',title:'Northern ferry',description:'Safe landing',x:20,y:30,visited:true}] };
   const screen = { querySelector: selector => selector === '#campaign-map' ? {} : null, querySelectorAll: () => [add] };
-  map.view();
+  assert.match(map.view(), /aria-busy="true"/);
   await tick();
+  assert.equal(pendingGets.length, 0);
+  writeInFlight = false;
+  assert.equal(map.updateResources(screen, true), true);
   pendingGets.shift().resolve(response);
   await tick();
   assert.match(region.markup, /Northern ferry/);
   const readyWrites = writes;
 
+  add.disabled = true;
   snapshot = 'pending';
   assert.equal(map.updateResources(screen, false), true);
   assert.equal(add.disabled, true);
