@@ -668,7 +668,7 @@ test('a retained workspace refresh updates session and hero without remounting a
  const caption={get textContent(){return session;},set textContent(next){session=next;captionWrites++;}};
  const header={querySelector:selector=>selector==='.play-session'?caption:null};
  const element=markup=>({
-  markup,icons:false,
+  markup,icons:false,children:[],
   isEqualNode(next){return this.markup===next.markup&&this.icons===next.icons;},
   replaceWith(next){band=next;replacements++;}
  });
@@ -695,6 +695,38 @@ test('a retained workspace refresh updates session and hero without remounting a
  const html=presentation.prepare({actor,title:'Кампания',titleId:'campaign-title',actions:action,content:'<section id="campaign-content"></section>'});
  assert.match(html,/<h1 id="campaign-title" tabindex="-1">Кампания<\/h1>/);
  assert.ok(html.includes(action));
+});
+
+test('health refresh keeps the actor band, vital value and progress nodes mounted',()=>{
+ const h=harness(),actor=h.api.actorView();
+ const compare=function(other){return this.textContent===other?.textContent;};
+ const health=(hp,temp)=>{
+  const label={textContent:'HP',isEqualNode:compare};
+  const amount={tagName:'STRONG',textContent:hp,childNodes:[hp],isEqualNode:compare,replaceChildren(value){this.textContent=value;}};
+  const bar={tagName:'PROGRESS',attributes:{value:String(hp),max:'38'},
+   getAttribute(name){return this.attributes[name];},setAttribute(name,value){this.attributes[name]=value;}};
+  const children=[label,amount,bar];
+  if(temp)children.push({textContent:'+'+temp,remove(){children.splice(3,1);}});
+  return {className:'play-hp-summary',classList:{contains:value=>value==='play-hp-summary'},
+   children,isEqualNode:()=>false,append(node){children.push(node);node.remove=()=>children.splice(children.indexOf(node),1);},replaceWith(){assert.fail('Vitals replaced');}};
+ };
+ const mounted=health(20,0),name={className:'play-hero-name',isEqualNode:()=>true};
+ const band={children:[name,mounted],isEqualNode:()=>false,replaceWith(){assert.fail('Actor band replaced');}};
+ const header={querySelector:()=>null,insertAdjacentHTML(){}};
+ const screen={querySelector:selector=>selector==='.play-hero-band'?band:header};
+ const amount=mounted.children[1],bar=mounted.children[2];
+ let draft;
+ const document={createElement:()=>({content:{get firstElementChild(){return draft;} }})};
+ const presentation=vm.runInNewContext(presentationSource+'\nSkazPlayPresentation',{document,SkazIcons:{mount(){}}});
+ for(const [hp,temp] of [[14,4],[12,4],[12,0]]){
+  draft={children:[name,health(hp,temp)]};
+  presentation.refreshActor(screen,{...actor,hp,tempHp:temp});
+  assert.equal(mounted.children[1],amount);
+  assert.equal(mounted.children[2],bar);
+  assert.equal(amount.textContent,hp);
+  assert.equal(bar.getAttribute('value'),String(hp));
+  assert.equal(mounted.children.length,temp?4:3);
+ }
 });
 
 test('cast price follows the selected command, with distinct free and manual paths',async()=>{
