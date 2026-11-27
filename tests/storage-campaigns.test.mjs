@@ -38,6 +38,45 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
 const tick = () => new Promise(resolve => setImmediate(resolve));
 const payload = (revision, campaignId = 'first') => ({ schemaVersion: 1, revision, state: seed, context: { campaignId, characterId: campaignId + '-hero', sessionId: campaignId + '-session' } });
 const response = data => ({ ok: true, json: async () => data });
+test('save indicator is actionable only when the current game history can open', async () => {
+ const workspace=Promise.withResolvers();
+ let reads=0;
+ const h=harness(memory(),memory(),url=>{
+  if(url==='/api/workspace')return workspace.promise;
+  reads++;
+  return response({changes:[]});
+ });
+ const chip=h.get('sync-history-chip');
+ const boot=h.api.boot();
+ await tick();
+ assert.equal(chip.disabled,true);
+ assert.match(h.get('sync-status-caption').textContent,/Подключение/);
+ await h.click('sync-history-chip');
+ assert.equal(reads,0);
+ workspace.resolve(response(payload(0)));
+ await boot;
+ h.api.paint();
+ assert.equal(chip.disabled,false);
+ assert.match(chip['aria-label'],/История изменений/);
+ await h.click('sync-history-chip');
+ assert.equal(reads,1);
+ assert.match(h.dialog(),/История изменений/);
+});
+
+test('the badge still reports saves for a character without access to history', async () => {
+ const h=harness(memory(),memory(),url=>{
+  assert.equal(url,'/api/workspace');
+  return response({...payload(0),permissions:{...permissionFixture('player'),history:false}});
+ });
+ await h.api.boot();
+ h.api.paint();
+ assert.equal(h.get('sync-history-chip').disabled,true);
+ assert.equal(h.get('sync-status-caption').textContent,'Сохранено');
+ assert.doesNotMatch(h.get('sync-history-chip')['aria-label'],/История изменений/);
+ await h.click('sync-history-chip');
+ assert.equal(h.dialog(),'');
+});
+
 test('history renders numeric differences, sends addressed undo and keeps last confirmed time on load',async()=>{
  const calls=[],row={mutationId:'resource-target',label:'Хиты',createdAt:'2026-11-08T00:00:00Z',changes:[{resource:{kind:'hp'},before:28,after:25}],canUndo:true,undoKind:'resource'};
  let revision=0;const h=harness(memory(),memory(),async(url,options)=>{

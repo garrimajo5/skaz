@@ -308,7 +308,7 @@ const SkazCampaign = (function(){
   function actionsSection(){
     return `<h2 id="campaign-section-heading" tabindex="-1">История действий</h2><section class="panel campaign-panel">
       <p>Действия текущей сессии и их результаты доступны в общей истории сохранений.</p>
-      ${SkazStorage.access()?.history===false?note('История недоступна с текущими правами.'):button('Открыть историю действий','history-screen')}
+      ${SkazStorage.historyAvailable()?button('Открыть историю действий','history-screen'):note('История сейчас недоступна.')}
     </section>`;
   }
   function peopleSection(){

@@ -76,6 +76,8 @@ const SkazStorage = (() => {
   }
   let activeContext = null;
   let sessionInfo = null, loaded = false;
+  const historyAvailable = () => !demo && loaded && status !== 'loading' && status !== 'denied' &&
+    (permissions ? permissions.history : !individual());
   let pending = null;
   let inventoryCache=null;
   let resourceQueue=null,resourceFailure='',resourceSending=false,resourceGeneration=0;
@@ -235,10 +237,11 @@ const SkazStorage = (() => {
     const historyButton = document.getElementById('sync-history-chip');
     const caption = document.getElementById('sync-status-caption');
     const icon = document.getElementById('sync-history-icon');
-    const label = chip.text + '. История изменений';
+    const showHistory = historyAvailable();
+    const label = showHistory ? chip.text + '. История изменений' : chip.text;
     if(caption.textContent !== chip.text) caption.textContent = chip.text;
     if(historyButton.dataset.kind !== chip.kind) historyButton.dataset.kind = chip.kind;
-    historyButton.disabled = demo;
+    historyButton.disabled = !showHistory;
     historyButton.setAttribute('aria-label', label);
     historyButton.title = label;
     if(icon.dataset.icon !== chip.icon){
@@ -381,7 +384,7 @@ const SkazStorage = (() => {
       ?dialog.open&&content.firstElementChild===previousView
       :dialog.open===wasOpen&&content.firstElementChild===before);
     if(!stillShowingHistory())return;
-    if(status==='denied'||permissions?.history===false||!permissions&&individual()||!loaded)return toast('История недоступна с текущими правами');
+    if(!historyAvailable())return toast('История сейчас недоступна');
     const key=snapshotKey(),queued=structuredClone(resourceContextMatches()?resourceQueue?.data?.commands||[]:[]);let changes=[],unavailable=false;
     if(can('history')){try{({changes}=await request('/api/history?scope='+scope));}catch{unavailable=true;}}
     else unavailable=true;
@@ -1322,5 +1325,5 @@ const SkazStorage = (() => {
   function contextKey(){return JSON.stringify(activeContext);}
   document.addEventListener('change',event=>{if(event.target.id!=='show-examples')return;try{localStorage.setItem('skaz-show-examples',String(event.target.checked));render();}catch{toast('Не удалось сохранить настройку браузера');}});
   window.addEventListener('online',()=>{if(resourceQueue?.length)void flushResources();});
-  return { resourceWriteInFlight:()=>resourceSending, campaignPeopleAvailable, campaignApi, classCheckBenefits:()=>classCheckBenefits?structuredClone(classCheckBenefits):null,classSaveBenefits:()=>classSaveBenefits?structuredClone(classSaveBenefits):null,classSkills:()=>classSkills?structuredClone(classSkills):null,unlimitedResources:()=>structuredClone(unlimitedResources),isSpellSlotCounter:id=>spellSlotCounterIds.has(id),spellLearningMode:()=>spellLearning, editCharges, playResourceLists, refreshAfterAdvancement:load, advancementAvailable, advancementScope, personalTransferScope, reloadAfterArtTransfer, personalArtReadScope, personalArtScope, castSpell,pendingResourceIndices,inventoryData,spendInventoryOne,pendingCount,canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, profileEditorsAvailable, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, updateInventoryResources, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, queuedSpellbook, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, currentSession, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
+  return { historyAvailable, resourceWriteInFlight:()=>resourceSending, campaignPeopleAvailable, campaignApi, classCheckBenefits:()=>classCheckBenefits?structuredClone(classCheckBenefits):null,classSaveBenefits:()=>classSaveBenefits?structuredClone(classSaveBenefits):null,classSkills:()=>classSkills?structuredClone(classSkills):null,unlimitedResources:()=>structuredClone(unlimitedResources),isSpellSlotCounter:id=>spellSlotCounterIds.has(id),spellLearningMode:()=>spellLearning, editCharges, playResourceLists, refreshAfterAdvancement:load, advancementAvailable, advancementScope, personalTransferScope, reloadAfterArtTransfer, personalArtReadScope, personalArtScope, castSpell,pendingResourceIndices,inventoryData,spendInventoryOne,pendingCount,canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, profileEditorsAvailable, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, updateInventoryResources, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, queuedSpellbook, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, currentSession, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
 })();
