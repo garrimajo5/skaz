@@ -119,13 +119,19 @@ const SkazPlayPresentation = (() => {
     const headingContent = screen.querySelector('.play-heading > div');
     const caption = headingContent?.querySelector('.play-session');
     if (caption) {
-      if (actor.session) caption.textContent = actor.session;
-      else caption.remove();
+      if (!actor.session) caption.remove();
+      else if (caption.textContent !== actor.session) caption.textContent = actor.session;
     } else if (actor.session) {
       headingContent?.insertAdjacentHTML('afterbegin', sessionLine(actor.session));
     }
     const band = screen.querySelector('.play-hero-band');
-    if (band) band.outerHTML = actorBand(actor);
+    if (!band) return;
+    const template = document.createElement('template');
+    template.innerHTML = actorBand(actor);
+    const next = template.content.firstElementChild;
+    if (!next) return;
+    SkazIcons.mount(next);
+    if (!band.isEqualNode(next)) band.replaceWith(next);
   }
   /** @param {WorkspaceActor} view */
   function actorBand(view) {

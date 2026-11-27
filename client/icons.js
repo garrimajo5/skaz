@@ -49,6 +49,7 @@ const SkazIcons=(()=>{
  shapes['pin']='<path d="M19 9c0 5-7 11-7 11S5 14 5 9a7 7 0 0 1 14 0Z"/><circle cx="12" cy="9" r="2"/>';
  const own=name=>Object.prototype.hasOwnProperty.call(shapes,name);
  function markup(name){return own(name)?'<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#skaz-icon-'+name+'"/></svg>':'';}
+ /** @param {ParentNode} [root] */
  function mount(root=document){for(const node of root.querySelectorAll('[data-ui-icon]:not([data-icon-ready])')){node.setAttribute('data-icon-ready','');node.setAttribute('aria-hidden','true');node.innerHTML=markup(node.getAttribute('data-ui-icon'));}}
  function install(){const holder=document.createElement('div');holder.setAttribute('aria-hidden','true');holder.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden" focusable="false"><defs>'+Object.entries(shapes).map(([name,body])=>'<symbol id="skaz-icon-'+name+'" viewBox="0 0 24 24">'+body+'</symbol>').join('')+'</defs></svg>';document.body.prepend(holder);mount();let queued=false;new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(()=>{queued=false;mount();});}}).observe(document.body,{childList:true,subtree:true});}
  if(typeof document!=='undefined'&&typeof MutationObserver==='function')install();
