@@ -143,11 +143,11 @@ button{min-width:var(--touch)}.dialog-close{min-width:var(--touch);min-height:va
  .bottomnav{padding:2px 8px;min-height:48px;height:52px}.bottomnav button{min-height:48px;padding:2px 8px;font-size:0}.bottomnav button span{display:block;font-size:12px}
  .session-menu-content{max-height:calc(100dvh - var(--workspace-header-height,56px) - 16px)}
 }
-body:is([data-page="quests"],[data-page="journal"],[data-page="spells"])
+body:is([data-page="quests"],[data-page="journal"],[data-page="spells"],[data-page="library"])
  #toast.show[data-kind="success"]:not(:has(> span[tabindex])) { translate: var(--workspace-notice-shift, 0 0); }
-body:is([data-page="quests"],[data-page="journal"],[data-page="spells"])
+body:is([data-page="quests"],[data-page="journal"],[data-page="spells"],[data-page="library"])
  #toast.workspace-notice-compact[data-kind="success"]:not(:has(> span[tabindex])) { padding-block: 0; }
-body:is([data-page="quests"],[data-page="journal"],[data-page="spells"])
+body:is([data-page="quests"],[data-page="journal"],[data-page="spells"],[data-page="library"])
  #toast.workspace-notice-compact > span { max-block-size: 44px; }
 #toast button { flex-shrink: 0; }
 #toast :is(button, span):focus-visible { outline-color: currentColor; }
