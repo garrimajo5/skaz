@@ -89,8 +89,9 @@ const SkazCampaign = (function(){
     const searchFeedback=el('campaign-search-feedback');
     const feedbackBounds=searchFeedback?.getBoundingClientRect();
     const viewportRight=(viewport?.offsetLeft??0)+viewportWidth;
-    const shortLayout=formVisible&&viewportHeight<=260&&feedbackBounds?.width>0&&feedbackBounds.right<=viewportRight&&
-      getComputedStyle(searchFeedback).position==='relative';
+    const shortLayout=searchBounds&&searchBounds.bottom<=end&&viewportHeight<=260&&feedbackBounds?.width>0&&
+      feedbackBounds.right<=viewportRight&&getComputedStyle(searchFeedback).position==='relative'&&
+      el('campaign-query')?.getBoundingClientRect().top>=viewportTop;
     const toolbarSlot=formVisible&&(viewport?.scale??1)===1
       ?toolbarFeedbackSlot(viewportWidth,viewportHeight,viewportTop,end):null;
     const inlineSlot=shortLayout?searchFeedback:
@@ -99,7 +100,14 @@ const SkazCampaign = (function(){
     moveNotice(message,inlineSlot||document.body);
     message?.classList.toggle('campaign-notice-compact',compact);
     let shift=0;
-    if(relevant&&!inlineSlot){
+    if(shortLayout){
+      const bounds=message.getBoundingClientRect();
+      const top=bounds.top-noticeShift, bottom=bounds.bottom-noticeShift;
+      const add=el('campaign-people-actions')?.getBoundingClientRect();
+      const overlapsAdd=add?.width&&add.left<bounds.right&&add.right>bounds.left&&add.top<bottom&&add.bottom>viewportTop;
+      const ceiling=overlapsAdd?Math.max(viewportTop,add.bottom+4):viewportTop;
+      shift=Math.min(Math.max(0,ceiling-top),Math.max(0,end-bottom));
+    }else if(relevant&&!inlineSlot){
       const form=search.getBoundingClientRect(), bounds=message.getBoundingClientRect();
       const top=bounds.top-noticeShift, bottom=bounds.bottom-noticeShift;
       const nearby=[form,...Array.from(document.querySelectorAll(
@@ -307,7 +315,7 @@ const SkazCampaign = (function(){
       </div>
       <div class="campaign-search-tools">
         <form id="campaign-search" class="campaign-search">
-          <label for="campaign-query">Найти по имени или сведениям
+          <label for="campaign-query">Имя или сведения
             <input id="campaign-query" name="q" type="search" maxlength="200" value="${esc(view.query)}"></label>
           <button type="submit">Найти</button>
         </form>
@@ -315,16 +323,21 @@ const SkazCampaign = (function(){
       </div>
       <div id="campaign-people-results" aria-live="polite"></div>`;
   }
-  function drawResults(){
+  const peopleResultsMarkup=new WeakMap();
+  function drawResults(mayAddPerson){
     const region=el('campaign-people-results');
     if(!region)return;
     region.setAttribute('aria-busy',String(loading));
-    if(loading){region.innerHTML=note('Ищем персонажей…','status');return;}
-    if(!result){region.innerHTML='';return;}
-    region.innerHTML=result.people.length?`<div class="campaign-layout">${matchingPeople(result.people,result)}</div>`:
+    let markup='';
+    if(result)markup=result.people.length?
+      `<div class="campaign-layout">${matchingPeople(result.people,result)}</div>`:
       view.query?`<section class="panel campaign-panel"><h3>Персонажи не найдены</h3>${button('Очистить поиск','search-clear')}</section>`:
       `<section class="panel campaign-panel"><h3>В кампании пока нет известных персонажей</h3>
-        ${canWrite()?note('Добавь имя или прозвище первого знакомого.'):note('Добавлять персонажей могут мастер и владелец.')}</section>`;
+        ${mayAddPerson?note('Добавь имя или прозвище первого знакомого.'):note('Добавлять персонажей могут мастер и владелец.')}</section>`;
+    else if(loading)markup=note('Ищем персонажей…','status');
+    if(peopleResultsMarkup.get(region)===markup)return;
+    region.innerHTML=markup;
+    peopleResultsMarkup.set(region,markup);
   }
   function draw(){
     if(!rootActive())return;
@@ -340,10 +353,14 @@ const SkazCampaign = (function(){
     if(peopleList){
       if(!el('campaign-search'))region.innerHTML=peopleSection();
       const actions=el('campaign-people-actions'), mayAddPerson=canWrite();
-      if(Boolean(actions.firstElementChild)!==mayAddPerson){
-        actions.innerHTML=mayAddPerson?button('Добавить персонажа','create','', 'class="primary"'):'';
+      const savingResources=SkazStorage.pendingCount?.()>0&&SkazStorage.canResource?.();
+      const retainAddPerson=Boolean(actions.firstElementChild&&savingResources&&SkazStorage.access()?.shared!==false);
+      const showAddPerson=mayAddPerson||retainAddPerson;
+      if(Boolean(actions.firstElementChild)!==showAddPerson){
+        actions.innerHTML=showAddPerson?button('Добавить персонажа','create','', 'class="primary"'):'';
       }
-      drawResults();
+      actions.firstElementChild?.setAttribute('aria-disabled',String(!mayAddPerson));
+      drawResults(showAddPerson);
     }else if(view.section==='actions')region.innerHTML=actionsSection();
     else if(loading&&!result)region.innerHTML=note('Загружаем кампанию…','status');
     else if(view.section==='people'&&result?.person)region.innerHTML=card(result.person,result);
