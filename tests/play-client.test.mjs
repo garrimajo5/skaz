@@ -618,7 +618,7 @@ test('quick access has one resource mount and keeps actor identity in its status
  assert.doesNotMatch(safe,/" onfocus="bad"/);
 });
 
-test('Quick Access and preparation share an identical actor strip, with combat tools beside it',()=>{
+test('Quick Access and preparation share actor and resource panels, with combat tools beside the actor',()=>{
  const h=harness();
  h.setSheet({className:'Wizard',subclass:'Conjuration',level:6});
  const presentation=vm.runInNewContext(presentationSource+'\nSkazPlayPresentation',{});
@@ -627,7 +627,11 @@ test('Quick Access and preparation share an identical actor strip, with combat t
  const play=h.api.view();
  assert.ok(play.includes(start));
  const strip=play.split(start)[1].split('<div class="play-actor-tools"')[0];
- assert.ok(presentation.prepare(view).includes(start+strip+'</div>'));
+ const prepared=presentation.prepare(view);
+ assert.ok(prepared.includes(start+strip+'</div>'));
+ const resourcePanel=markup=>markup.match(/<aside class="play-resources"[\s\S]*?<\/aside>/)?.[0];
+ assert.ok(resourcePanel(play));
+ assert.equal(resourcePanel(prepared),resourcePanel(play));
  assert.doesNotMatch(presentation.prepare(view),/id="play-summons"/);
  assert.doesNotMatch(presentation.prepare({...view,mapOnly:true}),/play-actor-strip|play-quick-slot/);
 });

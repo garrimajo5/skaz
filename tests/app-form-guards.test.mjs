@@ -183,7 +183,7 @@ test('the Magic deep link renders the character workspace and saved spellbook',(
  assert.match(html,/<h1>Персонаж<\/h1>/);
  assert.match(html,/<a href="#spells" aria-current="page">Магия<\/a>/);
  assert.match(html,/<a href="#hero">Лист<\/a>/);
- assert.doesNotMatch(html,/play-section-caption/);
+ assert.doesNotMatch(html,/Командная панель/);
  assert.match(html,/&lt;Мирен&gt;/);
  assert.match(html,/Ворота прилива/);
  assert.equal((html.match(/id="play-quick-slot"/g)||[]).length,1);
