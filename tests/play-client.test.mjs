@@ -470,6 +470,43 @@ test('compact slot picker sets the same circle for later casting and rejects sta
  await h.click('',{playCast:'Shield'});
  assert.equal(h.casts.length,1);
 });
+test('choosing a circle patches the current controls instead of refreshing the game list',async()=>{
+ const patches=[];
+ const h=harness({environment:{SkazUI:{patchButton:(prior,next)=>patches.push([prior,next])}}});
+ const item=spell('Shield',1),root=h.get('play-content');
+ await loaded(h,[item]);
+ const priorMarkup=root.innerHTML;
+ const previousCast={tagName:'BUTTON',isEqualNode:()=>false},updatedCast={tagName:'BUTTON'};
+ const priorLevel={tagName:'BUTTON'},updatedLevel={dataset:{level:'3'}};
+ const picker={value:'2',options:[{value:'2',defaultSelected:true},{value:'3',defaultSelected:false}]};
+ const controls={querySelector:selector=>({
+  '[data-level="3"]':priorLevel,
+  '[data-play-cast-select]':picker,
+  '[data-play-cast]':previousCast,
+ })[selector]};
+ const draft={content:{
+  querySelectorAll:()=>[updatedLevel],
+  querySelector:()=>updatedCast,
+ }};
+ h.document.createElement=()=>draft;
+ let focusOptions;
+ const button={id:'',dataset:{playCastLevel:'Shield',level:'3'},closest:()=>controls,focus:options=>{focusOptions=options;}};
+ await h.click('',button.dataset,button);
+ assert.match(draft.innerHTML,/data-level="3" aria-pressed="true"/);
+ assert.equal(patches.length,2);
+ assert.equal(patches[0][0],priorLevel);
+ assert.equal(patches[0][1],updatedLevel);
+ assert.equal(patches[1][0],previousCast);
+ assert.equal(patches[1][1],updatedCast);
+ assert.equal(picker.value,'3');
+ assert.deepEqual(picker.options.map(option=>option.defaultSelected),[false,true]);
+ assert.equal(focusOptions.preventScroll,true);
+ assert.equal(root.innerHTML,priorMarkup);
+ assert.equal(h.casts.length,0);
+ await h.click('',{playCast:'Shield'});
+ assert.equal(h.casts[0][1].level,3);
+});
+
 test('missing charge array is unknown rather than empty or full',async()=>{
  const h=harness();await loaded(h,[],[{catalogId:'wand',quantity:1,entry:{name:{ru:'Палочка'},item:{charges:{max:7}}}}]);
  assert.match(h.get('play-content').innerHTML,/заряды не указаны/);assert.match(h.get('play-content').innerHTML,/Указать заряды/);assert.equal(h.chargeEdits.length,0);
