@@ -199,15 +199,7 @@ const SkazPlay = (()=>{
   if(!controls){refresh();return true;}
   const draft=document.createElement('template');
   draft.innerHTML=castControls(item);
-  for(const choice of draft.content.querySelectorAll('[data-play-cast-level]')){
-   const current=controls.querySelector('[data-level="'+choice.dataset.level+'"]');
-   if(current)SkazUI.patchButton(current,choice);
-  }
-  const picker=controls.querySelector('[data-play-cast-select]');
-  if(picker){
-   for(const option of picker.options)option.defaultSelected=option.value===String(level);
-   picker.value=String(level);
-  }
+  if(!patchCastChoices(controls,draft.content)){refresh();return true;}
   replacePlayPart(controls,draft.content,'[data-play-cast]');
   return true;
  }
@@ -417,14 +409,38 @@ const SkazPlay = (()=>{
   }
   return true;
  }
+ function patchCastChoices(current,incoming){
+  const picker=current.querySelector('[data-play-cast-select]');
+  const nextPicker=incoming.querySelector('[data-play-cast-select]');
+  if(!picker||!nextPicker)return false;
+  const choices=[...current.querySelectorAll('[data-play-cast-level]')];
+  const nextChoices=[...incoming.querySelectorAll('[data-play-cast-level]')];
+  const options=[...picker.options],nextOptions=[...nextPicker.options];
+  if(choices.length!==nextChoices.length||options.length!==nextOptions.length||
+     choices.some((choice,index)=>choice.dataset.level!==nextChoices[index].dataset.level)||
+     options.some((option,index)=>option.value!==nextOptions[index].value))return false;
+  choices.forEach((choice,index)=>SkazUI.patchButton(choice,nextChoices[index]));
+  options.forEach((option,index)=>{
+   const updated=nextOptions[index],label=updated.getAttribute('aria-label');
+   if(option.getAttribute('aria-label')!==label)option.setAttribute('aria-label',label);
+   if(option.defaultSelected!==updated.defaultSelected)option.defaultSelected=updated.defaultSelected;
+  });
+  if(picker.value!==nextPicker.value)picker.value=nextPicker.value;
+  return true;
+ }
+
  function replacePlayPart(current,updated,selector){
   const prior=current.querySelector(selector),next=updated.querySelector(selector);
-  if(!prior||!next||prior.isEqualNode(next))return;
+  if(!prior||!next)return;
+  // Compare the recent panel in the same decorated form as the mounted one.
+  if(selector==='[data-play-recent]')SkazIcons.mount(next);
+  if(prior.isEqualNode(next))return;
   if(prior.tagName==='BUTTON'&&next.tagName==='BUTTON'){SkazUI.patchButton(prior,next);return;}
   if(selector==='.play-casting-controls'){
    const command=prior.querySelector('[data-play-cast]'),nextCommand=next.querySelector('[data-play-cast]');
    if(command&&nextCommand){
     SkazUI.patchButton(command,nextCommand);
+    if(patchCastChoices(prior,next))return;
     const choices=[...prior.children].filter(node=>node!==command);
     const nextChoices=[...next.children].filter(node=>node!==nextCommand);
     if(choices.length!==nextChoices.length||choices.some((choice,index)=>!choice.isEqualNode(nextChoices[index]))){
