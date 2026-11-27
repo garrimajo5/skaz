@@ -359,7 +359,7 @@ const SkazPlay = (()=>{
 
  // Resource commands change balances, casting controls and the recent note.
  // Keep the loaded rows and their hydrated artwork attached throughout the update.
- function updateResources(main,settled=false){
+ function updateResources(main,settled=false,removedItemId=''){
   if(owner!==SkazStorage.contextKey())return false;
   const screen=main.querySelector('.play-screen'),summon=activeSummon();
   if(summon)return screen?.dataset.playSummonId===summon.id;
@@ -376,11 +376,33 @@ const SkazPlay = (()=>{
   const fragment=next.content;
   const readRows=parent=>[...parent.querySelectorAll('[data-play-read]')];
   const currentRows=readRows(root),nextRows=readRows(fragment);
-  if(currentRows.length!==nextRows.length||currentRows.some((row,index)=>
+  const gone=removedItemId&&!nextRows.some(row=>row.dataset.playRead==='item'&&row.dataset.id===removedItemId)&&
+   currentRows.find(row=>row.dataset.playRead==='item'&&row.dataset.id===removedItemId);
+  const sharedRows=gone?currentRows.filter(row=>row!==gone):currentRows;
+  if(sharedRows.length!==nextRows.length||sharedRows.some((row,index)=>
    row.dataset.playRead!==nextRows[index].dataset.playRead||row.dataset.id!==nextRows[index].dataset.id
   ))return false;
 
-  for(const [index,row] of currentRows.entries()){
+  if(gone){
+   const item=gone.closest('.play-item');
+   const focus=document.activeElement;
+   if(fragment.querySelector('[data-play-list=items]')){
+    if(item?.contains(focus))document.getElementById('play-consumables-title')?.focus({preventScroll:true});
+    item?.remove();
+   }else{
+    const section='[data-play-section=items]';
+    const bookSection='[data-play-section=book]';
+    const current=root.querySelector(section),replacement=fragment.querySelector(section);
+    const bookMoved=(root.querySelector(bookSection)?.parentElement===root)!==(fragment.querySelector(bookSection)?.parentNode===fragment);
+    if(!current||!replacement||bookMoved)return false;
+    const jump=document.getElementById('play-show-consumables');
+    SkazIcons.mount(replacement);
+    current.replaceWith(replacement);
+    jump?.remove();
+    if(item?.contains(focus)||jump===focus)document.getElementById('play-prepare-inventory')?.focus({preventScroll:true});
+   }
+  }
+  for(const [index,row] of sharedRows.entries()){
    const updated=nextRows[index];
    if(row.dataset.playRead==='spell'){
     const concentrating=updated.classList.contains('is-concentrating');
