@@ -473,6 +473,29 @@ const SkazPlay = (()=>{
   return true;
  }
 
+ function changeSpellScope(button){
+  spellScope=button.dataset.playSpellScope;
+  scrollPositions.spells=0;
+  const section=button.closest?.('.play-spells');
+  const list=section?.querySelector('[data-play-list="spells"]');
+  if(list){
+   const draft=document.createElement('template');
+   draft.innerHTML=content(actorLevel(SkazStorage.sheet?.()));
+   const updated=draft.content.querySelector('[data-play-list="spells"]');
+   if(updated){
+    list.replaceChildren(...updated.childNodes);
+    list.scrollTop=0;
+    for(const choice of section.querySelectorAll('[data-play-spell-scope]')){
+     choice.setAttribute('aria-pressed',String(choice.dataset.playSpellScope===spellScope));
+    }
+    button.focus?.({preventScroll:true});
+    return;
+   }
+  }
+  refresh();
+  document.querySelector?.('[data-play-spell-scope="'+spellScope+'"]')?.focus();
+ }
+
  function refresh(changed=null){
   if(!active()||activeSummon()||key!==SkazStorage.snapshotKey())return;
   renderChargeTracker();
@@ -659,7 +682,7 @@ const SkazPlay = (()=>{
   const input=event.target,id=input.dataset?.playCastSelect;
   if(id&&active()&&key===SkazStorage.snapshotKey())changeCastLevel(id,Number(input.value),input);
  });
- document.addEventListener('click',async event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.playMode){closeModal();go(b.dataset.playMode==='play'?'play':'hero');return;}if(!active())return;if(battleClick(b))return;if(b.id==='play-edit'){go('hero');return;}if(b.id==='play-search'){search();return;}if(activeSummon())return;if(b.id==='play-checks'){SkazCharacterSheet.checks();return;}if(key!==SkazStorage.snapshotKey())return;if(spellScopes.some(([id])=>id===b.dataset.playSpellScope)){spellScope=b.dataset.playSpellScope;scrollPositions.spells=0;refresh();document.querySelector?.('[data-play-spell-scope="'+spellScope+'"]')?.focus();return;}if(b.id==='play-retry'){void load(b);return;}if(b.id==='play-show-consumables'){const target=document.getElementById('play-consumables-title');target?.focus();return;}if(['spells','inventory'].includes(b.dataset.playPrepare)){go(b.dataset.playPrepare);return;}
+ document.addEventListener('click',async event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.playMode){closeModal();go(b.dataset.playMode==='play'?'play':'hero');return;}if(!active())return;if(battleClick(b))return;if(b.id==='play-edit'){go('hero');return;}if(b.id==='play-search'){search();return;}if(activeSummon())return;if(b.id==='play-checks'){SkazCharacterSheet.checks();return;}if(key!==SkazStorage.snapshotKey())return;if(spellScopes.some(([id])=>id===b.dataset.playSpellScope)){changeSpellScope(b);return;}if(b.id==='play-retry'){void load(b);return;}if(b.id==='play-show-consumables'){const target=document.getElementById('play-consumables-title');target?.focus();return;}if(['spells','inventory'].includes(b.dataset.playPrepare)){go(b.dataset.playPrepare);return;}
   if(b.dataset.playCastLevel){if(changeCastLevel(b.dataset.playCastLevel,Number(b.dataset.level),b))b.focus?.({preventScroll:true});return;}
   if(b.dataset.playCast){const item=book.find(x=>x.catalogId===b.dataset.playCast);if(item&&SkazStorage.canResource?.())openCast(item);return;}
   if(b.dataset.playRead){const item=(b.dataset.playRead==='spell'?book:items).find(x=>x.catalogId===b.dataset.id),captured=key;if(item)SkazCatalog.readSnapshot(item.entry,closeModal,()=>active()&&captured===SkazStorage.snapshotKey(),'К игре');}
