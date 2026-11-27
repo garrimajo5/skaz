@@ -87,7 +87,10 @@ const SkazCampaign = (function(){
     const searchBounds=relevant&&search.getBoundingClientRect();
     const formVisible=searchBounds&&searchBounds.top>=viewportTop&&searchBounds.bottom<=end;
     const searchFeedback=el('campaign-search-feedback');
-    const shortLayout=formVisible&&viewportWidth>=620&&viewportHeight<=260&&searchFeedback?.getBoundingClientRect().width>0;
+    const feedbackBounds=searchFeedback?.getBoundingClientRect();
+    const viewportRight=(viewport?.offsetLeft??0)+viewportWidth;
+    const shortLayout=formVisible&&viewportHeight<=260&&feedbackBounds?.width>0&&feedbackBounds.right<=viewportRight&&
+      getComputedStyle(searchFeedback).position==='relative';
     const toolbarSlot=formVisible&&(viewport?.scale??1)===1
       ?toolbarFeedbackSlot(viewportWidth,viewportHeight,viewportTop,end):null;
     const inlineSlot=shortLayout?searchFeedback:
