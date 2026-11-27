@@ -266,6 +266,49 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
  .hp-entry .dialog-actions{margin-top:8px}
 }
 
+@media (max-height: 360px) and (orientation: landscape) {
+ #dialog:has(#rest-title) {
+  width: min(560px, calc(100% - 16px));
+  max-width: none;
+  max-height: calc(100dvh - 16px);
+ }
+ #dialog-content:has(> #rest-title) {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: calc(100dvh - 18px);
+  padding: 8px 16px 12px;
+  overflow: hidden;
+ }
+ #dialog:has(#rest-title) > .dialog-close {
+  inset-block-start: 8px;
+  inset-inline-end: 8px;
+  width: var(--touch);
+  height: var(--touch);
+  padding: 0;
+ }
+ #dialog-content:has(> #rest-title) .rest-kind { display: none; }
+ #rest-title {
+  flex: none;
+  align-content: center;
+  min-height: var(--touch);
+  margin: 0 var(--touch) 0 0;
+  font-size: 22px;
+  line-height: 1.2;
+ }
+ #rest-title + .rest-details {
+  min-height: 0;
+  margin: 0;
+  overflow: auto;
+  line-height: 1.45;
+ }
+ .rest-details + :is(.dialog-actions, button) {
+  flex: none;
+  margin: 0;
+ }
+ .rest-details + .dialog-actions button { min-width: 0; }
+}
+
 /* Keep the first dialog action on screen in low landscape. */
 @media (max-height: 320px) and (orientation: landscape) {
  #dialog:has(.hp-entry input[type="number"], .death-actions, #confirm-death) {
