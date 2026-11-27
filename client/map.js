@@ -7,7 +7,7 @@ const SkazMap = (() => {
   function view() {
     const current = SkazStorage.snapshotKey();
     if (current !== key) { const nextContext = SkazStorage.contextKey(); if (contextKey !== nextContext) { selected = null; offset = 0; } contextKey = nextContext; key = current; status = 'idle'; data = []; ++serial; }
-    if (status === 'idle') { status = 'loading'; queueMicrotask(load); }
+    if (status === 'idle') { status = 'loading'; if (!SkazStorage.resourceWriteInFlight?.()) queueMicrotask(load); }
     return `<section id="campaign-map" aria-label="Места кампании"><div class="map-toolbar"><div><h2>Места кампании</h2><p>Твоя схема известных мест. Масштаб и расстояния условные.</p></div><button id="new-place" class="primary">Новое место</button></div><form id="map-search" class="map-search"><label>Найти место<input name="q" type="search" maxlength="200" value="${escape(query)}" placeholder="Название или заметка"></label><label>Посещение<select name="visited"><option value="all">Все места</option><option value="yes" ${visited === 'yes' ? 'selected' : ''}>Посещённые</option><option value="no" ${visited === 'no' ? 'selected' : ''}>Ещё не посещённые</option></select></label><button type="submit">Найти</button></form><div id="map-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div></section>`;
   }
   function filtered() { const q = query.toLocaleLowerCase('ru'); return data.filter(p => (visited === 'all' || p.visited === (visited === 'yes')) && (p.title + ' ' + p.description).toLocaleLowerCase('ru').includes(q)); }
