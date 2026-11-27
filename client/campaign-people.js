@@ -11,6 +11,8 @@ const SkazCampaign = (function(){
   const el=id=>document.getElementById(id);
   const api=()=>SkazStorage.campaignApi;
   const canWrite=()=>SkazStorage.can('shared');
+  const savingResources=()=>SkazStorage.pendingCount?.()>0&&SkazStorage.canResource?.();
+  const showEditActions=()=>canWrite()||(savingResources()&&SkazStorage.access()?.shared!==false);
   /** @type {CampaignScreenState} */
   let view={section:'overview',query:'',selectedId:null,scope:null};
   let root=null, serial=0, version=null, writable=null, result=null, failure='', loading=false;
@@ -18,6 +20,13 @@ const SkazCampaign = (function(){
   let history=null, historyWaiting=false;
   const button=(text,action,id='',extra='')=>
     `<button type="button" data-campaign-action="${action}" data-target="${esc(id)}" ${extra}>${esc(text)}</button>`;
+  const editorButton=(text,action,id='',extra='')=>button(text,action,id,'data-campaign-editor '+extra);
+  function paintEditorAvailability(region,allowed){
+    const disabled=String(!allowed);
+    for(const control of region.querySelectorAll('[data-campaign-editor]')){
+      if(control.getAttribute('aria-disabled')!==disabled)control.setAttribute('aria-disabled',disabled);
+    }
+  }
   const note=(text,kind='')=>`<p ${kind?'role="'+kind+'"':''}>${esc(text)}</p>`;
   const field=(label,name,value='',max=1200,required=false)=>{
     const common=`id="campaign-field-${name}" name="${name}" maxlength="${max}" ${required?'required':''}`;
@@ -175,15 +184,15 @@ const SkazCampaign = (function(){
       ${button('Открыть карточку','person-open',person.id,`class="campaign-entry" aria-label="Открыть карточку ${esc(person.name)}"`)}
     </article>`).join('');
   }
-  function records(person,refs){
+  function records(person,refs,showEditors){
     const sections=[['known','Известно'],['assumption','Предположения']];
     return sections.map(([kind,title])=>`<section class="panel campaign-panel">
       <h3>${title}</h3>
       ${person.knowledge.filter(item=>item.kind===kind).map(item=>`<div class="campaign-record">
         <p class="session-text">${esc(item.text)}</p>
         ${reference('session',item.sessionId,item.sessionSnapshot,refs,'Сессия неизвестна')}
-        ${canWrite()?`<div class="campaign-controls">${button('Исправить сведение','edit-knowledge',item.id)}
-          ${kind==='assumption'?button('Подтвердить как факт','confirm-knowledge',item.id):''}</div>`:''}
+        ${showEditors?`<div class="campaign-controls">${editorButton('Исправить сведение','edit-knowledge',item.id)}
+          ${kind==='assumption'?editorButton('Подтвердить как факт','confirm-knowledge',item.id):''}</div>`:''}
       </div>`).join('')||note('Записей пока нет.')}
     </section>`).join('');
   }
@@ -235,30 +244,30 @@ const SkazCampaign = (function(){
       <p>Было: ${esc(recordedDifference(entry,'before',refs))}</p><p>Стало: ${esc(recordedDifference(entry,'after',refs))}</p></details>`).join('')+
       (history.nextBeforePosition?button('Показать более ранние записи','person-history',String(history.nextBeforePosition)):'');
   }
-  function card(person,refs){
+  function card(person,refs,showEditors){
     const latest=person.encounters.find(row=>row.id===person.latestEncounterId);
     return `<div class="campaign-toolbar"><h2 id="campaign-section-heading" tabindex="-1">${esc(person.name)}</h2>
-        <div class="campaign-controls">${button('К списку персонажей','people-back')}${canWrite()?button('Изменить карточку','edit'):''}</div></div>
+        <div class="campaign-controls">${button('К списку персонажей','people-back')}${showEditors?editorButton('Изменить карточку','edit'):''}</div></div>
       ${person.description?`<p class="session-text">${esc(person.description)}</p>`:''}
       <p>${person.relation?'Отношения: '+esc(person.relation):'Отношение неизвестно'}</p>
-      <div class="campaign-layout">${records(person,refs)}</div>
-      ${canWrite()?button('Добавить сведение','add-knowledge'):''}
+      <div class="campaign-layout">${records(person,refs,showEditors)}</div>
+      ${showEditors?editorButton('Добавить сведение','add-knowledge'):''}
       <section class="panel campaign-panel"><h3>Последняя встреча</h3>
         ${latest?encounterRow(latest,refs):note('Последняя встреча неизвестна.')}
-        <div class="campaign-controls">${canWrite()?button('Добавить встречу','add-encounter'):''}
-          ${canWrite()&&latest?button('Исправить встречу','edit-encounter',latest.id)+button('Снять выбор последней встречи','choose-latest'):''}</div>
+        <div class="campaign-controls">${showEditors?editorButton('Добавить встречу','add-encounter'):''}
+          ${showEditors&&latest?editorButton('Исправить встречу','edit-encounter',latest.id)+editorButton('Снять выбор последней встречи','choose-latest'):''}</div>
         ${person.encounters.filter(encounter=>encounter.id!==person.latestEncounterId).map(encounter=>`<div class="campaign-record">
           ${encounterRow(encounter,refs)}
-          ${canWrite()?`<div class="campaign-controls">${button('Исправить встречу','edit-encounter',encounter.id)}
-            ${encounter.id!==person.latestEncounterId?button('Отметить последней','choose-latest',encounter.id):''}</div>`:''}
+          ${showEditors?`<div class="campaign-controls">${editorButton('Исправить встречу','edit-encounter',encounter.id)}
+            ${encounter.id!==person.latestEncounterId?editorButton('Отметить последней','choose-latest',encounter.id):''}</div>`:''}
         </div>`).join('')}
       </section>
       <section class="panel campaign-panel"><h3>Связи</h3>
         ${person.links.map((link,index)=>`<div class="campaign-controls">
           <span>${labels[link.kind]}</span>${reference(link.kind,link.id,link.snapshot,refs,'Источник неизвестен')}
-          ${canWrite()&&link.snapshot?button('Убрать снимок','remove-link-snapshot',String(index)):''}
+          ${showEditors&&link.snapshot?editorButton('Убрать снимок','remove-link-snapshot',String(index)):''}
         </div>`).join('')||note('Связей пока нет.')}
-        ${canWrite()?button('Изменить связи','set-links'):''}
+        ${showEditors?editorButton('Изменить связи','set-links'):''}
       </section>
       <section class="panel campaign-panel"><h3>История карточки</h3>
         ${history||historyWaiting?cardHistory(refs):button('Показать историю','person-history')}
@@ -323,7 +332,12 @@ const SkazCampaign = (function(){
       </div>
       <div id="campaign-people-results" aria-live="polite"></div>`;
   }
-  const peopleResultsMarkup=new WeakMap();
+  const renderedMarkup=new WeakMap();
+  function paintMarkup(region,markup){
+    if(renderedMarkup.get(region)===markup)return;
+    region.innerHTML=markup;
+    renderedMarkup.set(region,markup);
+  }
   function drawResults(mayAddPerson){
     const region=el('campaign-people-results');
     if(!region)return;
@@ -335,9 +349,7 @@ const SkazCampaign = (function(){
       `<section class="panel campaign-panel"><h3>В кампании пока нет известных персонажей</h3>
         ${mayAddPerson?note('Добавь имя или прозвище первого знакомого.'):note('Добавлять персонажей могут мастер и владелец.')}</section>`;
     else if(loading)markup=note('Ищем персонажей…','status');
-    if(peopleResultsMarkup.get(region)===markup)return;
-    region.innerHTML=markup;
-    peopleResultsMarkup.set(region,markup);
+    paintMarkup(region,markup);
   }
   function draw(){
     if(!rootActive())return;
@@ -351,22 +363,19 @@ const SkazCampaign = (function(){
     const peopleList=view.section==='people'&&!view.selectedId;
     if(!peopleList)moveNotice(el('toast'));
     if(peopleList){
-      if(!el('campaign-search'))region.innerHTML=peopleSection();
-      const actions=el('campaign-people-actions'), mayAddPerson=canWrite();
-      const savingResources=SkazStorage.pendingCount?.()>0&&SkazStorage.canResource?.();
-      const retainAddPerson=Boolean(actions.firstElementChild&&savingResources&&SkazStorage.access()?.shared!==false);
-      const showAddPerson=mayAddPerson||retainAddPerson;
-      if(Boolean(actions.firstElementChild)!==showAddPerson){
-        actions.innerHTML=showAddPerson?button('Добавить персонажа','create','', 'class="primary"'):'';
+      if(!el('campaign-search'))paintMarkup(region,peopleSection());
+      const actions=el('campaign-people-actions'), showEditors=showEditActions();
+      if(Boolean(actions.firstElementChild)!==Boolean(showEditors)){
+        actions.innerHTML=showEditors?editorButton('Добавить персонажа','create','', 'class="primary"'):'';
       }
-      actions.firstElementChild?.setAttribute('aria-disabled',String(!mayAddPerson));
-      drawResults(showAddPerson);
-    }else if(view.section==='actions')region.innerHTML=actionsSection();
-    else if(loading&&!result)region.innerHTML=note('Загружаем кампанию…','status');
-    else if(view.section==='people'&&result?.person)region.innerHTML=card(result.person,result);
-    else if(view.section==='overview'&&result)region.innerHTML=overview(result);
-    else if(view.section==='journal'&&result)region.innerHTML=journalSection(result);
-    else region.innerHTML='';
+      drawResults(showEditors);
+    }else if(view.section==='actions')paintMarkup(region,actionsSection());
+    else if(loading&&!result)paintMarkup(region,note('Загружаем кампанию…','status'));
+    else if(view.section==='people'&&result?.person)paintMarkup(region,card(result.person,result,showEditActions()));
+    else if(view.section==='overview'&&result)paintMarkup(region,overview(result));
+    else if(view.section==='journal'&&result)paintMarkup(region,journalSection(result));
+    else paintMarkup(region,'');
+    paintEditorAvailability(region,canWrite());
     scheduleNotice();
   }
   async function references(scope, query='', {includeQuests=false,includePlaces=false}={}){
@@ -472,7 +481,7 @@ const SkazCampaign = (function(){
       window.visualViewport?.addEventListener('scroll',scheduleNotice,options);
     }else SkazPlayPresentation.refreshActor(main,actor);
     if(!scope){
-      el('campaign-content').innerHTML=note('Подключись к игре, чтобы открыть кампанию.','status');
+      paintMarkup(el('campaign-content'),note('Подключись к игре, чтобы открыть кампанию.','status'));
       scheduleNotice();
       return;
     }

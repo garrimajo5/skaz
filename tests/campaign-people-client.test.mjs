@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 
 const source=readFileSync(new URL('../client/campaign-people.js',import.meta.url),'utf8');
-const renderer=source.slice(source.indexOf('  const peopleResultsMarkup='),source.indexOf('  function draw(){'));
+const renderer=source.slice(source.indexOf('  const renderedMarkup='),source.indexOf('  function draw(){'));
 
 test('campaign search keeps mounted results through a background read and clears them on denial',()=>{
  const replacements=[];
