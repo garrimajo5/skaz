@@ -331,10 +331,10 @@ test('play cards read saved snapshots and stale controls cannot spend another he
  const h=harness(),item={catalogId:'potion',quantity:2,entry:{name:{ru:'Potion'},item:{type:'potion'}}};await loaded(h,[spell('<unsafe>')],[item]);assert.match(h.get('play-content').innerHTML,/&lt;unsafe&gt;/);
  await h.click('',{playRead:'item',id:'potion'});assert.equal(h.reads[0][0],item.entry);assert.equal(h.reads[0][2](),true);await h.click('',{playSpend:'potion'});assert.equal(h.spends.length,1);assert.equal(h.spends[0][1],'a');h.context('other');assert.equal(h.reads[0][2](),false);await h.click('',{playSpend:'potion'});assert.equal(h.spends.length,1);
 });
-test('play mode is remembered only in tab storage and preparation remains reachable',async()=>{const h=harness();assert.equal(h.api.mode(),'prepare');h.api.remember('play');assert.equal(h.api.mode(),'play');await h.click('play-edit');assert.equal(h.page(),'hero');h.api.remember('hero');assert.equal(h.api.mode(),'prepare');});
-test('play search does not show a late private result after context changed',async()=>{const h=harness();await loaded(h);await h.click('play-search');h.get('play-search-query').value='Shield';const search=h.get('play-search-form').onsubmit({preventDefault(){}});h.context('other');h.requests.find(r=>r.kind==='search').resolve({ok:true,json:async()=>({entries:[{name:{ru:'Secret',en:'Secret'}}]})});await search;assert.doesNotMatch(h.get('play-search-results').innerHTML,/Secret/);});
+test('play mode is remembered only in tab storage and preparation remains reachable',async()=>{const h=harness();assert.equal(h.api.mode(),'prepare');h.api.remember('play');assert.equal(h.api.mode(),'play');await h.click('',{playMode:'prepare'});assert.equal(h.page(),'hero');h.api.remember('hero');assert.equal(h.api.mode(),'prepare');});
+test('play search does not show a late private result after context changed',async()=>{const h=harness();await loaded(h);h.api.findSpell(()=>{});h.get('play-search-query').value='Shield';const search=h.get('play-search-form').onsubmit({preventDefault(){}});h.context('other');h.requests.find(r=>r.kind==='search').resolve({ok:true,json:async()=>({entries:[{kind:'spell',name:{ru:'Secret',en:'Secret'}}]})});await search;assert.doesNotMatch(h.get('play-search-results').innerHTML,/Secret/);});
 
-test('reopening play search invalidates the previous request even in the same character snapshot',async()=>{const h=harness();await loaded(h);await h.click('play-search');h.get('play-search-query').value='Old';const first=h.get('play-search-form').onsubmit({preventDefault(){}});await h.click('play-search');h.requests.find(r=>r.kind==='search').resolve({ok:true,json:async()=>({entries:[{name:{ru:'Old result',en:'Old'}}]})});await first;assert.doesNotMatch(h.get('play-search-results').innerHTML,/Old result/);});
+test('reopening play search invalidates the previous request even in the same character snapshot',async()=>{const h=harness();await loaded(h);h.api.findSpell(()=>{});h.get('play-search-query').value='Old';const first=h.get('play-search-form').onsubmit({preventDefault(){}});h.api.findSpell(()=>{});h.requests.find(r=>r.kind==='search').resolve({ok:true,json:async()=>({entries:[{kind:'spell',name:{ru:'Old result',en:'Old'}}]})});await first;assert.doesNotMatch(h.get('play-search-results').innerHTML,/Old result/);});
 test('leaving a loading play screen permits a new load on return',async()=>{const h=harness();h.api.view();await tick();h.api.remember('hero');h.api.remember('play');h.api.view();await tick();assert.equal(h.requests.length,4);h.requests[0].resolve({entries:[spell('Stale')]});h.requests[1].resolve({entries:[]});h.requests[2].resolve({entries:[spell('Fresh')]});h.requests[3].resolve({entries:[]});await tick();assert.match(h.get('play-content').innerHTML,/Fresh/);assert.doesNotMatch(h.get('play-content').innerHTML,/Stale/);});
 
 
@@ -756,49 +756,28 @@ test('cast price follows the selected command, with distinct free and manual pat
  assert.equal(h.casts.length,1);
 });
 
-test('returning to game search focuses the re-rendered result only in the captured context',async()=>{
+test('picking a spell applies the selected entry once and only in the captured context',async()=>{
  const h=harness();
- await loaded(h);
- const focused=[],scrolled=[];
- let buttons,renderCount=0;
+ const picked=[], button={dataset:{playSearchResult:'0'}};
  const select=h.document.querySelectorAll;
- h.document.querySelectorAll=selector=>{
-  if(selector!=='[data-play-search-result]')return select(selector);
-  const render=++renderCount;
-  buttons=['0','1'].map(index=>({
-   dataset:{playSearchResult:index},
-   focus:options=>focused.push([render,index,options.preventScroll]),
-   scrollIntoView:options=>scrolled.push([render,index,options.block]),
-  }));
-  return buttons;
- };
- await h.click('play-search');
- h.get('play-search-query').value='fire';
- const search=h.get('play-search-form').onsubmit({preventDefault(){}});
- const entries=[{name:{ru:'Первый',en:'First'}},{name:{ru:'Второй',en:'Second'}}];
- h.requests.find(r=>r.kind==='search').resolve({ok:true,json:async()=>({entries})});
- await search;
- assert.deepEqual(focused,[]);
- buttons[1].onclick();
- assert.equal(h.reads[0][0],entries[1]);
- const back=h.reads[0][1];
- back();
- assert.match(h.html(),/value="fire"/);
- assert.deepEqual(focused,[[2,'1',true]]);
- assert.deepEqual(scrolled,[[2,'1','nearest']]);
- assert.equal(h.requests.filter(r=>r.kind==='search').length,1);
+ h.document.querySelectorAll=selector=>selector==='[data-play-search-result]'?[button]:select(selector);
+ h.api.findSpell(entry=>picked.push(entry));
+ const field=h.get('play-search-query');
+ field.value='fire';
+ const pending=h.get('play-search-form').onsubmit({preventDefault(){}});
+ const entry={kind:'spell',name:{ru:'Огненный шар',en:'Fireball'}};
+ h.requests.find(r=>r.kind==='search').resolve({ok:true,json:async()=>({entries:[entry]})});
+ await pending;
+ button.onclick();
  h.context('another-hero');
- const before=h.html();
- back();
- assert.equal(h.html(),before);
- assert.equal(renderCount,2);
- assert.equal(focused.length,1);
+ button.onclick();
+ assert.deepEqual(picked,[entry]);
 });
 
-test('game search leaves the input mounted and skips results for a replaced draft',async()=>{
+test('the spell picker leaves the input mounted and skips results for a replaced draft',async()=>{
  const h=harness();
  await loaded(h);
- await h.click('play-search');
+ h.api.findSpell(()=>{});
  const field=h.get('play-search-query'),list=h.get('play-search-results'),status=h.get('play-search-status');
  const original=h.html();
  const submit=()=>h.get('play-search-form').onsubmit({preventDefault(){}});
@@ -808,7 +787,7 @@ test('game search leaves the input mounted and skips results for a replaced draf
  assert.match(status.textContent,/Ищем/);
  field.value='fireball';
  h.requests.filter(r=>r.kind==='search').at(-1).resolve({
-  ok:true,json:async()=>({entries:[{name:{ru:'Старый результат',en:'Old result'}}]}),
+  ok:true,json:async()=>({entries:[{kind:'spell',name:{ru:'Старый результат',en:'Old result'}}]}),
  });
  await first;
  assert.equal(field.value,'fireball');
@@ -817,7 +796,7 @@ test('game search leaves the input mounted and skips results for a replaced draf
  assert.doesNotMatch(list.innerHTML,/Old result/);
  const second=submit();
  h.requests.filter(r=>r.kind==='search').at(-1).resolve({
-  ok:true,json:async()=>({entries:[{name:{ru:'Огненный шар',en:'Fireball'}}]}),
+  ok:true,json:async()=>({entries:[{kind:'spell',name:{ru:'Огненный шар',en:'Fireball'}}]}),
  });
  await second;
  assert.match(list.innerHTML,/Fireball/);
@@ -827,15 +806,15 @@ test('game search leaves the input mounted and skips results for a replaced draf
  assert.equal(field.value,'fireball');
 });
 
-test('editing game search clears displayed results and invalidates a pending lookup', async () => {
+test('editing the spell picker query clears displayed results and invalidates a pending lookup', async () => {
  const h=harness();
  await loaded(h);
- await h.click('play-search');
+ h.api.findSpell(()=>{});
  const field=h.get('play-search-query'), list=h.get('play-search-results'), status=h.get('play-search-status');
  const submit=()=>h.get('play-search-form').onsubmit({preventDefault(){}});
  const searches=()=>h.requests.filter(r=>r.kind==='search');
  const complete=entry=>searches().at(-1).resolve({ok:true,json:async()=>({entries:[entry]})});
- const old={name:{ru:'Опознание',en:'Identify'}}, current={name:{ru:'Волшебная стрела',en:'Magic Missile'}};
+ const old={kind:'spell',name:{ru:'Опознание',en:'Identify'}}, current={kind:'spell',name:{ru:'Волшебная стрела',en:'Magic Missile'}};
  field.value='Identify';
  const initial=submit();
  complete(old);
@@ -867,7 +846,7 @@ test('editing game search clears displayed results and invalidates a pending loo
  assert.equal(searches().length,3);
 });
 
-test('game search uses the visual viewport only while it is reduced without zoom',async()=>{
+test('the spell picker uses the visual viewport only while it is reduced without zoom',async()=>{
  const windowEvents=new Map(),viewportEvents=new Map(),dialogEvents=new Map();
  const attributes=new Map(),rules=new Map();
  const dialog={
@@ -891,7 +870,7 @@ test('game search uses the visual viewport only while it is reduced without zoom
  };
  const h=harness({dialog,environment});
  await loaded(h);
- await h.click('play-search');
+ h.api.findSpell(()=>{});
  assert.ok(attributes.has('data-play-search-viewport'));
  assert.equal(rules.get('--play-search-top'),'139px');
  assert.equal(rules.get('--play-search-height'),'311px');

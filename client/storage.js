@@ -197,6 +197,7 @@ const SkazStorage = (() => {
   function pendingResourceIndices(resource){if(!resourceContextMatches())return [];return [...new Set((resourceQueue?.data?.commands||[]).filter(c=>JSON.stringify(c.resource)===JSON.stringify(resource)).map(c=>c.delta<0?c.before-1:c.before+c.delta-1).filter(i=>i>=0))];}
   const pendingCount=()=> (resourceQueue?.length||0)+Number(Boolean(pending));
   let badgeSavingSince=null;
+  let lastMenuMarkup;
   function compactStatus(){
     const count=pendingCount(),number=count>999?'999+':String(count);
     const busy=status==='saving'||status==='resource-pending'&&resourceSending;
@@ -230,9 +231,32 @@ const SkazStorage = (() => {
     };
     box.dataset.status = status;
     labels['resource-pending']=(resourceSending?'Отправляем · ':'Ждёт отправки · ')+(resourceQueue?.length||0)+' изменений';labels['resource-conflict']='Очередь требует сверки';
-    const menuOpen=document.getElementById('session-menu')?.open===true;
     const chip=compactStatus();
-    box.innerHTML = `<button id="sync-history-chip" class="sync-compact" data-kind="${chip.kind}" aria-label="${chip.text}. История изменений" ${demo?'disabled':''}><span data-ui-icon="${chip.icon}" aria-hidden="true"></span><span role="status" aria-live="polite">${chip.text}</span></button><details id="session-menu" ${menuOpen?'open':''}><summary aria-label="Состояние сохранения и меню"><span data-ui-icon="more" aria-hidden="true"></span></summary><div class="session-menu-content"><span><span class="sync-dot"></span>${labels[status]}${permissions?` · ${permissions.role==='player'?'Игрок':permissions.role==='gm'?'Мастер':'Владелец'}${permissions.character?'':' · Только чтение'}`:''}${resourceFailure?`<small>${esc(resourceFailure)}</small>`:''}${message ? `<small>${esc(message)}</small>` : ''}${permissions?`<small>${!permissions.character?'Доступно чтение назначенных игр.':permissions.shared?'Личный лист и общие записи кампании доступны для изменения.':'Личные ресурсы и заметки доступны для изменения. Общий сюжет, задания и карту ведёт мастер.'}</small>`:''}</span><div>${resourceQueue?.length?'<button id="resource-send">Отправить очередь</button><button id="resource-download">Скачать очередь</button><button id="resource-review">Сверить очередь</button>':''}${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления"><span data-ui-icon="refresh"></span></button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${permissions?.members?'<button id="campaign-members">Участники</button>':''}${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-code">Мой код</button><button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div></div></details>`;
+    const historyButton = document.getElementById('sync-history-chip');
+    const caption = document.getElementById('sync-status-caption');
+    const icon = document.getElementById('sync-history-icon');
+    const label = chip.text + '. История изменений';
+    if(caption.textContent !== chip.text) caption.textContent = chip.text;
+    if(historyButton.dataset.kind !== chip.kind) historyButton.dataset.kind = chip.kind;
+    historyButton.disabled = demo;
+    historyButton.setAttribute('aria-label', label);
+    historyButton.title = label;
+    if(icon.dataset.icon !== chip.icon){
+      icon.dataset.icon = chip.icon;
+      icon.innerHTML = SkazIcons.markup(chip.icon);
+    }
+    const menuContent = document.getElementById('session-menu-content');
+    const menuMarkup = `<span>${labels[status]}${permissions?` · ${permissions.role==='player'?'Игрок':permissions.role==='gm'?'Мастер':'Владелец'}${permissions.character?'':' · Только чтение'}`:''}${resourceFailure?`<small>${esc(resourceFailure)}</small>`:''}${message ? `<small>${esc(message)}</small>` : ''}${permissions?`<small>${!permissions.character?'Доступно чтение назначенных игр.':permissions.shared?'Личный лист и общие записи кампании доступны для изменения.':'Личные ресурсы и заметки доступны для изменения. Общий сюжет, задания и карту ведёт мастер.'}</small>`:''}</span><div>${resourceQueue?.length?'<button id="resource-send">Отправить очередь</button><button id="resource-download">Скачать очередь</button><button id="resource-review">Сверить очередь</button>':''}${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления"><span data-ui-icon="refresh"></span></button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${permissions?.members?'<button id="campaign-members">Участники</button>':''}${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-code">Мой код</button><button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
+    if(lastMenuMarkup !== menuMarkup){
+      lastMenuMarkup = menuMarkup;
+      const focused = document.activeElement;
+      const focusedId = focused && menuContent.contains(focused) ? focused.id : '';
+      menuContent.innerHTML = menuMarkup;
+      if(focusedId){
+        const target = document.getElementById(focusedId) || document.querySelector('#session-menu > summary');
+        target?.focus({preventScroll:true});
+      }
+    }
   }
   async function checkRemote() {
     if(demo||status!=='ready'||pending||checkingRemote)return;
@@ -1265,7 +1289,7 @@ const SkazStorage = (() => {
     if (id === 'edit-stats') editStats();
     if (id === 'edit-resources') editResources();
     if (id === 'session-settings') sessions();
-    if (id === 'campaign-settings' || (id === 'workspace-campaign-settings' && can('select'))) campaigns();
+    if (id === 'campaign-settings') campaigns();
     if(id==='sync-history-chip'||id==='play-history'||id==='play-health-history')try{await showResourceHistory();}catch(error){toast(error.message);}
     if (id === 'data-settings') settings();
     if(id==='resource-send')await flushResources();

@@ -624,95 +624,79 @@ const SkazPlay = (()=>{
   globalThis.addEventListener('resize',updateSearchViewport);
   document.getElementById('dialog')?.addEventListener('close',updateSearchViewport);
  }
- function search(initial='',chooseSpell){
+ function findSpell(chooseSpell){
   const captured=SkazStorage.snapshotKey(),openedPage=page,instance=++searchSerial;
-  const searchHint=chooseSpell?'Введи название заклинания.':'Введи название заклинания, предмета или правила.';
+  const searchHint='Введи название заклинания.';
   let request=0,results=[],submittedQuery='';
   const valid=()=>instance===searchSerial&&page===openedPage&&captured===SkazStorage.snapshotKey();
-  const draw=(value=initial,focusIndex=null)=>{
-   if(!valid())return;
-   modal(`<section id="play-search-panel"><h2>${chooseSpell?'Добавить заклинание':'Правила во время игры'}</h2><form id="play-search-form"><label for="play-search-query">Название RU / EN</label><input id="play-search-query" type="search" maxlength="200" value="${escape(value)}"><button type="submit">Найти</button></form><div class="play-search-feedback"><div id="play-search-status" role="status"></div><div id="play-search-results"></div></div></section>`);
-   updateSearchViewport();
-   const field=document.getElementById('play-search-query');
-   if(chooseSpell)field.focus({preventScroll:true});
-   const list=document.getElementById('play-search-results');
-   const status=document.getElementById('play-search-status');
-   const clearResults=message=>{
-    results=[];
-    list.innerHTML='';
-    status.className='';
-    status.textContent=message;
-   };
-   field.oninput=()=>{
-    const query=field.value.trim();
-    if(!submittedQuery||query===submittedQuery)return;
+  modal(`<section id="play-search-panel"><h2>Добавить заклинание</h2><form id="play-search-form"><label for="play-search-query">Название RU / EN</label><input id="play-search-query" type="search" maxlength="200"><button type="submit">Найти</button></form><div class="play-search-feedback"><div id="play-search-status" role="status"></div><div id="play-search-results"></div></div></section>`);
+  updateSearchViewport();
+  const field=document.getElementById('play-search-query');
+  field.focus({preventScroll:true});
+  const list=document.getElementById('play-search-results');
+  const status=document.getElementById('play-search-status');
+  const clearResults=message=>{
+   results=[];
+   list.innerHTML='';
+   status.className='';
+   status.textContent=message;
+  };
+  field.oninput=()=>{
+   const query=field.value.trim();
+   if(!submittedQuery||query===submittedQuery)return;
+   ++request;
+   clearResults(query?'Запрос изменён. Нажми «Найти».':searchHint);
+  };
+  const paintResults=()=>{
+   status.className='visually-hidden';
+   status.textContent=`Показано результатов: ${results.length}.`;
+   list.innerHTML=results.map((entry,index)=>`<button class="play-row" data-play-search-result="${index}">${escape(entry.name.ru)} · ${escape(entry.name.en)}</button>`).join('');
+   const buttons=document.querySelectorAll('[data-play-search-result]');
+   for(const button of buttons)button.onclick=()=>{
+    const index=Number(button.dataset.playSearchResult);
+    const entry=results[index];
+    if(!entry||!valid()||field.value.trim()!==submittedQuery)return;
     ++request;
-    clearResults(query?'Запрос изменён. Нажми «Найти».':searchHint);
-   };
-   const paintResults=(selectedIndex=null)=>{
-    status.className='visually-hidden';
-    status.textContent=`Показано результатов: ${results.length}.`;
-    list.innerHTML=results.map((entry,index)=>`<button class="play-row" data-play-search-result="${index}">${escape(entry.name.ru)} · ${escape(entry.name.en)}</button>`).join('');
-    const buttons=document.querySelectorAll('[data-play-search-result]');
-    for(const button of buttons)button.onclick=()=>{
-     const index=Number(button.dataset.playSearchResult);
-     const entry=results[index];
-     if(!entry||!valid()||field.value.trim()!==submittedQuery)return;
-     const draft=field.value;
-     ++request;
-     if(chooseSpell){chooseSpell(entry);return;}
-     SkazCatalog.readSnapshot(entry,()=>draw(draft,index),valid,'К поиску');
-     updateSearchViewport();
-    };
-    if(selectedIndex!==null){
-     const selected=buttons[selectedIndex];
-     selected?.focus({preventScroll:true});
-     selected?.scrollIntoView({block:'nearest'});
-    }
-   };
-   if(results.length)paintResults(focusIndex);
-   else status.textContent=searchHint;
-   const form=document.getElementById('play-search-form');
-   form.onsubmit=async event=>{
-    event.preventDefault();
-    const submitted=field.value.trim();
-    if(!valid()||!submitted)return;
-    // When only one row fits above the keyboard, close it before showing results.
-    if(document.activeElement===field&&document.getElementById('dialog')?.getAttribute('data-play-search-viewport')==='compact'){
-     form.querySelector('button[type=submit]')?.focus({preventScroll:true});
-    }
-    const token=++request;
-    submittedQuery=submitted;
-    clearResults('Ищем…');
-    let found;
-    try{
-     const params=new URLSearchParams({q:submitted,limit:'8'});
-     if(chooseSpell)params.set('kind','spell');
-     const response=await fetch('/api/catalog?'+params,{cache:'no-store',signal:AbortSignal.timeout(10000)});
-     if(!response.ok)throw Error();
-     const data=await response.json();
-     if(Array.isArray(data.entries))found=chooseSpell?data.entries.filter(entry=>entry.kind==='spell'):data.entries;
-    }catch{
-     found=undefined;
-    }
-    if(token!==request||!valid()||!document.getElementById('dialog')?.open||list!==document.getElementById('play-search-results'))return;
-    if(field.value.trim()!==submitted){
-     status.textContent='Запрос изменён. Нажми «Найти».';
-     return;
-    }
-    if(!found){
-     status.textContent='Поиск недоступен. Повтори запрос.';
-     return;
-    }
-    results=found;
-    if(results.length)paintResults();
-    else status.textContent='Ничего не найдено. Измени название.';
+    chooseSpell(entry);
    };
   };
-  draw();
-  if(initial)document.getElementById('play-search-form').requestSubmit();
+  status.textContent=searchHint;
+  const form=document.getElementById('play-search-form');
+  form.onsubmit=async event=>{
+   event.preventDefault();
+   const submitted=field.value.trim();
+   if(!valid()||!submitted)return;
+   // When only one row fits above the keyboard, close it before showing results.
+   if(document.activeElement===field&&document.getElementById('dialog')?.getAttribute('data-play-search-viewport')==='compact'){
+    form.querySelector('button[type=submit]')?.focus({preventScroll:true});
+   }
+   const token=++request;
+   submittedQuery=submitted;
+   clearResults('Ищем…');
+   let found;
+   try{
+    const params=new URLSearchParams({q:submitted,kind:'spell',limit:'8'});
+    const response=await fetch('/api/catalog?'+params,{cache:'no-store',signal:AbortSignal.timeout(10000)});
+    if(!response.ok)throw Error();
+    const data=await response.json();
+    if(Array.isArray(data.entries))found=data.entries.filter(entry=>entry.kind==='spell');
+   }catch{
+    found=undefined;
+   }
+   if(token!==request||!valid()||!document.getElementById('dialog')?.open||list!==document.getElementById('play-search-results'))return;
+   if(field.value.trim()!==submitted){
+    status.textContent='Запрос изменён. Нажми «Найти».';
+    return;
+   }
+   if(!found){
+    status.textContent='Поиск недоступен. Повтори запрос.';
+    return;
+   }
+   results=found;
+   if(results.length)paintResults();
+   else status.textContent='Ничего не найдено. Измени название.';
+  };
  }
- document.addEventListener('submit',event=>{if(event.target.id==='header-search'){event.preventDefault();search(document.getElementById('header-search-query').value.trim());}});
  document.addEventListener('scroll',event=>{
   const list=event.target,kind=list.dataset?.playList;
   if(active()&&owner===SkazStorage.contextKey()&&['spells','items','scopes'].includes(kind)){
@@ -723,12 +707,12 @@ const SkazPlay = (()=>{
   const input=event.target,id=input.dataset?.playCastSelect;
   if(id&&active()&&key===SkazStorage.snapshotKey())changeCastLevel(id,Number(input.value),input);
  });
- document.addEventListener('click',async event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.playMode){closeModal();go(b.dataset.playMode==='play'?'play':'hero');return;}if(!active())return;if(battleClick(b))return;if(b.id==='play-edit'){go('hero');return;}if(b.id==='play-search'){search();return;}if(activeSummon())return;if(b.id==='play-checks'){SkazCharacterSheet.checks();return;}if(key!==SkazStorage.snapshotKey())return;if(spellScopes.some(([id])=>id===b.dataset.playSpellScope)){changeSpellScope(b);return;}if(b.id==='play-retry'){void load(b);return;}if(b.id==='play-show-consumables'){const target=document.getElementById('play-consumables-title');target?.focus();return;}if(['spells','inventory'].includes(b.dataset.playPrepare)){go(b.dataset.playPrepare);return;}
+ document.addEventListener('click',async event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.playMode){closeModal();go(b.dataset.playMode==='play'?'play':'hero');return;}if(!active())return;if(battleClick(b))return;if(activeSummon())return;if(b.id==='play-checks'){SkazCharacterSheet.checks();return;}if(key!==SkazStorage.snapshotKey())return;if(spellScopes.some(([id])=>id===b.dataset.playSpellScope)){changeSpellScope(b);return;}if(b.id==='play-retry'){void load(b);return;}if(b.id==='play-show-consumables'){const target=document.getElementById('play-consumables-title');target?.focus();return;}if(['spells','inventory'].includes(b.dataset.playPrepare)){go(b.dataset.playPrepare);return;}
   if(b.dataset.playCastLevel){if(changeCastLevel(b.dataset.playCastLevel,Number(b.dataset.level),b))b.focus?.({preventScroll:true});return;}
   if(b.dataset.playCast){const item=book.find(x=>x.catalogId===b.dataset.playCast);if(item&&SkazStorage.canResource?.())openCast(item);return;}
   if(b.dataset.playRead){const item=(b.dataset.playRead==='spell'?book:items).find(x=>x.catalogId===b.dataset.id),captured=key;if(item)SkazCatalog.readSnapshot(item.entry,closeModal,()=>active()&&captured===SkazStorage.snapshotKey(),'К игре');}
   if(b.dataset.playCharges){const item=items.find(x=>x.catalogId===b.dataset.playCharges);if(item)SkazStorage.editCharges(item,{fromQuickAccess:true});return;}
   if(b.dataset.playSpend){const item=items.find(x=>x.catalogId===b.dataset.playSpend);if(!item)return;try{await SkazStorage.spendInventoryOne(item,key);toast('Списан один предмет. Эффект не применён автоматически.');}catch(error){toast(error.message);}}
  });
- return {actorIdentity,actorView,view,summonActive:()=>Boolean(activeSummon()),updateResources,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus,findSpell:choose=>search('',choose)};
+ return {actorIdentity,actorView,view,summonActive:()=>Boolean(activeSummon()),updateResources,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus,findSpell};
 })();
