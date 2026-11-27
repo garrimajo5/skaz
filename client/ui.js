@@ -9,5 +9,10 @@ const SkazUI = (()=>{
   }
   return `<article class="entry-row ${escape(className)}"><details class="entry-description ${escape(detailsClass)}"><summary>${entry&&typeof SkazArt!=='undefined'?SkazArt.markup(entry):''}<span class="entry-name"><strong>${escape(name?.ru)}</strong><small>${escape(name?.en)}</small></span><span class="entry-metadata">${metadata}</span>${badge?`<span class="entry-badge">${escape(badge)}</span>`:''}<span class="ui-inline-icon entry-disclosure-icon" data-ui-icon="chevron-down"></span></summary><div class="entry-expanded"><p class="session-text">${escape(description||'Сохранена справочная ссылка; описание не импортировано.')}</p>${extra}</div></details><div class="entry-actions">${actions}</div></article>`;
  }
- return {entryRow};
+ function patchButton(button,next){
+  for(const attr of [...button.attributes])if(!next.hasAttribute(attr.name))button.removeAttribute(attr.name);
+  for(const attr of next.attributes)if(button.getAttribute(attr.name)!==attr.value)button.setAttribute(attr.name,attr.value);
+  if(button.innerHTML!==next.innerHTML)button.innerHTML=next.innerHTML;
+ }
+ return {entryRow,patchButton};
 })();

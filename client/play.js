@@ -1,6 +1,6 @@
 const SkazPlay = (()=>{
  const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- let key='',owner='',serial=0,searchSerial=0,status='idle',book=[],items=[],quests=[],questStatus='idle',questSerial=0,scrollPositions={},spellScope='combat';
+ let key='',owner='',serial=0,searchSerial=0,status='idle',book=[],items=[],scrollPositions={},spellScope='combat';
  let castLevels={}, returnFocus=null;
  let bookState='pending', inventoryState='pending';
  const spellScopes=[
@@ -10,6 +10,110 @@ const SkazPlay = (()=>{
  const mode=()=>{try{return sessionStorage.getItem('skaz-play-mode-v1')==='play'?'play':'prepare';}catch{return 'prepare';}};
  function remember(page){if(page!=='play'){returnFocus=null;++serial;++searchSerial;if(status==='loading'||status==='retrying')status='idle';}try{sessionStorage.setItem('skaz-play-mode-v1',page==='play'?'play':'prepare');}catch{}}
  const active=()=>typeof page!=='undefined'&&page==='play';
+
+ // Combat notes track this tab's current game. Hero data stays in the shared store.
+ let battleKey='', battle={round:0,summons:[],selected:null};
+ function battleState(){
+  const context=SkazStorage.contextKey();
+  const user=typeof SkazAccount==='undefined'?'local':SkazAccount.userId;
+  const key='skaz-play-battle-v1:'+JSON.stringify([user,context]);
+  if(key===battleKey)return battle;
+  battleKey=key;
+  battle={round:0,summons:[],selected:null};
+  try{
+   const saved=JSON.parse(sessionStorage.getItem(key)||'null');
+   if(!saved||!Number.isInteger(saved.round)||saved.round<0||saved.round>9999||!Array.isArray(saved.summons)||saved.summons.length>12)return battle;
+   const summons=saved.summons.filter(summon=>summon&&typeof summon.id==='string'&&typeof summon.name==='string'&&summon.name.trim()&&summon.name.length<=80&&
+    Number.isInteger(summon.hp)&&summon.hp>=0&&summon.hp<=9999&&Number.isInteger(summon.maxHp)&&summon.maxHp>=1&&summon.maxHp<=9999);
+   battle={round:saved.round,summons,selected:summons.some(s=>s.id===saved.selected)?saved.selected:null};
+  }catch{}
+  return battle;
+ }
+ function saveBattle(){
+  try{sessionStorage.setItem(battleKey,JSON.stringify(battle));}catch{}
+ }
+ function activeSummon(){
+  const current=battleState();
+  return current.summons.find(s=>s.id===current.selected)||null;
+ }
+ function selectSummon(id){
+  const current=battleState();
+  if(id!==null&&!current.summons.some(s=>s.id===id))return;
+  current.selected=id;
+  saveBattle();
+  closeModal();
+  render();
+  document.getElementById('play-summons')?.focus({preventScroll:true});
+ }
+ function cycleSummon(direction){
+  const current=battleState();
+  const members=[null,...current.summons.map(s=>s.id)];
+  selectSummon(members[(members.indexOf(current.selected)+direction+members.length)%members.length]);
+ }
+ function manageSummons(){
+  const current=battleState(),captured=battleKey;
+  const selected=activeSummon();
+  const options=[{id:'',name:state.profile.name},...current.summons].map(s=>
+   '<button type="button" data-play-select-summon="'+escape(s.id)+'" aria-pressed="'+((current.selected||'')===s.id)+'">'+escape(s.name)+'</button>').join('');
+  const fields=selected?{name:selected.name,hp:selected.hp,max:selected.maxHp}:{name:'',hp:'',max:''};
+  modal('<section id="play-summon-dialog"><h2>Призывы</h2><div class="play-summon-list" role="group" aria-label="Активный участник">'+options+'</div>'+
+   '<form id="play-summon-form"><label>Имя<input name="name" maxlength="80" required value="'+escape(fields.name)+'"></label>'+
+   '<label>Текущие хиты<input name="hp" type="number" min="0" max="9999" step="1" required value="'+fields.hp+'"></label>'+
+   '<label>Максимум хитов<input name="maximum" type="number" min="1" max="9999" step="1" required value="'+fields.max+'"></label>'+
+   '<div class="dialog-actions"><button type="submit" value="new" '+(current.summons.length>=12?'disabled':'')+'>Добавить призыв</button>'+
+   (selected?'<button type="submit" class="primary" value="update">Сохранить изменения</button><button type="button" id="play-remove-summon">Убрать призыв</button>':'')+
+   '</div></form></section>');
+  const dialog=document.getElementById('play-summon-dialog');
+  const valid=()=>{battleState();return active()&&captured===battleKey&&document.getElementById('play-summon-dialog')===dialog;};
+  dialog.onclick=event=>{
+   const button=event.target.closest('button');
+   if(!button||!valid())return;
+   if(button.dataset.playSelectSummon!==undefined)selectSummon(button.dataset.playSelectSummon||null);
+   if(button.id==='play-remove-summon'&&selected&&battle.summons.includes(selected)){
+    battle.summons=battle.summons.filter(s=>s!==selected);
+    selectSummon(null);
+   }
+  };
+  document.getElementById('play-summon-form').onsubmit=event=>{
+   event.preventDefault();
+   const fields=event.target.elements;
+   const name=fields.name.value.trim(),hp=Number(fields.hp.value),maxHp=Number(fields.maximum.value);
+   if(!name||!valid()||!fields.hp.value||!fields.maximum.value||
+     !Number.isInteger(hp)||hp<0||hp>9999||!Number.isInteger(maxHp)||maxHp<1||maxHp>9999)return;
+   if(event.submitter?.value==='update'&&selected&&battle.summons.includes(selected)){
+    Object.assign(selected,{name,hp,maxHp});
+    selectSummon(selected.id);
+   }else if(battle.summons.length<12){
+    const id=crypto.randomUUID();
+    battle.summons.push({id,name,hp,maxHp});
+    selectSummon(id);
+   }
+  };
+ }
+ function battleClick(button){
+  if(button.id==='play-battle-toggle'){
+   const current=battleState();
+   current.round=current.round?0:1;
+   saveBattle();
+   render();
+   document.getElementById('play-battle-toggle')?.focus({preventScroll:true});
+   return true;
+  }
+  if(button.id==='play-next-round'){
+   const current=battleState();
+   if(current.round>0&&current.round<9999){
+    current.round++;
+    saveBattle();
+    render();
+    document.getElementById('play-next-round')?.focus({preventScroll:true});
+   }
+   return true;
+  }
+  if(button.id==='play-summons'||button.id==='play-edit-summon'){manageSummons();return true;}
+  if(button.id==='play-actor-prev'||button.id==='play-actor-next'){cycleSummon(button.id.endsWith('next')?1:-1);return true;}
+  return false;
+ }
+
  function captureFocus(){
   const focused=document.activeElement;
   if(!focused?.closest('.play-screen'))return;
@@ -57,25 +161,22 @@ const SkazPlay = (()=>{
   };
  }
  function view(reload=false){
-  const next=SkazStorage.snapshotKey();if(reload||next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];quests=[];questStatus='idle';++questSerial;++serial;}
+  const next=SkazStorage.snapshotKey();if(reload||next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];++serial;}
   if(status==='idle'){
    status='loading';bookState=inventoryState='pending';book=[];items=[];
    const token=serial;queueMicrotask(()=>{if(token===serial&&active())load();});
   }
-  if(status==='ready'&&questStatus==='idle'){
-   const captured=key;
-   queueMicrotask(()=>{if(active()&&key===captured&&SkazStorage.snapshotKey()===captured)void loadQuests();});
-  }
   renderChargeTracker();
   const stats=SkazStorage.stats(),sheet=SkazStorage.sheet?.();
-  const actor=actorView(sheet,stats);
+  const actor=actorView(sheet,stats),currentBattle=battleState(),summon=activeSummon();
   return SkazPlayPresentation.screen({
    ...actor,
    initiative:stats.initiative,
    speed:stats.speed,
    checks:SkazCharacterSheet.abilityRow(stats,sheet),
    magicStats:SkazCharacterSheet.spellTiles(stats,sheet),
-   content:content(actor.level),
+   content:summon?'':content(actor.level),
+   battle:{round:currentBattle.round,summonCount:currentBattle.summons.length,summon},
   });
  }
  function castingGroup(spell){
@@ -229,13 +330,7 @@ const SkazPlay = (()=>{
   const recentContent=recent
    ?`<section class="panel play-last" data-play-recent><h2>Последняя запись</h2><strong>${escape(recent.title)}</strong><p>${escape(recent.text)}</p><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Личная заметка</button></section>`
    :'<section class="panel play-empty" data-play-recent><button id="play-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Первая личная заметка</button></section>';
-  return `${notice}${itemsFirst?'':spellContent}<div class="play-side">${inventoryContent}${itemsFirst?spellContent:''}${questPanel()}${recentContent}</div>`;
- }
- function questPanel(){
-  if(questStatus==='idle'||questStatus==='loading')return '<section class="panel" id="play-quests-panel" role="status">Открываем задания…</section>';
-  const activeQuests=quests.filter(q=>q.status==='active');
-  if(!activeQuests.length)return '<section class="panel play-empty" id="play-quests-panel"><button data-play-prepare="quests">'+(questStatus==='error'?'Задания недоступны · открыть <span class="ui-inline-icon" data-ui-icon="arrow-right"></span>':'Выбрать задание <span class="ui-inline-icon" data-ui-icon="arrow-right"></span>')+'</button></section>';
-  return '<section class="panel play-quests" id="play-quests-panel"><h2>Текущие задания</h2><div class="play-list" tabindex="0" role="region" aria-label="Текущие задания" data-play-list="quests">'+activeQuests.map(q=>'<button class="play-row" data-play-prepare="quests"><strong>'+escape(q.title)+'</strong><span>'+escape(q.steps.find(s=>!s.done)?.title||'Все этапы отмечены')+'</span></button>').join('')+'</div></section>';
+  return `${notice}${itemsFirst?'':spellContent}<div class="play-side">${inventoryContent}${itemsFirst?spellContent:''}${recentContent}</div>`;
  }
  function renderChargeTracker(){
   const root=document.getElementById('play-quick-item-charges');
@@ -255,16 +350,12 @@ const SkazPlay = (()=>{
  // Resource commands change balances, casting controls and the recent note.
  // Keep the loaded rows and their hydrated artwork attached throughout the update.
  function updateResources(main){
-  if(owner!==SkazStorage.contextKey()||status!=='ready'||bookState!=='ready'||inventoryState!=='ready')return false;
+  if(activeSummon()||owner!==SkazStorage.contextKey()||status!=='ready'||bookState!=='ready'||inventoryState!=='ready')return false;
   const root=document.getElementById('play-content'),screen=main.querySelector('.play-screen');
   const lists=SkazStorage.playResourceLists();
   if(!root||!screen||!lists)return false;
 
-  const nextKey=SkazStorage.snapshotKey();
-  if(key!==nextKey){
-   key=nextKey;
-   if(questStatus==='loading'){questStatus='idle';++questSerial;}
-  }
+  key=SkazStorage.snapshotKey();
   ({book,items}=lists);
   const next=document.createElement('template');
   next.innerHTML=content(actorLevel(SkazStorage.sheet?.()));
@@ -294,16 +385,30 @@ const SkazPlay = (()=>{
   replacePlayPart(root,fragment,'[data-play-recent]');
   SkazPlayPresentation.refreshActor(screen,actorView());
   renderChargeTracker();
-  if(questStatus==='idle'&&lists.status==='ready')void loadQuests();
   return true;
  }
  function replacePlayPart(current,updated,selector){
   const prior=current.querySelector(selector),next=updated.querySelector(selector);
-  if(prior&&next&&!prior.isEqualNode(next))prior.replaceWith(next);
+  if(!prior||!next||prior.isEqualNode(next))return;
+  if(prior.tagName==='BUTTON'&&next.tagName==='BUTTON'){SkazUI.patchButton(prior,next);return;}
+  if(selector==='.play-casting-controls'){
+   const command=prior.querySelector('[data-play-cast]'),nextCommand=next.querySelector('[data-play-cast]');
+   if(command&&nextCommand){
+    SkazUI.patchButton(command,nextCommand);
+    const choices=[...prior.children].filter(node=>node!==command);
+    const nextChoices=[...next.children].filter(node=>node!==nextCommand);
+    if(choices.length!==nextChoices.length||choices.some((choice,index)=>!choice.isEqualNode(nextChoices[index]))){
+     for(const choice of choices)choice.remove();
+     command.before(...nextChoices);
+    }
+    return;
+   }
+  }
+  prior.replaceWith(next);
  }
 
  function refresh(){
-  if(!active()||key!==SkazStorage.snapshotKey())return;
+  if(!active()||activeSummon()||key!==SkazStorage.snapshotKey())return;
   renderChargeTracker();
   const root=document.getElementById('play-content');
   if(!root)return;
@@ -320,28 +425,6 @@ const SkazPlay = (()=>{
   });
  }
 
- async function loadQuests(){
-  if(questStatus==='loading')return;
-  const token=++questSerial,captured=key;
-  questStatus='loading';
-  let entries=null;
-  try{
-   const data=await SkazStorage.questsData();
-   if(Array.isArray(data?.quests))entries=data.quests;
-  }catch{}
-  if(token!==questSerial||captured!==SkazStorage.snapshotKey())return;
-  if(!active()){questStatus='idle';return;}
-  quests=entries??[];
-  questStatus=entries?'ready':'error';
-
-  // Leave working actions and their keyboard focus in place when the sidebar data arrives.
-  const panel=document.getElementById('play-quests-panel');
-  if(panel){
-   panel.outerHTML=questPanel();
-   const list=document.querySelector?.('#play-quests-panel [data-play-list]');
-   if(list)list.scrollTop=scrollPositions.quests||0;
-  }
- }
  async function load(retryButton){
   if(retryButton&&(status==='loading'||status==='retrying'))return;
   const token=++serial,captured=key;
@@ -351,7 +434,6 @@ const SkazPlay = (()=>{
   if(!partial||bookState==='error'){bookState='pending';book=[];requests.push(['book',()=>SkazStorage.spellbookData()]);}
   if(!partial||inventoryState==='error'){inventoryState='pending';items=[];requests.push(['items',()=>SkazStorage.inventoryData()]);}
   status=partial?'retrying':'loading';
-  if(questStatus==='idle'||questStatus==='error')void loadQuests();
   refresh();
   if(focusAnchor&&document.activeElement===document.body)focusAnchor.focus({preventScroll:true});
 
@@ -406,16 +488,17 @@ const SkazPlay = (()=>{
   globalThis.addEventListener('resize',updateSearchViewport);
   document.getElementById('dialog')?.addEventListener('close',updateSearchViewport);
  }
- function search(initial=''){
+ function search(initial='',chooseSpell){
   const captured=SkazStorage.snapshotKey(),openedPage=page,instance=++searchSerial;
-  const searchHint='Введи название заклинания, предмета или правила.';
+  const searchHint=chooseSpell?'Введи название заклинания.':'Введи название заклинания, предмета или правила.';
   let request=0,results=[],submittedQuery='';
   const valid=()=>instance===searchSerial&&page===openedPage&&captured===SkazStorage.snapshotKey();
   const draw=(value=initial,focusIndex=null)=>{
    if(!valid())return;
-   modal(`<section id="play-search-panel"><h2>Правила во время игры</h2><form id="play-search-form"><label for="play-search-query">Название RU / EN</label><input id="play-search-query" type="search" maxlength="200" value="${escape(value)}"><button type="submit">Найти</button></form><div class="play-search-feedback"><div id="play-search-status" role="status"></div><div id="play-search-results"></div></div></section>`);
+   modal(`<section id="play-search-panel"><h2>${chooseSpell?'Добавить заклинание':'Правила во время игры'}</h2><form id="play-search-form"><label for="play-search-query">Название RU / EN</label><input id="play-search-query" type="search" maxlength="200" value="${escape(value)}"><button type="submit">Найти</button></form><div class="play-search-feedback"><div id="play-search-status" role="status"></div><div id="play-search-results"></div></div></section>`);
    updateSearchViewport();
    const field=document.getElementById('play-search-query');
+   if(chooseSpell)field.focus({preventScroll:true});
    const list=document.getElementById('play-search-results');
    const status=document.getElementById('play-search-status');
    const clearResults=message=>{
@@ -441,6 +524,7 @@ const SkazPlay = (()=>{
      if(!entry||!valid()||field.value.trim()!==submittedQuery)return;
      const draft=field.value;
      ++request;
+     if(chooseSpell){chooseSpell(entry);return;}
      SkazCatalog.readSnapshot(entry,()=>draw(draft,index),valid,'К поиску');
      updateSearchViewport();
     };
@@ -466,10 +550,12 @@ const SkazPlay = (()=>{
     clearResults('Ищем…');
     let found;
     try{
-     const response=await fetch('/api/catalog?'+new URLSearchParams({q:submitted,limit:'8'}),{cache:'no-store',signal:AbortSignal.timeout(10000)});
+     const params=new URLSearchParams({q:submitted,limit:'8'});
+     if(chooseSpell)params.set('kind','spell');
+     const response=await fetch('/api/catalog?'+params,{cache:'no-store',signal:AbortSignal.timeout(10000)});
      if(!response.ok)throw Error();
      const data=await response.json();
-     if(Array.isArray(data.entries))found=data.entries;
+     if(Array.isArray(data.entries))found=chooseSpell?data.entries.filter(entry=>entry.kind==='spell'):data.entries;
     }catch{
      found=undefined;
     }
@@ -493,7 +579,7 @@ const SkazPlay = (()=>{
  document.addEventListener('submit',event=>{if(event.target.id==='header-search'){event.preventDefault();search(document.getElementById('header-search-query').value.trim());}});
  document.addEventListener('scroll',event=>{
   const list=event.target,kind=list.dataset?.playList;
-  if(active()&&owner===SkazStorage.contextKey()&&['spells','items','quests','scopes'].includes(kind)){
+  if(active()&&owner===SkazStorage.contextKey()&&['spells','items','scopes'].includes(kind)){
    scrollPositions[kind]=list[kind==='scopes'?'scrollLeft':'scrollTop'];
   }
  },true);
@@ -501,12 +587,12 @@ const SkazPlay = (()=>{
   const input=event.target,id=input.dataset?.playCastSelect;
   if(id&&active()&&key===SkazStorage.snapshotKey())changeCastLevel(id,Number(input.value));
  });
- document.addEventListener('click',async event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.playMode){closeModal();go(b.dataset.playMode==='play'?'play':'hero');return;}if(!active())return;if(b.id==='play-edit'){go('hero');return;}if(b.id==='play-search'){search();return;}if(b.id==='play-checks'){SkazCharacterSheet.checks();return;}if(key!==SkazStorage.snapshotKey())return;if(spellScopes.some(([id])=>id===b.dataset.playSpellScope)){spellScope=b.dataset.playSpellScope;scrollPositions.spells=0;refresh();document.querySelector?.('[data-play-spell-scope="'+spellScope+'"]')?.focus();return;}if(b.id==='play-retry'){void load(b);return;}if(b.id==='play-show-consumables'){const target=document.getElementById('play-consumables-title');target?.focus();return;}if(['spells','inventory','quests'].includes(b.dataset.playPrepare)){go(b.dataset.playPrepare);return;}
+ document.addEventListener('click',async event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.playMode){closeModal();go(b.dataset.playMode==='play'?'play':'hero');return;}if(!active())return;if(battleClick(b))return;if(b.id==='play-edit'){go('hero');return;}if(b.id==='play-search'){search();return;}if(activeSummon())return;if(b.id==='play-checks'){SkazCharacterSheet.checks();return;}if(key!==SkazStorage.snapshotKey())return;if(spellScopes.some(([id])=>id===b.dataset.playSpellScope)){spellScope=b.dataset.playSpellScope;scrollPositions.spells=0;refresh();document.querySelector?.('[data-play-spell-scope="'+spellScope+'"]')?.focus();return;}if(b.id==='play-retry'){void load(b);return;}if(b.id==='play-show-consumables'){const target=document.getElementById('play-consumables-title');target?.focus();return;}if(['spells','inventory'].includes(b.dataset.playPrepare)){go(b.dataset.playPrepare);return;}
   if(b.dataset.playCastLevel){const id=b.dataset.playCastLevel,level=Number(b.dataset.level);if(changeCastLevel(id,level))Array.from(document.querySelectorAll('[data-play-cast-level]')).find(x=>x.dataset.playCastLevel===id&&Number(x.dataset.level)===level)?.focus();return;}
   if(b.dataset.playCast){const item=book.find(x=>x.catalogId===b.dataset.playCast);if(item&&SkazStorage.canResource?.())openCast(item);return;}
   if(b.dataset.playRead){const item=(b.dataset.playRead==='spell'?book:items).find(x=>x.catalogId===b.dataset.id),captured=key;if(item)SkazCatalog.readSnapshot(item.entry,closeModal,()=>active()&&captured===SkazStorage.snapshotKey(),'К игре');}
   if(b.dataset.playCharges){const item=items.find(x=>x.catalogId===b.dataset.playCharges);if(item)SkazStorage.editCharges(item);return;}
   if(b.dataset.playSpend){const item=items.find(x=>x.catalogId===b.dataset.playSpend);if(!item)return;try{await SkazStorage.spendInventoryOne(item,key);toast('Списан один предмет. Эффект не применён автоматически.');}catch(error){toast(error.message);}}
  });
- return {actorIdentity,actorView,view,updateResources,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus};
+ return {actorIdentity,actorView,view,summonActive:()=>Boolean(activeSummon()),updateResources,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus,findSpell:choose=>search('',choose)};
 })();

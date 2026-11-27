@@ -66,8 +66,9 @@ function pending(){return events.filter(e=>!state.accepted.includes(e.id)&&!stat
 function spellsPage(){
  if(location.protocol==='file:')return profileSections('spells')+demoSpellsPage();
  const content=SkazSpellbook.view()+`<details class="demo-section"><summary>Демонстрационные заклинания и ячейки барда 5 уровня</summary>${demoSpellsPage({showHeading:false})}</details>`;
- const label=(SkazStorage.can?.('character')??true)?'Добавить из справочника':'Открыть справочник';
- const actions=`<button data-page="library" class="primary">${label}</button>`;
+ const actions=(SkazStorage.can?.('character')??true)
+  ?'<button id="book-add-spell" class="primary">Добавить заклинание</button>'
+  :'<button data-page="library">Открыть справочник</button>';
  return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Персонаж',actions,content:profileSections('spells')+content});
 }
 function demoSpellsPage({showHeading=true}={}){
@@ -103,7 +104,11 @@ function quests(){
  return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Задания',content});
 }
 function demoQuests({showHeading=true}={}){return (showHeading?heading('ЗАЦЕПКИ И ОБЕЩАНИЯ','Ни одна нить не потеряется','Здесь только то, что известно твоему персонажу.'):'')+`<div class="notice"><b>Демонстрационный сюжет.</b> Эти примеры не входят в сохранённые задания кампании.</div><div class="quest-list"><article class="panel quest"><div class="quest-icon"><span data-ui-icon="flag"></span></div><div><div class="overline">ОСНОВНАЯ НИТЬ · ${state.checks.q2?'ЗАВЕРШЕНО':'В ПРОЦЕССЕ'}</div><h2>Свет на мысе</h2><p>Выяснить, почему погас старый маяк и куда исчез картограф. Мира обещала помочь с лодкой, если вы вернётесь с новостями.</p>${[['q0','Расспросить Миру в трактире'],['q1','Добраться до старого маяка'],['q2','Найти картографа и узнать правду']].map(([id,t])=>`<label class="quest-check"><input type="checkbox" data-check="${id}" ${state.checks[id]??id==='q0'?'checked':''}>${t}</label>`).join('')}${state.accepted.includes('quest')?'<div class="notice" style="margin:15px 0 0"><b>Новая зацепка:</b> '+esc(state.eventEdits.quest||'Картограф ушёл к маяку. Источник: Мира, сессия 12.')+'</div>':''}</div><button class="secondary" data-place="lighthouse">На карте <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></article><article class="panel quest"><div class="quest-icon"><span data-ui-icon="mail"></span></div><div><div class="overline">ЛИЧНОЕ · ${state.accepted.includes('gold')?'НАГРАДА ПОЛУЧЕНА':'ЗАБРАТЬ НАГРАДУ'}</div><h2>Письмо без подписи</h2><p>Письмо доставлено Мире. Она обещала Элиану 25 золотых. Отправитель попросил не называть его имени.</p><span class="tag accent">${state.accepted.includes('gold')?(state.eventEdits.gold??25)+' зм добавлено':'Награда: 25 зм'}</span></div><button data-page="journal">В журнал <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></article></div>`}
-function mapPage(){return location.protocol === 'file:' ? demoMapPage() : heading('МИР КАМПАНИИ','Места, которые вы открыли','Записывай только то, что узнал за игровым столом.')+SkazMap.view()+`<details class="demo-map-details"><summary>Посмотреть демонстрационную карту</summary>${demoMapPage()}</details>`}
+function mapPage(){
+ if(location.protocol==='file:')return demoMapPage();
+ const content=SkazMap.view()+`<details class="demo-map-details"><summary>Посмотреть демонстрационную карту</summary>${demoMapPage()}</details>`;
+ return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Карта',content,mapOnly:true});
+}
 function demoMapPage(){return heading('ПОБЕРЕЖЬЕ ТУМАНОВ','Мир, который вы открыли','Карта знаний партии. Выбери место, чтобы увидеть зацепки.')+`<div class="map-layout"><div class="map"><svg viewBox="0 0 700 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="var(--line)" stroke-width=".5"/></pattern><pattern id="trees" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M15 5l-8 15h16z" fill="none" stroke="var(--wash)" opacity=".3"/></pattern></defs><rect width="700" height="600" fill="var(--panel)"/><rect width="700" height="600" fill="url(#grid)"/><path d="M-20 0H535Q480 60 520 115T470 220Q570 260 440 360T390 600H0Z" fill="var(--raised)" stroke="var(--wash)" stroke-width="2"/><path d="M540 0Q480 80 535 125T490 220Q590 260 460 375T415 600" fill="none" stroke="var(--line)" stroke-width="2"/><path d="M50 90Q180 40 300 130L320 310 100 370Z" fill="url(#trees)"/><path d="M270 400Q310 340 355 315T455 150" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 8"/><g fill="none" stroke="var(--wash)" opacity=".4"><path d="M40 490l35-60 35 60-12-10-23-37-24 39zM95 495l40-80 40 80M140 515l38-65 38 65"/><path d="M590 410h45m-30-15h45m-70 30h40M560 300h45m-10-15h35"/></g><text x="550" y="355" fill="var(--muted)" opacity=".5" font-family="Georgia" font-size="18" transform="rotate(-65 550 355)">МОРЕ ТУМАНОВ</text><g transform="translate(620 85)" fill="none" stroke="var(--accent)" opacity=".7"><path d="M0-25V25M-25 0H25M0-25l-5 10h10Z"/><circle r="18"/></g></svg><div class="map-caption">Северное побережье</div>${Object.entries(places).map(([id,p])=>`<button class="map-point ${place===id?'selected':''}" data-map-place="${id}" style="left:${p.x}%;top:${p.y}%">${id==='town'?'<span data-ui-icon="focus"></span>':'<span data-ui-icon="map"></span>'} ${p.title}</button>`).join('')}<div class="map-legend"><span data-ui-icon="focus"></span> Вы здесь &nbsp; <span data-ui-icon="map"></span> Известное место · Схематическая демо-карта</div></div><aside class="panel" id="place-details">${placeDetails()}</aside></div>`}
 function placeDetails(){let p=places[place];return `<div class="overline">${p.type}</div><h2>${p.title}</h2><span class="tag accent">${p.status}</span><p class="map-note" style="margin-top:23px">${p.text}</p>${place==='lighthouse'?'<button class="text-button" data-page="quests">Связано: Свет на мысе <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button>':''}<div class="map-notes">${state.mapNotes.filter(n=>n.place===place).map(n=>`<div class="notice">${esc(n.text)}</div>`).join('')}</div><button class="secondary" id="map-note" style="width:100%;margin-top:20px"><span class="ui-inline-icon" data-ui-icon="add"></span> Заметка о месте</button>`}
 function library(){
@@ -174,6 +179,53 @@ function revealBottomNavButton(nav, button) {
  if(target.left < left) nav.scrollLeft += target.left - left;
  else if(target.right > right) nav.scrollLeft += target.right - right;
 }
+const quickPartKey=node=>node.id||node.classList[0];
+const quickPartMarkup=new WeakMap();
+function paintQuickPanel(quick,markup){
+ const template=document.createElement('template');
+ template.innerHTML=markup;
+ const incoming=[...template.content.children];
+ const mounted=[...quick.children];
+ const byKey=new Map(mounted.map(part=>[quickPartKey(part),part]));
+ let position=quick.firstElementChild;
+ for(const draft of incoming){
+  const key=quickPartKey(draft),current=byKey.get(key);
+  const expected=draft.outerHTML;
+  const updated=current&&(key==='play-quick-item-charges'||quickPartMarkup.get(current)===expected||
+   key==='quick-resources'&&patchQuickTracker(current,draft))?current:draft;
+  if(updated!==position)quick.insertBefore(updated,position);
+  if(current&&updated!==current)current.remove();
+  byKey.delete(key);
+  quickPartMarkup.set(updated,expected);
+  position=updated.nextElementSibling;
+ }
+ for(const part of byKey.values())part.remove();
+}
+function patchQuickTracker(current,draft){
+ const groups=node=>[...node.querySelectorAll('.resource-group')];
+ const actions=group=>[...group.querySelectorAll('.resource-dots button')];
+ const oldGroups=groups(current),newGroups=groups(draft);
+ const identity=button=>[button.dataset.resource||'',button.dataset.counterId||''].join(':');
+ if(oldGroups.length!==newGroups.length||oldGroups.some((group,index)=>{
+  const buttons=actions(group),next=actions(newGroups[index]);
+  return buttons.length!==next.length||buttons.some((button,i)=>identity(button)!==identity(next[i]));
+ }))return false;
+ for(const [index,group] of oldGroups.entries()){
+  const incoming=newGroups[index];
+  const balance=group.querySelector('.tracker-balance');
+  const nextBalance=incoming.querySelector('.tracker-balance');
+  if(balance&&nextBalance&&balance.innerHTML!==nextBalance.innerHTML)balance.innerHTML=nextBalance.innerHTML;
+  const nextActions=actions(incoming);
+  for(const [i,button] of actions(group).entries()){
+   const next=nextActions[i];
+   SkazUI.patchButton(button,next);
+  }
+  const pending=group.querySelector('.tracker-pending-count'),nextPending=incoming.querySelector('.tracker-pending-count');
+  if(!nextPending)pending?.remove();
+  else if(!pending)group.querySelector('.resource-dots').append(nextPending);
+ }
+ return true;
+}
 function quickResourceFocus(){
  const button=document.activeElement?.closest?.('#quick-state .resource-dots button');
  if(!button)return null;
@@ -202,10 +254,10 @@ function render(change){
  const resourceFocus=updateResources?quickResourceFocus():null;
  const resourceScroll=updateResources?{top:quick.scrollTop,left:quick.scrollLeft}:null;
  if(!updatePlayResources&&quick.parentElement!==home) home.append(quick);
- quick.hidden=page==='map';
+ quick.hidden=page==='map'||page==='play'&&SkazPlay.summonActive();
  document.body.dataset.page=page;
  const workspacePage=['play','hero','inventory','library','campaign'].includes(page)||
-  (location.protocol!=='file:'&&['spells','journal','quests'].includes(page));
+  (location.protocol!=='file:'&&['spells','journal','quests','map'].includes(page));
  document.body.dataset.workspaceShell=workspacePage?'shared':'';
  document.body.dataset.hpState=state.hp===0?'zero':'normal';
  document.body.dataset.examples=SkazStorage.showExamples?.()?'show':'hide';
@@ -244,7 +296,12 @@ function render(change){
  $('#workspace-player-class').textContent=identity.character;
  $('#workspace-campaign-settings').hidden=location.protocol==='file:'||SkazStorage.can?.('select')!==true;
  $('#campaign-name').textContent=state.profile.campaign;
- quick.innerHTML=quick.hidden?'':quickPanel();
+ const quickMarkup=quick.hidden?'':quickPanel();
+ if(updatePlayResources&&quick.firstElementChild)paintQuickPanel(quick,quickMarkup);
+ else {
+  quick.innerHTML=quickMarkup;
+  for(const part of quick.children||[])quickPartMarkup.set(part,part.outerHTML);
+ }
  if(page==='campaign'){
   const entry=campaignEntry;
   campaignEntry=null;

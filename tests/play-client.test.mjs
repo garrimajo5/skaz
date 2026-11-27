@@ -8,10 +8,10 @@ const itemChargesSource=await readFile(new URL('../client/item-charges.js',impor
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const presentationSource=await readFile(new URL('../client/play-presentation.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/play.js',import.meta.url),'utf8');
-function harness({quests=[],questFailure=false,spellLearning=null,questRequest=null,dialog=null,environment={}}={}){const elements=new Map(dialog?[['dialog',dialog]]:[]),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','quests','scopes'].map(kind=>({dataset:{playList:kind},scrollTop:0,scrollLeft:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true,querySelector:()=>null});return elements.get(id);};
+function harness({spellLearning=null,questRequest=null,dialog=null,environment={}}={}){const elements=new Map(dialog?[['dialog',dialog]]:[]),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','scopes'].map(kind=>({dataset:{playList:kind},scrollTop:0,scrollLeft:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true,querySelector:()=>null,focus(){}});return elements.get(id);};
  const context=vm.createContext({...environment,structuredClone,CSS:{escape:String},crypto:{randomUUID:()=> 'test-manual-cast'},page:'play',location:{protocol:'http:'},state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,maxHp:38,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
  document:{body:{closest:()=>null},getElementById:get,querySelectorAll:selector=>selector==='[data-play-list]'?lists:[],addEventListener:(event,fn)=>handlers[event]=fn},modal:value=>{html=value;get('dialog').open=true;},closeModal:()=>get('dialog').open=false,toast(){},go:value=>context.page=value,
- SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise((resolve,reject)=>requests.push({kind:'book',resolve,reject})),questsData:questRequest||(async()=>{if(questFailure)throw Error('offline');return {quests};}),inventoryData:()=>new Promise((resolve,reject)=>requests.push({kind:'items',resolve,reject})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(itemChargesSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,document:context.document,setSession:(active,title)=>{context.SkazStorage.currentSession=()=>active;context.SkazStorage.sessionTitle=()=>title;},setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,position)=>{const list=lists[index];list[list.dataset.playList==='scopes'?'scrollLeft':'scrollTop']=position;handlers.scroll({target:list});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,selectCast:(id,value)=>handlers.change({target:{dataset:{playCastSelect:id},value}}),click:(id,dataset={},button={id,dataset})=>handlers.click({target:{closest:()=>button}})};
+ SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise((resolve,reject)=>requests.push({kind:'book',resolve,reject})),questsData:questRequest,inventoryData:()=>new Promise((resolve,reject)=>requests.push({kind:'items',resolve,reject})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:url=>new Promise(resolve=>requests.push({kind:'search',url,resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(itemChargesSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,document:context.document,setSession:(active,title)=>{context.SkazStorage.currentSession=()=>active;context.SkazStorage.sessionTitle=()=>title;},setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,position)=>{const list=lists[index];list[list.dataset.playList==='scopes'?'scrollLeft':'scrollTop']=position;handlers.scroll({target:list});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,selectCast:(id,value)=>handlers.change({target:{dataset:{playCastSelect:id},value}}),click:(id,dataset={},button={id,dataset})=>handlers.click({target:{closest:()=>button}})};
 }
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 test('play art keeps spell circle, stable action IDs and item quantity independent of image loading',async()=>{
@@ -73,7 +73,7 @@ test('play lists expose all fourteen prepared spells and consumables without pag
 });
 test('empty play panels have one preparation action and no blank list or pager',async()=>{
  const h=harness();await loaded(h);const html=h.get('play-content').innerHTML;
- assert.equal((html.match(/class="panel play-empty"/g)||[]).length,4);assert.doesNotMatch(html,/class="play-list"|data-play-page/);
+ assert.equal((html.match(/class="panel play-empty"/g)||[]).length,3);assert.doesNotMatch(html,/class="play-list"|data-play-page/);
  await h.click('',{playPrepare:'spells'});assert.equal(h.page(),'spells');
 });
 
@@ -256,53 +256,39 @@ test('reopening play search invalidates the previous request even in the same ch
 test('leaving a loading play screen permits a new load on return',async()=>{const h=harness();h.api.view();await tick();h.api.remember('hero');h.api.remember('play');h.api.view();await tick();assert.equal(h.requests.length,4);h.requests[0].resolve({entries:[spell('Stale')]});h.requests[1].resolve({entries:[]});h.requests[2].resolve({entries:[spell('Fresh')]});h.requests[3].resolve({entries:[]});await tick();assert.match(h.get('play-content').innerHTML,/Fresh/);assert.doesNotMatch(h.get('play-content').innerHTML,/Stale/);});
 
 
-test('ready actions render before a delayed quest response and only the quest section updates',async()=>{
- const pending=Promise.withResolvers(),h=harness({questRequest:()=>pending.promise});
- await loaded(h,[spell('Action already ready')],[{catalogId:'potion',quantity:2,entry:{name:{ru:'Potion'},item:{type:'potion'}}}]);
- const root=h.get('play-content'),before=root.innerHTML;
- assert.match(before,/Action already ready/);
- assert.match(before,/data-play-spend/);
- assert.match(before,/Открываем задания/);
- const questList=h.lists[2];h.scroll(2,27);questList.scrollTop=0;
- h.document.querySelector=()=>questList;
- pending.resolve({quests:[{status:'active',title:'Late quest',steps:[]}]});await tick();
- assert.equal(questList.scrollTop,27);
- assert.equal(root.innerHTML,before);
- assert.match(h.get('play-quests-panel').outerHTML,/Late quest/);
+test('Quick Access only loads spells and consumables, with quests in their own section',async()=>{
+ let requests=0;
+ const h=harness({questRequest:()=>{requests++;}});
+ await loaded(h,[spell('Action')],[{catalogId:'potion',quantity:2,entry:{name:{ru:'Potion'},item:{type:'potion'}}}]);
+ assert.equal(requests,0);
+ assert.match(h.get('play-content').innerHTML,/data-play-spend/);
+ assert.doesNotMatch(h.get('play-content').innerHTML,/play-quests|Задания/);
 });
 
-test('a late quest from the old hero cannot replace the new hero section',async()=>{
- const requests=[];
- const h=harness({questRequest:()=>{const next=Promise.withResolvers();requests.push(next);return next.promise;}});
- await loaded(h,[spell('Old action')]);
- h.context('other');h.api.view();await tick();
- const [book,inventory]=h.requests.slice(-2);
- book.resolve({entries:[spell('New action')]});inventory.resolve({entries:[]});
- await tick();assert.match(h.get('play-content').innerHTML,/New action/);
- requests[1].resolve({quests:[{status:'active',title:'New quest',steps:[]}]});await tick();
- const panel=h.get('play-quests-panel'),active=panel.outerHTML;
- assert.match(active,/New quest/);
- requests[0].resolve({quests:[{status:'active',title:'Private old quest',steps:[]}]});await tick();
- assert.equal(panel.outerHTML,active);
-});
-
-test('play quest summary shows only active next steps, escapes text and tolerates quest API failure',async()=>{
- const h=harness({quests:[{status:'active',title:'<Quest>',steps:[{title:'Done',done:true},{title:'<Next>',done:false}]},{status:'completed',title:'Hidden quest',steps:[]}]});await loaded(h);
- assert.match(h.get('play-content').innerHTML,/&lt;Quest&gt;/);assert.match(h.get('play-content').innerHTML,/&lt;Next&gt;/);assert.doesNotMatch(h.get('play-content').innerHTML,/Hidden quest/);
- const offline=harness({questFailure:true});await loaded(offline,[spell('Still readable')]);assert.match(offline.get('play-content').innerHTML,/Still readable/);assert.match(offline.get('play-content').innerHTML,/Задания недоступны/);
+test('add spell search requests spells only and omits other hits',async()=>{
+ const h=harness();
+ h.api.findSpell(()=>{});
+ h.get('play-search-query').value='Свет';
+ const search=h.get('play-search-form').onsubmit({preventDefault(){}});
+ const request=h.requests.find(item=>item.kind==='search');
+ assert.match(request.url,/kind=spell/);
+ request.resolve({ok:true,json:async()=>({entries:[{kind:'item',name:{ru:'Предмет',en:''}},{kind:'spell',name:{ru:'Свет',en:'Light'}}]})});
+ await search;
+ assert.match(h.get('play-search-results').innerHTML,/Свет/);
+ assert.doesNotMatch(h.get('play-search-results').innerHTML,/Предмет/);
 });
 
 test('resource refresh retains list position for the same hero and discards it for another hero',async()=>{
- const h=harness();await loaded(h,[spell('A')]);h.scroll(0,210);h.scroll(1,80);h.scroll(3,77);
- h.context('revision-b','hero-a');h.api.view();await tick();h.requests.at(-2).resolve({entries:[spell('B')]});h.requests.at(-1).resolve({entries:[]});await tick();assert.equal(h.lists[0].scrollTop,210);assert.equal(h.lists[1].scrollTop,80);assert.equal(h.lists[3].scrollLeft,77);
- h.context('revision-c','hero-b');h.api.view();await tick();h.requests.at(-2).resolve({entries:[spell('C')]});h.requests.at(-1).resolve({entries:[]});await tick();assert.equal(h.lists[0].scrollTop,0);assert.equal(h.lists[1].scrollTop,0);assert.equal(h.lists[3].scrollLeft,0);
+ const h=harness();await loaded(h,[spell('A')]);h.scroll(0,210);h.scroll(1,80);h.scroll(2,77);
+ h.context('revision-b','hero-a');h.api.view();await tick();h.requests.at(-2).resolve({entries:[spell('B')]});h.requests.at(-1).resolve({entries:[]});await tick();assert.equal(h.lists[0].scrollTop,210);assert.equal(h.lists[1].scrollTop,80);assert.equal(h.lists[2].scrollLeft,77);
+ h.context('revision-c','hero-b');h.api.view();await tick();h.requests.at(-2).resolve({entries:[spell('C')]});h.requests.at(-1).resolve({entries:[]});await tick();assert.equal(h.lists[0].scrollTop,0);assert.equal(h.lists[1].scrollTop,0);assert.equal(h.lists[2].scrollLeft,0);
 });
 
 test('filter redraw preserves horizontal focus position before a queued scroll event fires',async()=>{
  const h=harness();
  await loaded(h,[spell('A')]);
  const root=h.get('play-content');
- const scopes=h.lists[3];
+ const scopes=h.lists[2];
  scopes.scrollWidth=405;
  scopes.clientWidth=328;
  scopes.scrollLeft=77;
@@ -721,4 +707,47 @@ test('game search uses the visual viewport only while it is reduced without zoom
  dialogEvents.get('close')();
  assert.equal(rules.size,0);
  assert.equal(attributes.size,0);
+});
+
+test('a manual battle starts at one, advances and ends in place',async()=>{
+ const h=harness({environment:{render(){}}});
+ assert.match(h.api.view(),/Начать бой/);
+ await h.click('play-battle-toggle');
+ assert.match(h.api.view(),/Завершить бой[\s\S]*Раунд 1/);
+ await h.click('play-next-round');
+ assert.match(h.api.view(),/Раунд 2/);
+ await h.click('play-battle-toggle');
+ assert.doesNotMatch(h.api.view(),/play-next-round/);
+});
+
+test('switching a summon stays in its session and keeps hero actions isolated',async()=>{
+ const h=harness({environment:{render(){}}});
+ const key='skaz-play-battle-v1:'+JSON.stringify(['local','hero-a']);
+ h.memory.set(key,JSON.stringify({round:1,selected:null,summons:[{id:'owl',name:'Сова',hp:0,maxHp:2},{id:'fey',name:'Фея',hp:3,maxHp:4}]}));
+ assert.match(h.api.view(),/Призывы · 2/);
+ await h.click('play-actor-next');
+ assert.equal(h.api.summonActive(),true);
+ assert.match(h.api.view(),/Сова[\s\S]*0 \/ 2/);
+ await h.click('play-actor-next');
+ assert.match(h.api.view(),/Фея[\s\S]*3 \/ 4/);
+ await h.click('play-actor-next');
+ assert.equal(h.api.summonActive(),false);
+ h.context('new','other-session');
+ assert.doesNotMatch(h.api.view(),/play-actor-next|Раунд 1/);
+});
+
+test('a stale summon dialog cannot select or remove a summon in the new session',async()=>{
+ const h=harness({environment:{render(){}}});
+ const key=id=>'skaz-play-battle-v1:'+JSON.stringify(['local',id]);
+ const state=(id,name)=>JSON.stringify({round:1,selected:id,summons:[{id,name,hp:1,maxHp:2}]});
+ h.memory.set(key('hero-a'),state('summon-a','Сова'));
+ h.memory.set(key('hero-b'),state('summon-b','Фея'));
+ h.api.view();
+ await h.click('play-summons');
+ const callback=h.get('play-summon-dialog').onclick;
+ h.context('b','hero-b');
+ callback({target:{closest:()=>({id:'play-remove-summon',dataset:{}})}});
+ callback({target:{closest:()=>({id:'',dataset:{playSelectSummon:''}})}});
+ assert.equal(h.memory.get(key('hero-b')),state('summon-b','Фея'));
+ assert.match(h.api.view(),/Фея/);
 });

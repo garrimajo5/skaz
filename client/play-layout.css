@@ -37,7 +37,7 @@ body[data-workspace-shell="shared"] .shell main {
 .play-heading #play-edit .ui-icon { width: 16px; height: 16px; }
 
 body[data-page="play"] .play-heading { flex-wrap: nowrap; }
-body[data-page="play"] .play-heading > div { flex: 1; }
+body[data-page="play"] .play-heading > div:first-child { flex: 1; }
 body[data-page="play"] .play-session {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -612,7 +612,7 @@ body[data-theme="polar"] .play-effects {
     --workspace-session-bg: #0c2631;
     --workspace-session-line: #22424d;
   }
-  body[data-theme="polar"][data-page="play"] .shell > main {
+  body[data-theme="polar"][data-workspace-shell="shared"] .shell > main {
     --workspace-play-card-bg: #0e252f;
     --workspace-play-card-line: #22424d;
     --workspace-play-price-bg: #133440;
@@ -625,37 +625,37 @@ body[data-theme="polar"] .play-effects {
     --workspace-play-heal-bg: #14323d;
     background: radial-gradient(ellipse 39% 312px at 81% 198px, #0d2632 20%, #0a202a 62%, transparent 100%), #081821;
   }
-  body[data-theme="polar"][data-page="play"] :is(.play-heading h1, .play-actions > h2, .play-resources > h2, .play-hero-name strong) {
+  body[data-theme="polar"][data-workspace-shell="shared"] :is(.play-heading h1, .play-actions > h2, .play-resources > h2, .play-hero-name strong) {
     color: #f2eadc;
   }
-  html:has(body[data-page="play"] .play-heading) { --workspace-heading-height: 78px; }
-  body[data-page="play"] .shell:has(.play-heading) {
+  html:has(body[data-workspace-shell="shared"] .play-heading) { --workspace-heading-height: 78px; }
+  body[data-workspace-shell="shared"] .shell:has(.play-heading) {
     --workspace-tools-width: clamp(470px, 37vw, 570px);
   }
-  body[data-workspace-shell="shared"][data-page="play"] .shell:has(.play-heading) > header {
+  body[data-workspace-shell="shared"] .shell:has(.play-heading) > header {
     justify-self: end;
     width: var(--workspace-tools-width);
     border-bottom: 0;
     background: var(--workspace-heading-bg, var(--bg));
   }
-  body[data-workspace-shell="shared"][data-page="play"] .shell:has(.play-heading) > main {
+  body[data-workspace-shell="shared"] .shell:has(.play-heading) > main {
     grid-row: 1 / span 2;
   }
-  body[data-page="play"] .play-screen { --play-gutter: var(--workspace-wide-gutter); }
-  body[data-page="play"] .play-hero-band { background: var(--workspace-hero-bg, var(--panel)); }
-  body[data-page="play"] .play-hero-name strong {
+  body[data-workspace-shell="shared"] .play-screen { --play-gutter: var(--workspace-wide-gutter); }
+  body[data-workspace-shell="shared"] .play-hero-band { background: var(--workspace-hero-bg, var(--panel)); }
+  body[data-workspace-shell="shared"] .play-hero-name strong {
     font-family: 'PT Serif', Georgia, serif;
     font-weight: 400;
   }
-  body[data-page="play"] .play-heading {
+  body[data-workspace-shell="shared"] .play-heading {
     min-height: var(--workspace-heading-height);
     background: var(--workspace-heading-bg, var(--bg));
     padding-block: 13px 3px;
     padding-inline-end: calc(var(--workspace-tools-width) + 12px);
   }
-  body[data-page="play"] .shell:has(.play-session) > header #session-name-label { display: none; }
-  body[data-page="play"] .play-heading #play-edit { flex: none; }
-  body[data-page="play"] .play-session {
+  body[data-workspace-shell="shared"] .shell:has(.play-session) > header #session-name-label { display: none; }
+  body[data-workspace-shell="shared"] .play-heading #play-edit { flex: none; }
+  body[data-workspace-shell="shared"] .play-session {
     font-size: 11px;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -1054,3 +1054,25 @@ body[data-theme="polar"] .play-effects {
 }
 .skip-to-content:not(:focus) { clip-path: inset(50%); pointer-events: none; }
 #main:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.workspace-map .play-layout { display: block; }
+.play-actor-carousel { position: relative; }
+.play-actor-tools {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-inline: var(--play-gutter);
+  background: var(--workspace-hero-bg, var(--panel));
+}
+.play-actor-tools button { min-inline-size: var(--touch, 44px); min-block-size: var(--touch, 44px); }
+#play-battle-toggle { flex: none; background: var(--workspace-play-damage-bg, var(--panel)); }
+#play-next-round { margin-inline-start: var(--play-gutter); min-block-size: var(--touch, 44px); }
+.play-summon-list { display: flex; flex-wrap: wrap; gap: 6px; margin-block: 10px; }
+.play-summon-list button { min-block-size: var(--touch, 44px); }
+.workspace-prepare .workspace-content :is(.catalog-tile, .book-row) {
+  background: var(--workspace-play-card-bg, var(--panel));
+}
+@media (max-width: 700px) {
+  body[data-page="play"] .play-heading { flex-wrap: wrap; }
+  #play-battle-toggle { min-block-size: var(--touch, 44px); }
+}
