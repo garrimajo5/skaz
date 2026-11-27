@@ -86,10 +86,11 @@ const SkazCampaign = (function(){
     const end=relevant?visibleContentBottom(viewportBottom):viewportBottom;
     const searchBounds=relevant&&search.getBoundingClientRect();
     const formVisible=searchBounds&&searchBounds.top>=viewportTop&&searchBounds.bottom<=end;
-    const shortLayout=formVisible&&viewportWidth>=620&&viewportHeight<=260;
+    const searchFeedback=el('campaign-search-feedback');
+    const shortLayout=formVisible&&viewportWidth>=620&&viewportHeight<=260&&searchFeedback?.getBoundingClientRect().width>0;
     const toolbarSlot=formVisible&&(viewport?.scale??1)===1
       ?toolbarFeedbackSlot(viewportWidth,viewportHeight,viewportTop,end):null;
-    const inlineSlot=shortLayout?el('campaign-search-feedback'):
+    const inlineSlot=shortLayout?searchFeedback:
       toolbarSlot&&message.parentElement===toolbarSlot?toolbarSlot:null;
     const compact=Boolean(relevant&&viewportWidth<=360&&viewportHeight<500);
     moveNotice(message,inlineSlot||document.body);
