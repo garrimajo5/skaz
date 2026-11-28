@@ -1,6 +1,7 @@
 import {readFileSync, writeFileSync} from 'node:fs';
 import {pathToFileURL} from 'node:url';
 import {catalogInputHash} from './verify-catalog-input-hashes.mjs';
+import {adventureWordingPath,readAuditInput} from './catalog-audit-inputs.mjs';
 
 export const inputs = [
   'catalog/scope-register-2014.json',
@@ -9,7 +10,7 @@ export const inputs = [
   'catalog/skt-appendix-d-npc-index-2014.json',
   'catalog/skt-appendix-d-npc-composition-2014.json',
 ];
-const output = new URL('../catalog/d07-adventure-wording-rights-2014.json', import.meta.url);
+const output = new URL('../'+adventureWordingPath, import.meta.url);
 const adventureIds = ['132', '161', '206'];
 const referenceSourceId = '103';
 const editionLocators = {
@@ -155,7 +156,7 @@ export function reviewAdventureWording(scope, audit, skt, appendixIndex, appendi
 }
 
 export function buildAdventureWordingReview() {
-  const raw = inputs.map(path => readFileSync(new URL('../' + path, import.meta.url), 'utf8'));
+  const raw = inputs.map(path => readAuditInput(adventureWordingPath, path));
   return {
     ...reviewAdventureWording(...raw.map(text => JSON.parse(text))),
     inputSha256: Object.fromEntries(inputs.map((path, index) => [path, catalogInputHash(raw[index])])),

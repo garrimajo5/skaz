@@ -1,16 +1,20 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {article,audit,booleanFilter,spellFields} from '../scripts/dndsu-rule-fields.mjs';
+import {article,audit,booleanFilter,spellFields,withReviewedItemMappings} from '../scripts/dndsu-rule-fields.mjs';
 import {bundledCatalog} from '../server/bundled-catalog.mjs';
+import {readScopeBundle} from '../scripts/catalog-audit-inputs.mjs';
 const json=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
-const snapshot=json('catalog/dndsu-rule-index-2026-11-15.json');
+const baseline=json('catalog/dndsu-rule-index-2026-11-15.json');
+const reviewed=json('catalog/dndsu-rule-item-mappings-2014.json');
+const snapshot=withReviewedItemMappings(baseline,reviewed);
 const manifest=json('catalog/dndsu-rule-clauses-2026-11-15.json');
 const entries=bundledCatalog().bundle.entries;
 const run=(e=entries,c=manifest.clauses)=>audit(snapshot,e,c);
 test('audit is deterministic and preserves the historical baseline separately from later corrections',()=>{
-  const report=run();
-  assert.deepEqual(report,run());
+  const historicalEntries=readScopeBundle().entries;
+  const report=audit(baseline,historicalEntries,manifest.clauses);
+  assert.deepEqual(run(),run());
   const historical=json('catalog/dndsu-rule-audit-2026-11-15.json');
   assert.equal(report.snapshotSha256,historical.snapshotSha256);
   assert.deepEqual(historical.summary,{sourcePages:4333,noNameCandidate:3758,candidateCards:580,fieldChecks:1856,differences:0,clauseChecks:25,clauseGaps:6,fullRulesVerified:0});
@@ -18,13 +22,28 @@ test('audit is deterministic and preserves the historical baseline separately fr
 });
 test('all existing indexed cards have exactly one candidate row, including grouped aliases and artifact',()=>{
   const rows=run().rows.filter(r=>r.checks);
-  assert.equal(new Set(rows.map(r=>r.id)).size,580);
+  assert.equal(new Set(rows.map(r=>r.id)).size,581);
   assert.deepEqual(new Set(rows.map(r=>r.id)),new Set(entries.filter(e=>['spell','monster','item','artifact'].includes(e.kind)).map(e=>e.id)));
   assert.equal(rows.find(r=>r.id.endsWith(':orb-of-dragonkind')).checks[0].status,'match');
   assert.equal(new Set(manifest.sources.map(s=>s.url)).size,13);
   assert.equal(new Set(manifest.clauses.map(c=>c.id+' '+c.field)).size,25);
   for(const c of manifest.clauses)assert.ok(manifest.sources.some(s=>s.url===c.url));
 });
+test('reviewed Staff of Fire mapping extends the current audit while preserving the old observation',()=>{
+  const [mapping]=reviewed.items;
+  const historical=baseline.sections.items.rows.find(row=>row.url===mapping.url);
+  assert.deepEqual(historical.candidateIds,[]);
+  assert.equal(historical.fields,undefined);
+  const report=run();
+  assert.equal(report.summary.fullRulesVerified,0);
+  const staff=report.rows.find(row=>row.id===mapping.catalogId);
+  assert.deepEqual(staff.checks,[{field:'attunement',expected:true,actual:true,status:'match'}]);
+  assert.equal(staff.fullRules,'unverified');
+  assert.equal(staff.url,historical.url);
+  assert.throws(()=>withReviewedItemMappings(snapshot,reviewed),/exact reviewed snapshot/);
+  assert.throws(()=>withReviewedItemMappings(baseline,{...reviewed,items:[mapping,mapping]}),/Invalid reviewed item mapping/);
+});
+
 test('metadata changes and missing values cannot pass',()=>{
   const changed=structuredClone(entries);
   const spell=changed.find(e=>e.id.endsWith(':shield'));

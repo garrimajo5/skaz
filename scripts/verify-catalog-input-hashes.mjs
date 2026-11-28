@@ -1,6 +1,7 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
+import { archivedAuditInputPaths, auditInputPath } from './catalog-audit-inputs.mjs';
 
 export const catalogInputHash = text => createHash('sha256').update(text.replace(/\r\n/g, '\n')).digest('hex');
 
@@ -17,9 +18,10 @@ export function auditCatalogInputHashes(documents) {
     for (const [dependency, expected] of pins) {
       if (!/^catalog\/[a-zA-Z0-9._-]+\.json$/.test(dependency) || !/^[0-9a-f]{64}$/.test(expected)) throw Error(`Invalid input pin: ${file} -> ${dependency}`);
       checked++;
-      if (!documents.has(dependency)) {
+      const source = auditInputPath(file, dependency);
+      if (!documents.has(source)) {
         mismatches.push({file, dependency, reason: 'missing-input'});
-      } else if (catalogInputHash(documents.get(dependency)) !== expected) {
+      } else if (catalogInputHash(documents.get(source)) !== expected) {
         mismatches.push({file, dependency, reason: 'changed-input'});
       }
     }
@@ -29,7 +31,9 @@ export function auditCatalogInputHashes(documents) {
 
 export function loadCatalogDocuments() {
   const directory = new URL('../catalog/', import.meta.url);
-  return new Map(readdirSync(directory).filter(file => file.endsWith('.json')).map(file => ['catalog/' + file, readFileSync(new URL(file, directory), 'utf8')]));
+  const files = readdirSync(directory).filter(file => file.endsWith('.json')).map(file => 'catalog/'+file);
+  files.push(...archivedAuditInputPaths.filter(file => existsSync(new URL('../'+file, import.meta.url))));
+  return new Map(files.map(file => [file, readFileSync(new URL('../'+file, import.meta.url), 'utf8')]));
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
