@@ -67,3 +67,41 @@ test('publisher Tortle index evidence separates the package from the MToF hypoth
   assert.equal(preview.automaticMerge,false);
   assert.equal(preview.approvedDenominator,null);
 });
+
+test('Tortle publisher filters reuse the package cards while the MToF bestiary links remain distinct', () => {
+  const preview = read('tortle-bestiary-preview-2014.json');
+  const evidence = read('mtf-monster-version-publication-evidence-2014.json');
+  const mtof = evidence.sources.find(source => source.sourceId === '113');
+  const relationship = preview.packageAndMtofDigitalRelationship;
+
+  assert.equal(relationship.kind, 'same-digital-records-under-two-publisher-filters');
+  assert.deepEqual(relationship.filters.map(({value, selectedLabel}) => [value, selectedLabel]), [
+    ['28', 'The Tortle Package'],
+    ['33', 'Mordenkainen’s Tome of Foes'],
+  ]);
+  for (const filter of relationship.filters) {
+    const url = new URL(filter.url);
+    assert.equal(url.origin, 'https://www.dndbeyond.com');
+    assert.equal(url.pathname, '/monsters');
+    assert.equal(url.searchParams.get('filter-source'), filter.value);
+    assert.equal(url.searchParams.get('filter-search'), 'tortle');
+  }
+  const captures = [relationship.mtofContents, relationship.publisherInterview, ...relationship.filters];
+  assert.equal(new Set(captures.map(({sha256}) => sha256)).size, captures.length);
+  for (const {bytes, sha256} of captures) {
+    assert.ok(Number.isSafeInteger(bytes) && bytes > 0);
+    assert.match(sha256, /^[a-f0-9]{64}$/);
+  }
+  assert.equal(relationship.mtofContents.url, mtof.url);
+  assert.deepEqual(relationship.rows.map(({name}) => name), ['Tortle', 'Tortle Druid']);
+  for (const row of relationship.rows) {
+    const publication = mtof.records.find(record => record.heading === row.name);
+    const packageCard = preview.rows.find(card => card.name === row.name && card.publication === 'The Tortle Package');
+    assert.equal(row.mtofContentsTarget, publication.targetUrl);
+    assert.equal(row.digitalCardUrl, packageCard.cardUrl);
+    assert.equal(row.displayedPublicationUnderBothFilters, packageCard.publication);
+  }
+  assert.equal(relationship.observationEquivalenceVerified, false);
+  assert.equal(preview.packageAndMtofEquivalenceVerified, false);
+  assert.equal(preview.textReusePermission, 'not-established');
+});

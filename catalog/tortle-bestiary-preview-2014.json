@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "checkedOn": "2026-11-28",
   "evidenceKind": "publisher-bestiary-index-fields",
   "source": {
@@ -63,5 +63,49 @@
   "accepted": false,
   "automaticMerge": false,
   "approvedDenominator": null,
-  "textReusePermission": "not-established"
+  "textReusePermission": "not-established",
+  "packageAndMtofDigitalRelationship": {
+    "kind": "same-digital-records-under-two-publisher-filters",
+    "mtofContents": {
+      "url": "https://www.dndbeyond.com/sources/dnd/mtof",
+      "bytes": 257498,
+      "sha256": "deda12d200b5db497010ab7d6fc9f8c976afe5f743f4fa797ebdc605ee16503b"
+    },
+    "publisherInterview": {
+      "url": "https://www.dndbeyond.com/posts/227-meet-the-giff-in-mordenkainens-tome-of-foes",
+      "bytes": 365531,
+      "sha256": "7dfb2f274805647351204601d3321e4753bbd310805dcbd0f7166e3869b45d7b"
+    },
+    "filters": [
+      {
+        "value": "28",
+        "selectedLabel": "The Tortle Package",
+        "url": "https://www.dndbeyond.com/monsters?filter-search=tortle&filter-source=28",
+        "bytes": 377654,
+        "sha256": "f96c6a837328c6853124e06ecc204c1a78305e3d63837df07aee2523753d5f47"
+      },
+      {
+        "value": "33",
+        "selectedLabel": "Mordenkainen’s Tome of Foes",
+        "url": "https://www.dndbeyond.com/monsters?filter-search=tortle&filter-source=33",
+        "bytes": 377654,
+        "sha256": "6f63ef87b195a876334ebb80dd4f76f5a0df7063d0d7e2b5b100c6d1c5238432"
+      }
+    ],
+    "rows": [
+      {
+        "name": "Tortle",
+        "mtofContentsTarget": "https://www.dndbeyond.com/sources/mtof/bestiary#Tortle",
+        "digitalCardUrl": "https://www.dndbeyond.com/monsters/36902-tortle",
+        "displayedPublicationUnderBothFilters": "The Tortle Package"
+      },
+      {
+        "name": "Tortle Druid",
+        "mtofContentsTarget": "https://www.dndbeyond.com/sources/mtof/bestiary#TortleDruid",
+        "digitalCardUrl": "https://www.dndbeyond.com/monsters/36903-tortle-druid",
+        "displayedPublicationUnderBothFilters": "The Tortle Package"
+      }
+    ],
+    "observationEquivalenceVerified": false
+  }
 }
