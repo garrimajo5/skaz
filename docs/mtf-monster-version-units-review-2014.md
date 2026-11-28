@@ -59,3 +59,26 @@ node scripts/verify-catalog-input-hashes.mjs
 ```
 
 Следующее условие по этой паре — первичные страницы обеих книг, точный контекст статуи в MotM и проверка CR по печатному тексту. По #77 можно независимо брать другие открытые группы D06/D07.
+
+## Tortle и Tortle Druid в публичном бестиарии
+
+Четыре строки индекса издателя от 28.11.2026 сверены по точному slug.
+The Tortle Package и Monsters of the Multiverse показывают одинаковые CR
+у соответствующих одноимённых существ. Отличаются показанный подтип и
+мировоззрение. [Публичный бестиарий](https://www.dndbeyond.com/monsters?filter-search=tortle).
+
+| Существо | The Tortle Package | Monsters of the Multiverse |
+| --- | --- | --- |
+| Tortle, CR 1/4 | [36902](https://www.dndbeyond.com/monsters/36902-tortle) · Humanoid (tortle), законно-доброе | [2560942](https://www.dndbeyond.com/monsters/2560942-tortle) · Humanoid, любое |
+| Tortle Druid, CR 2 | [36903](https://www.dndbeyond.com/monsters/36903-tortle-druid) · Humanoid (tortle), законно-нейтральное | [2560941](https://www.dndbeyond.com/monsters/2560941-tortle-druid) · Humanoid, любое |
+
+У dnd.su 7048/7049 указан исходный MotM (источник 158). Наблюдения
+4906/4907 относятся к Mordenkainen’s Tome of Foes (113). Они остаются
+отдельными от цифровых карточек The Tortle Package, пока не установлена
+точная связь публикаций. В индексе слово Tortle также встречается в
+материалах создания персонажа. Путь /monsters и собственное издание
+позволяют разделить категории. [Срез метаданных](../catalog/tortle-bestiary-preview-2014.json).
+
+Ссылки конкретных карточек в проверенном доступе ведут в магазин. Полные
+статблоки, версии печати и права на текст ждут отдельной проверки.
+Этот срез не меняет число записей и не предлагает автоматическое слияние.

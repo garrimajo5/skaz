@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-28",
+  "evidenceKind": "publisher-bestiary-index-fields",
+  "source": {
+    "url": "https://www.dndbeyond.com/monsters?filter-search=tortle",
+    "bytes": 380831,
+    "sha256": "e88bf3337f7efe54239cc01acde31f5156221a0609daa26cbf1601c7f91eabd6",
+    "locator": "data-type=\"monsters\" and exact data-slug"
+  },
+  "rows": [
+    {
+      "name": "Tortle",
+      "publication": "The Tortle Package",
+      "cardUrl": "https://www.dndbeyond.com/monsters/36902-tortle",
+      "challenge": "1/4",
+      "displayedType": "Humanoid",
+      "displayedSubtype": "tortle",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "observationId": null,
+      "unverifiedMtofCounterpart": "dndsu:bestiary:4906"
+    },
+    {
+      "name": "Tortle",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "cardUrl": "https://www.dndbeyond.com/monsters/2560942-tortle",
+      "challenge": "1/4",
+      "displayedType": "Humanoid",
+      "displayedSubtype": null,
+      "size": "Medium",
+      "alignment": "Any Alignment",
+      "observationId": "dndsu:bestiary:7048",
+      "unverifiedMtofCounterpart": null
+    },
+    {
+      "name": "Tortle Druid",
+      "publication": "The Tortle Package",
+      "cardUrl": "https://www.dndbeyond.com/monsters/36903-tortle-druid",
+      "challenge": "2",
+      "displayedType": "Humanoid",
+      "displayedSubtype": "tortle",
+      "size": "Medium",
+      "alignment": "Lawful Neutral",
+      "observationId": null,
+      "unverifiedMtofCounterpart": "dndsu:bestiary:4907"
+    },
+    {
+      "name": "Tortle Druid",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "cardUrl": "https://www.dndbeyond.com/monsters/2560941-tortle-druid",
+      "challenge": "2",
+      "displayedType": "Humanoid",
+      "displayedSubtype": null,
+      "size": "Medium",
+      "alignment": "Any Alignment",
+      "observationId": "dndsu:bestiary:7049",
+      "unverifiedMtofCounterpart": null
+    }
+  ],
+  "fullStatBlockVerified": false,
+  "packageAndMtofEquivalenceVerified": false,
+  "accepted": false,
+  "automaticMerge": false,
+  "approvedDenominator": null,
+  "textReusePermission": "not-established"
+}
