@@ -1,0 +1,45 @@
+{
+  "batch": "production-v101",
+  "entries": [
+    {
+      "id": "srd51:2014:item:robe-of-eyes",
+      "sourcePath": "data/art-production-v101/robe-of-eyes-contrast.png",
+      "sourceSha256": "41768cec63612a1e10daa8f0ad39d55f47ec4801ec5ef10281a8a1d274fbfb36",
+      "brief": "Refine this isolated Robe of Eyes art for a tiny fantasy RPG inventory icon, preserving the garment, front view and its charcoal purple fabric. Keep generous completely transparent margins; keep robe height 80 to 83 percent of the canvas. At tiny size it must read as a magical eye-patterned robe: make the broad central antique-gold eyelid embroidery on its chest roughly half the visible chest width and give its almond shape a thick luminous warm-gold border with a distinct dark bronze pupil. The central eye is a high contrast embroidered emblem, not a physical eye. Simplify the fine filigree around it to support the primary shape. Give sleeve and hem edging slightly brighter warm gold and subtle cool rim light along the dark folds so the robe is legible over a dark in-game panel. Preserve four small eyes elsewhere, no new symbols. Realistic painterly textile volumes and original full empty hooded robe. Alpha background, no shadow outside the silhouette, no sparks, no halo, no lettering, no frame, no person. Level perspective and no diagonal tilt.",
+      "method": "built-in image_gen",
+      "date": "2026-11-28",
+      "version": 1,
+      "previous": null,
+      "variants": [
+        {
+          "sourcePath": "data/art-production-v101/robe-of-eyes.png",
+          "sourceSha256": "a8dbd0a6873a4ce5f9b583b377b6e2e14e60305896ca6fcd8343404cb2043af6",
+          "brief": "Create one original game inventory illustration for the fantasy tabletop catalogue SKAZ: a rare enchanted Robe of Eyes, isolated on fully transparent alpha. Show a full-length empty hooded scholar's robe with a folded hood, no wearer, no mannequin, no floating body parts. Front three-quarter view just slightly turned, camera level, clean substantial silhouette: broad understated hanging sleeves on either side, violet-charcoal cloth with an indigo tint and warm muted antique bronze edging. The recognizable design is repeated embroidered eye motifs on the chest and sleeves: one large almond-shaped amber eye on the upper chest, four more distinct smaller almond shapes on fabric. The motifs are decorative gold thread with subtle amber glints, no outer glow, no realistic flesh eyes and no horror. Soft upper-left light and reflected cool light ensure the garment edges read strongly on dark navy, charcoal and light parchment. Crisp painterly material, grounded fantasy compendium style, coherent fabric volume and deep folds, use restrained bloom confined to embroidered highlights. Square, full garment fills central 80% vertical and 72% horizontal, entire hem and sleeves visible, generous transparent padding. Must read as a robe with eye embroidery when shrunk to 40 px. No person, ground, cast shadow, aura, sparkles, runic lettering, outline frame, background, text, insignia or logos.",
+          "selected": false,
+          "reason": "Full hem has less than 10 px of clear space."
+        },
+        {
+          "sourcePath": "data/art-production-v101/robe-of-eyes-selected.png",
+          "sourceSha256": "43e47d127a08dd45218d48b6720b82d8d3df3a93e2e9b71b6b5a8891a984cd9b",
+          "brief": "Edit the provided isolated transparent Robe of Eyes artwork for an inventory icon. Use the same hooded violet robe with the same large amber embroidered eye on the chest, four surrounding eye embroideries, sleeve and hem shape, front-facing level perspective and old bronze stitching. The purpose is to correct padding only. Place the full object centered in a transparent square with a genuinely empty transparent band at the top and bottom, each 12% of the full canvas height. Uniformly reduce the size of the entire robe to fit that constraint, with generous alpha on all sides; keep even the lowest tip and fabric folds above the bottom transparent band. Keep the precise embroidery recognizable at 40px, clear bronze edges, natural charcoal-violet textile, no floor, shadow, specular halo, person, decorations, lettering, frame or background.",
+          "selected": false,
+          "reason": "Eye embroidery is too dim at 40 px on dark themes."
+        }
+      ],
+      "referenceSourceSha256": "43e47d127a08dd45218d48b6720b82d8d3df3a93e2e9b71b6b5a8891a984cd9b",
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "alphaBounds": [
+          297,
+          89,
+          956,
+          1173
+        ],
+        "accepted": true,
+        "minimumPreviewPixels": 40,
+        "evidence": "docs/design/qa/robe-of-eyes-catalog-77.md"
+      }
+    }
+  ]
+}

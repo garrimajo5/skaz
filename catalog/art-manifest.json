@@ -25565,6 +25565,50 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:item:robe-of-eyes",
+      "contentSha256": "9f6a0862774682496e16a6de99c452fd5588764675a84d3744cfc4a656b53dea",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generated for SKAZ, retained locally at data/art-production-v101/robe-of-eyes-contrast.png",
+        "usage": "Original generated SKAZ artwork; no third-party artwork used",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex visual and technical review",
+        "originalSha256": "41768cec63612a1e10daa8f0ad39d55f47ec4801ec5ef10281a8a1d274fbfb36",
+        "derivation": "Premultiplied area resize from the unchanged generated alpha source."
+      },
+      "review": {
+        "by": "Codex visual and technical review",
+        "evidence": "docs/design/qa/robe-of-eyes-catalog-77.md"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/robe-of-eyes-original-1ec52e6cb697f59f.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 151874,
+          "sha256": "1ec52e6cb697f59f10ad9f85c61cd452c1a1ff43cf825f2d33c417ade6cefccc",
+          "derivedFrom": "41768cec63612a1e10daa8f0ad39d55f47ec4801ec5ef10281a8a1d274fbfb36",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/robe-of-eyes-thumbnail-d080d3215a6431a4.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10606,
+          "sha256": "d080d3215a6431a4bbd75476ab675b2e38d649dc8dd9fb0b78d110857581e26e",
+          "derivedFrom": "41768cec63612a1e10daa8f0ad39d55f47ec4801ec5ef10281a8a1d274fbfb36",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }

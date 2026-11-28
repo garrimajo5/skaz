@@ -22,7 +22,7 @@ test('audit is deterministic and preserves the historical baseline separately fr
 });
 test('all existing indexed cards have exactly one candidate row, including grouped aliases and artifact',()=>{
   const rows=run().rows.filter(r=>r.checks);
-  assert.equal(new Set(rows.map(r=>r.id)).size,581);
+  assert.equal(new Set(rows.map(r=>r.id)).size,582);
   assert.deepEqual(new Set(rows.map(r=>r.id)),new Set(entries.filter(e=>['spell','monster','item','artifact'].includes(e.kind)).map(e=>e.id)));
   assert.equal(rows.find(r=>r.id.endsWith(':orb-of-dragonkind')).checks[0].status,'match');
   assert.equal(new Set(manifest.sources.map(s=>s.url)).size,13);

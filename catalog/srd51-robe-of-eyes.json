@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:item:robe-of-eyes",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Мантия глаз",
+        "en": "Robe of Eyes"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=238",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-11-28; skaz robe of eyes v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 238.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русское название и краткое изложение подготовлены для СКАЗ. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПока носишь настроенную мантию, видишь во всех направлениях. С преимуществом совершаешь проверки Мудрости (Восприятие), которые полагаются на зрение. Тёмное зрение действует в пределах 120 футов. В тех же пределах видны невидимые существа и предметы, а также Эфирный план.\nГлаза мантии нельзя закрыть или отвести. Если закроешь или отведёшь собственные глаза, для правил это не считается закрытием или отведением взгляда, пока мантия на тебе.\nЗаклинание «Свет», наложенное на мантию, или «Дневной свет», сотворённый в пределах 5 футов от неё, ослепляет тебя на 1 минуту. В конце каждого своего хода можешь сделать спасбросок Телосложения. СЛ 11 для «Света», СЛ 15 для «Дневного света». При успехе ослепление заканчивается.\nВ СКАЗ преимущество и ослепление отмечаются вручную.",
+      "links": [
+        "srd51:2014:mechanic:attunement",
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:spell:light",
+        "srd51:2014:spell:daylight"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "rare",
+        "attunement": true
+      }
+    }
+  ]
+}
