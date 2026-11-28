@@ -1,0 +1,37 @@
+{
+  "batch": "production-v100",
+  "entries": [
+    {
+      "id": "srd51:2014:item:staff-of-fire",
+      "sourcePath": "data/art-production-v100/staff-of-fire-selected.png",
+      "sourceSha256": "263de969c8483016121a5cdda15c8102fe1beb5059f6c58d2c8a635bd2ae21e7",
+      "brief": "Paint one original isolated magical Staff of Fire for the established SKAZ fantasy compendium item library. This must be readable as an ornate full-length hand-and-a-half caster's staff on a 40 px inventory tile, with a sturdy shaft and a broad unmistakable arcane head. Keep a thick continuous solid malachite-dark charred oak body with warm highlights and a solid square-ish copper-coloured collar, a narrow but visible bronze twist around the upper third, and a robust three-prong luminous amber gem crown. Strong clear readable outline at exactly 40 px, especially the midshaft: shaft apparent width about 7 percent of the full length, crown roughly three times the shaft width. Copper rim light and highlights help silhouette on dark navy, charcoal and parchment. Carefully proportioned straight diagonal lower-left to upper-right, full object occupies only the central 80 percent of the square; leave all ends and light inside generous clear padding. Refined painterly realism, material volume from warm upper-left soft lighting with cool neutral shadows. Restrict the red-orange light to the gemstone and adjacent metal. Completely transparent alpha background. No halo outside the silhouette, smoke, confetti, other objects, hands, text, rune letters, frame, logo, surface, or shadow on a background.",
+      "method": "built-in image_gen",
+      "date": "2026-11-28",
+      "version": 1,
+      "previous": null,
+      "sourcePreparation": {
+        "strippedAncillaryChunk": "caBX",
+        "pixelDataUnchanged": true,
+        "deliveryInputSha256": "8f645c7aafdc7f41bda22725dcb673eccd9eb167852edd58d21e632ef0f8e457"
+      },
+      "variants": [
+        {
+          "sourcePath": "data/art-production-v100/staff-of-fire.png",
+          "sourceSha256": "8d0182f84914ef8c9ae4be3e8f7c856d129395b06ef321a6015c3b7efe37c87b",
+          "brief": "Original item illustration for the SKAZ tabletop RPG visual library, Staff of Fire (2014 fantasy tabletop rules). Isolated, full-length, visibly substantial two-handed arcane staff, one object, presented on a square transparent canvas. Diagonal from lower left to upper right with even 12% clear margins, thick enough to distinguish at a 40 px thumbnail. Dark, warm-grained charred ash shaft with a restrained copper spiral ferrule, slightly massive cluster of three hammered warm-bronze prongs at the top holding a single angular glowing amber ember. Lower end has a discreet worn copper cap. Local red-orange glow stays at the ember, with just a few controlled sparks. Soft top-left light, realistic painterly fantasy compendium treatment, warm materials with cool-neutral shadows, coherent volumetric form and crisp recognizable silhouette on dark blue, dark charcoal and pale parchment surfaces. Composition must read as a long staff, distinct from a small wand, torch, spear, or open flame icon. No person, hand, stand, ground, other objects, circles, frame, lettering, runes, text, logos, watermarks, or background. Render with clean alpha.",
+          "selected": false,
+          "reason": "The selected version has a wider silhouette and a more distinct crown at 40 px."
+        }
+      ],
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscale": true,
+        "notes": "Edge at 40px and 96/384 delivery in catalog, card opens with assets blocked. Acceptance concerns the image; bundled catalog integration is draft."
+      }
+    }
+  ]
+}
