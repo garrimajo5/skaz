@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import re
 import runpy
-from urllib.parse import urlencode, urljoin
+from urllib.parse import parse_qs, urlencode, urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "catalog"
@@ -34,7 +34,7 @@ FILTERS = {
 }
 
 
-def selected_listing(raw, filter_value, label):
+def selected_listing(raw, filter_value, label, query=None):
     tree = HELPER["Tree"]()
     tree.feed(raw.decode("utf-8"))
     selector = HELPER["only"](tree.root.find(
@@ -48,9 +48,39 @@ def selected_listing(raw, filter_value, label):
     if selection.attrs.get("value") != filter_value or HELPER["clean"](selection) != label:
         raise ValueError("Captured publication filter differs from the chosen one")
 
+    if query is not None:
+        field = HELPER["only"](tree.root.find(
+            lambda n: n.tag == "input"
+            and n.attrs.get("id") == "filter-search"
+            and n.attrs.get("name") == "filter-search"
+        ), "monster search field")
+        if field.attrs.get("value") != query:
+            raise ValueError("Captured search differs from the chosen query")
+        for link in tree.root.find(lambda n: n.tag == "a" and "href" in n.attrs):
+            href = urlsplit(link.attrs["href"])
+            if href.path == "/monsters" and "page" in parse_qs(href.query):
+                raise ValueError("Paginated search requires further captures")
+
     return HELPER["only"](tree.root.find(
         lambda n: n.tag == "ul" and n.has("rpgmonster-listing")
     ), "monster listing")
+
+
+def discover_rows(raw, filter_value, label, query=None):
+    listing = selected_listing(raw, filter_value, label, query)
+    empty_rows = list(listing.find(lambda node: node.tag == "li" and node.has("no-results")))
+    monster_rows = list(listing.find(lambda node: node.attrs.get("data-type") == "monsters"))
+    if empty_rows:
+        if len(empty_rows) != 1 or monster_rows:
+            raise ValueError("Conflicting or repeated empty index markers")
+        return []
+    rows = HELPER["read_index_rows"](listing)
+    if len(rows) != len(monster_rows):
+        raise ValueError("Unrecognized monster rows in the selected listing")
+    for node, row in zip(monster_rows, rows, strict=True):
+        if row["cardUrl"] != SITE + "/monsters/" + node.attrs.get("data-slug", ""):
+            raise ValueError("Digital card does not match its row")
+    return rows
 
 
 def extract(raw, name, filter_value, label):
