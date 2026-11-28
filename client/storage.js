@@ -786,15 +786,30 @@ const SkazStorage = (() => {
       if(typeof page!=='undefined'&&page==='inventory'&&key===snapshotKey())closeModal();
       else return inventory();
     };
-    if(info?.charges)$('#inventory-charges').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});editCharges(item);};
-    if(entry.id&&typeof SkazCatalog!=='undefined')$('#inventory-reference').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});SkazCatalog.openReference(entry.id,()=>readInventoryItem(item),()=>key===snapshotKey());};
+    const returnToAction=selector=>{
+      const content=$('#dialog-content');
+      const scrollTop=content.scrollTop;
+      return ()=>{
+        readInventoryItem(item);
+        content.scrollTop=scrollTop;
+        $(selector).focus();
+      };
+    };
+    if(info?.charges)$('#inventory-charges').onclick=()=>{
+      if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});
+      editCharges(item,{returnToItem:returnToAction('#inventory-charges')});
+    };
+    if(entry.id&&typeof SkazCatalog!=='undefined')$('#inventory-reference').onclick=()=>{
+      if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});
+      SkazCatalog.openReference(entry.id,returnToAction('#inventory-reference'),()=>key===snapshotKey());
+    };
   }
-  function editCharges(item, {fromQuickAccess=false} = {}) {
+  function editCharges(item, {fromQuickAccess=false,returnToItem=()=>readInventoryItem(item)} = {}) {
     if(demo||(!canResource()&&status!=='ready')||!activeContext)return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key=snapshotKey(),characterId=activeContext.characterId,info=item.entry.item||item.entry.artifact,maximum=SkazItemCharges.maximum(item.entry);
     const counts=item.chargeCounts||Array(item.quantity).fill(null);
     modal(`<button id="charges-back"><span class="ui-inline-icon" data-ui-icon="arrow-left"></span> К предмету</button><div class="overline">${esc(state.profile.name)} · ИНВЕНТАРЬ</div><h2 tabindex="-1" autofocus>Заряды: ${esc(item.entry.name.ru)}</h2><p>Максимум: ${maximum}. Восстановление: ${esc(info.charges.recharge)}</p><form id="charges-form"><div class="charges-fields"><label for="charges-unit">Экземпляр<select id="charges-unit">${counts.map((n,i)=>`<option value="${i}">№ ${i+1} · ${n===null?'остаток неизвестен':n+' / '+maximum}</option>`).join('')}</select></label><label for="charges-operation">Что произошло<select id="charges-operation"><option value="set" ${!can('character')?'disabled':''}>Указать текущий остаток</option><option value="spend" ${!can('character')?'selected':''}>Потратить заряды</option><option value="recover">Восстановить заряды</option><option value="unknown" ${!can('character')?'disabled':''}>Остаток неизвестен</option></select></label><label for="charges-amount">Количество<input id="charges-amount" type="number" aria-describedby="charges-preview charges-warning" min="0" max="${SkazItemCharges.technicalMaximum}" step="1" inputmode="numeric" required placeholder="Введи число"></label><p id="charges-preview" role="status" aria-live="polite"></p><p id="charges-warning" hidden></p><div id="charges-agreement-fields" hidden><label class="charge-agreement-check"><input type="checkbox" id="charges-agreed"> Согласовано с мастером (необязательно)</label><label id="charges-agreement-note-label" for="charges-agreement-note" hidden>Пояснение к согласованию<textarea id="charges-agreement-note" maxlength="500"></textarea></label></div><p class="small">Броски и восстановление подтверждаешь ты. Ноль зарядов не уничтожает предмет автоматически. Номера различают одинаковые предметы внутри этого списка.</p></div><div class="dialog-actions"><button type="submit" class="primary">Сохранить заряды</button></div></form>`);
-    $('#charges-back').onclick=()=>{if(key===snapshotKey())readInventoryItem(item);else inventory();};
+    $('#charges-back').onclick=()=>{if(key===snapshotKey())returnToItem();else inventory();};
     const amountInput=$('#charges-amount'),unitInput=$('#charges-unit'),operationInput=$('#charges-operation');
     const warningBox=$('#charges-warning'),agreementFields=$('#charges-agreement-fields'),agreement=$('#charges-agreed'),note=$('#charges-agreement-note'),noteLabel=$('#charges-agreement-note-label');
     let warningKey='';

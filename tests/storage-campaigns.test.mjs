@@ -782,12 +782,38 @@ test('inventory filters reset for a new hero, clamp shortened pages, and stale h
 });
 
 
-test('saved inventory charge facts and reference return keep the snapshot and reject changed context',async()=>{
+test('saved inventory charge facts and action returns keep scroll, focus and context',async()=>{
  let current=payload(0);const entry={id:'test:wand',kind:'item',name:{ru:'Старая палочка',en:'Old Wand'},text:'Saved old text',source:{title:'Original',version:'old',terms:'Personal'},item:{attunement:true,charges:{max:7,recharge:'На рассвете'}}};
  const h=harness(memory(),memory(),async url=>response(url==='/api/workspace'?current:{...current,entries:[{catalogId:entry.id,quantity:1,entry}]}));
  await h.api.boot();await h.api.inventory();h.get('inventory-read-button').dataset.inventoryRead='0';h.get('inventory-read-button').onclick();assert.match(h.dialog(),/Максимум зарядов: 7/);assert.match(h.dialog(),/не текущий остаток/);
- const open=h.get('#inventory-reference').onclick;open();assert.equal(h.references[0][0],entry.id);assert.equal(h.references[0][2](),true);
- h.references[0][1]();assert.match(h.dialog(),/Saved old text/);current=payload(1,'new');await h.api.boot();assert.equal(h.references[0][2](),false);open();assert.equal(h.references.length,1);
+ const reference=h.get('#inventory-reference'),content=h.get('#dialog-content');
+ let focusedAt;
+ reference.focus=()=>{focusedAt=content.scrollTop;};
+ content.scrollTop=419;
+ const open=reference.onclick;
+ open();
+ assert.equal(h.references[0][0],entry.id);
+ assert.equal(h.references[0][2](),true);
+ content.scrollTop=0;
+ h.references[0][1]();
+ assert.match(h.dialog(),/Saved old text/);
+ assert.equal(content.scrollTop,419);
+ assert.equal(focusedAt,419);
+ const charges=h.get('#inventory-charges');
+ charges.focus=()=>{focusedAt=content.scrollTop;};
+ content.scrollTop=375;
+ charges.onclick();
+ assert.match(h.dialog(),/Заряды: Старая палочка/);
+ content.scrollTop=12;
+ h.get('#charges-back').onclick();
+ assert.match(h.dialog(),/Saved old text/);
+ assert.equal(content.scrollTop,375);
+ assert.equal(focusedAt,375);
+ current=payload(1,'new');
+ await h.api.boot();
+ assert.equal(h.references[0][2](),false);
+ open();
+ assert.equal(h.references.length,1);
 });
 
 
