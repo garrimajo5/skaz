@@ -86,3 +86,33 @@ test('session history excludes previous sessions while all history remains avail
   assert.ok(s.history('session').some(r=>r.mutationId===next.mutationId));
  }finally{s.close();}
 });
+
+
+test('personal notes reject malformed or stale writes, and history never exposes note text',()=>{
+ const s=openStore(':memory:');
+ try {
+  const note={...command(s),resource:{kind:'note',text:'Личный текст',at:10,time:'12:05'},delta:1,before:0,maximum:2000};
+  const initial=s.read();
+  for(const request of [
+   {...note,delta:0},{...note,maximum:1999},{...note,targetMutationId:randomUUID()},
+   {...note,resource:{...note.resource,text:' '}},{...note,resource:{...note.resource,text:'x'.repeat(2001)}},
+   {...note,resource:{...note.resource,at:-1}},{...note,resource:{...note.resource,time:'25:05'}},
+   {...note,resource:{...note.resource,title:'Название не задаётся клиентом'}},
+  ]) assert.throws(()=>s.changeResource(request),{status:422});
+  assert.deepEqual(s.read(),initial);
+
+  const health=command(s);
+  s.changeResource(health);
+  assert.throws(()=>s.changeResource(note),{status:409});
+  const result=s.changeResource({...note,expectedRevision:s.read().revision});
+  assert.equal(result.state.hp,25);
+  assert.equal(result.state.notes[0].text,note.resource.text);
+  const row=s.history().find(entry=>entry.mutationId===note.mutationId);
+  assert.equal(row.canUndo,false);
+  assert.deepEqual(row.changes,[{resource:{kind:'note'},before:0,after:1}]);
+  assert.throws(()=>s.undoResource(undo(s,note.mutationId)),{status:409});
+  s.undoResource(undo(s,health.mutationId));
+  assert.equal(s.read().state.hp,28);
+  assert.equal(s.read().state.notes.length,1);
+ } finally{s.close();}
+});

@@ -1,5 +1,6 @@
 import Health from '../client/health.js';
 import Charges from '../client/item-charges.js';
+import PersonalNote from '../client/personal-note.js';
 import {castingBalance,applyCasting} from './casting.mjs';
 import {AppError} from './state.mjs';
 import {readCharacterSheet,saveCharacterSheet} from './character-sheet.mjs';
@@ -13,9 +14,13 @@ export function validateResourceCommand(input){
  if(!exact(input.context,['campaignId','characterId','sessionId'])||!Object.values(input.context).every(id))fail('Нужен контекст операции');
  if(Object.hasOwn(input,'targetMutationId')&&(!id(input.targetMutationId)||input.targetMutationId===input.mutationId))fail('Неверная цель отмены');
  const r=input.resource;
- if(!r||!['cast','health','hp','slot','inspiration','counter','charges'].includes(r.kind))fail('Неизвестный ресурс');
- const keys=r.kind==='cast'?['kind','operation',r.operation==='restore'?'receipt':'command']:r.kind==='health'?['kind','operation','temporaryBefore','concentrationBefore',...(Object.hasOwn(r,'checksBefore')?['checksBefore']:[]),...(Object.hasOwn(r,'deathBefore')?['deathBefore']:[]),...(['pass','fail'].includes(r.operation)?['checkId']:[]),...(r.operation==='restore'?['hpAfter','tempAfter','concentrationAfter',...(Object.hasOwn(r,'checksBefore')?['checksAfter']:[]),...(Object.hasOwn(r,'deathBefore')?['deathAfter']:[])]:[])]:r.kind==='slot'?['kind','level']:r.kind==='counter'?['kind','counterId']:r.kind==='charges'?['kind','catalogId','unit',...(Object.hasOwn(r,'agreement')?['agreement']:[])]:['kind'];
+ if(!r||!['cast','health','hp','slot','inspiration','counter','charges','note'].includes(r.kind))fail('Неизвестный ресурс');
+ const keys=r.kind==='note'?['kind','text','at','time']:r.kind==='cast'?['kind','operation',r.operation==='restore'?'receipt':'command']:r.kind==='health'?['kind','operation','temporaryBefore','concentrationBefore',...(Object.hasOwn(r,'checksBefore')?['checksBefore']:[]),...(Object.hasOwn(r,'deathBefore')?['deathBefore']:[]),...(['pass','fail'].includes(r.operation)?['checkId']:[]),...(r.operation==='restore'?['hpAfter','tempAfter','concentrationAfter',...(Object.hasOwn(r,'checksBefore')?['checksAfter']:[]),...(Object.hasOwn(r,'deathBefore')?['deathAfter']:[])]:[])]:r.kind==='slot'?['kind','level']:r.kind==='counter'?['kind','counterId']:r.kind==='charges'?['kind','catalogId','unit',...(Object.hasOwn(r,'agreement')?['agreement']:[])]:['kind'];
  if(!exact(r,keys))fail('Неверные поля ресурса');
+ if(r.kind==='note'){
+  if(input.delta!==1||input.maximum!==PersonalNote.maxCount||input.targetMutationId)fail('Неверная команда личной заметки');
+  try{PersonalNote.entry(r);}catch(error){fail(error.message);}
+ }
  if(r.kind==='cast'&&(!['cast','restore'].includes(r.operation)||input.delta!==1||r.operation==='restore'&&!input.targetMutationId||r.operation==='cast'&&input.targetMutationId))fail('Неверная команда сотворения');
  if(r.kind==='health'&&([r.concentrationBefore,...(r.operation==='restore'?[r.concentrationAfter]:[])].some(c=>c!==null&&(typeof c!=='string'||!c.trim()||c.length>200))||!['damage','heal','temporary','restore','pass','fail','critical-damage','death-success','death-failure','death-1','death-20','death-stabilize'].includes(r.operation)||!Number.isSafeInteger(r.temporaryBefore)||r.temporaryBefore<0||r.temporaryBefore>9999||input.delta<0||r.operation==='restore'&&!input.targetMutationId))fail('Неверная операция здоровья');
  if(r.kind==='health'&&Object.hasOwn(r,'checksBefore'))for(const entries of [r.checksBefore,...(r.operation==='restore'?[r.checksAfter]:[])])if(!Array.isArray(entries)||entries.length>100)fail('Неверный список проверок');
@@ -29,6 +34,7 @@ export function validateResourceCommand(input){
  return {context:{campaignId:input.context.campaignId,characterId:input.context.characterId,sessionId:input.context.sessionId},resource:Object.fromEntries(keys.map(k=>[k,r[k]])),delta:input.delta,before:input.before,maximum:input.maximum,...(input.targetMutationId?{targetMutationId:input.targetMutationId}:{})};
 }
 export function resourceBalance(db,current,resource){
+ if(resource.kind==='note')return {value:current.state.notes.length,maximum:PersonalNote.maxCount,title:'Личная заметка'};
  const sheet=current.characterSheet;
  if(resource.kind==='cast')return castingBalance(current,resource);
  if(['hp','health'].includes(resource.kind))return {value:current.state.hp,maximum:current.state.maxHp,title:'Хиты'};
@@ -52,6 +58,13 @@ export function applyResourceCommand(db,current,payload,mutationId,writeState){
  if(Object.keys(payload.context).some(k=>payload.context[k]!==current.context[k]))throw new AppError(409,'Активная игра изменилась');
  const balance=resourceBalance(db,current,payload.resource);
  if(balance.value!==payload.before||balance.maximum!==payload.maximum)throw new AppError(409,'Остаток или максимум ресурса изменился. Нужна сверка очереди');
+ if(payload.resource.kind==='note'){
+  let notes;
+  try{notes=PersonalNote.append(current.state.notes,payload.resource);}catch(error){throw new AppError(409,error.message);}
+  const next={...current.state,notes};
+  writeState(next);
+  return {state:next,after:notes.length,title:balance.title,label:balance.title};
+ }
  if(payload.resource.kind==='cast')return applyCasting(db,current,payload,mutationId,writeState);
  if(payload.resource.kind==='charges'){
   const {catalogId,unit,agreement}=payload.resource;

@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import {readFileSync} from 'node:fs';import {randomUUID} from 'node:crypto';import {openStore} from '../server/store.mjs';
-const source=readFileSync(new URL('../client/resource-queue.js',import.meta.url),'utf8');const ctx=vm.createContext({});vm.runInContext(readFileSync(new URL('../client/item-charges.js',import.meta.url),'utf8')+'\n'+readFileSync(new URL('../client/health.js',import.meta.url),'utf8')+'\n'+source,ctx);const Queue=vm.runInContext('SkazResourceQueue',ctx);
+const source=readFileSync(new URL('../client/resource-queue.js',import.meta.url),'utf8');const ctx=vm.createContext({});vm.runInContext(readFileSync(new URL('../client/item-charges.js',import.meta.url),'utf8')+'\n'+readFileSync(new URL('../client/health.js',import.meta.url),'utf8')+'\n'+readFileSync(new URL('../client/personal-note.js',import.meta.url),'utf8')+'\n'+source,ctx);const Queue=vm.runInContext('SkazResourceQueue',ctx);
 const memory=()=>{const data=new Map();return {data,getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v)};};
 const plain=x=>JSON.parse(JSON.stringify(x));
 test('independent concurrent resources advance the queue using durable receipts without changing command IDs',()=>{
@@ -170,4 +170,53 @@ test('queued addressed undo restores a manual excess after reload and exact retr
   assert.equal(s.read().characterSheet.counters[0].current,8);assert.equal(q.length,0);
   assert.equal(s.history().find(r=>r.mutationId===spend.mutationId).canUndo,false);
  }finally{s.close();}
+});
+
+
+test('mixed offline sequence restores a personal note and confirms it exactly once after a lost response', () => {
+  const store=openStore(':memory:'), storage=memory();
+  try {
+    const initial=store.read();
+    const starting=store.update({
+      mutationId:randomUUID(), expectedRevision:initial.revision, label:'Synthetic field values',
+      state:{...initial.state, hp:40, maxHp:40, slots:{1:4,2:3,3:2}},
+    });
+    let queue=new Queue(storage,'field-note');
+    queue.resetBaseline(starting);
+    for (const delta of [-12,5,-3,2,-4,1,-2]) queue.enqueue({kind:'hp'},delta,randomUUID());
+    for (const level of [1,2]) queue.enqueue({kind:'slot',level},-1,randomUUID());
+    const noteId=randomUUID();
+    const resource={kind:'note',text:'Личная проверочная запись',at:10,time:'12:05'};
+    queue.enqueue(resource,1,noteId);
+    assert.equal(queue.length,10);
+
+    queue=new Queue(storage,'field-note');
+    assert.equal(queue.snapshot.state.hp,27);
+    assert.deepEqual(plain(queue.snapshot.state.slots),{1:3,2:2,3:2});
+    assert.equal(queue.snapshot.state.notes[0].text,resource.text);
+    assert.equal(store.read().state.notes.length,0);
+    while (queue.head.mutationId!==noteId) {
+      const head=plain(queue.head);
+      queue.acknowledge(head,store.changeResource(head));
+    }
+    const head=plain(queue.head);
+    const result=store.changeResource(head);
+    const saved=storage.getItem('field-note');
+    assert.throws(()=>queue.acknowledge(head,{...result,resourceReceipt:undefined}),/операцию очереди/);
+    const incorrect=structuredClone(result);
+    incorrect.state.notes[0].text='Другая запись';
+    assert.throws(()=>queue.acknowledge(head,incorrect),/личную заметку/);
+    assert.equal(storage.getItem('field-note'),saved);
+    assert.throws(()=>queue.undoInfo(noteId),/не отменяется/);
+
+    const replay=store.changeResource(head);
+    assert.equal(replay.replayed,true);
+    queue.acknowledge(head,replay);
+    assert.equal(queue.length,0);
+    assert.equal(store.read().revision,starting.revision+10);
+    assert.equal(store.history('session').filter(row=>row.mutationId===noteId).length,1);
+    assert.equal(store.read().state.notes.length,1);
+    assert.deepEqual(store.read().state.journal,initial.state.journal);
+    assert.equal(store.exportActive(15).state.notes[0].text,resource.text);
+  } finally { store.close(); }
 });

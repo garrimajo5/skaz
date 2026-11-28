@@ -1,4 +1,5 @@
 const healthSource=await readFile(new URL('../client/health.js',import.meta.url),'utf8');
+const personalNoteSource=await readFile(new URL('../client/personal-note.js',import.meta.url),'utf8');
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
@@ -17,7 +18,7 @@ function harness({hash='#hero',rememberedMode=null,protocol='http:'}={}){
  const context=vm.createContext({structuredClone,URL,Blob,location:{protocol,hash},history:{replaceState(){}},localStorage:{getItem:()=>null},sessionStorage:{getItem:key=>key==='skaz-play-mode-v1'?rememberedMode:null,setItem(){}},setTimeout:()=>0,clearTimeout(){},queueMicrotask(){},
   document:{body:{dataset:{}},querySelector:get,querySelectorAll:()=>[],getElementById:id=>id==='blocked-form-message'?(elements.get('#'+id)||null):get('#'+id),createElement:()=>({setAttribute(){},scrollIntoView(){}}),addEventListener:(key,fn)=>handlers[key]=fn},window:{addEventListener(){},scrollTo(){}},
   SkazStorage:{historyAvailable:()=>true,stats:()=>({abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18},armorClass:14,initiative:2,speed:30}),preference:()=> 'polar',paint(){},boot(){},setTheme(){},sessionTitle:()=>'',sessionDate:()=>'',contextKey:()=> 'same',snapshotKey:()=> 'same:'+revision,editable:()=>editable,commit:async(state,label)=>{writes.push({state:structuredClone(state),label});revision++;return {state};}},SkazEvents:{pendingCount:()=>0,view:()=>'<section>События на проверку</section>'},SkazQuests:{view:()=>'<section>Задания кампании</section>'}
- });vm.runInContext(profileRulesSource,context);vm.runInContext(conditionsSource,context);vm.runInContext(healthSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(castingSource,context);vm.runInContext(playSource,context);vm.runInContext(spellbookSource,context);vm.runInContext(source,context);
+ });vm.runInContext(profileRulesSource,context);vm.runInContext(conditionsSource,context);vm.runInContext(healthSource,context);vm.runInContext(personalNoteSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(castingSource,context);vm.runInContext(playSource,context);vm.runInContext(spellbookSource,context);vm.runInContext(source,context);
  return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset,classList:{contains:()=>false}})}})};
 }
 
@@ -601,4 +602,42 @@ test('profile entered during a resource save shows the advance control disabled 
  assert.match(h.get('#main').innerHTML,/<button id="advance-class">Повысить уровень<\/button>/);
  h.run("SkazStorage.advancementScope=()=>null;SkazStorage.advancementAvailable=()=>false;render();");
  assert.doesNotMatch(h.get('#main').innerHTML,/id="advance-class"/);
+});
+
+
+test('quick note retains input on storage failure and uses the current revision within the original game', () => {
+ const h=harness();
+ h.run(`let failure=true, noteCommand;
+  SkazStorage.canResource=()=>true;
+  SkazStorage.resourceDelta=(resource,delta,key)=>{
+   if(failure)throw Error('Очередь заполнена');
+   noteCommand={resource,delta,key};
+  };
+  quickNote();`);
+ h.get('#quick-note-body').value='Не потерять текст';
+ const submit=h.get('#quick-note-save').onclick;
+ submit();
+ assert.equal(h.get('#dialog').open,true);
+ assert.equal(h.get('#quick-note-body').value,'Не потерять текст');
+ h.run("failure=false;SkazStorage.snapshotKey=()=> 'same:new-revision'");
+ submit();
+ submit();
+ assert.equal(h.get('#dialog').open,false);
+ assert.equal(h.writes.length,0);
+ assert.equal(h.run('noteCommand.resource.text'),'Не потерять текст');
+ assert.equal(h.run('noteCommand.delta'),1);
+ assert.equal(h.run('noteCommand.key'),'same:new-revision');
+});
+
+test('quick note cannot be sent if another game opens or resource writes are denied', () => {
+ for (const transition of ["SkazStorage.contextKey=()=> 'another game'",'SkazStorage.canResource=()=>false']) {
+  const h=harness();
+  h.run("let noteWrites=0;SkazStorage.canResource=()=>true;SkazStorage.resourceDelta=()=>noteWrites++;quickNote()");
+  h.get('#quick-note-body').value='Черновик прежней игры';
+  h.run(transition);
+  h.get('#quick-note-save').onclick();
+  assert.equal(h.run('noteWrites'),0);
+  assert.equal(h.get('#dialog').open,true);
+  assert.equal(h.get('#quick-note-body').value,'Черновик прежней игры');
+ }
 });

@@ -498,3 +498,23 @@ test('shared place and quest receipts recheck write and campaign authority after
   assert.equal(a.places().places.filter(row => row.id === place.placeId).length, 1);
   assert.equal(a.quests().quests.filter(row => row.id === quest.questId).length, 1);
 });
+
+
+test('queued personal notes require a writable grant and never appear on another character',t=>{
+ const {store,first,second}=setup(t);
+ const player=store.forUser(userB,'note-window',{write:true});
+ const owner=store.forUser(userA,'note-window',{write:true});
+ const context=player.read().context;
+ const content='Вымышленная личная заметка';
+ const note=command(player,{context,resource:{kind:'note',text:content,at:10,time:'12:05'},delta:1,before:1,maximum:2000});
+ assert.equal(context.characterId,second.characterId);
+ assert.throws(()=>store.forUser(userB,'note-window').changeResource(note),{status:403});
+ assert.throws(()=>player.changeResource({...note,context:first}),{status:409});
+ const saved=player.changeResource(note);
+ assert.equal(saved.state.notes.filter(n=>n.text===content).length,1);
+ assert.equal(owner.read().state.notes.some(n=>n.text===content),false);
+ assert.equal(JSON.stringify(owner.history()).includes(content),false);
+ assert.equal(player.changeResource(note).replayed,true);
+ store.access.apply({action:'revoke-character',userId:userB,campaignId:first.campaignId,characterId:second.characterId});
+ assert.throws(()=>player.changeResource(note),{status:404});
+});

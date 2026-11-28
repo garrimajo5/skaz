@@ -72,6 +72,10 @@ const SkazStorage = (() => {
       control.disabled=disabledByState||(demo?!can('character'):!canResource());
       control.setAttribute('aria-disabled',String(control.disabled));
     }
+    for(const control of root.querySelectorAll('#quick-note,#play-note')){
+      control.disabled=demo?!can('character'):!canResource();
+      control.setAttribute('aria-disabled',String(control.disabled));
+    }
     for(const [action,selector]of Object.entries(selectors))for(const control of root.querySelectorAll(selector))if(!can(action)){control.disabled=true;control.setAttribute('aria-disabled','true');control.title=action==='shared'||action==='manageCampaign'?'Доступно мастеру или владельцу':'Недоступно с текущими правами';}
   }
   let activeContext = null;
@@ -390,8 +394,9 @@ const SkazStorage = (() => {
     else unavailable=true;
     if(!stillShowingHistory()||previousView&&status==='saving')return;
     if(key!==snapshotKey())throw new Error('Игра изменилась. Открой историю заново');
-    const title=r=>r.name||({deathSaves:'Спасброски от смерти',concentrationChecks:'Проверки концентрации',concentration:'Концентрация',health:'Здоровье',tempHp:'Временные хиты',hp:'Хиты',maxHp:'Максимум хитов',gold:'Золото',inspiration:'Вдохновение',slot:r.level+' круг',counter:'Счётчик '+r.counterId,charges:'Заряды · экземпляр '+(r.unit+1),quantity:'Количество предметов'}[r.kind]||'Ресурс');
+    const title=r=>r.name||({deathSaves:'Спасброски от смерти',concentrationChecks:'Проверки концентрации',concentration:'Концентрация',health:'Здоровье',tempHp:'Временные хиты',hp:'Хиты',maxHp:'Максимум хитов',gold:'Золото',inspiration:'Вдохновение',slot:r.level+' круг',counter:'Счётчик '+r.counterId,charges:'Заряды · экземпляр '+(r.unit+1),quantity:'Количество предметов',note:'Личная заметка'}[r.kind]||'Ресурс');
     const formatChange=change=>{
+      if(change.resource.kind==='note')return '';
       if(change.resource.kind==='manualCast'){
         const note=SkazPlayPresentation.note(change.record,SkazCasting.readManualNote(change.record));
         return '<p>'+esc(change.undone?'Ручная запись отменена.':note.text)+'</p>';
@@ -409,7 +414,7 @@ const SkazStorage = (() => {
       const manual=casting&&(command.resource.command?.cost?.kind==='manual'||castReceipt.cost?.kind==='manual');
       const label=manual?'Ручное сотворение · без расхода':casting?'Сотворение '+(command.resource.command?.spell?.name||''):title(command.resource);
       const next=casting?(command.resource.operation==='restore'?castReceipt.before:castReceipt.after):health?health.hp:command.resource.kind==='counter'?command.before+command.delta:Math.max(0,Math.min(command.maximum,command.before+command.delta));
-      return `<div class="list-row history-pending"><div><strong>${command.targetMutationId?'Отмена · ':''}${esc(label)}${manual?'':': '+command.before+' → '+next}${health?' · временные '+command.resource.temporaryBefore+' → '+health.tempHp:''}</strong><small>${esc(resourceQueue?.data?.createdAt?.[command.mutationId]?new Date(resourceQueue.data.createdAt[command.mutationId]).toLocaleString('ru-RU'):'Время не записано')} · Ждёт подтверждения сервера</small>${!allowed?'<small>'+esc(reason||'Отмена недоступна с текущими правами')+'</small>':''}</div>${allowed?'<button data-queued-undo="'+esc(command.mutationId)+'">Отменить</button>':''}</div>`;
+      return `<div class="list-row history-pending"><div><strong>${command.targetMutationId?'Отмена · ':''}${esc(label)}${manual||command.resource.kind==='note'?'':': '+command.before+' → '+next}${health?' · временные '+command.resource.temporaryBefore+' → '+health.tempHp:''}</strong><small>${esc(resourceQueue?.data?.createdAt?.[command.mutationId]?new Date(resourceQueue.data.createdAt[command.mutationId]).toLocaleString('ru-RU'):'Время не записано')} · Ждёт подтверждения сервера</small>${!allowed?'<small>'+esc(reason||'Отмена недоступна с текущими правами')+'</small>':''}</div>${allowed?'<button data-queued-undo="'+esc(command.mutationId)+'">Отменить</button>':''}</div>`;
     }).join('')+(pending?'<div class="list-row history-pending"><strong>Правка листа · ждёт подтверждения сервера</strong></div>':'');
     modal(`<h2>История изменений</h2><button id="history-scope">${scope==='session'?'Показать все сессии':'Только текущая сессия'}</button>${localRows}${unavailable?'<p>Серверная история сейчас недоступна. Операции со статусом ожидания ещё не подтверждены сервером.</p>':''}<button id="history-refresh">Обновить историю</button><p>${scope==='session'?'Последние 50 сохранений текущей сессии. Старые записи без привязки доступны во всех сессиях.':'Последние 50 доступных сохранений всех сессий.'} Отмена здоровья восстанавливает связанные хиты и концентрацию, если после него здоровье не менялось. Отмена других ресурсов добавляет обратное изменение к текущему остатку; она не перематывает последующие действия. После ручных правок или при выходе за границы нужна сверка.</p>${changes.map((item,i)=>`<div class="list-row"><div><strong>${esc(item.label)}</strong><small>${esc(new Date(item.createdAt).toLocaleString('ru-RU'))} · Сохранено</small>${(item.changes||[]).map(formatChange).join('')}${!item.canUndo?`<small>${esc(item.undoReason||'Отмена недоступна')}</small>`:''}</div>${item.canUndo?`<button data-resource-undo="${i}">Отменить</button>`:''}</div>`).join('')||(unavailable?'':'<p>Подтверждённых сохранений нет.</p>')}`);
     const historyView=document.getElementById('dialog-content').firstElementChild;
