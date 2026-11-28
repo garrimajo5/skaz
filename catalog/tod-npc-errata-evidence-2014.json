@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-28",
+  "rulesetTarget": "5e-2014",
+  "scope": {
+    "publication": "Tyranny of Dragons",
+    "appendix": "D",
+    "printedPage": 187,
+    "pdfPage": 1
+  },
+  "sources": {
+    "tod-errata.pdf": {
+      "url": "https://media.dndbeyond.com/compendium-images/errata/ToD/ToD-Errata.pdf",
+      "bytes": 173215,
+      "sha256": "b965604fef8bc619deeb86931a9e27d1ce929b559e2818d1a08be376e1bf285a"
+    },
+    "tod-errata.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/sae/tyranny-of-dragons",
+      "bytes": 235587,
+      "sha256": "d93506f164a63b6b13f067431eab2d277c964e4a5e48b55fce0ad50420313d43"
+    },
+    "tod-toc.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/tod",
+      "bytes": 249755,
+      "sha256": "2cf2da55174a68e5d6effef9932c35cdf36b2f49e3fad694bd5c07e61a58b476"
+    },
+    "rot-toc.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/rot",
+      "bytes": 239999,
+      "sha256": "ed028d0d281acd09de0f5b2d07b44d5cbd6f7932bbe41828ac2b5416bcf84254"
+    },
+    "pharblex-spattergoo-102.html": {
+      "url": "https://www.dndbeyond.com/monsters?filter-search=pharblex+spattergoo&filter-source=102",
+      "bytes": 375542,
+      "sha256": "e289edc7638cf813103966131b32fc9b0b2d021d65930005936fb8f30f2e201e"
+    },
+    "neronvain-102.html": {
+      "url": "https://www.dndbeyond.com/monsters?filter-search=neronvain&filter-source=102",
+      "bytes": 375496,
+      "sha256": "b752d7be92340b637ff3fba3bda858b5405df56883a40cea6adc44422767ac2b"
+    },
+    "nerovain-102.html": {
+      "url": "https://www.dndbeyond.com/monsters?filter-search=nerovain&filter-source=102",
+      "bytes": 373774,
+      "sha256": "6a01b2d4de7a37ebc9d321001d1575bd9d6a64e5989647302fd3795995b16b6a"
+    }
+  },
+  "entries": [
+    {
+      "originalObservationId": "dndsu:bestiary:3337",
+      "originalSourceIds": [
+        "105"
+      ],
+      "namedAppendixUrl": "https://www.dndbeyond.com/sources/tod/monsters#PharblexSpattergoo",
+      "errataHeading": "Pharblex Spattergoo",
+      "digitalCard": {
+        "name": "Pharblex Spattergoo",
+        "nameMatch": "exact",
+        "cardUrl": "https://www.dndbeyond.com/monsters/17475-pharblex-spattergoo",
+        "displayedPublication": "Tyranny of Dragons",
+        "indexType": "Humanoid (bullywug)",
+        "indexSize": "Medium",
+        "indexChallengeColumn": "3"
+      },
+      "changesInCombinedEdition": [
+        {
+          "field": "spellcastingSpell",
+          "from": "Poison Cloud",
+          "to": "Poison Spray"
+        }
+      ],
+      "originalEditionBlockVerified": false
+    },
+    {
+      "originalObservationId": "dndsu:bestiary:485",
+      "originalSourceIds": [
+        "106"
+      ],
+      "namedAppendixUrl": "https://www.dndbeyond.com/sources/tod/monsters#Neronvain",
+      "errataHeading": "Nerovain",
+      "digitalCard": {
+        "name": "Neronvain",
+        "nameMatch": "exact",
+        "cardUrl": "https://www.dndbeyond.com/monsters/21907-neronvain",
+        "displayedPublication": "Tyranny of Dragons",
+        "indexType": "Humanoid (elf)",
+        "indexSize": "Medium",
+        "indexChallengeColumn": "6"
+      },
+      "changesInCombinedEdition": [
+        {
+          "action": "Shortsword",
+          "field": "attackModifier",
+          "from": 7,
+          "to": 6
+        },
+        {
+          "action": "Poisonous Cloud",
+          "field": "saveDc",
+          "from": null,
+          "to": 15
+        }
+      ],
+      "originalEditionBlockVerified": false
+    }
+  ],
+  "neronvainLocators": {
+    "historicalStory": "https://www.dndbeyond.com/sources/rot/death-to-the-wyrmspeakers#Episode4Neronvain",
+    "historicalAppendix": "https://www.dndbeyond.com/sources/rot/appendix-d-monsters",
+    "combinedStory": "https://www.dndbeyond.com/sources/tod/death-to-the-wyrmspeakers#Neronvain",
+    "combinedAppendix": "https://www.dndbeyond.com/sources/tod/monsters#Neronvain",
+    "errataSpellingSearchResult": "empty"
+  },
+  "automaticAlias": false,
+  "applyToOriginalVersions": false,
+  "fullStatBlocksVerified": false,
+  "textReusePermission": "not-established",
+  "accepted": false,
+  "approvedDenominator": null,
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/guard-drake-source-edition-evidence-2014.json": "405efc6f6cac20a67dcc2ce09be4f9ed9a25c67dc988a225eb78e7ca95d04d61"
+  }
+}

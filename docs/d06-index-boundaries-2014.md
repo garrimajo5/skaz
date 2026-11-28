@@ -237,6 +237,33 @@ Tyranny и Volo, точные редакции MotM и права остаютс
 Исходные PDF и HTML остаются отдельно. Каталог приложения и игровые
 расчёты сохраняются.
 
+### Фарблекс и Неронвейн в эррате объединённого Tyranny
+
+По PDF и цифровой эррате совпали ещё три правки приложения D,
+печатная с. 187. Фарблекс Спаттергу получает *Poison Spray* вместо
+*Poison Cloud* в списке заклинаний. У Неронвейна бонус атаки коротким
+мечом меняется с +7 на +6. СЛ действия «Ядовитое облако» в третьем
+предложении становится 15. В самой поправке прежняя СЛ не указана.
+[PDF эрраты](https://media.dndbeyond.com/compendium-images/errata/ToD/ToD-Errata.pdf#page=1) ·
+[Цифровая эррата](https://www.dndbeyond.com/sources/dnd/sae/tyranny-of-dragons#Nerovain).
+
+| Наблюдение | Именной указатель | Выдача объединённого издания |
+| --- | --- | --- |
+| 3337/105, Pharblex Spattergoo | [Статблок в приложении D](https://www.dndbeyond.com/sources/tod/monsters#PharblexSpattergoo) | 17475 с подписью Tyranny of Dragons. [Индекс](https://www.dndbeyond.com/monsters?filter-search=pharblex+spattergoo&filter-source=102). |
+| 485/106, Neronvain | [Статблок в приложении D](https://www.dndbeyond.com/sources/tod/monsters#Neronvain) | 21907 с той же подписью. Запрос буквального заголовка эрраты `Nerovain` явно пуст. [Neronvain](https://www.dndbeyond.com/monsters?filter-search=neronvain&filter-source=102) · [Nerovain](https://www.dndbeyond.com/monsters?filter-search=nerovain&filter-source=102). |
+
+Сюжетная ссылка Neronvain сохранилась в обоих цифровых оглавлениях,
+с собственным адресом для отдельного Rise и для объединённой книги.
+Ссылка приложения D относится к статблоку, а заголовок *Nerovain* —
+к эррате. Исходные ID и атрибуции 105/106 сохранены. Поправки
+привязаны к указанному объединённому изданию. [Сюжет Rise](https://www.dndbeyond.com/sources/rot/death-to-the-wyrmspeakers#Episode4Neronvain) ·
+[Сюжет Tyranny](https://www.dndbeyond.com/sources/tod/death-to-the-wyrmspeakers#Neronvain).
+
+[Реестр семи снимков](../catalog/tod-npc-errata-evidence-2014.json)
+сверяется командой `python scripts/audit-tod-npc-errata-2014.py <каталог-снимков>`.
+Четыре исходных материала совпали по SHA с проверкой Guard Drake.
+Старые полные блоки, печатное соответствие и права остаются на сверке.
+
 ## Infernal Machine Rebuild и Fiendish Folio
 
 Индекс IMR содержит 56 карточек. У 26 указан IMR, из них у пяти есть наблюдения исходного источника IMR. У 30 карточек указаны другие книги. Boggle и Redcap имеют отдельные цифровые версии. Число 26 на странице издателя относится к доступности в Encounter Builder. Ссылка на приложение B ведёт в магазин при публичной проверке. [Оглавление IMR](https://www.dndbeyond.com/sources/dnd/imr), [страница IMR](https://marketplace.dndbeyond.com/adventures/SRC-00056).
