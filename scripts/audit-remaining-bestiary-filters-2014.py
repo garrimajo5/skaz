@@ -1,4 +1,4 @@
-"""Verify public bestiary filters for seven unresolved D02 publication groups."""
+"""Verify public bestiary filters for the remaining D02 publication groups."""
 import argparse
 import hashlib
 import json
@@ -25,12 +25,27 @@ SCOPES = [
     ("space hamster", "90", "160", "Spelljammer: Adventures in Space"),
     ("cosmic horror", "132", "214", "Vecna: Eve of Ruin"),
     ("cosmic horror", "90", "160", "Spelljammer: Adventures in Space"),
+    ("pech", "136", "213", "Descent into the Lost Caverns of Tsojcanth"),
+    ("pech", "137", "218", "Quests from the Infinite Staircase"),
+    ("red ruffian", "8", "110", "Lost Mine of Phandelver"),
+    ("red ruffian", "113", "202", "Phandelver and Below: The Shattered Obelisk"),
+    ("guard drake", "15", "111", "Volo's Guide to Monsters"),
+    ("guard drake", "85", "158", "Mordenkainen Presents: Monsters of the Multiverse"),
+    ("strahd von zarovich", "6", "124", "Curse of Strahd"),
+    ("strahd von zarovich", "132", "214", "Vecna: Eve of Ruin"),
 ]
+COMPARISONS = [
+    ("red ruffian", "redbrand ruffian", "8", "Lost Mine of Phandelver", "alternate-query"),
+    ("red ruffian", "redbrand ruffian", "113", "Phandelver and Below: The Shattered Obelisk", "alternate-query"),
+    ("guard drake", "guard drake", "102", "Tyranny of Dragons", "combined-publication"),
+]
+UNAVAILABLE_SCOPE = ("guard drake", "106")
 
 
 def checked_claims(proposals):
     by_name = {group["name"]: group for group in proposals["groups"]}
     pairs = [(name, source_id) for name, _, source_id, _ in SCOPES]
+    pairs.append(UNAVAILABLE_SCOPE)
     observations = [
         ((name, claim["sourceId"]), (by_name[name]["reviewId"], claim["claimKey"]))
         for name in dict.fromkeys(name for name, _ in pairs)
@@ -42,8 +57,9 @@ def checked_claims(proposals):
     return claims
 
 
-def query_evidence(raw, name, filter_value, label):
-    rows = PARSER["discover_rows"](raw, filter_value, label, query=name)
+def query_evidence(raw, query, filter_value, label, *, claim_name=None):
+    name = claim_name or query
+    rows = PARSER["discover_rows"](raw, filter_value, label, query=query)
     return [
         {
             "name": row["digitalName"],
@@ -58,32 +74,64 @@ def query_evidence(raw, name, filter_value, label):
     ]
 
 
+def require_unavailable_filter(raw, title):
+    tree = PARSER["HELPER"]["Tree"]()
+    tree.feed(raw.decode("utf-8"))
+    selector = PARSER["publication_selector"](tree.root)
+    labels = [
+        PARSER["HELPER"]["clean"](node).casefold().removeprefix("the ")
+        for node in selector.find(lambda node: node.tag == "option")
+    ]
+    if title.casefold() in labels:
+        raise ValueError("The reference filter is now available")
+
+
 def build(directory):
     input_bytes = INPUT.read_bytes()
-    claims = checked_claims(json.loads(input_bytes))
-    captures = []
-    for name, filter_value, source_id, label in SCOPES:
-        review_id, claim_key = claims[name, source_id]
-        raw = (directory / f"{name.replace(' ', '-')}-{filter_value}.html").read_bytes()
-        rows = query_evidence(raw, name, filter_value, label)
-        captures.append({
-            "query": name,
-            "reviewId": review_id,
-            "checkedClaimKey": claim_key,
-            "referenceSourceId": source_id,
+    proposals = json.loads(input_bytes)
+    claims = checked_claims(proposals)
+    review_ids = {group["name"]: group["reviewId"] for group in proposals["groups"]}
+
+    def capture(query, filter_value, label, name, **scope):
+        raw = (directory / f"{query.replace(' ', '-')}-{filter_value}.html").read_bytes()
+        rows = query_evidence(raw, query, filter_value, label, claim_name=name)
+        return raw, {
+            "query": query,
+            "reviewId": review_ids[name],
+            **scope,
             "publisherFilterValue": filter_value,
             "selectedPublisherLabel": label,
-            "url": PARSER["SITE"] + "/monsters?" + urlencode({"filter-search": name, "filter-source": filter_value}),
+            "url": PARSER["SITE"] + "/monsters?" + urlencode({"filter-search": query, "filter-source": filter_value}),
             "bytes": len(raw),
             "htmlSha256": hashlib.sha256(raw).hexdigest(),
             "listing": "empty" if not rows else "rows",
             "indexRows": rows,
-        })
+        }
+
+    captures = []
+    for name, filter_value, source_id, label in SCOPES:
+        _, claim_key = claims[name, source_id]
+        _, observation = capture(name, filter_value, label, name, checkedClaimKey=claim_key, referenceSourceId=source_id)
+        captures.append(observation)
+
+    comparisons = []
+    for name, query, filter_value, label, relation in COMPARISONS:
+        raw, comparison = capture(query, filter_value, label, name, relation=relation)
+        if relation == "combined-publication":
+            require_unavailable_filter(raw, "Rise of Tiamat")
+            _, claim_key = claims[UNAVAILABLE_SCOPE]
+            comparison["unavailableReferenceFilter"] = {
+                "expectedLabel": "Rise of Tiamat",
+                "unresolvedClaimKey": claim_key,
+                "referenceSourceId": UNAVAILABLE_SCOPE[1],
+            }
+        comparisons.append(comparison)
     return {
         "schemaVersion": 1,
         "checkedOn": "2026-11-28",
         "evidenceKind": "publisher-selected-bestiary-filter",
         "captures": captures,
+        "comparisons": comparisons,
         "accepted": False,
         "fullRulesVerified": False,
         "automaticMerge": False,
@@ -103,4 +151,4 @@ if __name__ == "__main__":
         OUTPUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if result != json.loads(OUTPUT.read_text(encoding="utf-8")):
         raise SystemExit("Evidence differs from the tracked report")
-    print(f"Verified {len(result['captures'])} publication filters across 7 bestiary groups")
+    print(f"Verified {len(result['captures'])} source filters and {len(result['comparisons'])} comparisons across 11 bestiary groups")

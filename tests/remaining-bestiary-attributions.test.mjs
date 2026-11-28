@@ -42,3 +42,28 @@ test('previous reports and observation IDs remain disjoint',()=>{
  const a=input();a[4].groups.push({reviewId:a[2].selectedReviewIds[0],units:[]});
  assert.throws(()=>reviewRemainingBestiary(...a),/selection changed/);
 });
+
+test('digital index passes account for all 50 original claims once, including one unavailable filter',()=>{
+ const read=file=>JSON.parse(readFileSync(new URL('../catalog/'+file,import.meta.url),'utf8'));
+ const original=read('remaining-bestiary-attribution-proposals-2014.json');
+ const compound=read('compound-bestiary-filter-evidence-2014.json');
+ const sidekicks=read('essentials-sidekick-index-evidence-2014.json');
+ const remaining=read('remaining-bestiary-filter-evidence-2014.json');
+ const covered=[
+  ...compound.groups.flatMap(group=>group.observations.map(row=>row.claimKey)),
+  ...sidekicks.publications.flatMap(book=>book.captures.flatMap(capture=>capture.checkedClaimKeys)),
+  ...remaining.captures.map(capture=>capture.checkedClaimKey),
+  ...remaining.comparisons.flatMap(capture=>capture.unavailableReferenceFilter?[capture.unavailableReferenceFilter.unresolvedClaimKey]:[]),
+ ];
+ const expected=original.groups.flatMap(group=>group.publicationClaims.map(claim=>claim.claimKey));
+ assert.equal(covered.length,50);
+ assert.equal(new Set(covered).size,50);
+ assert.deepEqual(covered.toSorted(),expected.toSorted());
+ assert.equal(remaining.captures.filter(capture=>capture.listing==='empty').length,4);
+ assert.equal(remaining.comparisons.length,3);
+ for(const result of [compound,sidekicks,remaining]){
+  assert.equal(result.accepted,false);
+  assert.equal(result.automaticMerge,false);
+  assert.equal(result.approvedDenominator,null);
+ }
+});
