@@ -23,6 +23,16 @@ const fingerprint=entry=>createHash('sha256').update(JSON.stringify(entry)).dige
 export function isKnownBundledUpgrade(previous,next,upgrades=bundledCatalog().upgrades) {
   return previous?.id===next?.id && upgrades.some(rule=>rule.id===next.id&&rule.fromSha256===fingerprint(previous)&&rule.toSha256===fingerprint(next));
 }
+const whelmEntryId = 'srd51:2014:monster:water-elemental';
+const reviewedWhelmEntrySha256 = '3b4cba2b1fef1afc0b87c0c594fe1b4acab465c8222eb667d4bb79a5b7a49212';
+const whelmErrataUrl = 'https://media.wizards.com/2018/dnd/downloads/MM-Errata.pdf#page=2';
+
+// Source for the adjacent creature’s DC 14 Strength check. The digest covers the normalized version and text.
+export function withWhelmClarification(result) {
+  const entry = result.entry ?? result.entries?.find(item => item.id === whelmEntryId);
+  if (entry?.id !== whelmEntryId || fingerprint(entry) !== reviewedWhelmEntrySha256) return result;
+  return {...result, whelmClarification: {catalogId: entry.id, url: whelmErrataUrl}};
+}
 const fail = message => { throw new AppError(422, message); };
 function object(value, keys) {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).some(key => !keys.includes(key))) fail('Неверная структура каталога');
