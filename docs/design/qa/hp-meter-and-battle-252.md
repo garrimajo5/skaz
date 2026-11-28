@@ -15,3 +15,5 @@
 [Широкая полоса до](hp-meter-and-battle-252/hp-meter-before-1512.png) · [после](hp-meter-and-battle-252/hp-meter-after-1512.png).
 [Телефон до](hp-meter-and-battle-252/hp-meter-before-390.png) · [после](hp-meter-and-battle-252/hp-meter-after-390.png).
 [Кнопка до](hp-meter-and-battle-252/battle-button-before-1512.png) · [начало](hp-meter-and-battle-252/battle-button-start-1512.png) · [активный бой](hp-meter-and-battle-252/battle-button-active-1512.png).
+
+Firefox 161, отдельная страница с теми же разметкой шкалы и CSS. Видны пустая шкала при 0/22, частичная при 9/22 и полная при 22/22. [Кадр изолированной проверки](hp-meter-and-battle-252/firefox-css-fixture.png).
