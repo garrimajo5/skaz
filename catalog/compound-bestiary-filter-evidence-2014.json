@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-28",
+  "evidenceKind": "publisher-selected-bestiary-filter",
+  "groups": [
+    {
+      "name": "chwinga",
+      "reviewId": "name-review:692ef5fc9e5709b3db58",
+      "observations": [
+        {
+          "claimKey": "dndsu:bestiary:2642|114",
+          "referenceSourceId": "114",
+          "publisherFilterValue": "25",
+          "selectedPublisherLabel": "Tomb of Annihilation",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=chwinga&filter-source=25",
+          "bytes": 375428,
+          "htmlSha256": "24337080367a1170df12c5d24dc04507cc1ae51466e9490376ba7e3d6c03a950",
+          "card": {
+            "name": "Chwinga",
+            "cardUrl": "https://www.dndbeyond.com/monsters/33021-chwinga",
+            "displayedPublication": "Tomb of Annihilation",
+            "match": "exact"
+          }
+        },
+        {
+          "claimKey": "dndsu:bestiary:2642|120",
+          "referenceSourceId": "120",
+          "publisherFilterValue": "66",
+          "selectedPublisherLabel": "Icewind Dale: Rime of the Frostmaiden",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=chwinga&filter-source=66",
+          "bytes": 375428,
+          "htmlSha256": "bd7610231fbe1fa4015aeed58293c70b056329c6d6730d161f5d52a531d60ee8",
+          "card": {
+            "name": "Chwinga",
+            "cardUrl": "https://www.dndbeyond.com/monsters/33021-chwinga",
+            "displayedPublication": "Tomb of Annihilation",
+            "match": "exact"
+          }
+        },
+        {
+          "claimKey": "dndsu:bestiary:2642|122",
+          "referenceSourceId": "122",
+          "publisherFilterValue": "68",
+          "selectedPublisherLabel": "Candlekeep Mysteries",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=chwinga&filter-source=68",
+          "bytes": 375428,
+          "htmlSha256": "684eb7bf517eaea80e8621b62ef904369ecdab09a91b85f971f9f64fe464718b",
+          "card": {
+            "name": "Chwinga",
+            "cardUrl": "https://www.dndbeyond.com/monsters/33021-chwinga",
+            "displayedPublication": "Tomb of Annihilation",
+            "match": "exact"
+          }
+        },
+        {
+          "claimKey": "dndsu:bestiary:8718|160",
+          "referenceSourceId": "160",
+          "publisherFilterValue": "90",
+          "selectedPublisherLabel": "Spelljammer: Adventures in Space",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=chwinga&filter-source=90",
+          "bytes": 375513,
+          "htmlSha256": "3789fb97d00c0066e2fc61d658c46bf2cd5756213206828d3aa976f8f36954a7",
+          "card": {
+            "name": "Chwinga Astronaut",
+            "cardUrl": "https://www.dndbeyond.com/monsters/2821159-chwinga-astronaut",
+            "displayedPublication": "Spelljammer: Adventures in Space",
+            "match": "related-name-only"
+          }
+        }
+      ]
+    },
+    {
+      "name": "orcus",
+      "reviewId": "name-review:6ddb21589e4c92819c34",
+      "observations": [
+        {
+          "claimKey": "dndsu:bestiary:4890|129",
+          "referenceSourceId": "129",
+          "publisherFilterValue": "9",
+          "selectedPublisherLabel": "Out of the Abyss",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=orcus&filter-source=9",
+          "bytes": 375947,
+          "htmlSha256": "65f7dc9eec8fb0c1b3d1990f0415a7d238ddc86243ab9d2b7452478ef8381435",
+          "card": {
+            "name": "Orcus",
+            "cardUrl": "https://www.dndbeyond.com/monsters/17417-orcus",
+            "displayedPublication": "Out of the Abyss",
+            "match": "exact"
+          }
+        },
+        {
+          "claimKey": "dndsu:bestiary:4890|113",
+          "referenceSourceId": "113",
+          "publisherFilterValue": "33",
+          "selectedPublisherLabel": "Mordenkainen’s Tome of Foes",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=orcus&filter-source=33",
+          "bytes": 375947,
+          "htmlSha256": "efb45864e69ffa41e1938dca5c48247f9aa14af28271f51e88232b423201604d",
+          "card": {
+            "name": "Orcus",
+            "cardUrl": "https://www.dndbeyond.com/monsters/17417-orcus",
+            "displayedPublication": "Out of the Abyss",
+            "match": "exact"
+          }
+        },
+        {
+          "claimKey": "dndsu:bestiary:6917|158",
+          "referenceSourceId": "158",
+          "publisherFilterValue": "85",
+          "selectedPublisherLabel": "Mordenkainen Presents: Monsters of the Multiverse",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=orcus&filter-source=85",
+          "bytes": 375548,
+          "htmlSha256": "b8668ddc51f2cc2475a68f4c3c64e227d897dbbc51e7abae0e4a693070fca471",
+          "card": {
+            "name": "Orcus",
+            "cardUrl": "https://www.dndbeyond.com/monsters/2560897-orcus",
+            "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+            "match": "exact"
+          }
+        }
+      ]
+    },
+    {
+      "name": "wereraven",
+      "reviewId": "name-review:ed3135f7e036854f2a53",
+      "observations": [
+        {
+          "claimKey": "dndsu:bestiary:949|124",
+          "referenceSourceId": "124",
+          "publisherFilterValue": "6",
+          "selectedPublisherLabel": "Curse of Strahd",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=wereraven&filter-source=6",
+          "bytes": 375919,
+          "htmlSha256": "b714b9d8ea7f36f0a6836f1df1b854f01e43e8cfd323ce304bac564f30a75d4a",
+          "card": {
+            "name": "Wereraven",
+            "cardUrl": "https://www.dndbeyond.com/monsters/17377-wereraven",
+            "displayedPublication": "Curse of Strahd",
+            "match": "exact"
+          }
+        },
+        {
+          "claimKey": "dndsu:bestiary:6905|122",
+          "referenceSourceId": "122",
+          "publisherFilterValue": "68",
+          "selectedPublisherLabel": "Candlekeep Mysteries",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=wereraven&filter-source=68",
+          "bytes": 375919,
+          "htmlSha256": "063714c84a9adf8f514150248be18a9c88b88238a823e5d55d1168a5db9f73ea",
+          "card": {
+            "name": "Wereraven",
+            "cardUrl": "https://www.dndbeyond.com/monsters/17377-wereraven",
+            "displayedPublication": "Curse of Strahd",
+            "match": "exact"
+          }
+        },
+        {
+          "claimKey": "dndsu:bestiary:6905|125",
+          "referenceSourceId": "125",
+          "publisherFilterValue": "69",
+          "selectedPublisherLabel": "Van Richten’s Guide to Ravenloft",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=wereraven&filter-source=69",
+          "bytes": 375919,
+          "htmlSha256": "b8951cc2127c6ead6aedef78551db09f107e4273079024b370e037526541b9a9",
+          "card": {
+            "name": "Wereraven",
+            "cardUrl": "https://www.dndbeyond.com/monsters/17377-wereraven",
+            "displayedPublication": "Curse of Strahd",
+            "match": "exact"
+          }
+        }
+      ]
+    }
+  ],
+  "accepted": false,
+  "fullRulesVerified": false,
+  "automaticMerge": false,
+  "approvedDenominator": null,
+  "textReusePermission": "not-established",
+  "inputSha256": {
+    "catalog/remaining-bestiary-attribution-proposals-2014.json": "299300098179fc54a33720c2bf6fa0a8bb131069029157e43058ae47bed2e817"
+  }
+}

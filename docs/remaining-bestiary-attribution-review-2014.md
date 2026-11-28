@@ -21,6 +21,32 @@
 - Опубликованные названия книги и прежние policyTitle сохраняются отдельно, включая регистр/апострофы/единственное или множественное число. Это не автоматическое исправление названий наблюдений.
 - Strahd в character dossier/вводном разделе — метаданные присутствия темы; даже точное совпадение не объявляется проверенным боевым статблоком.
 
+## Цифровые карточки трёх составных атрибуций
+
+28.11.2026 сверены десять открытых страниц D&D Beyond. На каждой
+выбран ровно один фильтр книги. У каждой строки отдельно проверены
+название, адрес карточки и подпись книги. Три исходные группы и все
+их атрибуции связаны прежними ключами claimKey. [Реестр и SHA-256](../catalog/compound-bestiary-filter-evidence-2014.json).
+
+| Группа | Выбранные книги и результат | Граница |
+| --- | --- | --- |
+| Orcus | [Out of the Abyss](https://www.dndbeyond.com/monsters?filter-search=orcus&filter-source=9) и [MToF](https://www.dndbeyond.com/monsters?filter-search=orcus&filter-source=33) дают 17417 с подписью Out of the Abyss. [MotM](https://www.dndbeyond.com/monsters?filter-search=orcus&filter-source=85) даёт 2560897 с собственной подписью. | Отдельные точные заголовки MToF и Out of the Abyss сохраняются. Поправка MToF [из пакета эррат](imr-version-boundaries-2014.md#модели-npc-и-эррата--свидетельства-для-m4) относится к своему изданию. |
+| Chwinga | [Tomb of Annihilation](https://www.dndbeyond.com/monsters?filter-search=chwinga&filter-source=25), [Rime of the Frostmaiden](https://www.dndbeyond.com/monsters?filter-search=chwinga&filter-source=66) и [Candlekeep Mysteries](https://www.dndbeyond.com/monsters?filter-search=chwinga&filter-source=68) дают 33021 с подписью Tomb of Annihilation. [Spelljammer](https://www.dndbeyond.com/monsters?filter-search=chwinga&filter-source=90) даёт 2821159 с названием Chwinga Astronaut. | Связь наблюдения 8718 с карточкой 2821159 остаётся кандидатом. Оглавление Spelljammer содержит заголовок Chwinga. Поисковая строка хранит другое полное название. |
+| Wereraven | [Curse of Strahd](https://www.dndbeyond.com/monsters?filter-search=wereraven&filter-source=6), [Candlekeep Mysteries](https://www.dndbeyond.com/monsters?filter-search=wereraven&filter-source=68) и [Van Richten’s Guide to Ravenloft](https://www.dndbeyond.com/monsters?filter-search=wereraven&filter-source=69) дают 17377 с подписью Curse of Strahd. | Общее цифровое представление установлено для трёх фильтров. Сравнение наблюдений 6905 и 949 требует двух полных источниковых версий. |
+
+Девять строк имеют точное имя, у Spelljammer сохранено отдельное значение
+`related-name-only`. Оглавления и исходные наблюдения сохраняются. Полное
+правило, редакция статблока и право на публикацию требуют отдельных
+свидетельств. Состав каталога приложения и канонический знаменатель
+на этом шаге не меняются.
+
+Для воспроизведения сохраните открытые страницы по URL из реестра с
+именами `<группа>-<фильтр>.html` вне Git. Команда
+`python scripts/audit-compound-bestiary-filters-2014.py <каталог HTML>`
+сравнивает проверенные байты, выбранные книги, цифровые ссылки и исходные
+ключи. Свежая выдача может изменить SHA. В таком случае сверяйте поля и
+оформляйте новый срез после проверки.
+
 ## Воспроизведение
 
 `python scripts/extract-remaining-bestiary-evidence.py --directory <snapshots> --output <evidence.json>`
