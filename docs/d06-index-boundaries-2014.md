@@ -205,6 +205,38 @@ ID и SHA восьми снимков. Он не меняет рабочий к�
 ToD при доступе к ним. Следующий доступный шаг D06 — проверить
 локаторы соседних страниц приложения C для Cloud и Fire Giant.
 
+### Какие поправки Guard Drake относятся к Tyranny of Dragons
+
+На 28.11.2026 у *Rise of Tiamat* подтверждён общий адрес старого
+приложения D. Именной ссылки Guard Drake в сохранённом оглавлении нет.
+Поиск по текстовому слою всех 37 страниц публичного дополнения
+*October 2014, version 1* также не дал совпадений. Для исходного
+наблюдения 490/106 по-прежнему нужна страница самого приключения.
+[Оглавление Rise](https://www.dndbeyond.com/sources/dnd/rot) ·
+[Официальное дополнение](https://media.wizards.com/2014/downloads/dnd/RiseTiamatSupplement.pdf).
+
+В оглавлении объединённого *Tyranny of Dragons* есть [именной указатель
+Guard Drake](https://www.dndbeyond.com/sources/tod/monsters#GuardDrake).
+PDF эрраты версии 1.0 (2023) и цифровая эррата совпадают по двум правкам
+для печатной с. 185 приложения D. Из записи удаляется строка
+сопротивлений урону. Мультиатака состоит из одного укуса и одного удара
+хвостом. Область этих правок ограничена названной записью объединённого
+издания. [PDF эрраты](https://media.dndbeyond.com/compendium-images/errata/ToD/ToD-Errata.pdf#page=1) ·
+[Цифровая эррата](https://www.dndbeyond.com/sources/dnd/sae/tyranny-of-dragons#GuardDrake).
+
+Цифровой фильтр объединённой книги показывает карточки с подписью MotM.
+У Volo и MotM собственные основные и цветовые карточки. В проверенной
+эррате Volo нет именного заголовка Guard Drake. Полные блоки Rise,
+Tyranny и Volo, точные редакции MotM и права остаются открытыми.
+[Фильтры](remaining-bestiary-attribution-review-2014.md#pech-redbrand-guard-drake-и-strahd) ·
+[Эррата Volo](https://www.dndbeyond.com/sources/dnd/sae/volos-guide-to-monsters).
+
+[Реестр шести первичных снимков](../catalog/guard-drake-source-edition-evidence-2014.json)
+воспроизводится командой `python scripts/audit-guard-drake-source-edition-2014.py <каталог-снимков>`.
+В Git сохранены адреса, SHA, страницы и два структурированных изменения.
+Исходные PDF и HTML остаются отдельно. Каталог приложения и игровые
+расчёты сохраняются.
+
 ## Infernal Machine Rebuild и Fiendish Folio
 
 Индекс IMR содержит 56 карточек. У 26 указан IMR, из них у пяти есть наблюдения исходного источника IMR. У 30 карточек указаны другие книги. Boggle и Redcap имеют отдельные цифровые версии. Число 26 на странице издателя относится к доступности в Encounter Builder. Ссылка на приложение B ведёт в магазин при публичной проверке. [Оглавление IMR](https://www.dndbeyond.com/sources/dnd/imr), [страница IMR](https://marketplace.dndbeyond.com/adventures/SRC-00056).
