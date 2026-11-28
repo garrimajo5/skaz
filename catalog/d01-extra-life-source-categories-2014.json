@@ -113,6 +113,90 @@
         "guide14SourceListing": "listed-rulebook"
       }
     ],
+    "historicalGrungSurrogate": {
+      "observationId": "dndsu:race:169",
+      "publicationScope": "campaign-replacement-character",
+      "season": 7,
+      "preview": {
+        "url": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/223738-sample.pdf",
+        "bytes": 1351997,
+        "sha256": "341c2ea03cc62e88b8d500beeb102b31c0f6e84bb3ecb2389b2216b06397644e",
+        "pageCount": 2,
+        "pdfPage": 1,
+        "locator": "Disclaimer",
+        "namesSurrogate": false
+      },
+      "guidance": [
+        {
+          "version": "ToA Primer v1.0",
+          "url": "https://media.wizards.com/2017/dnd/downloads/ToAPrimerv1.pdf",
+          "bytes": 888945,
+          "sha256": "2519240fb3a6d9b188f97d344a7020a37ba768246b3f1c437b7c3de25973bb5e",
+          "pageCount": 6,
+          "pdfPage": 2,
+          "campaignScope": [
+            "CCC adventures",
+            "Tomb of Annihilation",
+            "season 7 DD-series adventures"
+          ]
+        },
+        {
+          "version": "AL Adaptation Guides v2.4",
+          "url": "https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-adaptation-guides-v2.4.pdf",
+          "bytes": 1476910,
+          "sha256": "ee0ffa32ccab84212b518380ab81d720d15e8c1ccaa529750666fc235123dcbb",
+          "pageCount": 67,
+          "pdfPage": 53,
+          "campaignScope": [
+            "Tomb of Annihilation",
+            "season 7 official Adventurers League adventures"
+          ]
+        }
+      ],
+      "archives": [
+        {
+          "tier": 1,
+          "url": "https://media.wizards.com/2017/dnd/downloads/ToA_Tier1Surrogates.zip",
+          "bytes": 1958844,
+          "sha256": "2598dc1550212dd7297b835b90d489f1c530c2921f6902faffaacc597f62e2fb",
+          "pdfFiles": 12,
+          "firstPageGrungMentions": 5,
+          "raceFieldMatches": 1,
+          "sheet": {
+            "member": "TIER 1 SURROGATES/ROG (3).pdf",
+            "sha256": "82384cd80cb9d314547076eb162a6b268f9b08035533221eee8ac4aed0cdae16",
+            "pageCount": 2,
+            "pdfPage": 1,
+            "race": "Grung (green)",
+            "class": "Rogue",
+            "level": 3,
+            "characterName": null
+          }
+        },
+        {
+          "tier": 2,
+          "url": "https://media.wizards.com/2017/dnd/downloads/ToA_Tier2Surrogates.zip",
+          "bytes": 1964415,
+          "sha256": "e180fa25b961604ca490a25580b9a59c8f9ac006621d9265306c6ac8758b20d8",
+          "pdfFiles": 12,
+          "firstPageGrungMentions": 5,
+          "raceFieldMatches": 1,
+          "sheet": {
+            "member": "TIER 2 SURROGATES/ROG (8).pdf",
+            "sha256": "4ded767811002ddbbcc05322caff3be2ca07c3c5d54a7fd782aaf98c406d8b2a",
+            "pageCount": 2,
+            "pdfPage": 1,
+            "race": "Grung (green)",
+            "class": "Rogue",
+            "level": 8,
+            "characterName": null
+          }
+        }
+      ],
+      "previewIdentityEquivalenceVerified": false,
+      "raceRulesEquivalenceVerified": false,
+      "catalogAdmissionDecided": false
+    },
     "guideListingIsRecordLevelRuling": false,
     "catalogAdmissionDecided": false,
     "fullCharacterRulesVerified": false
