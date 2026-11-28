@@ -684,6 +684,25 @@
     "contentSha256": "b0fb0278cb44d54235c1762792ad21636214926c37170ff71a819083b366673e"
   },
   {
+    "id": "srd51:2014:item:robe-of-eyes",
+    "kind": "item",
+    "ruleset": "5e-2014",
+    "name": {
+      "ru": "Мантия глаз",
+      "en": "Robe of Eyes"
+    },
+    "source": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=238",
+      "title": "System Reference Document 5.1",
+      "version": "5.1; checked 2026-11-28; skaz robe of eyes v1",
+      "usage": "cc-by-4.0",
+      "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 238.",
+      "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+      "changes": "Русское название и краткое изложение подготовлены для СКАЗ. Это не официальный перевод. Полные правила см. в источнике."
+    },
+    "contentSha256": "9f6a0862774682496e16a6de99c452fd5588764675a84d3744cfc4a656b53dea"
+  },
+  {
     "id": "srd51:2014:item:rope-of-climbing",
     "kind": "item",
     "ruleset": "5e-2014",
