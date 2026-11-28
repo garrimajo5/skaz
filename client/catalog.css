@@ -26,6 +26,7 @@
 #dialog-content:has(>.catalog-review){padding:0;overflow:hidden;scrollbar-gutter:auto}
 .catalog-review{display:flex;flex-direction:column;height:calc(85dvh - 2px);min-height:0}
 .catalog-review-body{min-height:0;overflow:auto;overscroll-behavior:contain;padding:48px 28px 16px;scrollbar-gutter:stable}
+.catalog-review-body > .overline { padding-inline-end: calc(var(--touch, 44px) + 8px); overflow-wrap: anywhere; }
 .catalog-review-counts{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;font-size:12px}
 .catalog-review-counts li{padding:8px;background:var(--raised);border-radius:var(--radius-s)}
 .catalog-updates ul{list-style:none;padding:0}.catalog-updates li{padding:12px 0;border-top:1px solid var(--line)}.catalog-updates p{margin:6px 0}.catalog-updates summary{cursor:pointer;color:var(--muted);font-size:12px;min-height:44px;display:flex;align-items:center;gap:8px}.catalog-updates summary:before{content:'+'}.catalog-updates details[open]>summary:before{content:'−'}.catalog-updates small{display:block;color:var(--muted);line-height:1.6;overflow-wrap:anywhere}
