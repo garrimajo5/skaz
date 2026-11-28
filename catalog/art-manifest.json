@@ -25521,6 +25521,50 @@
         "by": "Codex, delegated visual and technical acceptance",
         "evidence": "docs/design/production-v99.json; docs/design/qa/production-v99-atlas.png"
       }
+    },
+    {
+      "id": "srd51:2014:item:staff-of-fire",
+      "contentSha256": "e0e8b0d3650984a79c14eff97fe5e91610f461d494edd3720ed6a8ae503faa65",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generated for SKAZ, retained locally at data/art-production-v100/staff-of-fire-selected.png",
+        "usage": "Original generated SKAZ artwork; no third-party artwork used",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex visual and technical review",
+        "originalSha256": "263de969c8483016121a5cdda15c8102fe1beb5059f6c58d2c8a635bd2ae21e7",
+        "derivation": "Pixel data from the unchanged alpha source; caBX retained in the source only"
+      },
+      "review": {
+        "by": "Codex visual and technical review",
+        "evidence": "docs/design/qa/staff-of-fire-catalog-77.md"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/staff-of-fire-original-dc19bff0bec37f36.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 42476,
+          "sha256": "dc19bff0bec37f3647c8ee0124198ab4b5cfdb23c288be7c02cb0b9a7321c4f0",
+          "derivedFrom": "263de969c8483016121a5cdda15c8102fe1beb5059f6c58d2c8a635bd2ae21e7",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/staff-of-fire-thumbnail-8f7ce289d394bcef.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 3518,
+          "sha256": "8f7ce289d394bcefdcfc4ec25f78090977f5fd40456b85d7108b86e00aa069a9",
+          "derivedFrom": "263de969c8483016121a5cdda15c8102fe1beb5059f6c58d2c8a635bd2ae21e7",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }

@@ -43,6 +43,26 @@ export function snapshot(folder) {
     return [section,{rawSha256:sha(raw),indexVariant:section==='bestiary'?'multiverse':'official',rows}];
   }))};
 }
+// Apply reviewed additions only to the exact base observation. Fresh captures are audited as supplied.
+export function withReviewedItemMappings(base, supplement) {
+  if (supplement.schemaVersion!==1 || supplement.ruleset!==base.ruleset ||
+      supplement.baseSnapshotSha256!==sha(JSON.stringify(base)) || !Array.isArray(supplement.items)) {
+    throw Error('Item mappings require their exact reviewed snapshot');
+  }
+  const snapshot=structuredClone(base);
+  for (const {url,sourceId,catalogId,attunement} of supplement.items) {
+    const row=snapshot.sections.items.rows.find(record=>record.url===url);
+    if (!row || row.candidateIds.length || Object.hasOwn(row,'fields') || !row.sources.includes(sourceId) ||
+        typeof catalogId!=='string' || !catalogId || typeof attunement!=='boolean') {
+      throw Error('Invalid reviewed item mapping: '+url);
+    }
+    row.candidateIds=[catalogId];
+    row.fields={attunement};
+    row.status='reviewed-item-mapping';
+  }
+  return snapshot;
+}
+
 export function audit(snapshot, entries, clauses=[]) {
   if(snapshot.schemaVersion!==1||snapshot.ruleset!=='5e-2014'||Object.keys(snapshot.sections||{}).sort().join(',')!=='bestiary,items,spells') throw Error('Invalid snapshot scope');
   const byId=new Map(entries.map(e=>[e.id,e]));
@@ -74,7 +94,18 @@ export function audit(snapshot, entries, clauses=[]) {
 if(process.argv[1] && import.meta.url===pathToFileURL(process.argv[1]).href) {
   const [mode,input,output]=process.argv.slice(2);
   if(!input||!output||!['snapshot','audit'].includes(mode)) throw Error('Usage: node scripts/dndsu-rule-fields.mjs snapshot RAW_DIR OUTPUT | audit SNAPSHOT OUTPUT');
-  const result=mode==='snapshot'?snapshot(input):audit(JSON.parse(readFileSync(input,'utf8')),bundledCatalog().bundle.entries,JSON.parse(readFileSync(new URL('../catalog/dndsu-rule-clauses-2026-11-15.json',import.meta.url),'utf8')).clauses);
+  const readCatalog=file=>JSON.parse(readFileSync(new URL('../catalog/'+file,import.meta.url),'utf8'));
+  let result;
+  if (mode==='snapshot') {
+    result=snapshot(input);
+  } else {
+    const base=JSON.parse(readFileSync(input,'utf8'));
+    const mappings=readCatalog('dndsu-rule-item-mappings-2014.json');
+    const observations=mappings.baseSnapshotSha256===sha(JSON.stringify(base))
+      ? withReviewedItemMappings(base,mappings)
+      : base;
+    result=audit(observations,bundledCatalog().bundle.entries,readCatalog('dndsu-rule-clauses-2026-11-15.json').clauses);
+  }
   writeFileSync(output,JSON.stringify(result,null,2)+'\n');
   console.log(JSON.stringify(result.summary||{sections:Object.fromEntries(Object.entries(result.sections).map(([k,v])=>[k,v.rows.length]))}));
 }

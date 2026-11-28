@@ -3,8 +3,10 @@ import {readFileSync} from 'node:fs';
 import test from 'node:test';
 import {buildAdventureWordingReview, inputs, reviewAdventureWording} from '../scripts/review-d07-adventure-wording-2014.mjs';
 
+import {adventureWordingPath,readAuditInput} from '../scripts/catalog-audit-inputs.mjs';
+
 const read = path => JSON.parse(readFileSync(new URL('../' + path, import.meta.url)));
-const input = () => inputs.map(read);
+const input = () => inputs.map(path => JSON.parse(readAuditInput(adventureWordingPath, path)));
 
 test('D07 evidence keeps 116 adventure observations and 20 original Monster Manual references', () => {
   const report = buildAdventureWordingReview();

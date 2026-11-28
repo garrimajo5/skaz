@@ -2,9 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {auditCatalogInputHashes, catalogInputHash, loadCatalogDocuments} from '../scripts/verify-catalog-input-hashes.mjs';
 
+import { auditInputPath, scopeRegisterPath } from '../scripts/catalog-audit-inputs.mjs';
+
 const pinned = (path, raw) => JSON.stringify({inputSha256: {[path]: catalogInputHash(raw)}});
 
-test('all committed catalog input pins refer to the actual current evidence, including reports outside reproduction subset', () => {
+test('all committed catalog input pins refer to the exact current or historical evidence, including reports outside reproduction subset', () => {
   const result = auditCatalogInputHashes(loadCatalogDocuments());
   assert.ok(result.checked > 100);
   assert.deepEqual(result.mismatches, []);
@@ -31,6 +33,25 @@ test('missing input and invalid pins cannot pass; line endings alone do not stal
   for (const inputSha256 of [[],null,{'../secret.json':'0'.repeat(64)},{'catalog/root.json':'unknown'}]) {
     assert.throws(()=>auditCatalogInputHashes(new Map([['catalog/report.json',JSON.stringify({inputSha256})]])),/Invalid input/);
   }
+});
+
+test('historical art pins verify their own bytes and current art pins still check current data', () => {
+  const art='catalog/art-coverage.json', history=auditInputPath(scopeRegisterPath,art);
+  const old='{"total":580}', current='{"total":581}';
+  const documents=new Map([
+    [scopeRegisterPath,pinned(art,old)],
+    ['catalog/current-report.json',pinned(art,current)],
+    [art,current],
+    [history,old],
+  ]);
+  assert.deepEqual(auditCatalogInputHashes(documents).mismatches,[]);
+  documents.set(history,current);
+  assert.deepEqual(auditCatalogInputHashes(documents).mismatches,[{file:scopeRegisterPath,dependency:art,reason:'changed-input'}]);
+  documents.delete(history);
+  assert.deepEqual(auditCatalogInputHashes(documents).mismatches,[{file:scopeRegisterPath,dependency:art,reason:'missing-input'}]);
+  documents.set(history,old);
+  documents.set(art,old);
+  assert.deepEqual(auditCatalogInputHashes(documents).mismatches,[{file:'catalog/current-report.json',dependency:art,reason:'changed-input'}]);
 });
 
 test('legacy scopeSha256 pins are audited alongside modern input maps',()=>{

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {randomUUID} from 'node:crypto';
 import {openStore} from '../server/store.mjs';
+import {readScopeBundle} from '../scripts/catalog-audit-inputs.mjs';
 
 const readCatalog = file => JSON.parse(readFileSync(new URL('../catalog/'+file,import.meta.url),'utf8'));
 
@@ -14,8 +15,7 @@ test('Staff of Fire previews and imports with verified references and manual ins
  const store = openStore(':memory:');
  try {
   const initial = store.read();
-  const {version} = store.catalog.previewBundled();
-  store.catalog.installBundled({version});
+  store.catalog.importEntries(readScopeBundle(),{apply:true});
   const lookup = () => store.catalog.lookup(new URLSearchParams({id:source.id})).entry;
   assert.throws(lookup,{status:404});
   assert.equal(store.catalog.importEntries(pack).added,1);

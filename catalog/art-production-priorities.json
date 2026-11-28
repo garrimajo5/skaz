@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "ruleset": "5e-2014",
   "basis": "Порядок производства по кругу заклинания и опасности существа; не телеметрия частоты. Только проверенные accepted считаются покрытием.",
-  "total": 580,
-  "accepted": 580,
+  "total": 581,
+  "accepted": 581,
   "queues": [
     {
       "id": "spell-0-3",
@@ -50,8 +50,8 @@
     {
       "id": "item-artifact",
       "label": "Предметы и артефакты",
-      "total": 57,
-      "accepted": 57,
+      "total": 58,
+      "accepted": 58,
       "remaining": []
     },
     {
