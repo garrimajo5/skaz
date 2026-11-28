@@ -11,7 +11,8 @@ const SkazCatalog = (() => {
     for(const entry of value.entries||[value.entry].filter(Boolean)){
       const reference=value.materialReferences?.find(row=>row.catalogId===entry.id);
       materialReferences.set(entry,reference||null);
-      if(value.whelmClarification?.catalogId===entry.id)whelmSources.set(entry,value.whelmClarification.url);
+      const clarification=value.whelmClarification;
+      if(clarification&&clarification.catalogId===entry.id)whelmSources.set(entry,clarification.url);
     }
     return value;
   }
