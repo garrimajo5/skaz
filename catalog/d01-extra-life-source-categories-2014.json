@@ -63,6 +63,51 @@
       "route": "version-and-rights-review"
     }
   ],
+  "traitPreviewComparison": {
+    "checkedOn": "2026-11-28",
+    "source": {
+      "url": "https://www.dndbeyond.com/species",
+      "bytes": 772878,
+      "sha256": "a7503bbbe99c56a11615c24d345a8bcf1b097ae0f09e01ef253fef5f9610bed7",
+      "locator": "a.listing-card__link by exact species path / .characters-statblock"
+    },
+    "rows": [
+      {
+        "observationId": "dndsu:race:178",
+        "cardPath": "/species/229754-locathah",
+        "displayedAbilityIncreases": {
+          "str": 2,
+          "dex": 1
+        },
+        "distinguishingLabel": "Limited Amphibiousness"
+      },
+      {
+        "observationId": "dndsu:race:184",
+        "cardPath": "/species/41-tortle",
+        "displayedAbilityIncreases": {
+          "str": 2,
+          "wis": 1
+        },
+        "distinguishingLabel": "Survival Instinct"
+      },
+      {
+        "observationId": "dndsu:multiverse:race:309",
+        "cardPath": "/species/1026404-tortle",
+        "displayedAbilityIncreases": null,
+        "distinguishingLabel": "Nature’s Intuition"
+      }
+    ],
+    "tortleComparison": {
+      "variantObservationIds": [
+        "dndsu:race:184",
+        "dndsu:multiverse:race:309"
+      ],
+      "kind": "distinct-public-summaries",
+      "sharedLabelCount": 4,
+      "fullBodyEquivalenceVerified": false,
+      "versionAndRightsReviewRequired": true
+    }
+  },
   "grungCardAccess": {
     "webDestination": "https://marketplace.dndbeyond.com/category/SRC-00060",
     "directStatus": 200,
