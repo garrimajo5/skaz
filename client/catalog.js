@@ -4,14 +4,26 @@ const SkazCatalog = (() => {
   const limit = 20;
   // References belong to the exact response object, never to a reusable catalog ID.
   const materialReferences=new WeakMap();
+  const whelmSources=new WeakMap();
   const resultMarkup=new WeakMap();
   let holdingResults=false;
-  function acceptMaterials(value){
+  function acceptCatalogReferences(value){
     for(const entry of value.entries||[value.entry].filter(Boolean)){
       const reference=value.materialReferences?.find(row=>row.catalogId===entry.id);
       materialReferences.set(entry,reference||null);
+      const clarification=value.whelmClarification;
+      if(clarification&&clarification.catalogId===entry.id)whelmSources.set(entry,clarification.url);
     }
     return value;
+  }
+  function whelmClarificationLink(entry){
+    const url=whelmSources.get(entry);
+    if(typeof url!=='string')return '';
+    try{
+      const source=new URL(url);
+      if(source.protocol==='https:'&&!source.username&&!source.password)return `<a class="catalog-clarification-link" href="${escape(source.href)}" target="_blank" rel="noopener noreferrer">«Поглощение»: уточнение проверки Силы при извлечении существа или предмета <span class="ui-inline-icon" data-ui-icon="external"></span></a>`;
+    }catch{}
+    return '';
   }
   function materialInfo(entry){
     if(entry.kind!=='spell'||!entry.spell?.components?.includes('M'))return null;
@@ -243,7 +255,7 @@ const SkazCatalog = (() => {
     for(const key of extraKeys[kind]||[])if(extraFilters[key])params.set(key,extraFilters[key]);
     try {
       if(homeMode){
-        const [book,covered,recent]=await Promise.all([readCardBook(),fetch('/api/catalog/coverage',{cache:'no-store',signal:AbortSignal.timeout(10000)}).then(r=>{if(!r.ok)throw new Error('Coverage unavailable');return r.json();}),Promise.all(recentIds().map(async id=>{const r=await fetch('/api/catalog/entry?'+new URLSearchParams({id,includeMaterials:'1'}),{cache:'no-store',signal:AbortSignal.timeout(10000)});if(r.status===404)return null;if(!r.ok)throw new Error('Recent unavailable');const value=acceptMaterials(await r.json());return value.entry;}))]);
+        const [book,covered,recent]=await Promise.all([readCardBook(),fetch('/api/catalog/coverage',{cache:'no-store',signal:AbortSignal.timeout(10000)}).then(r=>{if(!r.ok)throw new Error('Coverage unavailable');return r.json();}),Promise.all(recentIds().map(async id=>{const r=await fetch('/api/catalog/entry?'+new URLSearchParams({id,includeMaterials:'1'}),{cache:'no-store',signal:AbortSignal.timeout(10000)});if(r.status===404)return null;if(!r.ok)throw new Error('Recent unavailable');const value=acceptCatalogReferences(await r.json());return value.entry;}))]);
         if(requestId!==serial||requestedOwner!==snapshot())return;
         cardBook=new Map(book.entries.map(item=>[item.catalogId,item]));cardBookState='ready';
         homeGroups=[{title:'Недавно открытые',entries:recent.filter(Boolean),empty:'Здесь появятся открытые карточки.'},{title:book.entries.length>20?'Мои заклинания · первые 20':'Мои заклинания',entries:book.entries.map(item=>item.entry).sort((a,b)=>(a.spell?.level??99)-(b.spell?.level??99)||a.name.ru.localeCompare(b.name.ru,'ru')).slice(0,20),empty:'Книга пока пуста. Найди заклинание и добавь его из карточки.'}];
@@ -252,10 +264,10 @@ const SkazCatalog = (() => {
       const values = await Promise.all(['/api/catalog?' + params, '/api/catalog/coverage'].map(async url => {
         const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
         if (!response.ok) throw new Error('Catalog unavailable');
-        return acceptMaterials(await response.json());
+        return acceptCatalogReferences(await response.json());
       }));
       if (requestId !== serial||requestedOwner!==snapshot()) return;
-      [result, coverage] = values;acceptMaterials(result);
+      [result, coverage] = values;acceptCatalogReferences(result);
       if(result.entries.some(entry=>entry.kind==='spell')&&typeof SkazStorage.spellbookData==='function'){
         cardBookState='loading';
         const book=loadCardBook(requestId,requestedOwner,{refreshAfter:!retain});
@@ -324,7 +336,7 @@ const SkazCatalog = (() => {
     const navigation=referenceReturn
      ? `<div class="catalog-reference-navigation">${readerNav}<button id="catalog-reference-back"><span class="ui-inline-icon" data-ui-icon="arrow-left"></span> ${escape(referenceReturn.label||'К сохранённому предмету')}</button></div><p class="catalog-reference-note">${referenceReturn.label?'Просмотр материала не меняет лист и имущество.':'Актуальная справка из каталога. Сохранённая карточка и имущество не меняются.'}</p>`
      : readerNav;
-    modal(`${navigation}${returnToInventory?`<button id="inventory-return"><span class="ui-inline-icon" data-ui-icon="arrow-left"></span> К ${inventoryMode==='creature'?'перечню существ':'охвату заклинаний'}</button>`:''}${trail.length?'<button id="catalog-detail-back"><span class="ui-inline-icon" data-ui-icon="arrow-left"></span> К предыдущему материалу</button>':''}<div class="overline catalog-reader-edition">${names[entry.kind]} · D&D 2014</div><h2 id="catalog-detail-title" tabindex="-1" autofocus>${escape(entry.name.ru)}</h2>${typeof SkazArt!=='undefined'?SkazArt.markup(entry,'card'):''}<p class="catalog-reader-alias">${escape(entry.name.en)}</p>${!referenceReturn&&["item", "artifact"].includes(entry.kind) ? '<button id="catalog-add-inventory" class="primary">В инвентарь <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button>' : ''}${!referenceReturn&&entry.kind === "spell" ? '<div class="catalog-spell-actions"><button id="catalog-known" disabled>'+(knownCaster?'Добавить в известные':'Изучить')+'</button>'+(knownCaster?'':'<button id="catalog-prepared" class="primary" disabled>Подготовить</button>')+'<button id="catalog-add-spell">Изменить отметку…</button><p id="catalog-book-status" role="status">Проверяем книгу…</p></div>' : ''}${facts(entry)}${materialDetails(entry)}<h3 id="catalog-body-title" tabindex="-1">Описание</h3>${entry.text ? `<div class="catalog-text">${escape(entry.text)}</div>` : '<p>Здесь сохранена справочная ссылка. Текст материала не импортирован.</p>'}${entry.links?.length?'<section class="catalog-related"><h3 id="catalog-links-title" tabindex="-1">Связанные материалы</h3><div id="catalog-related" aria-live="polite">Загружаем связи…</div></section>':''}<details class="catalog-source-details"><summary id="catalog-source-title" tabindex="-1">Источник и версия</summary><dl class="catalog-meta"><dt>Источник</dt><dd>${escape(entry.source.title)}</dd><dt>Версия</dt><dd>${escape(entry.source.version)}</dd><dt>Использование</dt><dd>${usageLabel(entry.source.usage)}</dd><dt>Условия, указанные при импорте</dt><dd>${escape(entry.source.terms)}</dd>${entry.source.attribution ? `<dt>Атрибуция</dt><dd>${escape(entry.source.attribution)}</dd><dt>Изменения</dt><dd>${escape(entry.source.changes)}</dd>` : ''}</dl>${source}</details>`);
+    modal(`${navigation}${returnToInventory?`<button id="inventory-return"><span class="ui-inline-icon" data-ui-icon="arrow-left"></span> К ${inventoryMode==='creature'?'перечню существ':'охвату заклинаний'}</button>`:''}${trail.length?'<button id="catalog-detail-back"><span class="ui-inline-icon" data-ui-icon="arrow-left"></span> К предыдущему материалу</button>':''}<div class="overline catalog-reader-edition">${names[entry.kind]} · D&D 2014</div><h2 id="catalog-detail-title" tabindex="-1" autofocus>${escape(entry.name.ru)}</h2>${typeof SkazArt!=='undefined'?SkazArt.markup(entry,'card'):''}<p class="catalog-reader-alias">${escape(entry.name.en)}</p>${!referenceReturn&&["item", "artifact"].includes(entry.kind) ? '<button id="catalog-add-inventory" class="primary">В инвентарь <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button>' : ''}${!referenceReturn&&entry.kind === "spell" ? '<div class="catalog-spell-actions"><button id="catalog-known" disabled>'+(knownCaster?'Добавить в известные':'Изучить')+'</button>'+(knownCaster?'':'<button id="catalog-prepared" class="primary" disabled>Подготовить</button>')+'<button id="catalog-add-spell">Изменить отметку…</button><p id="catalog-book-status" role="status">Проверяем книгу…</p></div>' : ''}${facts(entry)}${materialDetails(entry)}<h3 id="catalog-body-title" tabindex="-1">Описание</h3>${entry.text ? `<div class="catalog-text">${escape(entry.text)}</div>` : '<p>Здесь сохранена справочная ссылка. Текст материала не импортирован.</p>'}${whelmClarificationLink(entry)}${entry.links?.length?'<section class="catalog-related"><h3 id="catalog-links-title" tabindex="-1">Связанные материалы</h3><div id="catalog-related" aria-live="polite">Загружаем связи…</div></section>':''}<details class="catalog-source-details"><summary id="catalog-source-title" tabindex="-1">Источник и версия</summary><dl class="catalog-meta"><dt>Источник</dt><dd>${escape(entry.source.title)}</dd><dt>Версия</dt><dd>${escape(entry.source.version)}</dd><dt>Использование</dt><dd>${usageLabel(entry.source.usage)}</dd><dt>Условия, указанные при импорте</dt><dd>${escape(entry.source.terms)}</dd>${entry.source.attribution ? `<dt>Атрибуция</dt><dd>${escape(entry.source.attribution)}</dd><dt>Изменения</dt><dd>${escape(entry.source.changes)}</dd>` : ''}</dl>${source}</details>`);
     if(typeof SkazPersonalArtCards!=='undefined')SkazPersonalArtCards.mount(document.getElementById('dialog-content'),entry);
     if(entry.links?.length)loadRelated(entry,token);
     if(!referenceReturn&&entry.kind==='spell'&&SkazStorage.spellbookData){
@@ -367,7 +379,7 @@ const SkazCatalog = (() => {
   async function getEntry(id) {
     const response=await fetch('/api/catalog/entry?'+new URLSearchParams({id,includeMaterials:'1'}),{cache:'no-store',signal:AbortSignal.timeout(10000)});
     if(!response.ok)throw new Error('Материал недоступен');
-    return acceptMaterials(await response.json());
+    return acceptCatalogReferences(await response.json());
   }
   async function loadRelated(entry,token) {
     try {
