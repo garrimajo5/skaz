@@ -4,6 +4,7 @@ const SkazResourceQueue = (() => {
  const clone=value=>JSON.parse(JSON.stringify(value));
  const sameContext=(a,b)=>a&&b&&['campaignId','characterId','sessionId'].every(k=>typeof a[k]==='string'&&a[k]===b[k]);
  function balance(snapshot,r){
+  if(r.kind==='note')return {value:snapshot.state.notes?.length,maximum:SkazPersonalNote.maxCount};
   if(r.kind==='cast')return SkazCasting.balance(snapshot,r.operation==='restore'?r.receipt.cost:r.command?.cost??r.cost??null);
   if(['hp','health'].includes(r.kind))return {value:snapshot.state.hp,maximum:snapshot.state.maxHp};
   if(r.kind==='slot'||r.kind==='inspiration'){
@@ -18,6 +19,10 @@ const SkazResourceQueue = (() => {
   if(!sameContext(snapshot.context,command.context))throw new Error('Очередь относится к другой игре');
   const b=balance(snapshot,command.resource);
   if(!b||!Number.isSafeInteger(b.value)||!Number.isSafeInteger(b.maximum)||b.value!==command.before||b.maximum!==command.maximum||!Number.isSafeInteger(command.delta)||(!command.delta&&!(command.resource.kind==='health'&&command.resource.operation==='temporary'))||Math.abs(command.delta)>10000)throw new Error('Остаток ресурса требует сверки');
+  if(command.resource.kind==='note'){
+   if(command.delta!==1||command.targetMutationId)throw new Error('Неверная команда личной заметки');
+   const next=clone(snapshot);next.state.notes=SkazPersonalNote.append(next.state.notes,command.resource);return next;
+  }
   if(command.resource.kind==='cast'){if(command.delta!==1)throw Error('Неверная команда сотворения');const r=command.resource;if(r.operation==='restore'){if(!command.targetMutationId)throw Error('Нужна цель отмены');return SkazCasting.restore(snapshot,r.receipt);}if(command.targetMutationId||r.operation!=='cast')throw Error('Неверное сотворение');return SkazCasting.project(snapshot,r.command).snapshot;}
   if(command.resource.kind==='health'){
    if(command.resource.operation==='restore'&&!command.targetMutationId)throw new Error('Отмена требует исходную операцию');
@@ -76,6 +81,7 @@ const SkazResourceQueue = (() => {
   undoInfo(targetId){
    const target=this.data?.commands.find(c=>c.mutationId===targetId);
    if(!target||target.targetMutationId||this.data.commands.some(c=>c.targetMutationId===targetId))throw new Error('Операция уже отменена или отправлена');
+   if(target.resource.kind==='note')throw new Error('Личная заметка не отменяется из истории ресурсов');
    const later=this.data.commands.slice(this.data.commands.indexOf(target)+1);
    if(later.some(c=>SkazHealth.overlaps(c.resource,target.resource)&&(['health','cast'].includes(c.resource.kind)||['health','cast'].includes(target.resource.kind))))throw new Error('После действия менялось здоровье. Нужна сверка');
    if(target.resource.kind==='cast'){const before=this.data.commands.slice(0,this.data.commands.indexOf(target)).reduce(projectOne,clone(this.data.baseline)),receipt=SkazCasting.project(before,target.resource.command).receipt;SkazCasting.restore(this.snapshot,receipt);if(receipt.cost===null&&!receipt.changesFocus)throw Error('Заговор не изменил ресурсы');return {resource:{kind:'cast',operation:'restore',receipt},delta:1};}
@@ -101,7 +107,7 @@ const SkazResourceQueue = (() => {
   enqueueUndo(targetId,mutationId){const inverse=this.undoInfo(targetId);return this.enqueue(inverse.resource,inverse.delta,mutationId,targetId);}
   acknowledge(command,payload){
    if(!this.head||JSON.stringify(command)!==JSON.stringify(this.head))throw new Error('Нарушен порядок подтверждений');
-   const receipt=payload.resourceReceipt;if((command.targetMutationId||['health','cast','charges'].includes(command.resource.kind))&&!receipt)throw new Error('Сервер не подтвердил связь отмены');
+   const receipt=payload.resourceReceipt;if((command.targetMutationId||['health','cast','charges','note'].includes(command.resource.kind))&&!receipt)throw new Error('Сервер не подтвердил операцию очереди');
    const verified=receipt&&receipt.mutationId===command.mutationId&&sameContext(receipt.context,command.context)&&JSON.stringify(receipt.resource)===JSON.stringify(command.resource)&&receipt.before===command.before&&receipt.maximum===command.maximum&&receipt.delta===command.delta&&receipt.targetMutationId===command.targetMutationId&&Number.isSafeInteger(receipt.revision)&&receipt.revision>command.expectedRevision&&payload.revision>=receipt.revision;
    if(receipt&&!verified)throw new Error('Подтверждение относится к другой операции. Очередь сохранена');
    if(!sameContext(command.context,payload.context)||(!verified&&payload.revision!==command.expectedRevision+1))throw new Error('После отправки игра изменилась. Очередь сохранена для сверки');
@@ -115,6 +121,10 @@ const SkazResourceQueue = (() => {
      throw Error('Неверная квитанция сотворения');
     const record=r.operation==='restore'?r.receipt.record:receipt.casting?.record;
     if(record&&!SkazCasting.confirmsManualNote(actual,record,r.operation==='cast'))throw Error('Сервер не подтвердил ручную запись');
+   }
+   if(command.resource.kind==='note'){
+    const note=actual.state.notes?.[command.before],wanted=expected.state.notes[command.before];
+    if(!note||Object.keys(note).length!==Object.keys(wanted).length||Object.keys(wanted).some(key=>note[key]!==wanted[key]))throw new Error('Сервер не подтвердил личную заметку');
    }
    if(command.resource.kind==='charges'&&receipt){
     const {catalogId,unit}=command.resource;

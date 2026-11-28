@@ -29,6 +29,7 @@ export function inverseResource(db,current,target){
  const row=db.prepare('SELECT r.*,c.revision FROM resource_changes r JOIN changes c ON c.mutation_id=r.mutation_id WHERE r.mutation_id=?').get(target);
  if(!row)throw new AppError(404,'Операция ресурса не найдена');
  const value=JSON.parse(row.data_json);
+ if(value.resource.kind==='note')throw new AppError(409,'Личная заметка не отменяется из истории ресурсов');
  if(Object.keys(current.context).some(k=>current.context[k]!==value.context[k]))throw new AppError(409,'Отмена относится к другой игре или сессии');
  if(row.undo_target||db.prepare('SELECT 1 FROM resource_changes WHERE undo_target=?').get(target))throw new AppError(409,'Эта операция уже отменена или сама является отменой');
  // Unknown/absolute operations are a barrier. Never reinterpret an older balance
@@ -64,7 +65,8 @@ export function historyDetail(db,row,current){
  const changes=[];
  if(resource){
   const r=JSON.parse(resource.data_json);
-  if(r.resource.kind==='cast'){
+  if(r.resource.kind==='note'){changes.push({resource:{kind:'note'},before:r.before,after:r.after});}
+  else if(r.resource.kind==='cast'){
    const c=r.casting||r.resource.receipt,undo=r.resource.operation==='restore';
    if(c.record)changes.push({resource:{kind:'manualCast'},record:c.record,undone:undo});
    else if(c.cost)changes.push({resource:c.cost,before:undo?c.after:c.before,after:undo?c.before:c.after});

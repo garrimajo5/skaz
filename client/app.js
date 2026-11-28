@@ -253,7 +253,7 @@ function quickPanel(){
   ?SkazPlayPresentation.historyButton('play-health-history'):'';
  const question=concentrationQuestion();
  const concentration=`<div class="quick-concentration-row ${question?'concentration-pending':''}">${state.concentration?`<span class="quick-concentration" title="Концентрация: ${esc(state.concentration)}"><span data-ui-icon="focus"></span> ${esc(state.concentration)}</span><button id="quick-end-concentration" data-concentration="${esc(state.concentration)}" data-snapshot="${esc(SkazStorage.snapshotKey())}" aria-label="Завершить концентрацию: ${esc(state.concentration)}" ${SkazStorage.editable()?'':'disabled'}>Снять</button>`:'<span class="quick-concentration">Без концентрации</span>'}${question}</div>`;
- return `${question?concentration:''}${healthVitals()}${history}<div class="quick-resources" tabindex="0" aria-label="Ресурсы: нажми заполненную — потратить, пустую — вернуть">${resourceControls()}</div>${charges}${question?'':concentration}${conditionChips()}<div class="quick-extras"><button id="quick-conditions" aria-label="Изменить состояния персонажа" ${SkazStorage.editable()?'':'disabled'}>Состояния</button><button id="rest" class="secondary"><span data-ui-icon="rest"></span> Отдых</button><button id="quick-note" aria-label="Быстрая личная заметка" ${SkazStorage.editable()?'':'disabled'}><span data-ui-icon="note"></span> Заметка</button></div>`;}
+ return `${question?concentration:''}${healthVitals()}${history}<div class="quick-resources" tabindex="0" aria-label="Ресурсы: нажми заполненную — потратить, пустую — вернуть">${resourceControls()}</div>${charges}${question?'':concentration}${conditionChips()}<div class="quick-extras"><button id="quick-conditions" aria-label="Изменить состояния персонажа" ${SkazStorage.editable()?'':'disabled'}>Состояния</button><button id="rest" class="secondary"><span data-ui-icon="rest"></span> Отдых</button><button id="quick-note" aria-label="Быстрая личная заметка"><span data-ui-icon="note"></span> Заметка</button></div>`;}
 function revealBottomNavButton(nav, button) {
  if(!button || !nav.clientWidth || nav.scrollWidth <= nav.clientWidth || !button.getClientRects().length) return;
  const left = nav.getBoundingClientRect().left + nav.clientLeft;
@@ -648,8 +648,8 @@ function toast(text,undo,{error=false,persistent=false}={}){
   hide();
  },undo?12000:5000);
 }
-function canChange(){
- if(SkazStorage.editable())return true;
+function canChange(allowed=SkazStorage.editable()){
+ if(allowed)return true;
  const message='Сначала обнови игру или заверши сохранение. Введённые данные остаются в форме.';
  if($('#dialog').open){
   let warning=document.getElementById('blocked-form-message');
@@ -740,9 +740,31 @@ function endConcentration(expected,key){
  return change('Концентрация завершена: '+expected,()=>{state.concentration=null;});
 }
 function quickNote(){
- const key=SkazStorage.snapshotKey();let submitted=false;
+ const queued=location.protocol!=='file:'&&typeof SkazStorage.resourceDelta==='function';
+ const noteContext=()=>queued
+  ?JSON.stringify([SkazStorage.contextKey(),typeof SkazAccount==='undefined'?null:SkazAccount.userId])
+  :SkazStorage.snapshotKey();
+ const key=noteContext();
+ let submitted=false;
  modal('<section class="quick-note-entry"><h2>Личная заметка</h2><label for="quick-note-body">Что запомнить</label><textarea id="quick-note-body" maxlength="2000" placeholder="Enter — сохранить, Shift+Enter — новая строка"></textarea><p class="small">Запись сохранится в личных заметках героя. Общий журнал не меняется.</p><button id="quick-note-save" class="primary">Сохранить заметку</button></section>');
- const submit=()=>{if(submitted)return;if(key!==SkazStorage.snapshotKey())return toast('Игра изменилась. Скопируй текст и открой заметку заново.');const text=$('#quick-note-body').value.trim();if(!text)return toast('Напиши текст заметки');if(text.length>2000)return toast('Не больше 2000 символов');if(!canChange())return;submitted=true;closeModal();return change('Личная заметка сохранена',()=>state.notes.push({title:'Моя заметка',text,at:Date.now(),time:new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'})}));};
+ const submit=()=>{
+  if(submitted)return;
+  if(key!==noteContext())return toast('Игра изменилась. Скопируй текст и открой заметку заново.');
+  const text=$('#quick-note-body').value.trim();
+  if(!text)return toast('Напиши текст заметки');
+  if(!canChange(queued?SkazStorage.canResource():SkazStorage.editable()))return;
+  const now=new Date();
+  try{
+   const note=SkazPersonalNote.entry({text,at:now.getTime(),time:now.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit',hourCycle:'h23'})});
+   if(queued)SkazStorage.resourceDelta({kind:'note',text:note.text,at:note.at,time:note.time},1,SkazStorage.snapshotKey());
+   submitted=true;
+   closeModal();
+   if(queued)return toast('Личная заметка в очереди');
+   return change('Личная заметка сохранена',()=>state.notes.push(note));
+  }catch(error){
+   toast(error.message,undefined,{error:true,persistent:true});
+  }
+ };
  $('#quick-note-save').onclick=submit;$('#quick-note-body').onkeydown=event=>{if(event.key==='Enter'&&!event.shiftKey&&!event.isComposing){event.preventDefault();return submit();}};$('#quick-note-body').focus();
 }
 function addNote(map=false){

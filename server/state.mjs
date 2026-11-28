@@ -1,6 +1,7 @@
 import Health from '../client/health.js';
 import Conditions from '../client/conditions.js';
 import Casting from '../client/casting.js';
+import PersonalNote from '../client/personal-note.js';
 export const seed = {
   hp: 28, maxHp: 38, gold: 124, slots: { 1: 3, 2: 2, 3: 1 }, inspiration: 3,
   accepted: [], dismissed: [], journal: [], notes: [], mapNotes: [], checks: {},
@@ -48,7 +49,7 @@ export function validateState(input) {
   }
   if (input.accepted.some(id => input.dismissed.includes(id))) fail('Событие не может быть одновременно принято и пропущено');
   for (const field of ['journal', 'notes']) {
-    list(input[field], 2000, field);
+    list(input[field], field === 'notes' ? PersonalNote.maxCount : 2000, field);
     const manualIds = new Set();
     for (const entry of input[field]) {
       keys(entry, ['title', 'text', 'kind', 'at', 'time'], field);
