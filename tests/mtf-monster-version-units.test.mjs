@@ -36,3 +36,34 @@ test('an empty CLI pair cannot silently select the default report',()=>{
  const result=spawnSync(process.execPath,[fileURLToPath(new URL('../scripts/review-monster-version-units-2014.mjs',import.meta.url)),'--pair='],{encoding:'utf8'});
  assert.equal(result.status,1);assert.match(result.stderr,/Unsupported publication pair/);
 });
+
+test('publisher Tortle index evidence separates the package from the MToF hypotheses', () => {
+  const preview = JSON.parse(readFileSync(new URL('../catalog/tortle-bestiary-preview-2014.json',import.meta.url)));
+  const {records} = JSON.parse(readFileSync(new URL('../catalog/scope-register-2014.json',import.meta.url)));
+  const byId = new Map(records.map(record => [record.id,record]));
+  assert.match(preview.source.sha256,/^[a-f0-9]{64}$/);
+  assert.equal(preview.rows.length,4);
+  assert.equal(new Set(preview.rows.map(row=>row.cardUrl)).size,4);
+  assert.deepEqual(preview.rows.map(row=>[row.name,row.challenge,row.displayedSubtype,row.alignment]),[
+    ['Tortle','1/4','tortle','Lawful Good'],
+    ['Tortle','1/4',null,'Any Alignment'],
+    ['Tortle Druid','2','tortle','Lawful Neutral'],
+    ['Tortle Druid','2',null,'Any Alignment'],
+  ]);
+  for (const row of preview.rows) {
+    assert.equal(row.displayedType,'Humanoid');
+    assert.equal(row.size,'Medium');
+    if (row.publication==='The Tortle Package') {
+      assert.equal(row.observationId,null);
+      assert.deepEqual(byId.get(row.unverifiedMtofCounterpart).sourceIds,['113']);
+    } else {
+      assert.equal(row.unverifiedMtofCounterpart,null);
+      assert.deepEqual(byId.get(row.observationId).sourceIds,['158']);
+    }
+  }
+  assert.equal(preview.fullStatBlockVerified,false);
+  assert.equal(preview.packageAndMtofEquivalenceVerified,false);
+  assert.equal(preview.accepted,false);
+  assert.equal(preview.automaticMerge,false);
+  assert.equal(preview.approvedDenominator,null);
+});
