@@ -120,7 +120,21 @@ body[data-page="play"] .play-session {
   font: inherit;
   text-align: end;
 }
-.play-hp-summary progress { display: block; accent-color: var(--accent); width: min(100%, 110px); height: 7px; }
+.play-hp-summary progress { display: block; accent-color: var(--green); width: min(100%, 110px); height: 7px; }
+@media (forced-colors: none) {
+  .play-hp-summary progress {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    border-radius: var(--radius-l);
+    padding-block: 1px;
+    background: var(--line) content-box;
+    overflow: hidden;
+  }
+  .play-hp-summary progress::-webkit-progress-bar { background: transparent; }
+  .play-hp-summary progress::-webkit-progress-value { background: var(--green); }
+  .play-hp-summary progress::-moz-progress-bar { background: var(--green); }
+}
 .play-effects > div { display: flex; flex-wrap: wrap; gap: 4px; }
 .play-effects > div > span {
   display: inline-flex;
@@ -1105,11 +1119,28 @@ body[data-theme="polar"] .play-effects {
   .play-actor-tools #play-next-round { grid-column: 4; margin-inline: 2px; }
 }
 #play-battle-toggle {
+  display: inline-flex;
   flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
   min-inline-size: 10.5em;
   min-block-size: var(--touch, 44px);
-  background: var(--workspace-play-damage-bg, var(--panel));
+  padding-inline: 0.5em;
+  border-color: color-mix(in srgb, var(--red) 68%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--red) 15%, var(--workspace-heading-bg, var(--panel)));
 }
+#play-battle-toggle::before {
+  box-sizing: border-box;
+  content: '';
+  flex: none;
+  inline-size: 8px;
+  block-size: 8px;
+  border: 1px solid var(--red);
+  border-radius: 50%;
+}
+#play-battle-toggle[aria-pressed="true"]::before { border-width: 4px; }
 #play-next-round { margin-inline-start: auto; font-size: var(--ui-small); }
 .play-summon-list { display: flex; flex-wrap: wrap; gap: 6px; margin-block: 10px; }
 .play-summon-list button { min-block-size: var(--touch, 44px); }
