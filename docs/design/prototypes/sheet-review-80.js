@@ -3,12 +3,14 @@
 
 /** Numeric input is text until reviewed: blank is not zero, null is explicit unknown.
  * @typedef {{key: string, label: string, value: number|null, min?: number, max?: number|null, sourceField?: string, hint?: string}} FieldDefinition
- * @typedef {FieldDefinition & {input: HTMLInputElement, status: HTMLParagraphElement, unknownBox: HTMLInputElement, agreement: HTMLLabelElement, agreementBox: HTMLInputElement, changed: boolean, edited: boolean, leaveUnknown: boolean, agreedValue: string|null, valid?: boolean}} ReviewField
+ * @typedef {{total: number|null, expended: number|null}} SlotEvidence
+ * @typedef {{operation: 'total-minus-expended', total: number, expended: number}} SlotDerivation
+ * @typedef {FieldDefinition & {derivation: SlotDerivation|null, input: HTMLInputElement, status: HTMLParagraphElement, unknownBox: HTMLInputElement, agreement: HTMLLabelElement, agreementBox: HTMLInputElement, changed: boolean, edited: boolean, leaveUnknown: boolean, agreedValue: string|null, valid?: boolean}} ReviewField
  * @typedef {{kind: string, page: number, file: string}} PageAsset
  * @typedef {{field: string, page: number, box: [number, number, number, number]}} SourceRegion
- * @typedef {{id: string, assets: PageAsset[], regions: SourceRegion[], sourceReview?: 'labels-outside-frame', unassignedTokens?: string[]}} Scenario
+ * @typedef {{id: string, assets: PageAsset[], regions: SourceRegion[], sourceReview?: 'labels-outside-frame', unassignedTokens?: string[], slotEvidence?: SlotEvidence}} Scenario
  * @typedef {{cases: Scenario[], extraCases?: Scenario[]}} Manifest
- * @typedef {{fieldId: string, value: number, selection: 'confirmed', provenance: 'ocr-confirmed'} | {fieldId: string, value: number, selection: 'corrected', provenance: 'manual-correction'} | {fieldId: string, value: null, selection: 'left-unknown', provenance: 'manual-unknown'}} ConfirmedField
+ * @typedef {{fieldId: string, value: number, selection: 'confirmed', provenance: 'ocr-confirmed'} | {fieldId: string, value: number, selection: 'corrected', provenance: 'manual-correction'} | {fieldId: string, value: null, selection: 'left-unknown', provenance: 'manual-unknown'} | {fieldId: string, value: number, selection: 'confirmed', provenance: 'derived-confirmed', derivation: SlotDerivation}} ConfirmedField
  * @typedef {{rowId: string, name: string, source: 'wizard'|'warlock'|null, location: 'book'|'prepared'|'known'|null}} SpellReviewRow
  * @typedef {{fieldId: 'spells', value: null, selection: 'left-unknown', provenance: 'manual-unknown'} | {fieldId: 'spells', value: {coverage: 'partial'|'complete', rows: SpellReviewRow[]}, selection: 'corrected', provenance: 'manual-correction'}} SpellListSelection
  * @typedef {{readonly values: ReadonlyArray<Readonly<ConfirmedField>>, readonly spells?: SpellListSelection}} ReviewConfirmation
@@ -74,8 +76,45 @@ const definitions={
  'ambiguous-dex':[{key:'dex',label:'Ловкость',value:null,min:1,max:30,hint:'На исходнике число неоднозначно. Модификатор +1 не выбирает значение за вас.'}],
  'zero-charges':[{key:'charges',label:'Осталось зарядов из 7',value:0,max:7},{key:'quantity',label:'Количество зелий',value:null,max:999}],
  'multiclass-pact':[{key:'level.wizard',sourceField:'classes',label:'Волшебник — уровень',value:3,min:1,max:20},{key:'level.warlock',sourceField:'classes',label:'Колдун — уровень',value:2,min:1,max:20},{key:'totalLevel',label:'Общий уровень — ручной итог',value:5,min:1,max:20},{key:'spellcasting.1',sourceField:'resourceGroups.0',label:'Spellcasting — ячеек 1-го круга',value:4},{key:'spellcasting.2',sourceField:'resourceGroups.0',label:'Spellcasting — ячеек 2-го круга',value:2},{key:'pact.1',sourceField:'resourceGroups.1',label:'Pact Magic — ячеек 1-го круга',value:2}],
+ 'expended-slots':[{key:'spellcasting.1.remaining',sourceField:'slots.printed',label:'Осталось ячеек 1-го круга',value:null}],
  'conflicting-pages':[{key:'classLevel',label:'Уровень барда',value:null,min:1,max:20,hint:'Страница 1: 5. Страница 2: 4. Уточните актуальное значение.'},{key:'hpMax',label:'Максимум хитов',value:null,min:1,max:999,hint:'Страница 1: 33. Страница 2: 27. Ни одна страница не выбирается автоматически.'}]
 };
+/** @param {SlotEvidence} evidence @returns {SlotDerivation|null} */
+function slotDerivation({total,expended}){
+ if(typeof total!=='number'||typeof expended!=='number'||!Number.isSafeInteger(total)||
+  !Number.isSafeInteger(expended)||expended<0||total<expended)return null;
+ return {operation:'total-minus-expended',total,expended};
+}
+/** @param {SlotEvidence} evidence */
+function printedSlots(evidence){return 'Всего '+(evidence.total??'неизвестно')+' (SLOTS TOTAL), потрачено '+(evidence.expended??'неизвестно')+' (SLOTS EXPENDED).';}
+/** @param {ReviewField} field @param {SlotEvidence} evidence */
+function slotSource(field,evidence){
+ const region=document.createElement('div');
+ const printed=document.createElement('p');
+ printed.textContent=printedSlots(evidence);
+ const candidate=slotDerivation(evidence);
+ const status=document.createElement('p');
+ region.append(printed,status);
+ if(!candidate){
+  status.textContent='Остаток требует сверки. Введите его вручную или оставьте неизвестным.';
+  return region;
+ }
+ const remaining=candidate.total-candidate.expended;
+ status.textContent='Предложенный остаток: '+candidate.total+' − '+candidate.expended+' = '+remaining+'.';
+ const choose=document.createElement('button');
+ choose.id='use-slot-remainder';
+ choose.type='button';
+ choose.textContent='Подставить остаток '+remaining;
+ choose.onclick=()=>{
+  field.input.value=String(remaining);
+  field.leaveUnknown=false;
+  field.derivation=candidate;
+  changed(field);
+  field.input.focus();
+ };
+ region.append(choose);
+ return region;
+}
 /** @param {HTMLSelectElement} select */
 function options(select){select.replaceChildren();const pages=current.assets.filter(a=>a.kind==='png');for(const a of pages){const o=document.createElement('option');o.value=String(a.page);o.textContent='Страница '+a.page;select.append(o);}}
 /** @param {string} raw @param {number} min @param {number|null|undefined} max */
@@ -168,6 +207,7 @@ function update(){
   if(f.agreedValue&&!agreementApplies(f))f.agreedValue=null;
   if(!valid)missing++;
   f.status.textContent=unknown?'Оставлено неизвестным вами. Это не ноль.':raw===''?'Не указано — введите значение или выберите «Оставить неизвестным»':valid?(f.edited?'Исправлено вами':'Значение из сценария — сверьте'):'Введите неотрицательное целое число без дробной части';
+  if(f.derivation&&!unknown&&valid)f.status.textContent='Выбран вычисленный остаток.';
   const warning=!unknown&&assessment.warning;
   if(warning)f.status.textContent='Предупреждение: значение выходит за ожидаемый диапазон '+(f.min??0)+'–'+(f.max??'неизвестно')+'. Можно подтвердить вручную.';
   if(warning&&agreementApplies(f))f.status.textContent='Согласовано с мастером для этого значения. Ожидаемый диапазон: '+(f.min??0)+'–'+f.max+'.';
@@ -188,7 +228,7 @@ function update(){
  const spellReview=$('spell-review');
  if(spellReview&&!spellReview.hidden&&!updateSpellReview())missing++;
  const unknown=fields.filter(f=>f.leaveUnknown).length;
- $('summary').textContent=missing?`Нужно уточнить полей: ${missing}`:`Все поля сверены или явно оставлены неизвестными (${unknown}); подтвердите сверку.`;
+ $('summary').textContent=confirmation?'Сверка подтверждена.':missing?`Нужно уточнить полей: ${missing}`:`Все поля сверены или явно оставлены неизвестными (${unknown}); подтвердите сверку.`;
  $('apply').disabled=fields.length===0||missing>0||!$('confirmed').checked||confirmation!==null;
 }
 /** Every user edit invalidates the whole confirmation without rebuilding fields or moving focus. */
@@ -209,6 +249,7 @@ function reviewedSelection(){
   const value=selectedValue(f);
   if(value===undefined)return null;
   if(value===null)values.push({fieldId:f.key,value:null,selection:'left-unknown',provenance:'manual-unknown'});
+  else if(f.derivation)values.push({fieldId:f.key,value,selection:'confirmed',provenance:'derived-confirmed',derivation:{...f.derivation}});
   else if(f.edited)values.push({fieldId:f.key,value,selection:'corrected',provenance:'manual-correction'});
   else values.push({fieldId:f.key,value,selection:'confirmed',provenance:'ocr-confirmed'});
  }
@@ -240,13 +281,15 @@ function load(){
   const agreement=document.createElement('label');agreement.className='choice';
   const agreementBox=document.createElement('input');agreementBox.type='checkbox';
   agreement.append(agreementBox,document.createTextNode('Согласовано с мастером (необязательно)'));
+  const slotEvidence=def.key==='spellcasting.1.remaining'?current.slotEvidence:undefined;
   /** @type {ReviewField} */
-  const f={...def,input,status,unknownBox,agreement,agreementBox,changed:false,edited:false,leaveUnknown:false,agreedValue:null};
+  const f={...def,...(slotEvidence?{max:slotEvidence.total}:{}),derivation:null,input,status,unknownBox,agreement,agreementBox,changed:false,edited:false,leaveUnknown:false,agreedValue:null};
   unknownBox.onchange=()=>{f.leaveUnknown=unknownBox.checked;changed(f);};
-  input.oninput=()=>{f.edited=true;changed(f);};
+  input.oninput=()=>{f.edited=true;f.derivation=null;changed(f);};
   agreementBox.onchange=()=>{f.agreedValue=agreementBox.checked?agreementKey(f):null;f.changed=true;invalidateConfirmation();update();};
   const source=document.createElement('button');source.type='button';source.className='source-button';
   source.textContent='Показать источник: '+f.label;source.onclick=()=>openSource(f);
+  if(slotEvidence)wrap.append(slotSource(f,slotEvidence));
   wrap.append(label,input,status);
   if(f.hint){const hint=document.createElement('p');hint.textContent=f.hint;wrap.append(hint);}
   wrap.append(unknown,agreement,source);$('fields').append(wrap);fields.push(f);
@@ -280,7 +323,7 @@ async function drawCrop(){
   image.src='../fixtures/sheet-visual/'+asset.file;
   await image.decode();
   if(token!==cropRequest)return;
-  const [x,y,w,h]=region?[region.box[0]-20,region.box[1]-30,region.box[2]+40,100]:
+  const [x,y,w,h]=region?[region.box[0]-20,region.box[1]-30,region.box[2]+40,Math.max(100,region.box[3]+40)]:
    [0,0,image.naturalWidth,image.naturalHeight];
   const scale=Math.min(720/w,(region?150:480)/h);
   canvas.width=region?720:Math.ceil(w*scale);
@@ -294,7 +337,7 @@ async function drawCrop(){
   if(showWhole){
    const tokens=current.unassignedTokens?.join(', ');
    status.textContent=(tokens?'Видимые числа: '+tokens+'. ':'')+'Подписи срезаны. Поле по этому снимку определить нельзя.';
-  }else status.textContent='Источник: страница '+page;
+  }else status.textContent='Источник: страница '+page+(current.slotEvidence?' · '+printedSlots(current.slotEvidence):'');
  }catch{
   if(token===cropRequest)status.textContent='Не удалось показать фрагмент. Закрой его и открой источник ещё раз.';
  }
@@ -339,6 +382,7 @@ $('review').onsubmit=e=>{
  confirmation=reviewedSelection();if(!confirmation)return;
  $('result').textContent='Пример подтверждён. Профиль в СКАЗ не создавался. '+confirmation.values.map((choice,i)=>
   fields[i].label+': '+(choice.value===null?'неизвестно (оставлено вами)':String(choice.value))+
+  (choice.provenance==='derived-confirmed'?' (вычислено по общему числу и расходу)':'')+
   (agreementApplies(fields[i])?' (согласовано с мастером)':'')
  ).join('; ')+(classAgreement?' Общий уровень согласован с мастером для выбранных классовых уровней.':'');
  if(confirmation.spells)$('result').textContent+=' '+spellListSummary(confirmation.spells);
