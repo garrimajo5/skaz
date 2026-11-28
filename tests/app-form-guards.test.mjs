@@ -193,6 +193,33 @@ test('the Magic deep link renders the character workspace and saved spellbook',(
  assert.equal(h.writes.length,0);
 });
 
+test('workspace headings reserve actions for battle and returning to the game',()=>{
+ const h=harness();
+ h.run("globalThis.SkazMap={view:()=>'<section>Места</section>'}; globalThis.SkazCatalog={view:()=>'<section>Каталог</section>'}; SkazStorage.inventory=()=>{};");
+ const cases=[
+  ...['hero','spells','journal','inventory','quests','map','library'].map(route=>({route,buttons:[]})),
+  {route:'play',buttons:['Начать бой']},
+  {route:'campaign',buttons:['Вернуться в игру']},
+ ];
+ for(const {route,buttons} of cases){
+  let markup;
+  if(route==='campaign'){
+   markup=h.run("SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Кампания',returnToGame:true,content:''})");
+  }else{
+   h.run("page='"+route+"';render()");
+   markup=h.get('#main').innerHTML;
+  }
+  const headingStart=markup.indexOf('class="play-heading"');
+  const stripStart=markup.indexOf('class="play-actor-strip"');
+  assert.ok(headingStart>=0&&stripStart>headingStart,route);
+  const heading=markup.slice(headingStart,stripStart);
+  assert.deepEqual([...heading.matchAll(/<button\b[^>]*>([^<]+)<\/button>/g)].map(button=>button[1]),buttons,route);
+  assert.equal((heading.match(/<button\b/g)||[]).length,buttons.length,route);
+  assert.doesNotMatch(heading,/<a\b|<input\b|<select\b|<textarea\b|<summary\b/,route);
+ }
+ assert.equal(h.writes.length,0);
+});
+
 test('character and journal commands use the same toolbar before the page content',()=>{
  const h=harness();
  for(const [route,command] of [['hero','edit-profile'],['journal','add-note']]){
