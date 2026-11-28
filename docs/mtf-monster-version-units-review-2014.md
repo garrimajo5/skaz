@@ -73,12 +73,29 @@ The Tortle Package и Monsters of the Multiverse показывают одина
 | Tortle Druid, CR 2 | [36903](https://www.dndbeyond.com/monsters/36903-tortle-druid) · Humanoid (tortle), законно-нейтральное | [2560941](https://www.dndbeyond.com/monsters/2560941-tortle-druid) · Humanoid, любое |
 
 У dnd.su 7048/7049 указан исходный MotM (источник 158). Наблюдения
-4906/4907 относятся к Mordenkainen’s Tome of Foes (113). Они остаются
-отдельными от цифровых карточек The Tortle Package, пока не установлена
-точная связь публикаций. В индексе слово Tortle также встречается в
-материалах создания персонажа. Путь /monsters и собственное издание
-позволяют разделить категории. [Срез метаданных](../catalog/tortle-bestiary-preview-2014.json).
+4906/4907 относятся к Mordenkainen’s Tome of Foes (113). Сопоставление
+их текста с The Tortle Package остаётся открытым. Путь /monsters и
+собственное издание помогают отличить существо от одноимённого варианта
+создания персонажа. [Срез метаданных](../catalog/tortle-bestiary-preview-2014.json).
 
-Ссылки конкретных карточек в проверенном доступе ведут в магазин. Полные
-статблоки, версии печати и права на текст ждут отдельной проверки.
-Этот срез не меняет число записей и не предлагает автоматическое слияние.
+### Связь двух цифровых публикаций
+
+В [указателе MToF](https://www.dndbeyond.com/sources/dnd/mtof) есть два
+точных заголовка бестиария. «Tortle» ведёт к [#Tortle](https://www.dndbeyond.com/sources/mtof/bestiary#Tortle),
+«Tortle Druid» — к [#TortleDruid](https://www.dndbeyond.com/sources/mtof/bestiary#TortleDruid).
+В интервью Джереми Кроуфорд подтвердил появление Tortles сначала в
+The Tortle Package и затем в MToF. Интервью говорит о Tortles в целом.
+[Интервью издателя](https://www.dndbeyond.com/posts/227-meet-the-giff-in-mordenkainens-tome-of-foes).
+
+В сохранённом HTML выбрана ровно одна книга в `select#filter-source`.
+Оба фильтра показали строки 36902 и 36903 с подписью The Tortle Package
+у каждой строки. Значения фильтров D&D Beyond и ID источников dnd.su
+принадлежат разным справочникам. [Фильтр The Tortle Package (28)](https://www.dndbeyond.com/monsters?filter-search=tortle&filter-source=28) · [Фильтр MToF (33)](https://www.dndbeyond.com/monsters?filter-search=tortle&filter-source=33).
+
+Таким образом, цифровой указатель D&D Beyond использует те же две карточки
+для обоих фильтров. Ссылки точных статблоков MToF переадресуют на страницу
+Legacy Content, а отдельные карточки ведут в магазин. Для сравнения
+4906/4907 с The Tortle Package нужны полные допустимые первичные
+статблоки обеих публикаций. Совпадение цифровых карточек отдельно
+фиксируется в реестре, без принятия канонической версии, подсчёта покрытия
+или разрешения переиздать текст.
