@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "status": "public-source-evidence",
+  "acceptedForRuntime": false,
+  "inputSha256": {
+    "catalog/srd51-travel-items.json": "aa7a53c2cd600b42ac8277c1146f06d3f80a7aa9fe82509d914ee0f75de7239d",
+    "catalog/srd51-wands.json": "81dbc464f167f1aeada881394832341818ae062f85ab45e9042b10d8175f5fae",
+    "catalog/artificer-errata-scopes-2014.json": "fe1bdeaeee905651e8ddd60199d315ad090bde9aa23746d516f11da673f2c026"
+  },
+  "wandOfSecrets": {
+    "id": "srd51:2014:item:wand-of-secrets",
+    "source": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=249",
+      "pdfSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "startHeading": "Wand of Secrets",
+      "nextHeading": "Wand of the War Mage",
+      "normalizedSectionSha256": "b4ea6b92e2383b036c77f0d785655f1e8d7afb3e01d6a036e80f10dba5e04cb8"
+    },
+    "activation": {
+      "holding": true,
+      "economy": "action",
+      "charges": 1,
+      "radiusFt": 30,
+      "revealsNearest": [
+        "secret-door",
+        "trap"
+      ],
+      "chargesStillSpentWithoutTarget": true
+    },
+    "recovery": {
+      "trigger": "dawn",
+      "dice": "1d3",
+      "expendedOnly": true
+    },
+    "lastChargeDestructionClause": false
+  },
+  "bagOfHolding": {
+    "id": "srd51:2014:item:bag-of-holding",
+    "source": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=210",
+      "pdfSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "startHeading": "Bag of Holding",
+      "nextHeading": "Bag of Tricks",
+      "normalizedSectionSha256": "42ecbc460b9e400e96638b8fe0193db19ee84b0983c8d5345d31aa86ffd4f59f"
+    },
+    "capacity": {
+      "pounds": 500,
+      "cubicFeet": 64,
+      "itemWeightPounds": 15
+    },
+    "retrieveEconomy": "action",
+    "breathing": {
+      "minutesDividedByCreatures": 10,
+      "minimumMinutes": 1,
+      "after": "suffocation"
+    },
+    "events": [
+      {
+        "trigger": [
+          "overload",
+          "piercing",
+          "tearing"
+        ],
+        "bag": "destroyed",
+        "contents": "scattered-in-astral-plane"
+      },
+      {
+        "trigger": "turn-inside-out",
+        "bag": "right-before-reuse",
+        "contents": "spill-out-unharmed"
+      },
+      {
+        "trigger": "place-bag-inside-comparable-extradimensional-space",
+        "itemsDestroyed": 2,
+        "creatureRadiusFt": 10,
+        "creatures": "random-astral-destination",
+        "gate": "one-way-then-closes",
+        "looseContentsOutcome": null
+      },
+      {
+        "trigger": "infusion-ends-on-container",
+        "source": {
+          "url": "https://media.wizards.com/2020/dnd/downloads/ERftLW-Errata.pdf#page=1",
+          "pdfSha256": "94f194059290862f626f883fac83866e665655c7b4987405e17d71a9d4b4026d",
+          "startHeading": "Infusing an Item (p. 57).",
+          "nextHeading": "The Right Tool for the Job (p. 57).",
+          "normalizedSectionSha256": "45c9d1d6b178385239e7955116194764bca7a8e93823c8dd0d85a22926c4ce83"
+        },
+        "bookSourceId": "119",
+        "contents": "appear-unharmed-in-and-around-container-space"
+      }
+    ]
+  }
+}

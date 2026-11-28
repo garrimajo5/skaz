@@ -7,6 +7,24 @@ import { randomUUID } from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
 import { openStore } from '../server/store.mjs';
 import { createApp } from '../server/app.mjs';
+import chargeRules from '../client/item-charges.js';
+
+test('Wand of Secrets can record a confirmed spend and recover only expended charges',()=>{
+ const {wandOfSecrets:rule}=JSON.parse(readFileSync(new URL('../catalog/wand-bag-rule-evidence-2014.json',import.meta.url),'utf8'));
+ const {entries}=JSON.parse(readFileSync(new URL('../catalog/srd51-wands.json',import.meta.url),'utf8'));
+ const entry=entries.find(item=>item.id===rule.id);
+ const item={entry,quantity:1};
+ const balance=value=>chargeRules.balance({...item,chargeCounts:[value]},0);
+ const unknown=balance(null);
+ assert.deepEqual(unknown,{value:null,maximum:3});
+ assert.deepEqual(chargeRules.project(unknown,'spend',rule.activation.charges),{error:'unknown'});
+ assert.deepEqual(chargeRules.project(unknown,'recover',1),{error:'unknown'});
+ assert.deepEqual(chargeRules.project(balance(1),'spend',rule.activation.charges),{next:0,warning:null});
+ const current=balance(2);
+ const expended=Math.min(3,current.maximum-current.value);
+ assert.deepEqual(chargeRules.project(current,'recover',expended),{next:3,warning:null});
+ assert.deepEqual(chargeRules.project(current,'set',4),{next:4,warning:{actual:4,maximum:3}});
+});
 const entry=JSON.parse(readFileSync(new URL('../catalog/srd51-wands.json',import.meta.url),'utf8')).entries[0];
 // The independent fixture deliberately has no links; linked-source transfer is covered elsewhere.
 const fixture={...entry,links:[]};
