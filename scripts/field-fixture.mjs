@@ -1,8 +1,11 @@
 import {openStore} from '../server/store.mjs';
 import {bundledCatalog} from '../server/bundled-catalog.mjs';
 import {randomUUID} from 'node:crypto';
+import {writeFileSync} from 'node:fs';
+import {pathToFileURL} from 'node:url';
+import {parseArgs} from 'node:util';
 
-// Fixed synthetic dataset in RAM only. No file/database/network options.
+// Fixed synthetic dataset in RAM only. No database or network options.
 // Load test coverage is not a legal class build or physical-device acceptance.
 export function createFieldFixture() {
  const store=openStore(':memory:');
@@ -35,4 +38,23 @@ export function createManualFieldFixture() {
   store.saveCharacterSheet({mutationId:randomUUID(),expectedRevision:current.revision,characterId:current.context.characterId,sheet:{ruleset:'5e-2014',ancestry:'',className:'Тестовый воин',subclass:'',level:5,counters:[{id:'qa-manual-counter',name:'Ручной тестовый ресурс',current:2,max:3}]}});
   return store;
  }catch(error){store.close();throw error;}
+}
+
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const {values: {output, manual}} = parseArgs({
+    options: {output: {type: 'string'}, manual: {type: 'boolean'}},
+  });
+  if (!output?.toLowerCase().endsWith('.json')) {
+    console.error('Использование: node scripts/field-fixture.mjs --output <новый файл.json> [--manual]');
+    process.exitCode = 1;
+  } else {
+    const store = manual ? createManualFieldFixture() : createFieldFixture();
+    try {
+      const snapshot = JSON.stringify(store.exportActive(15));
+      writeFileSync(output, snapshot + '\n', {encoding: 'utf8', flag: 'wx'});
+    } finally {
+      store.close();
+    }
+  }
 }
