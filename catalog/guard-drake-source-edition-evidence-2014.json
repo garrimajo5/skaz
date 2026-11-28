@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-28",
+  "rulesetTarget": "5e-2014",
+  "sources": {
+    "rot-toc.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/rot",
+      "bytes": 239999,
+      "sha256": "ed028d0d281acd09de0f5b2d07b44d5cbd6f7932bbe41828ac2b5416bcf84254"
+    },
+    "rot-supplement.pdf": {
+      "url": "https://media.wizards.com/2014/downloads/dnd/RiseTiamatSupplement.pdf",
+      "bytes": 1105040,
+      "sha256": "d0a2214144644ef6d32bba86ac14b35325993904de6cb89092e1d00c5b3fe161"
+    },
+    "tod-toc.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/tod",
+      "bytes": 249755,
+      "sha256": "2cf2da55174a68e5d6effef9932c35cdf36b2f49e3fad694bd5c07e61a58b476"
+    },
+    "tod-errata.pdf": {
+      "url": "https://media.dndbeyond.com/compendium-images/errata/ToD/ToD-Errata.pdf",
+      "bytes": 173215,
+      "sha256": "b965604fef8bc619deeb86931a9e27d1ce929b559e2818d1a08be376e1bf285a"
+    },
+    "tod-errata.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/sae/tyranny-of-dragons",
+      "bytes": 235587,
+      "sha256": "d93506f164a63b6b13f067431eab2d277c964e4a5e48b55fce0ad50420313d43"
+    },
+    "volo-errata.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/sae/volos-guide-to-monsters",
+      "bytes": 250799,
+      "sha256": "0d99fc44d48f2d35be105abe758da8c9bdefc96536042564b4eb68f5f13f14bb"
+    }
+  },
+  "riseOfTiamat": {
+    "originalClaimKey": "dndsu:bestiary:490|106",
+    "originalAppendixLocator": "https://www.dndbeyond.com/sources/rot/appendix-d-monsters",
+    "namedLocatorInArchivedContents": false,
+    "supplement": {
+      "edition": "October 2014, version 1",
+      "pagesChecked": 37,
+      "textMatchPages": []
+    },
+    "originalBlockVerified": false
+  },
+  "tyrannyOfDragons": {
+    "namedLocator": "https://www.dndbeyond.com/sources/tod/monsters#GuardDrake",
+    "appendix": "D",
+    "printedPage": 185,
+    "pdfPage": 1,
+    "pdfVersion": "1.0 (2023)",
+    "crossCheckedWithDigitalErrata": true,
+    "changes": {
+      "damageResistances": "remove-entry",
+      "multiattack": [
+        {
+          "attack": "Bite",
+          "count": 1
+        },
+        {
+          "attack": "Tail",
+          "count": 1
+        }
+      ]
+    },
+    "appliesTo": "guard-drake-in-combined-tyranny-of-dragons",
+    "fullBlockVerified": false
+  },
+  "voloErrata": {
+    "namedGuardDrakeHeadingInCheckedErrata": false
+  },
+  "applyToOtherPublications": false,
+  "accepted": false,
+  "approvedDenominator": null,
+  "textReusePermission": "not-established",
+  "inputSha256": {
+    "catalog/remaining-bestiary-filter-evidence-2014.json": "7356bb6f55530b748d28d03854036600f3e64fa957a3c0915516cb71276bb624"
+  }
+}
