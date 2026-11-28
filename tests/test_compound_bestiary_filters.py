@@ -53,3 +53,36 @@ class CompoundBestiaryFilterTest(unittest.TestCase):
         raw = capture("9", "Out of the Abyss", "Orcus", "17417-orcus", "Out of the Abyss", href="2560897-orcus")
         with self.assertRaisesRegex(ValueError, "does not match its row"):
             audit["extract"](raw, "orcus", "9", "Out of the Abyss")
+
+
+class EssentialsSidekickIndexTest(unittest.TestCase):
+    sidekicks = runpy.run_path(
+        str(Path(__file__).resolve().parents[1] / "scripts/audit-essentials-sidekick-index-2014.py")
+    )
+
+    def test_explicit_empty_result_does_not_create_a_card(self):
+        raw = b"""
+        <select id="filter-source" name="filter-source">
+            <option value="52" selected>Divine Contention</option>
+        </select>
+        <ul class="rpgmonster-listing">
+            <li class="alert no-results">No cards</li>
+        </ul>
+        """
+        self.assertEqual(self.sidekicks["discover_rows"](raw, "52", "Divine Contention"), [])
+        without_marker = raw.replace(b'<li class="alert no-results">No cards</li>', b'')
+        with self.assertRaisesRegex(ValueError, "Unexpected digital unit set"):
+            self.sidekicks["discover_rows"](without_marker, "52", "Divine Contention")
+
+    def test_empty_indicator_cannot_hide_a_creature_result(self):
+        raw = b"""
+        <select id="filter-source" name="filter-source">
+            <option value="52" selected>Divine Contention</option>
+        </select>
+        <ul class="rpgmonster-listing">
+            <li class="alert no-results">No cards</li>
+            <li data-type="monsters" data-slug="17134-drow-elite-warrior"></li>
+        </ul>
+        """
+        with self.assertRaisesRegex(ValueError, "Conflicting"):
+            self.sidekicks["discover_rows"](raw, "52", "Divine Contention")

@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-28",
+  "evidenceKind": "essentials-kit-sidekick-index-metadata",
+  "publications": [
+    {
+      "publisherFilterValue": "41",
+      "selectedPublisherLabel": "Dragon of Icespire Peak",
+      "referenceSourceId": "157",
+      "contentsUrl": "https://www.dndbeyond.com/sources/dnd/doip",
+      "sidekicksChapter": {
+        "heading": "Sidekicks",
+        "targetUrl": "https://www.dndbeyond.com/sources/doip/sidekicks",
+        "relation": "parent-chapter-only",
+        "satisfiesCreatureClaim": false
+      },
+      "captures": [
+        {
+          "query": "expert",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=expert&filter-source=41",
+          "bytes": 375008,
+          "htmlSha256": "4388de46c3360b6ef54df9265680d79afba79ea443cdda673c42fb4aed027133",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8016|157"
+          ],
+          "indexRows": [
+            {
+              "name": "Expert",
+              "cardUrl": "https://www.dndbeyond.com/monsters/368969-expert",
+              "displayedPublication": "Dragon of Icespire Peak",
+              "indexChallengeColumn": "1",
+              "indexNameMatchesClaim": "dndsu:bestiary:8016|157"
+            }
+          ]
+        },
+        {
+          "query": "spellcaster",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=spellcaster&filter-source=41",
+          "bytes": 376405,
+          "htmlSha256": "be00568ea53c45cce81a0fc0a162df7979317f3ff606c69fe4b6d6a57c6bcf1d",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8014|157",
+            "dndsu:bestiary:8022|157"
+          ],
+          "indexRows": [
+            {
+              "name": "Spellcaster - Healer",
+              "cardUrl": "https://www.dndbeyond.com/monsters/370724-spellcaster-healer",
+              "displayedPublication": "Dragon of Icespire Peak",
+              "indexChallengeColumn": "1",
+              "indexNameMatchesClaim": "dndsu:bestiary:8014|157"
+            },
+            {
+              "name": "Spellcaster - Mage",
+              "cardUrl": "https://www.dndbeyond.com/monsters/370794-spellcaster-mage",
+              "displayedPublication": "Dragon of Icespire Peak",
+              "indexChallengeColumn": "1",
+              "indexNameMatchesClaim": "dndsu:bestiary:8022|157"
+            }
+          ]
+        },
+        {
+          "query": "warrior",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=warrior&filter-source=41",
+          "bytes": 375012,
+          "htmlSha256": "fd54ba4cf9b688106c6f54591a689f1696919b4795a785d150f223df3afd3105",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8017|157"
+          ],
+          "indexRows": [
+            {
+              "name": "Warrior",
+              "cardUrl": "https://www.dndbeyond.com/monsters/368996-warrior",
+              "displayedPublication": "Dragon of Icespire Peak",
+              "indexChallengeColumn": "1",
+              "indexNameMatchesClaim": "dndsu:bestiary:8017|157"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "publisherFilterValue": "50",
+      "selectedPublisherLabel": "Storm Lord’s Wrath",
+      "referenceSourceId": "167",
+      "contentsUrl": "https://www.dndbeyond.com/sources/dnd/slw",
+      "sidekicksChapter": {
+        "heading": "Appendix B: Sidekicks",
+        "targetUrl": "https://www.dndbeyond.com/sources/slw/sidekicks",
+        "relation": "parent-chapter-only",
+        "satisfiesCreatureClaim": false
+      },
+      "captures": [
+        {
+          "query": "expert",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=expert&filter-source=50",
+          "bytes": 373772,
+          "htmlSha256": "9ad24ee570c456ae2283bb0ab2aa1f5b186e44e12083d9c7c649784e0aec12ee",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8024|167"
+          ],
+          "indexRows": []
+        },
+        {
+          "query": "spellcaster",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=spellcaster&filter-source=50",
+          "bytes": 373777,
+          "htmlSha256": "ba0efb21695b43f1a774f327b1f4f63d105e2b86a9e8c47c3be8940cd5440a4a",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8025|167",
+            "dndsu:bestiary:8027|167"
+          ],
+          "indexRows": []
+        },
+        {
+          "query": "warrior",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=warrior&filter-source=50",
+          "bytes": 375486,
+          "htmlSha256": "42021058024686ec82afe34d7e0eedcf368ad72014310d9b2ea5d11cc5f1e038",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8023|167"
+          ],
+          "indexRows": [
+            {
+              "name": "Drow Elite Warrior",
+              "cardUrl": "https://www.dndbeyond.com/monsters/17134-drow-elite-warrior",
+              "displayedPublication": "Monster Manual (2014)",
+              "indexChallengeColumn": "5",
+              "indexNameMatchesClaim": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "publisherFilterValue": "51",
+      "selectedPublisherLabel": "Sleeping Dragon’s Wake",
+      "referenceSourceId": "131",
+      "contentsUrl": "https://www.dndbeyond.com/sources/dnd/sdw",
+      "sidekicksChapter": {
+        "heading": "Appendix B: Sidekicks",
+        "targetUrl": "https://www.dndbeyond.com/sources/sdw/sidekicks",
+        "relation": "parent-chapter-only",
+        "satisfiesCreatureClaim": false
+      },
+      "captures": [
+        {
+          "query": "expert",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=expert&filter-source=51",
+          "bytes": 373772,
+          "htmlSha256": "5c869b4191f46e64a5e6e7545576bb2d7d9ef6ccee5a816a62f318455fcc4ed2",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8024|131"
+          ],
+          "indexRows": []
+        },
+        {
+          "query": "spellcaster",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=spellcaster&filter-source=51",
+          "bytes": 373777,
+          "htmlSha256": "ffb9cc331fad8c7418de7a8c032d33e61f244917e866bcaaf566c8829659541d",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8025|131",
+            "dndsu:bestiary:8027|131"
+          ],
+          "indexRows": []
+        },
+        {
+          "query": "warrior",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=warrior&filter-source=51",
+          "bytes": 375515,
+          "htmlSha256": "50cb2d13a46afe6db92247ebe9d1556ab6bafe019d3c773cc52a0261f043238f",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8023|131"
+          ],
+          "indexRows": [
+            {
+              "name": "Sword Wraith Warrior",
+              "cardUrl": "https://www.dndbeyond.com/monsters/94613-sword-wraith-warrior",
+              "displayedPublication": "Mordenkainen’s Tome of Foes",
+              "indexChallengeColumn": "3",
+              "indexNameMatchesClaim": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "publisherFilterValue": "52",
+      "selectedPublisherLabel": "Divine Contention",
+      "referenceSourceId": "127",
+      "contentsUrl": "https://www.dndbeyond.com/sources/dnd/dc",
+      "sidekicksChapter": {
+        "heading": "Appendix B: Sidekicks",
+        "targetUrl": "https://www.dndbeyond.com/sources/dc/sidekicks",
+        "relation": "parent-chapter-only",
+        "satisfiesCreatureClaim": false
+      },
+      "captures": [
+        {
+          "query": "expert",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=expert&filter-source=52",
+          "bytes": 373772,
+          "htmlSha256": "072bfcd22def01cf716e4e49689976efea00ac26f3327ec72e5ec1f929d36c38",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8024|127"
+          ],
+          "indexRows": []
+        },
+        {
+          "query": "spellcaster",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=spellcaster&filter-source=52",
+          "bytes": 373777,
+          "htmlSha256": "aa53827dae02237e0d8eb72b25031e62f63228325ff1f49a4f7f43a0bfaa4165",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8025|127",
+            "dndsu:bestiary:8027|127"
+          ],
+          "indexRows": []
+        },
+        {
+          "query": "warrior",
+          "url": "https://www.dndbeyond.com/monsters?filter-search=warrior&filter-source=52",
+          "bytes": 377314,
+          "htmlSha256": "d3a6fd6c6cda11ac6a5142305825cbfb113847c8793f69c6462f561bcc7b9e69",
+          "checkedClaimKeys": [
+            "dndsu:bestiary:8023|127"
+          ],
+          "indexRows": [
+            {
+              "name": "Drow Elite Warrior",
+              "cardUrl": "https://www.dndbeyond.com/monsters/17134-drow-elite-warrior",
+              "displayedPublication": "Monster Manual (2014)",
+              "indexChallengeColumn": "5",
+              "indexNameMatchesClaim": null
+            },
+            {
+              "name": "Sword Wraith Warrior",
+              "cardUrl": "https://www.dndbeyond.com/monsters/94613-sword-wraith-warrior",
+              "displayedPublication": "Mordenkainen’s Tome of Foes",
+              "indexChallengeColumn": "3",
+              "indexNameMatchesClaim": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "accepted": false,
+  "fullStatBlocksVerified": false,
+  "automaticMerge": false,
+  "textReusePermission": "not-established",
+  "approvedDenominator": null,
+  "inputSha256": {
+    "catalog/remaining-bestiary-attribution-proposals-2014.json": "299300098179fc54a33720c2bf6fa0a8bb131069029157e43058ae47bed2e817",
+    "catalog/remaining-bestiary-publication-evidence-2014.json": "0ddc1bceb6fec0229764381cefab8ddfe7c4b0373d5799d77b9ef65a4b0b74c0"
+  }
+}
