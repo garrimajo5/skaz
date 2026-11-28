@@ -64,3 +64,40 @@ test('historic organized play separates source lists from publisher admission st
   assert.equal(catalogAdmissionDecided, false);
   assert.equal(fullCharacterRulesVerified, false);
 });
+
+test('historic Grung pregen sheets identify race fields without deciding catalog admission', () => {
+  const historical = report.organizedPlay.historicalGrungSurrogate;
+  assert.equal(historical.observationId, report.records[0].observationId);
+  assert.equal(historical.publicationScope, 'campaign-replacement-character');
+  assert.equal(historical.season, 7);
+  assert.equal(historical.preview.namesSurrogate, false);
+  assert.deepEqual(historical.guidance.map(source => [source.version,source.pdfPage]), [
+    ['ToA Primer v1.0',2], ['AL Adaptation Guides v2.4',53],
+  ]);
+  assert.equal(historical.guidance[0].campaignScope.includes('CCC adventures'),true);
+  assert.equal(historical.guidance[1].campaignScope.includes('CCC adventures'),false);
+  assert.deepEqual(historical.archives.map(archive => [
+    archive.tier,archive.pdfFiles,archive.firstPageGrungMentions,archive.raceFieldMatches,
+    archive.sheet.class,archive.sheet.level,archive.sheet.race,archive.sheet.pdfPage,archive.sheet.characterName,
+  ]), [
+    [1,12,5,1,'Rogue',3,'Grung (green)',1,null],
+    [2,12,5,1,'Rogue',8,'Grung (green)',1,null],
+  ]);
+  const assets = [historical.preview,...historical.guidance,...historical.archives];
+  assert.equal(new Set(assets.map(source => source.url)).size,5);
+  for (const source of assets) {
+    assert.equal(new URL(source.url).protocol,'https:');
+    assert.match(source.sha256,/^[a-f0-9]{64}$/);
+    assert.ok(source.bytes > 0);
+  }
+  for (const {sheet} of historical.archives) {
+    assert.match(sheet.sha256,/^[a-f0-9]{64}$/);
+    assert.equal(sheet.pageCount,2);
+  }
+  assert.equal(historical.previewIdentityEquivalenceVerified,false);
+  assert.equal(historical.raceRulesEquivalenceVerified,false);
+  assert.equal(historical.catalogAdmissionDecided,false);
+  assert.equal(report.officialRulesDisposition,'unresolved');
+  assert.equal(report.appTextReusePermission,'not-established');
+  assert.equal(report.approvedDenominator,null);
+});
