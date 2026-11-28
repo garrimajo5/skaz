@@ -461,7 +461,7 @@ const SkazCampaign = (function(){
         actor,
         title:'Кампания',
         titleId:'campaign-title',
-        actions:button('Вернуться в игру','return-game'),
+        returnToGame:true,
         content:`<section id="campaign-screen" class="campaign-screen">${sectionMarkup()}</section>`
       });
       root=el('campaign-screen');

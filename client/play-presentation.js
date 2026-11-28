@@ -27,7 +27,8 @@
  * @property {WorkspaceActor} actor
  * @property {string} title
  * @property {string} [titleId] Focus target when a page is mounted in place.
- * @property {string} [actions] Trusted markup from the current page renderer.
+ * @property {string} [actions] Trusted commands for the section below the actor strip.
+ * @property {boolean} [returnToGame] Keep the campaign return in the heading.
  * @property {string} content Trusted markup from the current page renderer.
  * @property {boolean} [mapOnly] Maps have a full-width layout without the combat panel.
  */
@@ -218,11 +219,15 @@ const SkazPlayPresentation = (() => {
 
   /** @param {PreparationScreen} view */
   function prepare(view) {
+    const back = view.returnToGame ? '<button type="button" data-campaign-action="return-game">Вернуться в игру</button>' : '';
     return `<section class="play-screen workspace-prepare${view.mapOnly?' workspace-map':''}">
-      ${heading(view.title, view.actor.session, view.actions, view.titleId)}
+      ${heading(view.title, view.actor.session, back, view.titleId)}
       ${actorStrip(view.actor)}
       <div class="play-layout">
-        <div class="workspace-content">${view.content}</div>
+        <div class="workspace-content">
+          ${view.actions ? `<div class="workspace-actions" role="group" aria-label="Действия раздела">${view.actions}</div>` : ''}
+          ${view.content}
+        </div>
         ${view.mapOnly?'':resources(view.actor.historyAvailable)}
       </div>
     </section>`;
