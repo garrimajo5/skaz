@@ -34,14 +34,18 @@ FILTERS = {
 }
 
 
-def selected_listing(raw, filter_value, label, query=None):
-    tree = HELPER["Tree"]()
-    tree.feed(raw.decode("utf-8"))
-    selector = HELPER["only"](tree.root.find(
+def publication_selector(root):
+    return HELPER["only"](root.find(
         lambda n: n.tag == "select"
         and n.attrs.get("id") == "filter-source"
         and n.attrs.get("name") == "filter-source"
     ), "publication selector")
+
+
+def selected_listing(raw, filter_value, label, query=None):
+    tree = HELPER["Tree"]()
+    tree.feed(raw.decode("utf-8"))
+    selector = publication_selector(tree.root)
     selection = HELPER["only"](selector.find(
         lambda n: n.tag == "option" and "selected" in n.attrs
     ), "selected publication")

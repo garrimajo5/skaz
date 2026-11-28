@@ -69,7 +69,7 @@ class RemainingBestiaryFiltersTest(unittest.TestCase):
 
     def test_exact_input_claim_scope_prevents_deduplication_or_missing_claim(self):
         proposals = json.loads(audit["INPUT"].read_text(encoding="utf-8"))
-        self.assertEqual(len(audit["checked_claims"](proposals)), 15)
+        self.assertEqual(len(audit["checked_claims"](proposals)), 24)
         claims = next(group["publicationClaims"] for group in proposals["groups"] if group["name"] == "bard")
         first = claims.pop()
         with self.assertRaisesRegex(ValueError, "Changed D02 claim scope"):
@@ -77,3 +77,17 @@ class RemainingBestiaryFiltersTest(unittest.TestCase):
         claims.extend([first, first])
         with self.assertRaisesRegex(ValueError, "Changed D02 claim scope"):
             audit["checked_claims"](proposals)
+
+
+    def test_alternate_query_cannot_replace_the_reference_name(self):
+        raw = page(row("Redbrand Ruffian", "22030-redbrand-ruffian"), query="redbrand ruffian")
+        result = audit["query_evidence"](raw, "redbrand ruffian", "90", BOOK, claim_name="red ruffian")
+        self.assertEqual(result[0]["nameMatch"], "different")
+
+    def test_dedicated_edition_filter_invalidates_its_recorded_absence(self):
+        check = audit["require_unavailable_filter"]
+        raw = page('<li class="no-results">No cards</li>')
+        check(raw, "Rise of Tiamat")
+        with self.assertRaisesRegex(ValueError, "now available"):
+            check(raw.replace(b'</select>', b'<option value="91">The Rise of Tiamat</option></select>'),
+                  "Rise of Tiamat")

@@ -326,6 +326,388 @@
           "indexChallengeColumn": "18"
         }
       ]
+    },
+    {
+      "query": "pech",
+      "reviewId": "name-review:b990d8bf2a8ebcbe08b7",
+      "checkedClaimKey": "dndsu:bestiary:15252|213",
+      "referenceSourceId": "213",
+      "publisherFilterValue": "136",
+      "selectedPublisherLabel": "Descent into the Lost Caverns of Tsojcanth",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=pech&filter-source=136",
+      "bytes": 375465,
+      "htmlSha256": "fd059509bdd3b133ea1f2333497a95eb1440c4c5b55a78ee68d91f7938e80ac4",
+      "listing": "rows",
+      "indexRows": [
+        {
+          "name": "Pech",
+          "nameMatch": "exact",
+          "cardUrl": "https://www.dndbeyond.com/monsters/4353901-pech",
+          "displayedPublication": "Quests from the Infinite Staircase",
+          "indexType": "Elemental",
+          "indexSize": "Small",
+          "indexChallengeColumn": "4"
+        }
+      ]
+    },
+    {
+      "query": "pech",
+      "reviewId": "name-review:b990d8bf2a8ebcbe08b7",
+      "checkedClaimKey": "dndsu:bestiary:17230|218",
+      "referenceSourceId": "218",
+      "publisherFilterValue": "137",
+      "selectedPublisherLabel": "Quests from the Infinite Staircase",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=pech&filter-source=137",
+      "bytes": 375465,
+      "htmlSha256": "1e456b19452b668daa9beb65a0f65c0e0eb6f71dcd7ac067ffaacc8d12812a26",
+      "listing": "rows",
+      "indexRows": [
+        {
+          "name": "Pech",
+          "nameMatch": "exact",
+          "cardUrl": "https://www.dndbeyond.com/monsters/4353901-pech",
+          "displayedPublication": "Quests from the Infinite Staircase",
+          "indexType": "Elemental",
+          "indexSize": "Small",
+          "indexChallengeColumn": "4"
+        }
+      ]
+    },
+    {
+      "query": "red ruffian",
+      "reviewId": "name-review:c33e38cd5ba6bfdcd994",
+      "checkedClaimKey": "dndsu:bestiary:10|110",
+      "referenceSourceId": "110",
+      "publisherFilterValue": "8",
+      "selectedPublisherLabel": "Lost Mine of Phandelver",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=red+ruffian&filter-source=8",
+      "bytes": 375456,
+      "htmlSha256": "c401be67893fd0296d8d0173c77d01f2d769b9cc69e4960a5b1a2f2c41097ece",
+      "listing": "rows",
+      "indexRows": [
+        {
+          "name": "Redbrand Ruffian",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/22030-redbrand-ruffian",
+          "displayedPublication": "Lost Mine of Phandelver",
+          "indexType": "Humanoid",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "1/2"
+        }
+      ]
+    },
+    {
+      "query": "red ruffian",
+      "reviewId": "name-review:c33e38cd5ba6bfdcd994",
+      "checkedClaimKey": "dndsu:bestiary:12554|202",
+      "referenceSourceId": "202",
+      "publisherFilterValue": "113",
+      "selectedPublisherLabel": "Phandelver and Below: The Shattered Obelisk",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=red+ruffian&filter-source=113",
+      "bytes": 375531,
+      "htmlSha256": "db7833dfc76c98ac68b8d3128d28d7ae4503cd63b7b0cce48a39f399e81c554e",
+      "listing": "rows",
+      "indexRows": [
+        {
+          "name": "Redbrand Ruffian",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/3805766-redbrand-ruffian",
+          "displayedPublication": "Phandelver and Below: The Shattered Obelisk",
+          "indexType": "Humanoid",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "1/2"
+        }
+      ]
+    },
+    {
+      "query": "guard drake",
+      "reviewId": "name-review:f2acd12f69e538f0500e",
+      "checkedClaimKey": "dndsu:bestiary:490|111",
+      "referenceSourceId": "111",
+      "publisherFilterValue": "15",
+      "selectedPublisherLabel": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=guard+drake&filter-source=15",
+      "bytes": 386011,
+      "htmlSha256": "4d2a570b4693eeff354dbf5b0b0122ec5d24abd5f03e0c9b322e2d134c2f2392",
+      "listing": "rows",
+      "indexRows": [
+        {
+          "name": "Black Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17266-black-guard-drake",
+          "displayedPublication": "Volo's Guide to Monsters",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Blue Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17267-blue-guard-drake",
+          "displayedPublication": "Volo's Guide to Monsters",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Green Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17268-green-guard-drake",
+          "displayedPublication": "Volo's Guide to Monsters",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Guard Drake",
+          "nameMatch": "exact",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17265-guard-drake",
+          "displayedPublication": "Volo's Guide to Monsters",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Red Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17269-red-guard-drake",
+          "displayedPublication": "Volo's Guide to Monsters",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "White Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17270-white-guard-drake",
+          "displayedPublication": "Volo's Guide to Monsters",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        }
+      ]
+    },
+    {
+      "query": "guard drake",
+      "reviewId": "name-review:f2acd12f69e538f0500e",
+      "checkedClaimKey": "dndsu:bestiary:6787|158",
+      "referenceSourceId": "158",
+      "publisherFilterValue": "85",
+      "selectedPublisherLabel": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=guard+drake&filter-source=85",
+      "bytes": 382909,
+      "htmlSha256": "de0f39c3d578457219a1b9b94e20765c9e2e4f6a58f255174ddac7ae042833a8",
+      "listing": "rows",
+      "indexRows": [
+        {
+          "name": "Black Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560740-black-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Blue Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560743-blue-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Green Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560839-green-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Guard Drake",
+          "nameMatch": "exact",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560843-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Red Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560903-red-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "White Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560960-white-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        }
+      ]
+    },
+    {
+      "query": "strahd von zarovich",
+      "reviewId": "name-review:fa90cc77090c6cb43e8e",
+      "checkedClaimKey": "dndsu:bestiary:960|124",
+      "referenceSourceId": "124",
+      "publisherFilterValue": "6",
+      "selectedPublisherLabel": "Curse of Strahd",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=strahd+von+zarovich&filter-source=6",
+      "bytes": 376022,
+      "htmlSha256": "28fa71191ac1101a332ed1cc73f2877eb87bfbb574b61c4d1f2a804d9a9f52ab",
+      "listing": "rows",
+      "indexRows": [
+        {
+          "name": "Strahd von Zarovich",
+          "nameMatch": "exact",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17374-strahd-von-zarovich",
+          "displayedPublication": "Curse of Strahd",
+          "indexType": "Undead",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "15"
+        }
+      ]
+    },
+    {
+      "query": "strahd von zarovich",
+      "reviewId": "name-review:fa90cc77090c6cb43e8e",
+      "checkedClaimKey": "dndsu:bestiary:15727|214",
+      "referenceSourceId": "214",
+      "publisherFilterValue": "132",
+      "selectedPublisherLabel": "Vecna: Eve of Ruin",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=strahd+von+zarovich&filter-source=132",
+      "bytes": 373785,
+      "htmlSha256": "311538a47cfbe28c923cac901a27b6f3ab27b378142738aa28391b03d52b227e",
+      "listing": "empty",
+      "indexRows": []
+    }
+  ],
+  "comparisons": [
+    {
+      "query": "redbrand ruffian",
+      "reviewId": "name-review:c33e38cd5ba6bfdcd994",
+      "relation": "alternate-query",
+      "publisherFilterValue": "8",
+      "selectedPublisherLabel": "Lost Mine of Phandelver",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=redbrand+ruffian&filter-source=8",
+      "bytes": 375461,
+      "htmlSha256": "0bd33e41bf78ab6a7fdb3d497debd06c29e857653da4e57837b15f3fa167ec04",
+      "listing": "rows",
+      "indexRows": [
+        {
+          "name": "Redbrand Ruffian",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/22030-redbrand-ruffian",
+          "displayedPublication": "Lost Mine of Phandelver",
+          "indexType": "Humanoid",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "1/2"
+        }
+      ]
+    },
+    {
+      "query": "redbrand ruffian",
+      "reviewId": "name-review:c33e38cd5ba6bfdcd994",
+      "relation": "alternate-query",
+      "publisherFilterValue": "113",
+      "selectedPublisherLabel": "Phandelver and Below: The Shattered Obelisk",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=redbrand+ruffian&filter-source=113",
+      "bytes": 375536,
+      "htmlSha256": "1acb9d5a5c406e616f676d54c0719278fc681a19c7d64d3d280b5299b06c6014",
+      "listing": "rows",
+      "indexRows": [
+        {
+          "name": "Redbrand Ruffian",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/3805766-redbrand-ruffian",
+          "displayedPublication": "Phandelver and Below: The Shattered Obelisk",
+          "indexType": "Humanoid",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "1/2"
+        }
+      ]
+    },
+    {
+      "query": "guard drake",
+      "reviewId": "name-review:f2acd12f69e538f0500e",
+      "relation": "combined-publication",
+      "publisherFilterValue": "102",
+      "selectedPublisherLabel": "Tyranny of Dragons",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=guard+drake&filter-source=102",
+      "bytes": 382909,
+      "htmlSha256": "fcbee32e53e8a6a2678800839928b51dfb7fdcc8ccb7c8403dd41a2cae83721d",
+      "listing": "rows",
+      "indexRows": [
+        {
+          "name": "Black Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560740-black-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Blue Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560743-blue-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Green Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560839-green-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Guard Drake",
+          "nameMatch": "exact",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560843-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "Red Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560903-red-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        },
+        {
+          "name": "White Guard Drake",
+          "nameMatch": "different",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560960-white-guard-drake",
+          "displayedPublication": "Mordenkainen Presents: Monsters of the Multiverse",
+          "indexType": "Dragon",
+          "indexSize": "Medium",
+          "indexChallengeColumn": "2"
+        }
+      ],
+      "unavailableReferenceFilter": {
+        "expectedLabel": "Rise of Tiamat",
+        "unresolvedClaimKey": "dndsu:bestiary:490|106",
+        "referenceSourceId": "106"
+      }
     }
   ],
   "accepted": false,

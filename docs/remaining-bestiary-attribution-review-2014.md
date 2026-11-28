@@ -73,6 +73,27 @@ URL и собственная подпись карточки. Десять ст
 проверку до её учёта. Полные правила, печатная эквивалентность, права и
 канонический знаменатель остаются открытыми.
 
+## Pech, Redbrand, Guard Drake и Strahd
+
+После первого среза проверены ещё восемь фильтров для исходных книг
+и три сравнительные выдачи. [Общий реестр](../catalog/remaining-bestiary-filter-evidence-2014.json).
+
+| Группа | Цифровой результат | Граница |
+| --- | --- | --- |
+| Pech | [Descent into the Lost Caverns of Tsojcanth](https://www.dndbeyond.com/monsters?filter-search=pech&filter-source=136) и [Quests from the Infinite Staircase](https://www.dndbeyond.com/monsters?filter-search=pech&filter-source=137) показывают 4353901 с подписью Quests from the Infinite Staircase. | Оба отдельных наблюдения сохраняются. Цифровое переиспользование установлено. |
+| Red ruffian | [Lost Mine](https://www.dndbeyond.com/monsters?filter-search=red+ruffian&filter-source=8) показывает 22030, [Phandelver and Below](https://www.dndbeyond.com/monsters?filter-search=red+ruffian&filter-source=113) — 3805766. У обеих карточек полное имя Redbrand Ruffian и собственная подпись книги. Поиск с полным именем возвращает те же два отдельных ID. [Lost Mine](https://www.dndbeyond.com/monsters?filter-search=redbrand+ruffian&filter-source=8) · [Phandelver and Below](https://www.dndbeyond.com/monsters?filter-search=redbrand+ruffian&filter-source=113). | Разные карточки зафиксированы. Соответствие исходному имени Red ruffian остаётся кандидатом. |
+| Guard Drake | [Volo](https://www.dndbeyond.com/monsters?filter-search=guard+drake&filter-source=15) показывает 17265 и пять цветовых форм. [MotM](https://www.dndbeyond.com/monsters?filter-search=guard+drake&filter-source=85) показывает 2560843 и пять своих форм. [Объединённый Tyranny of Dragons](https://www.dndbeyond.com/monsters?filter-search=guard+drake&filter-source=102) показывает шесть карточек с подписью MotM. | В сохранённом списке выбора отсутствует отдельный фильтр Rise of Tiamat. Выдача объединённой книги остаётся сравнением и не закрывает утверждение 490/106. [Проверка цветовых форм](monster-version-units-review-2014.md#цветовые-карточки-guard-drake-в-цифровом-указателе). |
+| Strahd von Zarovich | [Curse of Strahd](https://www.dndbeyond.com/monsters?filter-search=strahd+von+zarovich&filter-source=6) показывает 17374 с подписью оригинальной книги. [Vecna: Eve of Ruin](https://www.dndbeyond.com/monsters?filter-search=strahd+von+zarovich&filter-source=132) явно пуст. | Указатель на досье или упоминание имени сохраняется отдельно. Печатный блок Vecna и соответствие 15727 остаются на сверке. |
+
+Все 50 исходных публикационных утверждений теперь разнесены без
+повторов по трём источниковым отчётам. 10 учтены в
+[первом срезе](../catalog/compound-bestiary-filter-evidence-2014.json),
+16 в [Essentials](../catalog/essentials-sidekick-index-evidence-2014.json),
+23 в [выдачах остальных книг](../catalog/remaining-bestiary-filter-evidence-2014.json)
+и ещё одно имеет явный статус отсутствующего фильтра в том же реестре.
+Три сравнительные выдачи сохранены отдельно. Полные статблоки, версии,
+права и итоговый состав D02 по-прежнему требуют проверки.
+
 ## Воспроизведение
 
 `python scripts/extract-remaining-bestiary-evidence.py --directory <snapshots> --output <evidence.json>`
