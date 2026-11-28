@@ -976,7 +976,10 @@ body[data-theme="polar"] .play-effects {
   .play-resources .quick-vitals { order: -2; padding: 0 0 8px; border: 0; border-bottom: 1px solid var(--line); }
 }
 @media (max-width: 999px), (max-height: 599px), (orientation: portrait) {
-  html:has(body[data-workspace-shell="shared"]) { scroll-padding-block-end: var(--bottom-reserve, 190px); }
+  html:has(body[data-workspace-shell="shared"]) {
+    /* On short screens, drop only the extra scroll space below the focus target. */
+    scroll-padding-block-end: clamp(calc(var(--bottom-reserve, 190px) - 24px), calc(100dvh - 64px), var(--bottom-reserve, 190px));
+  }
   body[data-workspace-shell="shared"] .shell { display: block; }
   .play-layout { display: flex; flex-direction: column; }
   .play-layout > * { width: 100%; }
@@ -1069,6 +1072,9 @@ body[data-theme="polar"] .play-effects {
   min-inline-size: var(--touch, 44px);
   min-block-size: var(--touch, 44px);
   padding-inline: 8px;
+}
+@media (max-height: 260px) {
+  .play-actor-tools button:focus-visible { outline-offset: -2px; }
 }
 .play-actor-chevron { display: grid; place-items: center; }
 #play-actor-prev .play-actor-chevron { rotate: 90deg; }
