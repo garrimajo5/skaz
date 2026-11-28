@@ -59,7 +59,7 @@ function heroView(){
  const advanceLabel=(canAdvance||SkazStorage.advancementAvailable?.())?(sheet?.level>=20?'Умения класса':'Повысить уровень'):null;
  const signed=n=>(n>=0?"+":"−")+Math.abs(n);
  const lineage=sheet?[sheet.ancestry,sheet.subclass].filter(Boolean).join(' · '):'Полуэльф · Коллегия знаний';
- const actions=`<div class="character-edit">${advanceLabel?'<button id="advance-class"'+(canAdvance?'':' disabled')+'>'+advanceLabel+'</button>':''}<button id="edit-sheet" class="secondary">Свой класс</button><button class="secondary" id="edit-profile">Изменить</button><button class="secondary" id="edit-stats">Характеристики</button><button class="secondary" id="edit-resources">Ресурсы</button></div>`;
+ const actions=`${advanceLabel?'<button id="advance-class"'+(canAdvance?'':' disabled')+'>'+advanceLabel+'</button>':''}<button id="edit-sheet" class="secondary">Свой класс</button><button class="secondary" id="edit-profile">Изменить</button><button class="secondary" id="edit-stats">Характеристики</button><button class="secondary" id="edit-resources">Ресурсы</button>`;
  const recoveryNotice=SkazStorage.profileEditorsAvailable?.()===false?'<p class="notice" role="status">Режим восстановления: редакторы характеристик и класса временно отключены. Сохранённый профиль, игра и экспорт доступны.</p>':'';
  const warnings=SkazProfileRules.render(SkazProfileRules.warnings({stats,sheet}),false,{stats,sheet});
  const content=`${recoveryNotice}${warnings}<div class="hero-grid"><section>${lineage||state.profile.tagline ? `<div class="panel character"><div class="overline">${esc(lineage)}</div>${state.profile.tagline ? `<p>${esc(state.profile.tagline)}</p>` : ''}</div>` : ''}<div class="statrow"><div class="stat"><label>КЛАСС ДОСПЕХА</label><strong>${stats.armorClass}</strong></div><div class="stat"><label>ИНИЦИАТИВА</label><strong>${signed(stats.initiative)}</strong></div><div class="stat"><label>СКОРОСТЬ</label><strong>${stats.speed} <small style="font-size:11px">фт</small></strong></div></div></section></div><p class="small">${SkazStorage.manualStats?.()?"Ручные характеристики · КД, инициатива и скорость заданы итоговыми значениями":(sheet?"Статистики шаблона: настрой их под свой класс":"Характеристики шаблона барда 5 уровня")}</p><div class="spell-stats">${SkazCharacterSheet.spellTiles(stats,sheet)}</div><div class="abilities">${[['СИЛ','str'],['ЛОВ','dex'],['ТЕЛ','con'],['ИНТ','int'],['МДР','wis'],['ХАР','cha']].map(([title,id])=>`<div class="ability"><label>${title}</label><strong>${signed(Math.floor((stats.abilities[id]-10)/2))}</strong><small>${stats.abilities[id]}</small></div>`).join('')}</div><section class="panel hero-inventory"><div class="panel-title"><div><h2>Инвентарь</h2><p>${state.gold} зм · сохранённые предметы персонажа</p></div><button data-page="inventory">Открыть инвентарь <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></div><p class="small">Расходники и предметы с зарядами — в начале списка.</p></section><div class="two-col" style="margin-top:20px">${sheet?SkazCharacterSheet.view():`<section class="panel demo-example"><div class="panel-title"><h2>Под рукой</h2><span class="tag">Демо действий</span></div><div class="action-row"><div><strong>Рапира</strong><small>Действие · 1к8 + 2 колющего</small></div><button data-roll="rapier" ${SkazStorage.manualStats?.()?'disabled title="Демо-бросок не учитывает ручные характеристики"':''}>+5 <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></div><div class="action-row"><div><strong>Злая насмешка</strong><small>Заговор · Мудрость Сл 15 · 2к4</small></div><button data-spell="mockery">Читать</button></div><div class="action-row"><div><strong>Инвентарь</strong><small>Сохранённые предметы</small></div><button id="open-inventory">Открыть</button></div></section>`}<section class="panel session-card demo-example"><div class="panel-title"><h2>Нить приключения</h2><span class="tag accent">Демо сюжета</span></div><div class="overline" style="margin-top:24px">СВЕТ НА МЫСЕ</div><p class="quote">«Если маяк погас, значит, кто-то хотел, чтобы корабль не дошёл».</p><p>Мира, хозяйка трактира · Тихая гавань</p><button class="text-button" data-page="quests">Открыть задание <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button><button class="text-button" data-page="journal">${location.protocol==='file:'?(pending().length?pending().length+' события ждут подтверждения':'Все события разобраны'):'События текущей сессии'} <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button></section></div>`;
@@ -147,10 +147,9 @@ function updateJournalResources(screen,settled){
 }
 function journal(){
  if(location.protocol==='file:')return demoJournal();
- const actions=`<div class="workspace-narrative-actions">
+ const actions=`
   <button class="secondary" id="add-note"><span class="ui-inline-icon" data-ui-icon="add"></span> Личная заметка</button>
-  <button class="secondary" id="export-journal">Скачать журнал</button>
- </div>`;
+  <button class="secondary" id="export-journal">Скачать журнал</button>`;
  const timelineRowsByKind=Object.fromEntries(Object.keys(journalTimelines).map(kind=>[kind,timelineRows(kind)]));
  const content=`<div class="workspace-narrative">
   ${SkazEvents.view()}
@@ -564,7 +563,7 @@ function restoreHealthDialogFocus() {
 function closeModal(){if(typeof SkazCampaign==='undefined'||SkazCampaign.allowClose())$('#dialog').close()}
 const workspaceNoticeControls={
  quests:'#personal-quest-search, #create-personal-quest',
- journal:'.events-filter, #new-proposal, .workspace-narrative-actions button',
+ journal:'.events-filter, #new-proposal, .workspace-actions button',
  spells:'.book-filters > summary, #book-add-spell, #personal-spell-search :is(input, select, button)',
  library:'#catalog-search :is(input:not([type="hidden"]), select, button, summary)',
 };

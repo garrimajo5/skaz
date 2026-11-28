@@ -185,9 +185,26 @@ test('the Magic deep link renders the character workspace and saved spellbook',(
  assert.match(html,/&lt;Мирен&gt;/);
  assert.match(html,/Ворота прилива/);
  assert.equal((html.match(/id="play-quick-slot"/g)||[]).length,1);
- assert.match(html,/class="play-heading">[\s\S]*?<\/h1>\s*<\/div>\s*<button id="book-add-spell"[^>]*>Добавить заклинание/);
+ assert.match(html,/<h1>Персонаж<\/h1>\s*<\/div>\s*<\/div>\s*<div class="play-actor-strip">/);
+ assert.match(html,/class="workspace-actions" role="group" aria-label="Действия раздела"><button id="book-add-spell"[^>]*>Добавить заклинание/);
  assert.match(html,/id="personal-spell-results"/);
  assert.match(html,/Демонстрационные заклинания/);
+ assert.equal(h.writes.length,0);
+});
+
+test('character and journal commands use the same toolbar before the page content',()=>{
+ const h=harness();
+ for(const [route,command] of [['hero','edit-profile'],['journal','add-note']]){
+  h.run("go('"+route+"')");
+  const html=h.get('#main').innerHTML;
+  const band=html.indexOf('class="play-actor-strip"');
+  const toolbar=html.indexOf('class="workspace-actions"');
+  const button=html.indexOf('id="'+command+'"');
+  const resources=html.indexOf('id="play-quick-slot"');
+  assert.ok(band>=0&&band<toolbar&&toolbar<button&&button<resources,route);
+ }
+ const map=h.run("renderPreparation({title:'Карта',content:'',mapOnly:true})");
+ assert.doesNotMatch(map,/class="workspace-actions"/);
  assert.equal(h.writes.length,0);
 });
 

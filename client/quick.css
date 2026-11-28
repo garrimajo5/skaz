@@ -160,7 +160,6 @@ body:is([data-page="quests"],[data-page="journal"],[data-page="spells"],[data-pa
   transform: none;
  }
 }
-@media(max-width:550px){.page-top .character-edit{max-width:none}.character-edit{flex-direction:row;flex-wrap:wrap;justify-content:flex-start}.character-edit button{flex:0 1 auto}}
 /* Game lists retain one continuous reading position instead of pagination. */
 .play-screen .play-list{display:flex;flex-direction:column;overflow-y:auto;min-height:0;overscroll-behavior:contain;scrollbar-gutter:stable}
 .play-list>*{flex-shrink:0}.play-list:focus-visible{outline:2px solid var(--accent);outline-offset:2px}

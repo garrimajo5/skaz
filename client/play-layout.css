@@ -155,9 +155,21 @@ body[data-theme="polar"] .play-effects {
 .tracker-copy { display: contents; }
 .play-layout h2:not(:where(.catalog *)) { font: 24px 'PT Serif', Georgia, serif; margin: 0 0 8px; }
 .play-layout .play-actions, .play-layout .play-resources, .workspace-content { min-width: 0; }
-.workspace-prepare .character-edit { flex-wrap: wrap; justify-content: flex-start; }
 .workspace-narrative { display: grid; gap: 16px; }
-.workspace-narrative-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.workspace-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  margin-block-end: 12px;
+}
+.workspace-actions button {
+  max-inline-size: 100%;
+  min-block-size: var(--touch);
+  padding: 6px 10px;
+  font-size: var(--ui-small);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
 .workspace-content .personal-quest-grid {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
 }
@@ -376,24 +388,6 @@ body[data-theme="polar"] .play-effects {
 .profile-sections a[aria-current="page"] { border-color: var(--accent); color: var(--accent); background: var(--raised); }
 .profile-sections a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 @media (max-width: 480px) and (orientation: portrait) {
-  body[data-page="spells"] .play-heading {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
-    gap: 4px 10px;
-    padding-block: 6px;
-  }
-
-  body[data-page="spells"] .play-heading > div { display: contents; }
-  body[data-page="spells"] .play-heading .play-session { grid-column: 1 / -1; margin: 0; }
-  body[data-page="spells"] .play-heading > button {
-    justify-self: end;
-    max-inline-size: 100%;
-    min-block-size: var(--touch);
-    padding: 4px 8px;
-    white-space: normal;
-    overflow-wrap: anywhere;
-  }
-
   body[data-page="spells"] .play-layout { padding-block-start: 6px; }
   body[data-page="spells"] .profile-sections { margin-block-end: 6px; }
   body[data-page="spells"] .book-toolbar { gap: 4px 8px; margin-block-end: 0; }
