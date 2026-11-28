@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "status": "public-source-evidence",
+  "acceptedForRuntime": false,
+  "inputSha256": {
+    "catalog/resource-rule-source-evidence-2014.json": "053ca09778a83a15e45bf19436da893e3155fde268b99d34c2c47442d82b601a",
+    "catalog/srd51-level-one-combat.json": "434e83dbe3b9018861f019b353352c76f617744ba29d4bba71e6052dcfa98e28",
+    "catalog/srd51-level-three.json": "f19c011ff75e383b867fe0e79916009a77cc7e4089065aa0cf5955b71e650fd1",
+    "catalog/srd51-level-four.json": "0518a7cf44d31a4159e20589d5712efd49a6d3c728dd765406c77912338a0988"
+  },
+  "srdPdfSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "itemSpellGeneral": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=207",
+    "heading": "Spells Some magic items allow",
+    "nextHeading": "Charges Some magic items",
+    "normalizedSectionSha256": "23b0ba54c34f81f61fc34335cec1cb3144ad7b8f8bed2223e19610e495abc0f7"
+  },
+  "staff": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=243",
+    "heading": "Staff of Fire",
+    "nextHeading": "Staff of Frost",
+    "normalizedSectionSha256": "b0b75dbc8d25d9563e16d1d9ae95a9c9185318a176d823dacdd91317ecca8dcb"
+  },
+  "ordinaryCast": {
+    "timing": "action",
+    "ownSlotsExpended": 0,
+    "componentsRequired": false,
+    "chooseOwnSpellcastingAbilityWhenMultiple": true,
+    "usesOwnSpellSaveDC": true,
+    "upcastFromExtraCharges": false,
+    "options": [
+      {
+        "spellId": "srd51:2014:spell:burning-hands",
+        "castLevel": 1,
+        "chargeCost": 1,
+        "concentration": false,
+        "initialSavingThrow": {
+          "ability": "dex",
+          "halfOnSuccess": true
+        },
+        "initialDamage": {
+          "type": "fire",
+          "count": 3,
+          "sides": 6
+        },
+        "source": {
+          "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=123",
+          "heading": "Burning Hands",
+          "nextHeading": "Call Lightning",
+          "normalizedSectionSha256": "66f69ac0089c7d3fbab1fca378a1bc575a66e4995c45e5485f2fd0d8f29fddc4"
+        }
+      },
+      {
+        "spellId": "srd51:2014:spell:fireball",
+        "castLevel": 3,
+        "chargeCost": 3,
+        "concentration": false,
+        "initialSavingThrow": {
+          "ability": "dex",
+          "halfOnSuccess": true
+        },
+        "initialDamage": {
+          "type": "fire",
+          "count": 8,
+          "sides": 6
+        },
+        "source": {
+          "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=144",
+          "heading": "Fireball",
+          "nextHeading": "Fire Bolt",
+          "normalizedSectionSha256": "b2e62dab21aaa1abcd0f26e74248beef446985f1506f5b58090a1b630187e40d"
+        }
+      },
+      {
+        "spellId": "srd51:2014:spell:wall-of-fire",
+        "castLevel": 4,
+        "chargeCost": 4,
+        "concentration": true,
+        "initialSavingThrow": {
+          "ability": "dex",
+          "halfOnSuccess": true
+        },
+        "initialDamage": {
+          "type": "fire",
+          "count": 5,
+          "sides": 8
+        },
+        "source": {
+          "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=190",
+          "heading": "Wall of Fire",
+          "nextHeading": "Wall of Force",
+          "normalizedSectionSha256": "1bcb48005004beaaf5b8afc3654f277b92a31359f50eb02cf425cce31edd7514"
+        }
+      }
+    ]
+  }
+}
