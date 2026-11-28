@@ -10,7 +10,7 @@ const entries=inventory().slice(0,2),file={path:'assets/art/sample.png',...inspe
 const item={id:entries[0].id,contentSha256:entries[0].contentSha256,status:'accepted',version:1,crop:{x:.5,y:.5},provenance:{method:'original',author:'Test fixture',source:'Procedural test pixels',usage:'Test only',attribution:'Test fixture',reviewedBy:'Test'},review:{by:'Test',evidence:'Synthetic test only'},files:{original:file,thumbnail:file}};
 return {base,entries,item,manifest:{schemaVersion:1,ruleset:'5e-2014',entries:[item]}};}
 test('inventory preserves every artwork identity, edition and source; generated report is reproducible',()=>{
-const entries=inventory();assert.equal(entries.length,580);assert.deepEqual(Object.fromEntries(['spell','item','artifact','monster'].map(k=>[k,entries.filter(e=>e.kind===k).length])),{spell:319,item:56,artifact:1,monster:204});
+const entries=inventory();assert.equal(entries.length,581);assert.deepEqual(Object.fromEntries(['spell','item','artifact','monster'].map(k=>[k,entries.filter(e=>e.kind===k).length])),{spell:319,item:57,artifact:1,monster:204});
 assert.deepEqual(entries,JSON.parse(readFileSync(new URL('../catalog/art-inventory.json',import.meta.url))));
 const m=JSON.parse(readFileSync(new URL('../catalog/art-manifest.json',import.meta.url))),r=validate(m);assert.deepEqual(r,JSON.parse(readFileSync(new URL('../catalog/art-coverage.json',import.meta.url))));assert.equal(r.complete,true);assert.deepEqual(r.errors,[]);assert.deepEqual(r.uncovered,[]);assert.equal(r.statuses.accepted.length,entries.length);
 const e={...entries[0]};assert.throws(()=>inventory([e,e]),/Duplicate/);assert.throws(()=>inventory([{...e,ruleset:'5e-2024'}]),/edition/);

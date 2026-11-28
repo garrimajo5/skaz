@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
   "ruleset": "5e-2014",
-  "total": 580,
+  "total": 581,
   "counts": {
     "spell": {
       "total": 319,
       "accepted": 319
     },
     "item": {
-      "total": 56,
-      "accepted": 56
+      "total": 57,
+      "accepted": 57
     },
     "artifact": {
       "total": 1,
@@ -63,6 +63,7 @@
       "srd51:2014:item:scarab-of-protection",
       "srd51:2014:item:slippers-of-spider-climbing",
       "srd51:2014:item:sovereign-glue",
+      "srd51:2014:item:staff-of-fire",
       "srd51:2014:item:universal-solvent",
       "srd51:2014:item:wand-of-binding",
       "srd51:2014:item:wand-of-enemy-detection",

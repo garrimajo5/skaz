@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Staff of Fire, complete item entry on p. 243 with general item spells on p. 207",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-11-28",
+  "expectedSubsetCount": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:item:staff-of-fire",
+      "nameEn": "Staff of Fire",
+      "pages": [
+        243
+      ]
+    }
+  ]
+}

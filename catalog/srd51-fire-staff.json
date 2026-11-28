@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:item:staff-of-fire",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Посох огня",
+        "en": "Staff of Fire"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=243",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-11-28; skaz fire staff v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 243.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русское название и краткое изложение подготовлены для СКАЗ. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПока настроенный посох в руке, он даёт сопротивление урону огнём. Максимум — 10 зарядов. Действием можно потратить заряды на одно заклинание, используя собственную СЛ заклинаний: «Огненные ладони» — 1 заряд, «Огненный шар» — 3, «Огненная стена» — 4.\nПо общему правилу предметных заклинаний используются базовые круги 1, 3 и 4 без расхода собственной ячейки и компонентов. «Огненная стена» требует концентрации. При нескольких заклинательных характеристиках выбери одну из них для этой СЛ.\nКаждый рассвет восстанавливает 1к6 + 4 потраченных заряда. Когда потрачен последний заряд, брось к20: на 1 посох уничтожается.\nВ СКАЗ остаток, сопротивление, эффект заклинания и разрушение отмечаются вручную.",
+      "links": [
+        "srd51:2014:mechanic:attunement",
+        "srd51:2014:mechanic:magic-item-charges",
+        "srd51:2014:spell:burning-hands",
+        "srd51:2014:spell:fireball",
+        "srd51:2014:spell:wall-of-fire"
+      ],
+      "item": {
+        "type": "staff",
+        "rarity": "very-rare",
+        "attunement": true,
+        "charges": {
+          "max": 10,
+          "recharge": "На рассвете восстанавливает 1к6 + 4 потраченных заряда."
+        },
+        "attunementRequirement": "Друид, чародей, колдун или волшебник"
+      }
+    }
+  ]
+}
