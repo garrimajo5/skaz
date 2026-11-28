@@ -101,3 +101,25 @@ test('historic Grung pregen sheets identify race fields without deciding catalog
   assert.equal(report.appTextReusePermission,'not-established');
   assert.equal(report.approvedDenominator,null);
 });
+
+test('publisher trait previews bind to exact variants and preserve an unlisted increase as unknown', () => {
+  const preview = report.traitPreviewComparison;
+  const records = new Map(report.records.map(record => [record.observationId,record]));
+  assert.match(preview.source.sha256,/^[a-f0-9]{64}$/);
+  assert.equal(preview.source.url,'https://www.dndbeyond.com/species');
+  for (const row of preview.rows) {
+    assert.equal(row.cardPath,new URL(records.get(row.observationId).cardUrl).pathname);
+  }
+  assert.deepEqual(preview.rows.map(row => [row.displayedAbilityIncreases,row.distinguishingLabel]),[
+    [{str:2,dex:1},'Limited Amphibiousness'],
+    [{str:2,wis:1},'Survival Instinct'],
+    [null,'Nature’s Intuition'],
+  ]);
+  const comparison = preview.tortleComparison;
+  assert.deepEqual(comparison.variantObservationIds,preview.rows.slice(1).map(row => row.observationId));
+  assert.equal(comparison.kind,'distinct-public-summaries');
+  assert.equal(comparison.sharedLabelCount,4);
+  assert.equal(comparison.fullBodyEquivalenceVerified,false);
+  assert.equal(comparison.versionAndRightsReviewRequired,true);
+  assert.equal(report.approvedDenominator,null);
+});
