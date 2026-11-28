@@ -24,18 +24,7 @@ ROLES = {
 }
 
 
-def discover_rows(raw, filter_value, label):
-    listing = PARSER["selected_listing"](raw, filter_value, label)
-    empty_rows = list(listing.find(lambda node: node.tag == "li" and node.has("no-results")))
-    monster_rows = list(listing.find(lambda node: node.attrs.get("data-type") == "monsters"))
-    if empty_rows:
-        if len(empty_rows) != 1 or monster_rows:
-            raise ValueError("Conflicting or repeated empty index markers")
-        return []
-    rows = PARSER["HELPER"]["read_index_rows"](listing)
-    if len(rows) != len(monster_rows):
-        raise ValueError("Unrecognized monster rows in the selected listing")
-    return rows
+discover_rows = PARSER["discover_rows"]
 
 
 def build(directory):

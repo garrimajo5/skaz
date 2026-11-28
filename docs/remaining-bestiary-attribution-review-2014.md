@@ -47,6 +47,32 @@
 ключи. Свежая выдача может изменить SHA. В таком случае сверяйте поля и
 оформляйте новый срез после проверки.
 
+## Цифровые карточки ещё семи групп
+
+28.11.2026 проверены 15 открытых выдач D&D Beyond по 15 исходным
+атрибуциям. Сохранены выбранная книга, запрос, заголовок каждой строки,
+URL и собственная подпись карточки. Десять строк совпали по полному
+имени, три имели другое имя, три выдачи были явно пустыми.
+[Реестр с ключами наблюдений и SHA-256](../catalog/remaining-bestiary-filter-evidence-2014.json).
+
+| Запрос | Результат по выбранным книгам | Что остаётся проверить |
+| --- | --- | --- |
+| Bard | [Volo](https://www.dndbeyond.com/monsters?filter-search=bard&filter-source=15) и [Saltmarsh](https://www.dndbeyond.com/monsters?filter-search=bard&filter-source=43) показывают карточку 17328 с подписью Volo. [MotM](https://www.dndbeyond.com/monsters?filter-search=bard&filter-source=85) показывает отдельную 2560735. | Составная атрибуция наблюдения 628 сохраняется. Редакции полного блока сверяются отдельно. |
+| Brain in a Jar | [Rime](https://www.dndbeyond.com/monsters?filter-search=brain+in+a+jar&filter-source=66) и [Van Richten](https://www.dndbeyond.com/monsters?filter-search=brain+in+a+jar&filter-source=69) показывают 1123069 с подписью Rime. | Печатные версии 5758 и 6854 пока не сопоставлены. |
+| Necrichor | [Van Richten](https://www.dndbeyond.com/monsters?filter-search=necrichor&filter-source=69) и [Adventure Atlas: The Mortuary](https://www.dndbeyond.com/monsters?filter-search=necrichor&filter-source=125) показывают 1680933 с подписью Van Richten. | Цифровая связь подтверждена. Оба наблюдения и условия публикации сохраняются. |
+| Cosmic Horror | [Spelljammer](https://www.dndbeyond.com/monsters?filter-search=cosmic+horror&filter-source=90) и [Vecna](https://www.dndbeyond.com/monsters?filter-search=cosmic+horror&filter-source=132) показывают 2821160 с подписью Spelljammer. | Два точных оглавления и общий цифровой ID совместимы. Для сопоставления полных версий нужны статблоки обеих книг. |
+| Amphisbaena | [Theros](https://www.dndbeyond.com/monsters?filter-search=amphisbaena&filter-source=61) и [Saltmarsh](https://www.dndbeyond.com/monsters?filter-search=amphisbaena&filter-source=43) показывают 309672 с полным именем Amphisbaena (Monstrosity) и подписью Saltmarsh. | Буквальный заголовок Amphisbaena в Theros остаётся отдельным свидетельством. Карточка с уточнением в имени остаётся кандидатом для обоих наблюдений. |
+| Space Hamster | [Spelljammer](https://www.dndbeyond.com/monsters?filter-search=space+hamster&filter-source=90) даёт отдельные 2821199 Space Hamster и 2821167 Giant Space Hamster. [Mad Mage](https://www.dndbeyond.com/monsters?filter-search=space+hamster&filter-source=36) явно пуст. | Точное совпадение есть только для 8691. Атрибуция наблюдения 6159 требует положительного свидетельства. |
+| Large Mimic | [Mad Mage](https://www.dndbeyond.com/monsters?filter-search=large+mimic&filter-source=36) и [Dungeons & Dragons vs. Rick and Morty](https://www.dndbeyond.com/monsters?filter-search=large+mimic&filter-source=54) явно пусты. | Наблюдения 6235 и 8050 остаются открытыми. Пустая выдача относится к указанному запросу в цифровом индексе. |
+
+Для воспроизведения сохраните страницы по URL из реестра в файлы
+`<запрос-с-дефисами>-<фильтр>.html` вне Git. Команда
+`python scripts/audit-remaining-bestiary-filters-2014.py <каталог HTML>`
+сверяет исходный ключ, запрос, выбранную книгу, все строки и SHA. Пустой
+результат требует явного маркера. Наличие следующей страницы останавливает
+проверку до её учёта. Полные правила, печатная эквивалентность, права и
+канонический знаменатель остаются открытыми.
+
 ## Воспроизведение
 
 `python scripts/extract-remaining-bestiary-evidence.py --directory <snapshots> --output <evidence.json>`
