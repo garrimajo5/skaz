@@ -138,6 +138,23 @@ manifest['extraCases'].append({
  'assets':[info(crop_path,'png',width=550,height=382,page=1,derivedFromSha256=source_asset['sha256'],
                 cropSourceBox=[450,318,550,382])],
 })
+slot_total,slot_expended=4,1
+slots,_,_=sheet('expended-slots',[])
+draw=ImageDraw.Draw(slots)
+draw.text((90,180),'LEVEL 1 SPELLCASTING',font=small,fill='#52616b')
+for left,right,label,value in [(90,368,'SLOTS TOTAL',slot_total),(380,690,'SLOTS EXPENDED',slot_expended)]:
+ draw.rectangle((left,214,right,310),outline='#53636b',width=2)
+ draw.text((left+12,224),label,font=font,fill='#34434b')
+ draw.text((left+12,265),str(value),font=font,fill='#101820')
+slot_png=OUT/'expended-slots-1.png'
+slots.save(slot_png)
+manifest['extraCases'].append({
+ 'id':'expended-slots',
+ 'slotEvidence':{'total':slot_total,'expended':slot_expended},
+ 'expected':{'confirmedRemaining':None,'derivedCandidate':slot_total-slot_expended},
+ 'regions':[{'field':'slots.printed','page':1,'box':[90,214,600,97],'blank':False}],
+ 'assets':[info(slot_png,'png',width=W,height=H,page=1)],
+})
 im=Image.open(OUT/'single-class-1.png');low=im.resize((62,88),Image.Resampling.BILINEAR).resize((W,H),Image.Resampling.NEAREST).filter(ImageFilter.GaussianBlur(2));path=OUT/'insufficient-quality.jpg';low.save(path,quality=20)
 manifest['qualityCase']={'id':'insufficient-quality','asset':info(path,'jpeg-degraded',width=W,height=H),'expectedAction':'request-better-source-or-manual-entry','expectedValues':None,'mustNot':'report confident values from semantic fixture without reading the actual asset'}
 manifest['coverageLimits']=['Original sparse layouts, not representative of all commercial/official sheets','No real camera photo, handwriting corpus, encryption, corruption or decompression-bomb fixture','No OCR engine has run; expected ambiguity is a UX review requirement','Formats and thresholds await backend/game-designer agreement']

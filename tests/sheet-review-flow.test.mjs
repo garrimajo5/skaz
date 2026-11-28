@@ -33,7 +33,7 @@ async function form(scenario = 'conflicting-pages') {
  const context=vm.createContext({document,HTMLElement,...classes,Image:class {async decode(){}},fetch:async url=>{requests.push(url);return {ok:true,json:async()=>structuredClone(manifest)};}});
  vm.runInContext(script,context);
  await new Promise(resolve=>setImmediate(resolve));
- assert(document.getElementById('field-'+({ 'zero-charges':'charges', 'multiclass-pact':'level.wizard', 'cropped-hp':'hp.max' }[scenario]??'hpMax')),node('summary').textContent);
+ assert(document.getElementById('field-'+({ 'zero-charges':'charges', 'multiclass-pact':'level.wizard', 'cropped-hp':'hp.max', 'expended-slots':'spellcasting.1.remaining' }[scenario]??'hpMax')),node('summary').textContent);
  const read=expression=>{const value=vm.runInContext('JSON.stringify('+expression+')',context);return value===undefined?undefined:JSON.parse(value);};
  const input=(id,value)=>{const n=node('field-'+id);n.focus();n.value=value;n.oninput();};
  const unknown=id=>{const f=vm.runInContext('fields.find(f=>f.key==='+JSON.stringify(id)+')',context);f.unknownBox.checked=true;f.unknownBox.onchange();};
@@ -224,4 +224,43 @@ test('an unsaved choice about list coverage survives cancelling a scenario chang
  assert.equal(h.node('scenario').value,'multiclass-pact');
  assert.equal(h.node('spell-coverage').value,'partial');
  assert.equal(h.node('spell-row-choice').value,'later');
+});
+
+test('printed expenditure proposes a separate remainder and preserves its provenance only after a choice',async()=>{
+ const h=await form('expended-slots');
+ const field='spellcasting.1.remaining';
+ const input=h.node('field-'+field);
+ assert.equal(input.value,'');
+ h.submit();
+ assert.equal(h.read('confirmation'),null);
+ h.node('use-slot-remainder').onclick();
+ assert.equal(input.value,'3');
+ assert.equal(h.document.activeElement,input);
+ assert.equal(h.node('confirmed').checked,false);
+ h.submit();
+ const initial=h.read('confirmation').values[0];
+ assert.deepEqual(initial,{fieldId:field,value:3,selection:'confirmed',provenance:'derived-confirmed',
+  derivation:{operation:'total-minus-expended',total:4,expended:1}});
+ h.input(field,'3');
+ assert.equal(h.read('confirmation'),null);
+ h.submit();
+ assert.deepEqual(h.read('confirmation').values[0],{fieldId:field,value:3,selection:'corrected',provenance:'manual-correction'});
+ h.unknown(field);
+ assert.equal(h.node('confirmed').checked,false);
+ h.submit();
+ assert.deepEqual(h.read('confirmation').values[0],{fieldId:field,value:null,selection:'left-unknown',provenance:'manual-unknown'});
+ assert.deepEqual(h.requests,['../fixtures/sheet-visual/manifest.json']);
+});
+
+test('slot evidence keeps calculated zero and rejects incomplete or inconsistent subtraction',async()=>{
+ const h=await form('expended-slots');
+ assert.deepEqual(h.read('slotDerivation({total:4,expended:4})'),{operation:'total-minus-expended',total:4,expended:4});
+ for(const expression of ['{total:4,expended:5}','{total:4,expended:null}','{total:null,expended:0}','{total:4,expended:-1}','{total:4,expended:1.5}']){
+  assert.equal(h.read('slotDerivation('+expression+')'),null);
+ }
+ h.input('spellcasting.1.remaining','5');
+ assert.match(h.node('field-spellcasting.1.remaining-status').textContent,/Предупреждение/);
+ h.submit();
+ assert.equal(h.read('confirmation').values[0].value,5);
+ assert.equal(h.read('confirmation').values[0].provenance,'manual-correction');
 });

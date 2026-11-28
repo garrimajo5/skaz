@@ -4,7 +4,7 @@
   "status": "original-visual-design-samples-not-ocr-benchmark",
   "ruleset": "5e-2014",
   "generator": "scripts/build-sheet-visual-fixtures.py",
-  "generatorSha256": "d95c6f05104222f6b3ac07e1610016146703fd587474057ed9590092c65e423b",
+  "generatorSha256": "d1815b3edeb39ec249c7c11e04447cc3b63ff450d032cd07c57b085fef88fec6",
   "semanticSourceSha256": "db57ee5001f60048a261e9ba257c949d38066a8110ae1adb74210ada48711821",
   "fontSha256": "c9b76220a5be42ead4733611e417cd65c5fd8aeaa33eb56576ac378a37d130a1",
   "regionCoordinates": "Canonical upright PNG pixels; resolve EXIF orientation before applying any manual rotation. PDF uses proportional A4 coordinates.",
@@ -1043,6 +1043,41 @@
             550,
             382
           ]
+        }
+      ]
+    },
+    {
+      "id": "expended-slots",
+      "slotEvidence": {
+        "total": 4,
+        "expended": 1
+      },
+      "expected": {
+        "confirmedRemaining": null,
+        "derivedCandidate": 3
+      },
+      "regions": [
+        {
+          "field": "slots.printed",
+          "page": 1,
+          "box": [
+            90,
+            214,
+            600,
+            97
+          ],
+          "blank": false
+        }
+      ],
+      "assets": [
+        {
+          "file": "expended-slots-1.png",
+          "kind": "png",
+          "sha256": "8f52b909f91828cefeb1f310e67360beaf9425faffadbf1368c874156d0e7645",
+          "bytes": 41684,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
         }
       ]
     }
