@@ -34,7 +34,7 @@ FILTERS = {
 }
 
 
-def extract(raw, name, filter_value, label):
+def selected_listing(raw, filter_value, label):
     tree = HELPER["Tree"]()
     tree.feed(raw.decode("utf-8"))
     selector = HELPER["only"](tree.root.find(
@@ -48,9 +48,13 @@ def extract(raw, name, filter_value, label):
     if selection.attrs.get("value") != filter_value or HELPER["clean"](selection) != label:
         raise ValueError("Captured publication filter differs from the chosen one")
 
-    listing = HELPER["only"](tree.root.find(
+    return HELPER["only"](tree.root.find(
         lambda n: n.tag == "ul" and n.has("rpgmonster-listing")
     ), "monster listing")
+
+
+def extract(raw, name, filter_value, label):
+    listing = selected_listing(raw, filter_value, label)
     row = HELPER["only"](listing.find(lambda n: n.attrs.get("data-type") == "monsters"), "monster row")
     link = HELPER["only"](row.find(
         lambda n: n.tag == "a" and re.fullmatch(r"/monsters/[0-9]+-[a-z0-9-]+", n.attrs.get("href", ""))
