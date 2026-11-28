@@ -679,7 +679,7 @@ const SkazStorage = (() => {
     if(info?.charges)parts.push('Заряды: '+Array.from({length:Math.min(item.quantity,3)},(_,i)=>(item.chargeCounts?.[i]==null?'укажи остаток':item.chargeCounts[i]+'/'+info.charges.max)).join(' · ')+(item.quantity>3?' · ещё '+(item.quantity-3):''));
     return esc(parts.join(' · '));
   }
-  async function inventory({preserveDialog=false,retain=false}={}) {
+  async function inventory({preserveDialog=false,retain=false,returnToRead}={}) {
     const inPage=typeof page!=='undefined' && page==='inventory';
     const root=inPage?document.getElementById('inventory-page'):null;
     const previous=retain&&root===mountedInventory?.root?mountedInventory:null;
@@ -754,7 +754,11 @@ const SkazStorage = (() => {
           $('#inventory-next'+suffix).onclick=()=>{if(!current()||inventoryFilter.offset+pageSize>=matching.length)return;inventoryFilter.offset+=pageSize;drawInventory();};
         }
         $$('[data-inventory-charges]').forEach(button=>button.onclick=()=>{if(current())editCharges(data.entries[Number(button.dataset.inventoryCharges)]);});
-        $$('[data-inventory-read]').forEach(button=>button.onclick=()=>{if(current())readInventoryItem(data.entries[Number(button.dataset.inventoryRead)]);});
+        $$('[data-inventory-read]').forEach(button=>button.onclick=()=>{
+          if(!current())return;
+          const item=data.entries[Number(button.dataset.inventoryRead)];
+          readInventoryItem(item,inPage?undefined:{catalogId:item?.catalogId,context:snapshotKey(),scrollTop:$('#dialog-content').scrollTop});
+        });
         $$('[data-inventory-remove]').forEach(button=>button.onclick=()=>{if(current())removeInventory(data.entries[Number(button.dataset.inventoryRemove)]);});
         if(data.undo)$('#inventory-undo').onclick=async()=>{
           if(!current())return;
@@ -765,16 +769,24 @@ const SkazStorage = (() => {
         if(inPage&&refocusSearch)$(showSearch?'#inventory-query':'#inventory-catalog')?.focus({preventScroll:true});
       }
       drawInventory();
+      if(!inPage&&returnToRead?.catalogId&&returnToRead.context===snapshotKey()){
+        const index=data.entries.findIndex(item=>item.catalogId===returnToRead.catalogId);
+        const button=$('[data-inventory-read="'+index+'"]');
+        if(button){
+          $('#dialog-content').scrollTop=returnToRead.scrollTop;
+          button.focus();
+        }
+      }
     } catch {
       if(!visible())return;
       paintInventory('<h2>Не удалось открыть инвентарь</h2><p role="alert">Проверь соединение.</p><button id="inventory-retry">Повторить</button>');
       $('#inventory-retry').onclick = () => {
         if(inPage)document.getElementById('inventory-page')?.focus({preventScroll:true});
-        return inventory();
+        return inventory({returnToRead});
       };
     }
   }
-  function readInventoryItem(item) {
+  function readInventoryItem(item, returnToRead) {
     if(!item?.entry)return;
     const entry=item.entry,info=entry.item||entry.artifact;
     const key=snapshotKey();
@@ -783,14 +795,15 @@ const SkazStorage = (() => {
     modal(`<button id="inventory-read-back"><span class="ui-inline-icon" data-ui-icon="arrow-left"></span> К инвентарю</button><div class="overline">${esc(state.profile.name)} · В наличии: ${item.quantity}</div><h2>${esc(entry.name.ru)}</h2>${typeof SkazArt!=='undefined'?SkazArt.markup(entry,'card'):''}<p>${esc(entry.name.en)}</p>${info?`<p>Настройка: ${info.attunement?'требуется':'не требуется'}${info.attunementRequirement?' · '+esc(info.attunementRequirement):''}.</p>`:''}<p>Сохранённая карточка предмета. Чтение не меняет количество и не применяет эффекты.</p>${info?.charges?`<p>Максимум зарядов: ${esc(info.charges.max)}. Восстановление: ${esc(info.charges.recharge)} Это справочные значения, не текущий остаток.</p><button id="inventory-charges" class="primary">Учёт зарядов · ${item.chargeCounts?.filter(n=>n!==null).length||0} из ${item.quantity} указано</button>`:''}${entry.id&&typeof SkazCatalog!=='undefined'?'<button id="inventory-reference">Правила и связи в справочнике <span class="ui-inline-icon" data-ui-icon="arrow-right"></span></button>':''}<div class="catalog-text">${esc(entry.text||'Текст не импортирован; используй ссылку на источник.')}</div><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${sourceLink}${entry.source.attribution?`<p>${esc(entry.source.attribution)}</p>`:''}${entry.source.changes?`<p>${esc(entry.source.changes)}</p>`:''}`);
     if(typeof SkazPersonalArtCards!=='undefined')SkazPersonalArtCards.mount($('#dialog-content'),entry);
     $('#inventory-read-back').onclick=()=>{
-      if(typeof page!=='undefined'&&page==='inventory'&&key===snapshotKey())closeModal();
-      else return inventory();
+      if(key!==snapshotKey())return inventory();
+      if(typeof page!=='undefined'&&page==='inventory')return closeModal();
+      return inventory({returnToRead});
     };
     const returnToAction=selector=>{
       const content=$('#dialog-content');
       const scrollTop=content.scrollTop;
       return ()=>{
-        readInventoryItem(item);
+        readInventoryItem(item,returnToRead);
         content.scrollTop=scrollTop;
         $(selector).focus();
       };

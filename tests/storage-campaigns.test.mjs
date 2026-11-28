@@ -817,6 +817,44 @@ test('saved inventory charge facts and action returns keep scroll, focus and con
 });
 
 
+test('modal inventory return finds the same catalog ID after the next list load',async()=>{
+ let current=payload(0);
+ const item=(catalogId,name)=>({catalogId,quantity:1,entry:{id:catalogId,name:{ru:name,en:name},source:{title:'Test',version:'1'}}});
+ const staff=item('test:staff','Посох'),robe=item('test:robe','Мантия');
+ let entries=[staff,robe],unavailable=false;
+ const h=harness(memory(),memory(),async url=>{
+  if(url==='/api/workspace')return response(current);
+  if(unavailable)throw Error('Synthetic unavailable');
+  return response({...current,entries});
+ });
+ await h.api.boot();
+ await h.api.inventory();
+ const reader=h.get('inventory-read-button'),content=h.get('#dialog-content');
+ const focused=[];
+ h.get('[data-inventory-read="0"]').focus=()=>focused.push([0,content.scrollTop]);
+ h.get('[data-inventory-read="1"]').focus=()=>focused.push([1,content.scrollTop]);
+ reader.dataset.inventoryRead='0';
+ content.scrollTop=262;
+ reader.onclick();
+ assert.match(h.dialog(),/<h2>Посох<\/h2>/);
+ const back=h.get('#inventory-read-back').onclick;
+ content.scrollTop=0;
+ entries=[robe,staff];
+ unavailable=true;
+ await back();
+ assert.match(h.dialog(),/Не удалось открыть инвентарь/);
+ assert.deepEqual(focused,[]);
+ const retry=h.get('#inventory-retry').onclick;
+ unavailable=false;
+ await retry();
+ assert.deepEqual(focused,[[1,262]]);
+ current=payload(1,'another');
+ await h.api.boot();
+ await retry();
+ await back();
+ assert.deepEqual(focused,[[1,262]],'An old return cannot move focus to a row in another context');
+});
+
 test('charge form validates unknown balances and retries the exact manual operation after response loss',async()=>{
  const local=memory(),session=memory(),calls=[];
  const item={catalogId:'test:wand',quantity:2,chargeCounts:[5,null],entry:{id:'test:wand',name:{ru:'Палочка',en:'Wand'},item:{charges:{max:7,recharge:'Вручную'}},source:{url:'https://example.org',title:'Test',version:'1',terms:'Test'}}};
